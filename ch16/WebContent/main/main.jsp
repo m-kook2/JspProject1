@@ -8,13 +8,37 @@
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-<section>
-	<img src="/images/main/main_img1.jpg" width="270" height="385"/>
-	<img src="/images/main/main_img2.jpg" width="270" height="385"/>
-	<img src="/images/main/main_img3.jpg" width="270" height="385"/>
-	<img src="/images/main/main_img4.jpg" width="270" height="385"/>
-	<img src="/images/main/main_img5.jpg" width="270" height="385"/>
-</section>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="#">
+					<img src="/images/main/main_img1.jpg" width="270" height="385"/>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">
+					<img src="/images/main/main_img2.jpg" width="270" height="385"/>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">
+					<img src="/images/main/main_img3.jpg" width="270" height="385"/>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">
+					<img src="/images/main/main_img4.jpg" width="270" height="385"/>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">
+					<img src="/images/main/main_img5.jpg" width="270" height="385"/>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
 <%@ include file="/inc/footer.jsp" %>
 </body>
 </html>
