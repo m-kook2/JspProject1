@@ -1,0 +1,119 @@
+@CHARSET "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+
+header {
+  /*background-color: #666;*/
+  padding: 30px;
+  font-size: 25px;
+  color: white;
+}
+header .menu_one img{
+	float: left;
+}
+header .menu_one .serach{
+	text-align:center;
+}
+header .menu_two{
+	margin-top: 30px;
+}
+header .menu_two .left_menu{
+	float: left;
+	/* border: 3px solid #73AD21; */
+}
+header .menu_two .left_menu a{
+	text-decoration: none;
+	/* border: 3px solid #73AD21; */
+}
+header .menu_two .right_menu{
+	float: right;
+	text-decoration: none;
+	/* border: 3px solid #73AD21; */
+}
+header .menu_two .right_menu a{
+	text-decoration: none;
+	/* border: 3px solid #73AD21; */
+}
+.button {
+  background-color: #00D8FF;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+input[type=text], select {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.ui-autocomplete { 
+    overflow-y: scroll; 
+    overflow-x: hidden;
+}
+
+/* Clear floats after the columns */
+section{
+  float: left;	
+  padding: 50px;
+}
+
+article {
+  float: left;
+  padding: 10px;
+  width: 100%;
+  /* background-color: #f1f1f1; */
+  height: 200px; /* only for demonstration, should be removed */
+  text-align: center;
+}
+
+/* Style the footer */
+footer {
+  /* background-color: #777; */
+  text-align: center;
+}
+
+footer .footer_align{
+  /* background-color: #777; */
+  margin-left: 50px;
+  float: left;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 30%;
+  height: 300px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+
