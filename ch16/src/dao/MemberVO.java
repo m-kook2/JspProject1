@@ -8,6 +8,24 @@ public class MemberVO {
 	private String nickname;
 	private String gender;
 	private String reg_date;
+	private String del_yn;
+	private String status;
+	
+	public String getDel_yn() {
+		return del_yn;
+	}
+
+	public void setDel_yn(String del_yn) {
+		this.del_yn = del_yn;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public int getIdx() {
 		return idx;
