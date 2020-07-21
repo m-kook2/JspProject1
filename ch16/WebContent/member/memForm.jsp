@@ -37,16 +37,16 @@
       		<label for="nickname">닉네임:</label>
       		<input type="text" class="form-control" id="nickname" name="nickname">
 		</div>
-		<div class="form-check">
+		<div class="form-check-inline">
 			<label class="form-check-label" for="gender">
         		<input type="radio" class="form-check-input" id="gender" name="gender" value="M" checked>남
       		</label>
 		</div>
-		<div class="form-check">
+		<div class="form-check-inline">
 	    	<label class="form-check-label" for="gender">
 	        	<input type="radio" class="form-check-input" id="gender" name="gender" value="W">여
 	      	</label>
-	    </div>
+	    </div><br/>
 	    <button type="button" class="btn btn-primary" onclick="reg();">가입</button>
 	</form>
 </div>
