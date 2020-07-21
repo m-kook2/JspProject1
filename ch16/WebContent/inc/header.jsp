@@ -77,7 +77,7 @@ $(document).ready(function() {
         	<a class="nav-link" href="#">로그인</a>
       	</li>
       	<li class="nav-item" id="mem2">
-       	 <a class="nav-link" href="#">회원가입</a>
+       	 <a class="nav-link" href="memWriteForm.do">회원가입</a>
       	</li>
       	<li class="nav-item" id="mem3">
        	 <a class="nav-link" href="#">마이페이지</a>
