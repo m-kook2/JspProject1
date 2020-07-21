@@ -36,11 +36,18 @@
       		<input type="text" class="form-control" id="email" name="email">
       		<label for="nickname">닉네임:</label>
       		<input type="text" class="form-control" id="nickname" name="nickname">
-      		<label for="gender">성별:</label>
-      		남:<input type="radio" class="form-control" id="gender" name="gender" value="M">
-			여 :<input type="radio" class="form-control" id="gender" name="gender" value="W">
-			<button type="button" class="btn btn-primary" onclick="reg();">가입</button>
 		</div>
+		<div class="form-check">
+			<label class="form-check-label" for="gender">
+        		<input type="radio" class="form-check-input" id="gender" name="gender" value="M" checked>남
+      		</label>
+		</div>
+		<div class="form-check">
+	    	<label class="form-check-label" for="gender">
+	        	<input type="radio" class="form-check-input" id="gender" name="gender" value="W">여
+	      	</label>
+	    </div>
+	    <button type="button" class="btn btn-primary" onclick="reg();">가입</button>
 	</form>
 </div>
 <%@ include file="/inc/footer.jsp" %>
