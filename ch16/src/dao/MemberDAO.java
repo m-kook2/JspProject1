@@ -58,8 +58,8 @@ public class MemberDAO {
 			
 			if (number != 0) {
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, number);
-				pstmt.setString(2, memberVO.getId());
+				pstmt.setString(1, memberVO.getId());
+				pstmt.setInt(2, number);
 				pstmt.setString(3, memberVO.getEmail());
 				pstmt.setString(4, memberVO.getPassword());
 				pstmt.setString(5, memberVO.getNickname());
