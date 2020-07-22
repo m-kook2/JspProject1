@@ -80,4 +80,32 @@ public class MemberDAO {
 		}
 		return result;
 	}
+	
+	public int idChk(String id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		ResultSet rs = null;
+		String sql = "select nvl(count(idx),0) from member where id="+id;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt(1) + 1;
+			}
+			rs.close();
+			pstmt.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return result;
+	}
 }

@@ -1,19 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title>
-<script src="http://code.jquery.com/jquery-1.7.js" type="text/javascript"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/css/main.css">
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#testText").autocomplete({
@@ -40,8 +26,6 @@ $(document).ready(function() {
 	document.getElementById("mem4").style.display="none";
 });
 </script>
-</head>
-<body>
 <div class="jumbotron text-center" style="margin-bottom:0">
   <h1>1조 영화리뷰</h1>
   <p>프로젝트!</p> 
@@ -83,5 +67,3 @@ $(document).ready(function() {
       	</li>
     </ul>
 </nav>
-</body>
-</html>

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.AutocompleteAction;
 import service.CommandProcess;
+import service.IdChkAction;
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Map<String, Object> commandMap = new HashMap<String, Object>();
@@ -75,13 +76,16 @@ public class Controller extends HttpServlet {
 			  if(command.equals("/autocomplete.do")){
 				  AutocompleteAction ac=new AutocompleteAction();
 				  ac.autucomplete(request, response);
+			  }else if(command.equals("/idChk.do")){
+				  IdChkAction idChk=new IdChkAction();
+				  idChk.idChk(request, response);
 			  }else{
 				  com = (CommandProcess)commandMap.get(command); 
 				  view = com.requestPro(request, response);
 				  System.out.println("view=> "+ view);  // /ch16/com
 			  }
 	    } catch(Throwable e) { throw new ServletException(e); } 
-	    	if(!command.equals("/autocomplete.do")){	
+	    	if(!command.equals("/autocomplete.do")&&!command.equals("/idChk.do")){	
 	    		RequestDispatcher dispatcher =   request.getRequestDispatcher(view);
 	    		dispatcher.forward(request, response);
 	    	}
