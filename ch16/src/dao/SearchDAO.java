@@ -42,7 +42,6 @@ public class SearchDAO {
 		List<SearchVO> list = new ArrayList<SearchVO>();
 		ResultSet rs = null;
 		String sql = "SELECT M_NAME FROM MOVIE_BOARD WHERE M_NAME LIKE '%"+str+"%'";
-		System.out.println(sql);
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -50,7 +49,6 @@ public class SearchDAO {
 			while(rs.next()) {
 				SearchVO vo=new SearchVO();
 				vo.setName(rs.getString("M_NAME"));
-				System.out.println(vo.getName());
 				list.add(vo);
 			}
 			rs.close();

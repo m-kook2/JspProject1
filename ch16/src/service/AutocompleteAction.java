@@ -20,7 +20,6 @@ public class AutocompleteAction{
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		String str=request.getParameter("keyWord");
-		System.out.println("str "+str);
 		try {
 			List<SearchVO> list = dao.search(str);
 			if(list !=null){
