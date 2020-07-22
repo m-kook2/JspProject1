@@ -1,6 +1,6 @@
 package dao;
 
-public class TestVO {
+public class SearchVO {
 	String name;
 
 	public String getName() {

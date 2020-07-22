@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#testText").autocomplete({
@@ -8,7 +9,7 @@ $(document).ready(function() {
 				url : "/autocomplete.do",
 				type : "post",
 				dataType : "json",
-				data: request,
+				data: {keyWord : $("#testText").val()},
 				success : function(data) {
 					var result = data;
 					response(result);

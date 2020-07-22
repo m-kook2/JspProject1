@@ -86,13 +86,13 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		ResultSet rs = null;
-		String sql = "select nvl(count(idx),0) from member where id="+id;
+		String sql = "select count(id) as cnt from member where id='"+id+"'";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				result = rs.getInt(1) + 1;
+				result = rs.getInt("cnt");
 			}
 			rs.close();
 			pstmt.close();
@@ -108,4 +108,5 @@ public class MemberDAO {
 		}
 		return result;
 	}
+	
 }
