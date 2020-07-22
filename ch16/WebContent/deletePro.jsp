@@ -6,13 +6,13 @@
 <title>Insert title here</title></head><body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("삭제 완료");
+		alert("삭제 완료 ! ");
 		location.href="list.do?pageNum=${pageNum}";
 	</script>
 </c:if>	
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("암호가 일치 하지 않습니다.");
+		alert("헐 ~ ㅠㅠ 암호 틀려");
 		location.href="deleteForm.do?num=${num}&pageNum=${pageNum}";
 	</script>
 </c:if>	
