@@ -41,7 +41,7 @@ public class MemberDAO {
 		ResultSet rs = null;
 		int number = 0;
 		String sql1 = "select nvl(max(idx),0) from member";
-		String sql = "insert into member values(?,?,?,?,?,?,sysdate)";
+		String sql = "insert into member values(?,?,?,?,?,?,sysdate,'N','0')";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql1);
