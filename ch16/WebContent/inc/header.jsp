@@ -40,7 +40,7 @@ $(document).ready(function() {
   	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 	    <ul class="navbar-nav">
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">영화 리뷰</a>
+	        <a class="nav-link" href="reivewForm.do">영화 리뷰</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">영화 게시판</a>
