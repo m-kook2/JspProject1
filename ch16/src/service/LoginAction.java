@@ -23,7 +23,6 @@ public class LoginAction implements CommandProcess {
 			if (list != null) {
 				for (int i = 0; i < list.size(); i++) {
 					session.setAttribute("id", list.get(i).getId());
-					
 				}
 			}
 		} catch (Exception e) {
