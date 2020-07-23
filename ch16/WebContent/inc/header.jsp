@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 $(document).ready(function() {
@@ -23,8 +27,8 @@ $(document).ready(function() {
 			});
 		}
 	});
-	document.getElementById("mem3").style.display="none";
-	document.getElementById("mem4").style.display="none";
+	//document.getElementById("mem3").style.display="none";
+	//document.getElementById("mem4").style.display="none";
 });
 </script>
 <div class="jumbotron text-center" style="margin-bottom:0">
@@ -54,17 +58,23 @@ $(document).ready(function() {
     	<button class="btn btn-success" type="submit">Search</button>
 	</form>
 	<ul class="navbar-nav">
-		<li class="nav-item" id="mem1">
-        	<a class="nav-link" href="#">로그인</a>
-      	</li>
-      	<li class="nav-item" id="mem2">
-       	 <a class="nav-link" href="memWriteForm.do">회원가입</a>
-      	</li>
-      	<li class="nav-item" id="mem3">
-       	 <a class="nav-link" href="#">마이페이지</a>
-      	</li>
-      	<li class="nav-item" id="mem4">
-       	 <a class="nav-link" href="#">로그아웃</a>
-      	</li>
+		<c:choose>
+			<c:when test="${sessionScope.id != null and sessionScope.id ne ''}">
+				<li class="nav-item" id="mem3">
+		       	 <a class="nav-link" href="#">마이페이지</a>
+		      	</li>
+		      	<li class="nav-item" id="mem4">
+		       	 <a class="nav-link" href="logout.do">로그아웃</a>
+		      	</li>
+			</c:when>
+			<c:otherwise>
+				<li class="nav-item" id="mem1">
+		        	<a class="nav-link" href="loginForm.do">로그인</a>
+		      	</li>
+		      	<li class="nav-item" id="mem2">
+		       	 <a class="nav-link" href="memWriteForm.do">회원가입</a>
+		      	</li>
+			</c:otherwise>
+		</c:choose>
     </ul>
 </nav>
