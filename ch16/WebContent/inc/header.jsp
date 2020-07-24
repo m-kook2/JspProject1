@@ -59,9 +59,7 @@ $(document).ready(function() {
 		<c:choose>
 			<c:when test="${sessionScope.id != null and sessionScope.id ne ''}">
 				<li class="nav-item dropdown" id="mem3">
-			      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-			        마이페이지
-			      </a>
+			      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">마이페이지</a>
 			      <div class="dropdown-menu">
 			        <a class="dropdown-item" href="#section41">즐겨찾기</a>
 			        <a class="dropdown-item" href="#section42">회원정보수정</a>
