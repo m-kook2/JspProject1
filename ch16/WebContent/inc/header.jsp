@@ -69,6 +69,16 @@ $(document).ready(function() {
 		      	<li class="nav-item" id="mem4">
 		       	 <a class="nav-link" href="logout.do">로그아웃</a>
 		      	</li>
+		      	<c:if test="${sessionScope.id eq 'admin'}">
+			      	<li class="nav-item dropdown" id="mem5">
+				      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">관리자</a>
+				      <div class="dropdown-menu">
+				        <a class="dropdown-item" href="#section41">회원관리</a>
+				        <a class="dropdown-item" href="#section42">리뷰관리</a>
+				        <a class="dropdown-item" href="#section43">영화정보 관리</a>
+				      </div>
+				    </li>
+			    </c:if>
 			</c:when>
 			<c:otherwise>
 				<li class="nav-item" id="mem1">
