@@ -8,6 +8,7 @@
 <body>
 <%@ include file="/inc/header.jsp" %>
 <!-- 여기에 내용 넣으세요 -->
+
 <%@ include file="/inc/footer.jsp" %>
 </body>
 </html>
