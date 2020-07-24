@@ -4,7 +4,7 @@
 	String id=(String)session.getAttribute("id");
 %>
 <script type="text/javascript">
-	var id=<%=id%>;
+	var id='<%=id%>';
 	if(id != null && id != ''){
 		alert("로그아웃 실패");
 		location.href="main.do";
