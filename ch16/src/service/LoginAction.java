@@ -23,6 +23,14 @@ public class LoginAction implements CommandProcess {
 			if (list != null) {
 				for (int i = 0; i < list.size(); i++) {
 					session.setAttribute("id", list.get(i).getId());
+					session.setAttribute("idx", list.get(i).getIdx());
+					session.setAttribute("password", list.get(i).getPassword());
+					session.setAttribute("email", list.get(i).getEmail());
+					session.setAttribute("nickname", list.get(i).getNickname());
+					session.setAttribute("gender", list.get(i).getGender());
+					session.setAttribute("reg_date", list.get(i).getReg_date());
+					session.setAttribute("del_yn", list.get(i).getDel_yn());
+					session.setAttribute("status", list.get(i).getStatus());
 				}
 			}
 		} catch (Exception e) {
