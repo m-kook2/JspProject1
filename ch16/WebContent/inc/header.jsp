@@ -27,8 +27,6 @@ $(document).ready(function() {
 			});
 		}
 	});
-	//document.getElementById("mem3").style.display="none";
-	//document.getElementById("mem4").style.display="none";
 });
 </script>
 <div class="jumbotron text-center" style="margin-bottom:0">
@@ -61,7 +59,7 @@ $(document).ready(function() {
 		<c:choose>
 			<c:when test="${sessionScope.id != null and sessionScope.id ne ''}">
 				<li class="nav-item" id="mem3">
-		       	 <a class="nav-link" href="#">마이페이지</a>
+		       		<a class="nav-link" href="#" data-toggle="modal" data-target="#myModal">마이페이지</a>
 		      	</li>
 		      	<li class="nav-item" id="mem4">
 		       	 <a class="nav-link" href="logout.do">로그아웃</a>
