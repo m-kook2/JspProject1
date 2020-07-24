@@ -33,7 +33,7 @@ $(document).ready(function() {
   <h1>1조 영화리뷰</h1>
   <p>프로젝트!</p> 
 </div>
-<nav class="navbar navbar-expand-sm bg-info navbar-dark justify-content-left">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 	<a class="navbar-brand" href="main.do">Logo</a>
   	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 	    <ul class="navbar-nav">
@@ -58,9 +58,16 @@ $(document).ready(function() {
 	<ul class="navbar-nav">
 		<c:choose>
 			<c:when test="${sessionScope.id != null and sessionScope.id ne ''}">
-				<li class="nav-item" id="mem3">
-		       		<a class="nav-link" href="#" data-toggle="modal" data-target="#myModal">마이페이지</a>
-		      	</li>
+				<li class="nav-item dropdown" id="mem3">
+			      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+			        마이페이지
+			      </a>
+			      <div class="dropdown-menu">
+			        <a class="dropdown-item" href="#section41">즐겨찾기</a>
+			        <a class="dropdown-item" href="#section42">회원정보수정</a>
+			        <a class="dropdown-item" href="#section43">회원탈퇴</a>
+			      </div>
+			    </li>
 		      	<li class="nav-item" id="mem4">
 		       	 <a class="nav-link" href="logout.do">로그아웃</a>
 		      	</li>
