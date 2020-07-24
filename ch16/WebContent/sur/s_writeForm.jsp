@@ -51,7 +51,32 @@
 					<div class="input-group">
 						<input type="text" class="form-control" />
 						<div class="input-group-append">
-						<input type="button" class="btn btn-danger" value="DEL"/></div>
+							<input type="button" class="btn btn-danger" value="DEL" />
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="input-group">
+						<input type="text" class="form-control" />
+						<div class="input-group-append">
+							<input type="button" class="btn btn-danger" value="DEL" />
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="input-group">
+						<input type="text" class="form-control" />
+						<div class="input-group-append">
+							<input type="button" class="btn btn-danger" value="DEL" />
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="input-group">
+						<input type="text" class="form-control" />
+						<div class="input-group-append">
+							<input type="button" class="btn btn-danger" value="DEL" />
+						</div>
 					</div>
 				</dd>
 				<dd>
