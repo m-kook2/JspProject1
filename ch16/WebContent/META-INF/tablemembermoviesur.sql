@@ -1,42 +1,42 @@
-/* È¸¿ø  */
+/* íšŒì›  */
 DROP TABLE MEMBER 
 	CASCADE CONSTRAINTS;
 
-/* ¼³¹®Á¶»ç °Ô½ÃÆÇ */
+/* ì„¤ë¬¸ì¡°ì‚¬ ê²Œì‹œíŒ */
 DROP TABLE SUR 
 	CASCADE CONSTRAINTS;
 
-/* ¿µÈ­Á¤º¸ */
+/* ì˜í™”ì •ë³´ */
 DROP TABLE MOVIE_INFO 
 	CASCADE CONSTRAINTS;
 
-/* Áñ°ÜÃ£±â-ÂòÇÏ±â */
+/* ì¦ê²¨ì°¾ê¸°-ì°œí•˜ê¸° */
 DROP TABLE BOOK_MIND 
 	CASCADE CONSTRAINTS;
 
-/* ´ñ±Û */
+/* ëŒ“ê¸€ */
 DROP TABLE COMM 
 	CASCADE CONSTRAINTS;
 
-/* ¸®ºä°Ô½ÃÆÇ */
+/* ë¦¬ë·°ê²Œì‹œíŒ */
 DROP TABLE REVIEW 
 	CASCADE CONSTRAINTS;
 
-/* ¼³¹®ÀÀ´ä */
+/* ì„¤ë¬¸ì‘ë‹µ */
 DROP TABLE S_COMM 
 	CASCADE CONSTRAINTS;
 
-/* È¸¿ø  */
+/* íšŒì›  */
 CREATE TABLE MEMBER (
-	ID VARCHAR2(30) NOT NULL, /* È¸¿ø¾ÆÀÌµð */
-	IDX NUMBER(20), /* ¼ø¹ø */
-	PASSWORD VARCHAR2(30), /* ºñ¹Ð¹øÈ£ */
-	EMAIL VARCHAR2(30), /* ÀÌ¸ÞÀÏ */
-	NICKNAME VARCHAR2(30), /* ´Ð³×ÀÓ */
-	GENDER VARCHAR2(30), /* ¼ºº° */
-	REG_DATE VARCHAR2(30), /* °¡ÀÔÀÏ */
-	DEL_YN VARCHAR2(30), /* Å»Åð¿©ºÎ */
-	STATUS VARCHAR2(30) /* È¸¿ø»óÅÂ */
+	ID VARCHAR2(30) NOT NULL, /* íšŒì›ì•„ì´ë”” */
+	IDX NUMBER(20), /* ìˆœë²ˆ */
+	PASSWORD VARCHAR2(30), /* ë¹„ë°€ë²ˆí˜¸ */
+	EMAIL VARCHAR2(30), /* ì´ë©”ì¼ */
+	NICKNAME VARCHAR2(30), /* ë‹‰ë„¤ìž„ */
+	GENDER VARCHAR2(30), /* ì„±ë³„ */
+	REG_DATE VARCHAR2(30), /* ê°€ìž…ì¼ */
+	DEL_YN VARCHAR2(30), /* íƒˆí‡´ì—¬ë¶€ */
+	STATUS VARCHAR2(30) /* íšŒì›ìƒíƒœ */
 );
 
 CREATE UNIQUE INDEX PK_MEMBER
@@ -51,39 +51,39 @@ ALTER TABLE MEMBER
 			ID
 		);
 
-COMMENT ON TABLE MEMBER IS 'È¸¿ø ';
+COMMENT ON TABLE MEMBER IS 'íšŒì› ';
 
-COMMENT ON COLUMN MEMBER.ID IS 'È¸¿ø¾ÆÀÌµð';
+COMMENT ON COLUMN MEMBER.ID IS 'íšŒì›ì•„ì´ë””';
 
-COMMENT ON COLUMN MEMBER.IDX IS '¼ø¹ø';
+COMMENT ON COLUMN MEMBER.IDX IS 'ìˆœë²ˆ';
 
-COMMENT ON COLUMN MEMBER.PASSWORD IS 'ºñ¹Ð¹øÈ£';
+COMMENT ON COLUMN MEMBER.PASSWORD IS 'ë¹„ë°€ë²ˆí˜¸';
 
-COMMENT ON COLUMN MEMBER.EMAIL IS 'ÀÌ¸ÞÀÏ';
+COMMENT ON COLUMN MEMBER.EMAIL IS 'ì´ë©”ì¼';
 
-COMMENT ON COLUMN MEMBER.NICKNAME IS '´Ð³×ÀÓ';
+COMMENT ON COLUMN MEMBER.NICKNAME IS 'ë‹‰ë„¤ìž„';
 
-COMMENT ON COLUMN MEMBER.GENDER IS '¼ºº°';
+COMMENT ON COLUMN MEMBER.GENDER IS 'ì„±ë³„';
 
-COMMENT ON COLUMN MEMBER.REG_DATE IS '°¡ÀÔÀÏ';
+COMMENT ON COLUMN MEMBER.REG_DATE IS 'ê°€ìž…ì¼';
 
-COMMENT ON COLUMN MEMBER.DEL_YN IS 'Å»Åð¿©ºÎ';
+COMMENT ON COLUMN MEMBER.DEL_YN IS 'íƒˆí‡´ì—¬ë¶€';
 
-COMMENT ON COLUMN MEMBER.STATUS IS 'È¸¿ø»óÅÂ';
+COMMENT ON COLUMN MEMBER.STATUS IS 'íšŒì›ìƒíƒœ';
 
-/* ¼³¹®Á¶»ç °Ô½ÃÆÇ */
+/* ì„¤ë¬¸ì¡°ì‚¬ ê²Œì‹œíŒ */
 CREATE TABLE SUR (
-	S_IDX VARCHAR2(100) NOT NULL, /* ¼³¹®¹øÈ£ */
-	S_SUB VARCHAR2(50), /* Á¦¸ñ */
-	S_SDATE DATE, /* ½ÃÀÛÀÏ */
-	S_EDATE DATE, /* Á¾·áÀÏ */
-	S_CONTENT VARCHAR2(2000), /* ¼Ò°³±Û */
-	S_OP1 VARCHAR2(50), /* Ç×¸ñ1 */
-	S_OP2 VARCHAR2(50), /* Ç×¸ñ2 */
-	S_OP3 VARCHAR2(50), /* Ç×¸ñ3 */
-	S_OP4 VARCHAR2(50), /* Ç×¸ñ4 */
-	S_OP5 VARCHAR2(50), /* Ç×¸ñ5 */
-	ID VARCHAR2(30) /* °ü¸®ÀÚ¾ÆÀÌµð */
+	S_IDX VARCHAR2(100) NOT NULL, /* ì„¤ë¬¸ë²ˆí˜¸ */
+	S_SUB VARCHAR2(50), /* ì œëª© */
+	S_SDATE DATE, /* ì‹œìž‘ì¼ */
+	S_EDATE DATE, /* ì¢…ë£Œì¼ */
+	S_CONTENT VARCHAR2(2000), /* ì†Œê°œê¸€ */
+	S_OP1 VARCHAR2(50), /* í•­ëª©1 */
+	S_OP2 VARCHAR2(50), /* í•­ëª©2 */
+	S_OP3 VARCHAR2(50), /* í•­ëª©3 */
+	S_OP4 VARCHAR2(50), /* í•­ëª©4 */
+	S_OP5 VARCHAR2(50), /* í•­ëª©5 */
+	ID VARCHAR2(30) /* ê´€ë¦¬ìžì•„ì´ë”” */
 );
 
 CREATE UNIQUE INDEX PK_SUR
@@ -98,46 +98,46 @@ ALTER TABLE SUR
 			S_IDX
 		);
 
-COMMENT ON TABLE SUR IS '¼³¹®Á¶»ç °Ô½ÃÆÇ';
+COMMENT ON TABLE SUR IS 'ì„¤ë¬¸ì¡°ì‚¬ ê²Œì‹œíŒ';
 
-COMMENT ON COLUMN SUR.S_IDX IS '¼³¹®¹øÈ£';
+COMMENT ON COLUMN SUR.S_IDX IS 'ì„¤ë¬¸ë²ˆí˜¸';
 
-COMMENT ON COLUMN SUR.S_SUB IS 'Á¦¸ñ';
+COMMENT ON COLUMN SUR.S_SUB IS 'ì œëª©';
 
-COMMENT ON COLUMN SUR.S_SDATE IS '½ÃÀÛÀÏ';
+COMMENT ON COLUMN SUR.S_SDATE IS 'ì‹œìž‘ì¼';
 
-COMMENT ON COLUMN SUR.S_EDATE IS 'Á¾·áÀÏ';
+COMMENT ON COLUMN SUR.S_EDATE IS 'ì¢…ë£Œì¼';
 
-COMMENT ON COLUMN SUR.S_CONTENT IS '¼Ò°³±Û';
+COMMENT ON COLUMN SUR.S_CONTENT IS 'ì†Œê°œê¸€';
 
-COMMENT ON COLUMN SUR.S_OP1 IS 'Ç×¸ñ1';
+COMMENT ON COLUMN SUR.S_OP1 IS 'í•­ëª©1';
 
-COMMENT ON COLUMN SUR.S_OP2 IS 'Ç×¸ñ2';
+COMMENT ON COLUMN SUR.S_OP2 IS 'í•­ëª©2';
 
-COMMENT ON COLUMN SUR.S_OP3 IS 'Ç×¸ñ3';
+COMMENT ON COLUMN SUR.S_OP3 IS 'í•­ëª©3';
 
-COMMENT ON COLUMN SUR.S_OP4 IS 'Ç×¸ñ4';
+COMMENT ON COLUMN SUR.S_OP4 IS 'í•­ëª©4';
 
-COMMENT ON COLUMN SUR.S_OP5 IS 'Ç×¸ñ5';
+COMMENT ON COLUMN SUR.S_OP5 IS 'í•­ëª©5';
 
-COMMENT ON COLUMN SUR.ID IS '°ü¸®ÀÚ¾ÆÀÌµð';
+COMMENT ON COLUMN SUR.ID IS 'ê´€ë¦¬ìžì•„ì´ë””';
 
-/* ¿µÈ­Á¤º¸ */
+/* ì˜í™”ì •ë³´ */
 CREATE TABLE MOVIE_INFO (
-	M_IDX NUMBER NOT NULL, /* ¿µÈ­¹øÈ£ */
-	M_NAME VARCHAR2(50) NOT NULL, /* ¿µÈ­ÀÌ¸§ */
-	M_GENRE VARCHAR2(20), /* ¿µÈ­Àå¸£ */
-	M_DATE DATE, /* ¿µÈ­°³ºÀÀÏ */
-	M_NATION VARCHAR2(20), /* ¿µÈ­±¹Àû */
-	M_TIME NUMBER(3) NOT NULL, /* »ó¿µ½Ã°£ */
-	M_RATE VARCHAR2(20), /* µî±Þ */
-	M_STORY VARCHAR2(4000), /* ÁÙ°Å¸® */
-	M_CAST VARCHAR2(20), /* Ãâ¿¬Áø */
-	M_DIRECTOR VARCHAR2(20), /* ¿µÈ­°¨µ¶ */
-	M_PHOTO VARCHAR2(2000), /* Æ÷Åä */
-	M_VIDEO VARCHAR2(2000), /* µ¿¿µ»ó */
-	M_POSTER VARCHAR2(2000) NOT NULL, /* Æ÷½ºÅÍ */
-	ID VARCHAR2(30) /* °ü¸®ÀÚ¾ÆÀÌµð */
+	M_IDX NUMBER NOT NULL, /* ì˜í™”ë²ˆí˜¸ */
+	M_NAME VARCHAR2(50) NOT NULL, /* ì˜í™”ì´ë¦„ */
+	M_GENRE VARCHAR2(20), /* ì˜í™”ìž¥ë¥´ */
+	M_DATE DATE, /* ì˜í™”ê°œë´‰ì¼ */
+	M_NATION VARCHAR2(20), /* ì˜í™”êµ­ì  */
+	M_TIME NUMBER(3) NOT NULL, /* ìƒì˜ì‹œê°„ */
+	M_RATE VARCHAR2(20), /* ë“±ê¸‰ */
+	M_STORY VARCHAR2(4000), /* ì¤„ê±°ë¦¬ */
+	M_CAST VARCHAR2(20), /* ì¶œì—°ì§„ */
+	M_DIRECTOR VARCHAR2(20), /* ì˜í™”ê°ë… */
+	M_PHOTO VARCHAR2(2000), /* í¬í†  */
+	M_VIDEO VARCHAR2(2000), /* ë™ì˜ìƒ */
+	M_POSTER VARCHAR2(2000) NOT NULL, /* í¬ìŠ¤í„° */
+	ID VARCHAR2(30) /* ê´€ë¦¬ìžì•„ì´ë”” */
 );
 
 CREATE UNIQUE INDEX PK_MOVIE_INFO
@@ -152,43 +152,43 @@ ALTER TABLE MOVIE_INFO
 			M_IDX
 		);
 
-COMMENT ON TABLE MOVIE_INFO IS '¿µÈ­Á¤º¸';
+COMMENT ON TABLE MOVIE_INFO IS 'ì˜í™”ì •ë³´';
 
-COMMENT ON COLUMN MOVIE_INFO.M_IDX IS '¿µÈ­¹øÈ£';
+COMMENT ON COLUMN MOVIE_INFO.M_IDX IS 'ì˜í™”ë²ˆí˜¸';
 
-COMMENT ON COLUMN MOVIE_INFO.M_NAME IS '¿µÈ­ÀÌ¸§';
+COMMENT ON COLUMN MOVIE_INFO.M_NAME IS 'ì˜í™”ì´ë¦„';
 
-COMMENT ON COLUMN MOVIE_INFO.M_GENRE IS '¿µÈ­Àå¸£';
+COMMENT ON COLUMN MOVIE_INFO.M_GENRE IS 'ì˜í™”ìž¥ë¥´';
 
-COMMENT ON COLUMN MOVIE_INFO.M_DATE IS '¿µÈ­°³ºÀÀÏ';
+COMMENT ON COLUMN MOVIE_INFO.M_DATE IS 'ì˜í™”ê°œë´‰ì¼';
 
-COMMENT ON COLUMN MOVIE_INFO.M_NATION IS '¿µÈ­±¹Àû';
+COMMENT ON COLUMN MOVIE_INFO.M_NATION IS 'ì˜í™”êµ­ì ';
 
-COMMENT ON COLUMN MOVIE_INFO.M_TIME IS '»ó¿µ½Ã°£';
+COMMENT ON COLUMN MOVIE_INFO.M_TIME IS 'ìƒì˜ì‹œê°„';
 
-COMMENT ON COLUMN MOVIE_INFO.M_RATE IS 'µî±Þ';
+COMMENT ON COLUMN MOVIE_INFO.M_RATE IS 'ë“±ê¸‰';
 
-COMMENT ON COLUMN MOVIE_INFO.M_STORY IS 'ÁÙ°Å¸®';
+COMMENT ON COLUMN MOVIE_INFO.M_STORY IS 'ì¤„ê±°ë¦¬';
 
-COMMENT ON COLUMN MOVIE_INFO.M_CAST IS 'Ãâ¿¬Áø';
+COMMENT ON COLUMN MOVIE_INFO.M_CAST IS 'ì¶œì—°ì§„';
 
-COMMENT ON COLUMN MOVIE_INFO.M_DIRECTOR IS '¿µÈ­°¨µ¶';
+COMMENT ON COLUMN MOVIE_INFO.M_DIRECTOR IS 'ì˜í™”ê°ë…';
 
-COMMENT ON COLUMN MOVIE_INFO.M_PHOTO IS 'Æ÷Åä';
+COMMENT ON COLUMN MOVIE_INFO.M_PHOTO IS 'í¬í† ';
 
-COMMENT ON COLUMN MOVIE_INFO.M_VIDEO IS 'µ¿¿µ»ó';
+COMMENT ON COLUMN MOVIE_INFO.M_VIDEO IS 'ë™ì˜ìƒ';
 
-COMMENT ON COLUMN MOVIE_INFO.M_POSTER IS 'Æ÷½ºÅÍ';
+COMMENT ON COLUMN MOVIE_INFO.M_POSTER IS 'í¬ìŠ¤í„°';
 
-COMMENT ON COLUMN MOVIE_INFO.ID IS '°ü¸®ÀÚ¾ÆÀÌµð';
+COMMENT ON COLUMN MOVIE_INFO.ID IS 'ê´€ë¦¬ìžì•„ì´ë””';
 
-/* Áñ°ÜÃ£±â-ÂòÇÏ±â */
+/* ì¦ê²¨ì°¾ê¸°-ì°œí•˜ê¸° */
 CREATE TABLE BOOK_MIND (
-	ID VARCHAR2(30) NOT NULL, /* È¸¿ø¾ÆÀÌµð */
-	M_IDX NUMBER NOT NULL, /* ¿µÈ­¹øÈ£ */
-	IDX NUMBER NOT NULL, /* ¼ø¹ø */
-	MIND VARCHAR2(20), /* ÂòÇÑ ¿µÈ­ */
-	REG_DATE DATE /* µî·Ï³¯Â¥ */
+	ID VARCHAR2(30) NOT NULL, /* íšŒì›ì•„ì´ë”” */
+	M_IDX NUMBER NOT NULL, /* ì˜í™”ë²ˆí˜¸ */
+	IDX NUMBER NOT NULL, /* ìˆœë²ˆ */
+	MIND VARCHAR2(20), /* ì°œí•œ ì˜í™” */
+	REG_DATE DATE /* ë“±ë¡ë‚ ì§œ */
 );
 
 CREATE UNIQUE INDEX PK_BOOK_MIND
@@ -205,31 +205,31 @@ ALTER TABLE BOOK_MIND
 			M_IDX
 		);
 
-COMMENT ON TABLE BOOK_MIND IS 'Áñ°ÜÃ£±â-ÂòÇÏ±â';
+COMMENT ON TABLE BOOK_MIND IS 'ì¦ê²¨ì°¾ê¸°-ì°œí•˜ê¸°';
 
-COMMENT ON COLUMN BOOK_MIND.ID IS 'È¸¿ø¾ÆÀÌµð';
+COMMENT ON COLUMN BOOK_MIND.ID IS 'íšŒì›ì•„ì´ë””';
 
-COMMENT ON COLUMN BOOK_MIND.M_IDX IS '¿µÈ­¹øÈ£';
+COMMENT ON COLUMN BOOK_MIND.M_IDX IS 'ì˜í™”ë²ˆí˜¸';
 
-COMMENT ON COLUMN BOOK_MIND.IDX IS '¼ø¹ø';
+COMMENT ON COLUMN BOOK_MIND.IDX IS 'ìˆœë²ˆ';
 
-COMMENT ON COLUMN BOOK_MIND.MIND IS 'ÂòÇÑ ¿µÈ­';
+COMMENT ON COLUMN BOOK_MIND.MIND IS 'ì°œí•œ ì˜í™”';
 
-COMMENT ON COLUMN BOOK_MIND.REG_DATE IS 'µî·Ï³¯Â¥';
+COMMENT ON COLUMN BOOK_MIND.REG_DATE IS 'ë“±ë¡ë‚ ì§œ';
 
-/* ´ñ±Û */
+/* ëŒ“ê¸€ */
 CREATE TABLE COMM (
-	C_IDX NUMBER NOT NULL, /* ´ñ±Û¹øÈ£ */
-	ID VARCHAR2(30), /* È¸¿ø¾ÆÀÌµð */
-	C_CONTENT VARCHAR2(4000), /* ´ñ±Û³»¿ë */
-	C_SYMPATHY NUMBER, /* °ø°¨¼ö */
-	C_UNSYMPATHY NUMBER, /* ºñ°ø°¨¼ö */
-	C_GRADE NUMBER, /* ÆòÁ¡ */
-	C_DATE DATE, /* ÀÛ¼ºÀÏÀÚ */
-	DEL_YN VARCHAR2(2), /* »èÁ¦¿©ºÎ */
-	M_IDX NUMBER, /* ¿µÈ­¹øÈ£ */
-	STEP NUMBER, /* ½ºÅÇ */
-	DEP NUMBER /* ±íÀÌ */
+	C_IDX NUMBER NOT NULL, /* ëŒ“ê¸€ë²ˆí˜¸ */
+	ID VARCHAR2(30), /* íšŒì›ì•„ì´ë”” */
+	C_CONTENT VARCHAR2(4000), /* ëŒ“ê¸€ë‚´ìš© */
+	C_SYMPATHY NUMBER, /* ê³µê°ìˆ˜ */
+	C_UNSYMPATHY NUMBER, /* ë¹„ê³µê°ìˆ˜ */
+	C_GRADE NUMBER, /* í‰ì  */
+	C_DATE DATE, /* ìž‘ì„±ì¼ìž */
+	DEL_YN VARCHAR2(2), /* ì‚­ì œì—¬ë¶€ */
+	M_IDX NUMBER, /* ì˜í™”ë²ˆí˜¸ */
+	STEP NUMBER, /* ìŠ¤íƒ­ */
+	DEP NUMBER /* ê¹Šì´ */
 );
 
 CREATE UNIQUE INDEX PK_COMM
@@ -244,38 +244,38 @@ ALTER TABLE COMM
 			C_IDX
 		);
 
-COMMENT ON TABLE COMM IS '´ñ±Û';
+COMMENT ON TABLE COMM IS 'ëŒ“ê¸€';
 
-COMMENT ON COLUMN COMM.C_IDX IS '´ñ±Û¹øÈ£';
+COMMENT ON COLUMN COMM.C_IDX IS 'ëŒ“ê¸€ë²ˆí˜¸';
 
-COMMENT ON COLUMN COMM.ID IS 'È¸¿ø¾ÆÀÌµð';
+COMMENT ON COLUMN COMM.ID IS 'íšŒì›ì•„ì´ë””';
 
-COMMENT ON COLUMN COMM.C_CONTENT IS '´ñ±Û³»¿ë';
+COMMENT ON COLUMN COMM.C_CONTENT IS 'ëŒ“ê¸€ë‚´ìš©';
 
-COMMENT ON COLUMN COMM.C_SYMPATHY IS '°ø°¨¼ö';
+COMMENT ON COLUMN COMM.C_SYMPATHY IS 'ê³µê°ìˆ˜';
 
-COMMENT ON COLUMN COMM.C_UNSYMPATHY IS 'ºñ°ø°¨¼ö';
+COMMENT ON COLUMN COMM.C_UNSYMPATHY IS 'ë¹„ê³µê°ìˆ˜';
 
-COMMENT ON COLUMN COMM.C_GRADE IS 'ÆòÁ¡';
+COMMENT ON COLUMN COMM.C_GRADE IS 'í‰ì ';
 
-COMMENT ON COLUMN COMM.C_DATE IS 'ÀÛ¼ºÀÏÀÚ';
+COMMENT ON COLUMN COMM.C_DATE IS 'ìž‘ì„±ì¼ìž';
 
-COMMENT ON COLUMN COMM.DEL_YN IS '»èÁ¦¿©ºÎ';
+COMMENT ON COLUMN COMM.DEL_YN IS 'ì‚­ì œì—¬ë¶€';
 
-COMMENT ON COLUMN COMM.M_IDX IS '¿µÈ­¹øÈ£';
+COMMENT ON COLUMN COMM.M_IDX IS 'ì˜í™”ë²ˆí˜¸';
 
-COMMENT ON COLUMN COMM.STEP IS '½ºÅÇ';
+COMMENT ON COLUMN COMM.STEP IS 'ìŠ¤íƒ­';
 
-COMMENT ON COLUMN COMM.DEP IS '±íÀÌ';
+COMMENT ON COLUMN COMM.DEP IS 'ê¹Šì´';
 
-/* ¸®ºä°Ô½ÃÆÇ */
+/* ë¦¬ë·°ê²Œì‹œíŒ */
 CREATE TABLE REVIEW (
-	P_IDX NUMBER NOT NULL, /* °Ô½Ã±Û ¹øÈ£ */
-	P_TITLE VARCHAR2(20), /* Á¦¸ñ */
-	P_CONTENT VARCHAR2(500), /* ³»¿ë */
-	P_DATE DATE, /* ÀÛ¼ºÀÏÀÚ */
-	ID VARCHAR2(30), /* °ü¸®ÀÚ¾ÆÀÌµð */
-	M_IDX NUMBER /* ¿µÈ­¹øÈ£ */
+	P_IDX NUMBER NOT NULL, /* ê²Œì‹œê¸€ ë²ˆí˜¸ */
+	P_TITLE VARCHAR2(20), /* ì œëª© */
+	P_CONTENT VARCHAR2(500), /* ë‚´ìš© */
+	P_DATE DATE, /* ìž‘ì„±ì¼ìž */
+	ID VARCHAR2(30), /* ê´€ë¦¬ìžì•„ì´ë”” */
+	M_IDX NUMBER /* ì˜í™”ë²ˆí˜¸ */
 );
 
 CREATE UNIQUE INDEX PK_REVIEW
@@ -290,29 +290,29 @@ ALTER TABLE REVIEW
 			P_IDX
 		);
 
-COMMENT ON TABLE REVIEW IS '¸®ºä°Ô½ÃÆÇ';
+COMMENT ON TABLE REVIEW IS 'ë¦¬ë·°ê²Œì‹œíŒ';
 
-COMMENT ON COLUMN REVIEW.P_IDX IS '°Ô½Ã±Û ¹øÈ£';
+COMMENT ON COLUMN REVIEW.P_IDX IS 'ê²Œì‹œê¸€ ë²ˆí˜¸';
 
-COMMENT ON COLUMN REVIEW.P_TITLE IS 'Á¦¸ñ';
+COMMENT ON COLUMN REVIEW.P_TITLE IS 'ì œëª©';
 
-COMMENT ON COLUMN REVIEW.P_CONTENT IS '³»¿ë';
+COMMENT ON COLUMN REVIEW.P_CONTENT IS 'ë‚´ìš©';
 
-COMMENT ON COLUMN REVIEW.P_DATE IS 'ÀÛ¼ºÀÏÀÚ';
+COMMENT ON COLUMN REVIEW.P_DATE IS 'ìž‘ì„±ì¼ìž';
 
-COMMENT ON COLUMN REVIEW.ID IS '°ü¸®ÀÚ¾ÆÀÌµð';
+COMMENT ON COLUMN REVIEW.ID IS 'ê´€ë¦¬ìžì•„ì´ë””';
 
-COMMENT ON COLUMN REVIEW.M_IDX IS '¿µÈ­¹øÈ£';
+COMMENT ON COLUMN REVIEW.M_IDX IS 'ì˜í™”ë²ˆí˜¸';
 
-/* ¼³¹®ÀÀ´ä */
+/* ì„¤ë¬¸ì‘ë‹µ */
 CREATE TABLE S_COMM (
-	R_IDX NUMBER NOT NULL, /* ÀÀ´ä¹øÈ£ */
-	S_IDX NUMBER NOT NULL, /* ¼³¹®¹øÈ£ */
-	ID VARCHAR2(30) NOT NULL, /* È¸¿ø¾ÆÀÌµð */
-	R_OP VARCHAR2(50), /* ÅõÇ¥Ç×¸ñ */
-	R_CONTENT VARCHAR2(4000), /* ³»¿ë */
-	R_REGDATE DATE, /* ÀÛ¼ºÀÏÀÚ */
-	S_IDX2 VARCHAR2(100) /* ¼³¹®¹øÈ£2 */
+	R_IDX NUMBER NOT NULL, /* ì‘ë‹µë²ˆí˜¸ */
+	S_IDX NUMBER NOT NULL, /* ì„¤ë¬¸ë²ˆí˜¸ */
+	ID VARCHAR2(30) NOT NULL, /* íšŒì›ì•„ì´ë”” */
+	R_OP VARCHAR2(50), /* íˆ¬í‘œí•­ëª© */
+	R_CONTENT VARCHAR2(4000), /* ë‚´ìš© */
+	R_REGDATE DATE, /* ìž‘ì„±ì¼ìž */
+	S_IDX2 VARCHAR2(100) /* ì„¤ë¬¸ë²ˆí˜¸2 */
 );
 
 CREATE UNIQUE INDEX PK_S_COMM
@@ -329,21 +329,21 @@ ALTER TABLE S_COMM
 			ID
 		);
 
-COMMENT ON TABLE S_COMM IS '¼³¹®ÀÀ´ä';
+COMMENT ON TABLE S_COMM IS 'ì„¤ë¬¸ì‘ë‹µ';
 
-COMMENT ON COLUMN S_COMM.R_IDX IS 'ÀÀ´ä¹øÈ£';
+COMMENT ON COLUMN S_COMM.R_IDX IS 'ì‘ë‹µë²ˆí˜¸';
 
-COMMENT ON COLUMN S_COMM.S_IDX IS '¼³¹®¹øÈ£';
+COMMENT ON COLUMN S_COMM.S_IDX IS 'ì„¤ë¬¸ë²ˆí˜¸';
 
-COMMENT ON COLUMN S_COMM.ID IS 'È¸¿ø¾ÆÀÌµð';
+COMMENT ON COLUMN S_COMM.ID IS 'íšŒì›ì•„ì´ë””';
 
-COMMENT ON COLUMN S_COMM.R_OP IS 'ÅõÇ¥Ç×¸ñ';
+COMMENT ON COLUMN S_COMM.R_OP IS 'íˆ¬í‘œí•­ëª©';
 
-COMMENT ON COLUMN S_COMM.R_CONTENT IS '³»¿ë';
+COMMENT ON COLUMN S_COMM.R_CONTENT IS 'ë‚´ìš©';
 
-COMMENT ON COLUMN S_COMM.R_REGDATE IS 'ÀÛ¼ºÀÏÀÚ';
+COMMENT ON COLUMN S_COMM.R_REGDATE IS 'ìž‘ì„±ì¼ìž';
 
-COMMENT ON COLUMN S_COMM.S_IDX2 IS '¼³¹®¹øÈ£2';
+COMMENT ON COLUMN S_COMM.S_IDX2 IS 'ì„¤ë¬¸ë²ˆí˜¸2';
 
 ALTER TABLE SUR
 	ADD
@@ -439,56 +439,56 @@ commit;
 
 SET DEFINE OFF;
 
-INSERT INTO MEMBER VALUES('hongil',1,'2468','email1@gmail.com','nickname2','³²ÀÚ','2020/07/01','N','2');
-INSERT INTO MEMBER VALUES('hongil2',2,'2468','email2@gmail.com','nickname3','¿©ÀÚ','2010/07/01','N','1');
-INSERT INTO MEMBER VALUES('hongil3',3,'2468','email4@3gmail.com','nickname4','³²ÀÚ','2030/07/01','N','1');
-INSERT INTO MEMBER VALUES('hongil4',4,'2468','email5@gmail.com','nickname6','³²ÀÚ','2019/07/01','N','1');
-INSERT INTO MEMBER VALUES('hongil5',5,'2468','email6@gmail.com','nickname7','¿©ÀÚ','2018/07/01','N','1');
-INSERT INTO MEMBER VALUES('hongil6',6,'2468','email6@gmail.com','nickname9','³²ÀÚ','2021/07/01','N','3');
-INSERT INTO MEMBER VALUES('hongil7',7,'2468','email8@gmail.com','nickname5','¿©ÀÚ','2019/07/01','N','3');
-INSERT INTO MEMBER VALUES('hongil8',8,'2468','email9@gmail.com','nickname54','³²ÀÚ','2018/07/01','N','1');
-INSERT INTO MEMBER VALUES('hongil9',9,'2468','email@5gmail.com','nickname54','¿©ÀÚ','2023/07/01','N','3');
-INSERT INTO MEMBER VALUES('hongil10',10,'2468','email75@gmail.com','nickname43','¿©ÀÚ','2020/07/01','N','1');
-INSERT INTO MEMBER VALUES('hongil11',11,'2468','email@43gmail.com','nickname78','³²ÀÚ','2020/07/01','N','1');
-INSERT INTO MEMBER VALUES('admin',12,'admin','admin@admin.com','admin','³²ÀÚ','2020/07/01','N','2');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (7,'ÁÖÀüÀå','È£·¯',to_date('20/07/24','RR/MM/DD'),'¿µ±¹',82,'12','test','³ªÈ«ÀÎ, °í¹Î±¹','¿¬»óÈ£','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy8w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (8,'´ç°¥','È£·¯',to_date('20/07/24','RR/MM/DD'),'½ºÆäÀÎ',84,'19','test','³ªÈ«ÀÎ, °í¹Î±¹','ÇÇÅÍ ÆÐ·²¸®','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy9w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (9,'¼î»ýÅ© Å»Ãâ','½º¸±·¯',to_date('20/07/24','RR/MM/DD'),'¹Ì±¹',86,'0','test','³ªÈ«ÀÎ, °í¹Î±¹','±¸¼öÈ¯','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy10w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (10,'ÅÍ¹Ì³×ÀÌÅÍ 2:¿À¸®Áö³Î','¾×¼Ç',to_date('20/07/24','RR/MM/DD'),'µ¶ÀÏ',88,'0','test','³ªÈ«ÀÎ, °í¹Î±¹','³ªµò ¶ó¹ÙÅ°','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy11w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (11,'º¸Çì¹Ì¾È ·¦¼Òµð','È£·¯',to_date('20/07/24','RR/MM/DD'),'±âÅ¸',90,'12','test','³ªÈ«ÀÎ, °í¹Î±¹','´í ½ºÄµ·Ð','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy12w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (12,'´ö±¸','µå¶ó¸¶',to_date('20/07/24','RR/MM/DD'),'ÇÑ±¹',92,'12','test','³ªÈ«ÀÎ, °í¹Î±¹','ÇÇÅÍ ÆÐ·²¸®','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy13w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (13,'¿ù-E','½º¸±·¯',to_date('20/07/24','RR/MM/DD'),'ÇÁ¶û½º',94,'19','test','³ªÈ«ÀÎ, °í¹Î±¹','Á¦ÀÓ½º ¸Ç°ñµå','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy14w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (14,'³ª È¦·Î Áý¿¡','·Î¸Ç½º',to_date('20/07/24','RR/MM/DD'),'Áß±¹',96,'12','test','³ªÈ«ÀÎ, °í¹Î±¹','·ÎÄ­ ÇÇ³×°Ç','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy15w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (15,'¶óÀÌ¾ð ÀÏº´ ±¸ÇÏ±â','·Î¸Ç½º',to_date('20/07/24','RR/MM/DD'),'ÀÏº»',98,'12','test','³ªÈ«ÀÎ, °í¹Î±¹','ÇÇÅÍ ÆÐ·²¸®','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy16w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (16,'¾ÆÀÌÁî ¿Â ¹Ì : ´õ ¹«ºñ','·Î¸Ç½º',to_date('20/07/24','RR/MM/DD'),'ÀÎµµ',100,'12','test','³ªÈ«ÀÎ, °í¹Î±¹','¿¬»óÈ£','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy17w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (17,'»ìÀÎÀÇ Ãß¾ï','½º¸±·¯',to_date('20/07/24','RR/MM/DD'),'ÀÌÅ»¸®¾Æ',102,'12','test','³ªÈ«ÀÎ, °í¹Î±¹','´í ½ºÄµ·Ð','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy18w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (18,'»ª Åõ ´õ Ç»ÃÄ','½º¸±·¯',to_date('20/07/24','RR/MM/DD'),'¿µ±¹',104,'12','test','³ªÈ«ÀÎ, °í¹Î±¹','°­ÅÂ±¤','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy19w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (19,'»ç¿îµå ¿Àºê ¹ÂÁ÷','µå¶ó¸¶',to_date('20/07/24','RR/MM/DD'),'½ºÆäÀÎ',106,'12','test','³ªÈ«ÀÎ, °í¹Î±¹','±¸¼öÈ¯','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy20w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (20,'¸ÅÆ®¸¯½º','¾×¼Ç',to_date('20/07/24','RR/MM/DD'),'¹Ì±¹',108,'12','test','³ªÈ«ÀÎ, °í¹Î±¹','Á¦ÀÓ½º ¸Ç°ñµå','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy21w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (21,'ÀÎ»ýÀº ¾Æ¸§´Ù¿ö','·Î¸Ç½º',to_date('20/07/24','RR/MM/DD'),'µ¶ÀÏ',110,'12','test','³ªÈ«ÀÎ, °í¹Î±¹','·ÎÄ­ ÇÇ³×°Ç','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy22w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (22,'ÇïÇÁ','´ÙÅ¥',to_date('20/07/24','RR/MM/DD'),'±âÅ¸',112,'0','test','³ªÈ«ÀÎ, °í¹Î±¹','ÇÇÅÍ ÆÐ·²¸®','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy23w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (23,'Æ÷·¹½ºÆ® °ËÇÁ','µå¶ó¸¶',to_date('20/07/24','RR/MM/DD'),'ÇÑ±¹',114,'15','test','³ªÈ«ÀÎ, °í¹Î±¹','Áõ±¹»ó','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy24w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (24,'À§´ëÇÑ ¼î¸Ç','¾×¼Ç',to_date('20/07/24','RR/MM/DD'),'ÇÁ¶û½º',116,'15','test','³ªÈ«ÀÎ, °í¹Î±¹','±¸¼öÈ¯','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy25w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (25,'Å¬·¡½Ä','È£·¯',to_date('20/07/24','RR/MM/DD'),'Áß±¹',118,'15','test','³ªÈ«ÀÎ, °í¹Î±¹','ºê¶óÀÌ¾ð ½Ì¾î','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy26w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (26,'±Û·¡µð¿¡ÀÌÅÍ','µå¶ó¸¶',to_date('20/07/24','RR/MM/DD'),'ÀÏº»',120,'15','test','³ªÈ«ÀÎ, °í¹Î±¹','¿¬»óÈ£','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy27w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (27,'¼¾°ú Ä¡È÷·ÎÀÇ Çà¹æºÒ¸í','È£·¯',to_date('20/07/24','RR/MM/DD'),'ÀÎµµ',122,'15','test','³ªÈ«ÀÎ, °í¹Î±¹','ºê¶óÀÌ¾ð ½Ì¾î','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy28w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (28,'ÅäÀÌ ½ºÅä¸® 3','¾×¼Ç',to_date('20/07/24','RR/MM/DD'),'ÀÌÅ»¸®¾Æ',124,'19','test','³ªÈ«ÀÎ, °í¹Î±¹','¿¬»óÈ£','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy29w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (29,'Å¸ÀÌÅ¸´Ð','µå¶ó¸¶',to_date('20/07/24','RR/MM/DD'),'¿µ±¹',126,'19','test','³ªÈ«ÀÎ, °í¹Î±¹','Áõ±¹»ó','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy30w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (30,'¾Ë¶óµò','È£·¯',to_date('20/07/24','RR/MM/DD'),'½ºÆäÀÎ',128,'19','test','³ªÈ«ÀÎ, °í¹Î±¹','ºê¶óÀÌ¾ð ½Ì¾î','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy31w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (1,'±×¸°ºÏ','µå¶ó¸¶',to_date('20/07/24','RR/MM/DD'),'ÇÑ±¹',70,'0','test','³ªÈ«ÀÎ, °í¹Î±¹','´í ½ºÄµ·Ð','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy2w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (2,'°¡¹ö³ª¿ò','¾×¼Ç',to_date('20/07/24','RR/MM/DD'),'ÇÁ¶û½º',72,'12','test','³ªÈ«ÀÎ, °í¹Î±¹','ÇÇÅÍ ÆÐ·²¸®','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy3w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (3,'º£ÀÏ¸® ¾î°ÔÀÎ','¾×¼Ç',to_date('20/07/24','RR/MM/DD'),'Áß±¹',74,'0','test','³ªÈ«ÀÎ, °í¹Î±¹','Áõ±¹»ó','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy4w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (4,'¿ø´õ','µå¶ó¸¶',to_date('20/07/24','RR/MM/DD'),'ÀÏº»',76,'0','test','³ªÈ«ÀÎ, °í¹Î±¹','±¸¼öÈ¯','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy5w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (5,'Æ÷µå V Æä¶ó¸®','½º¸±·¯',to_date('20/07/24','RR/MM/DD'),'ÀÎµµ',78,'0','test','³ªÈ«ÀÎ, °í¹Î±¹','³ªµò ¶ó¹ÙÅ°','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy6w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (6,'¾ÆÀÏ¶ó','¾×¼Ç',to_date('20/07/24','RR/MM/DD'),'ÀÌÅ»¸®¾Æ',80,'0','test','³ªÈ«ÀÎ, °í¹Î±¹','´í ½ºÄµ·Ð','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy7w&feature=youtu.be','Poster_Aladdin.jpg','admin');
-Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('1','Åä¸£ ´ë ¾ÆÀÌ¾ð¸Ç',to_date('20/07/24','RR/MM/DD'),to_date('20/08/25','RR/MM/DD'),'Åä¸£ ´ë ¾ÆÀÌ¾ð¸Ç ´©°¡ ´õ ¼¿°¡¿ä','Åä¸£','¾ÆÀÌ¾ð¸Ç',null,null,null,'hongil');
-Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('2','ÇæÅ© ´ë ¾ÆÀÌ¾ð¸Ç',to_date('20/07/01','RR/MM/DD'),to_date('20/07/10','RR/MM/DD'),'ÇæÅ©°¡ ¼¾°¡¿ä ¾ÆÀÌ¾ð¸ÇÀÌ ¼¾°¡¿ä','ÇæÅ©','¾ÆÀÌ¾ð¸Ç',null,null,null,'hongil');
-Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('3','¾ÆÀÌ¾ð¸Ç ´ë ·ÎÅ°',to_date('20/07/02','RR/MM/DD'),to_date('20/07/11','RR/MM/DD'),'·ÎÅ°µµ ¼¾°¡¿ä?','·ÎÅ°','¾ÆÀÌ¾ð¸Ç',null,null,null,'hongil');
-Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('4','·ÎÅ° ´ë Åä¸£',to_date('20/07/03','RR/MM/DD'),to_date('20/07/12','RR/MM/DD'),'Åä¸£°¡ ºÁÁÖÁö ¾ÊÀ»±î¿ä?','·ÎÅ°','Åä¸£',null,null,null,'hongil');
-Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('5','¿Àµò ´ë Åä¸£',to_date('20/07/04','RR/MM/DD'),to_date('20/07/13','RR/MM/DD'),'¿ÀµòÀÌ ±×·¡µµ Åä¸£´Â ÀÌ±â°ÚÁÒ?','¿Àµò','Åä¸£',null,null,null,'hongil');
-Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('6','Å¸³ë½º ´ë ¿Àµò',to_date('20/07/05','RR/MM/DD'),to_date('20/07/14','RR/MM/DD'),'¿ÀµòÀÌ¶û Å¸³ë½º¶û ½Î¿ì´Â °Å ¾È³ª¿ÔÁÒ?','Å¸³ë½º','¿Àµò',null,null,null,'hongil');
-Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('7','È£Å©¾ÆÀÌ ´ë ºí·¢À§µµ¿ì',to_date('20/07/06','RR/MM/DD'),to_date('20/07/15','RR/MM/DD'),'ÀÎ°£°èÀÇ ½Î¿ò','È£Å©¾ÆÀÌ','ºí·¢À§µµ¿ì',null,null,null,'hongil');
-Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('8','¹èÆ®¸Ç ´ë ½´ÆÛ¸Ç',to_date('20/07/07','RR/MM/DD'),to_date('20/07/16','RR/MM/DD'),'±Ã±ÝÇØ¼­ ¿µÈ­µµ ³ª¿Ô¾î¿ä','¹èÆ®¸Ç','½´ÆÛ¸Ç',null,null,null,'hongil');
-Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('9','½ºÆÄÀÌ´õ¸Ç ´ë ¸Ç½ºÆÄÀÌ´õ',to_date('20/07/08','RR/MM/DD'),to_date('20/07/17','RR/MM/DD'),'¸Ç½ºÆÄÀÌ´õ´Â ´©±¸¾ß?','½ºÆÄÀÌ´õ¸Ç','¸Ç½ºÆÄÀÌ´õ',null,null,null,'hongil');
-Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('10','¿µÈ­º¸±â Á¦ÀÏ ÁÁÀº °èÀýÀº?',to_date('20/07/09','RR/MM/DD'),to_date('20/07/18','RR/MM/DD'),'º½¿©¸§°¡À»°Ü¿ï ¾ðÁ¦ ¿µÈ­ º¸¼¼¿ä?','º½','¿©¸§','°¡À»','°Ü¿ï',null,'hongil');
+INSERT INTO MEMBER VALUES('hongil',1,'2468','email1@gmail.com','nickname2','ë‚¨ìž','2020/07/01','N','2');
+INSERT INTO MEMBER VALUES('hongil2',2,'2468','email2@gmail.com','nickname3','ì—¬ìž','2010/07/01','N','1');
+INSERT INTO MEMBER VALUES('hongil3',3,'2468','email4@3gmail.com','nickname4','ë‚¨ìž','2030/07/01','N','1');
+INSERT INTO MEMBER VALUES('hongil4',4,'2468','email5@gmail.com','nickname6','ë‚¨ìž','2019/07/01','N','1');
+INSERT INTO MEMBER VALUES('hongil5',5,'2468','email6@gmail.com','nickname7','ì—¬ìž','2018/07/01','N','1');
+INSERT INTO MEMBER VALUES('hongil6',6,'2468','email6@gmail.com','nickname9','ë‚¨ìž','2021/07/01','N','3');
+INSERT INTO MEMBER VALUES('hongil7',7,'2468','email8@gmail.com','nickname5','ì—¬ìž','2019/07/01','N','3');
+INSERT INTO MEMBER VALUES('hongil8',8,'2468','email9@gmail.com','nickname54','ë‚¨ìž','2018/07/01','N','1');
+INSERT INTO MEMBER VALUES('hongil9',9,'2468','email@5gmail.com','nickname54','ì—¬ìž','2023/07/01','N','3');
+INSERT INTO MEMBER VALUES('hongil10',10,'2468','email75@gmail.com','nickname43','ì—¬ìž','2020/07/01','N','1');
+INSERT INTO MEMBER VALUES('hongil11',11,'2468','email@43gmail.com','nickname78','ë‚¨ìž','2020/07/01','N','1');
+INSERT INTO MEMBER VALUES('admin',12,'admin','admin@admin.com','admin','ë‚¨ìž','2020/07/01','N','2');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (7,'ì£¼ì „ìž¥','í˜¸ëŸ¬',to_date('20/07/24','RR/MM/DD'),'ì˜êµ­',82,'12','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ì—°ìƒí˜¸','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy8w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (8,'ë‹¹ê°ˆ','í˜¸ëŸ¬',to_date('20/07/24','RR/MM/DD'),'ìŠ¤íŽ˜ì¸',84,'19','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','í”¼í„° íŒ¨ëŸ´ë¦¬','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy9w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (9,'ì‡¼ìƒí¬ íƒˆì¶œ','ìŠ¤ë¦´ëŸ¬',to_date('20/07/24','RR/MM/DD'),'ë¯¸êµ­',86,'0','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','êµ¬ìˆ˜í™˜','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy10w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (10,'í„°ë¯¸ë„¤ì´í„° 2:ì˜¤ë¦¬ì§€ë„','ì•¡ì…˜',to_date('20/07/24','RR/MM/DD'),'ë…ì¼',88,'0','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ë‚˜ë”˜ ë¼ë°”í‚¤','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy11w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (11,'ë³´í—¤ë¯¸ì•ˆ ëž©ì†Œë””','í˜¸ëŸ¬',to_date('20/07/24','RR/MM/DD'),'ê¸°íƒ€',90,'12','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ëŒ„ ìŠ¤ìº”ë¡ ','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy12w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (12,'ë•êµ¬','ë“œë¼ë§ˆ',to_date('20/07/24','RR/MM/DD'),'í•œêµ­',92,'12','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','í”¼í„° íŒ¨ëŸ´ë¦¬','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy13w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (13,'ì›”-E','ìŠ¤ë¦´ëŸ¬',to_date('20/07/24','RR/MM/DD'),'í”„ëž‘ìŠ¤',94,'19','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ì œìž„ìŠ¤ ë§¨ê³¨ë“œ','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy14w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (14,'ë‚˜ í™€ë¡œ ì§‘ì—','ë¡œë§¨ìŠ¤',to_date('20/07/24','RR/MM/DD'),'ì¤‘êµ­',96,'12','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ë¡œì¹¸ í”¼ë„¤ê±´','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy15w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (15,'ë¼ì´ì–¸ ì¼ë³‘ êµ¬í•˜ê¸°','ë¡œë§¨ìŠ¤',to_date('20/07/24','RR/MM/DD'),'ì¼ë³¸',98,'12','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','í”¼í„° íŒ¨ëŸ´ë¦¬','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy16w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (16,'ì•„ì´ì¦ˆ ì˜¨ ë¯¸ : ë” ë¬´ë¹„','ë¡œë§¨ìŠ¤',to_date('20/07/24','RR/MM/DD'),'ì¸ë„',100,'12','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ì—°ìƒí˜¸','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy17w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (17,'ì‚´ì¸ì˜ ì¶”ì–µ','ìŠ¤ë¦´ëŸ¬',to_date('20/07/24','RR/MM/DD'),'ì´íƒˆë¦¬ì•„',102,'12','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ëŒ„ ìŠ¤ìº”ë¡ ','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy18w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (18,'ë¹½ íˆ¬ ë” í“¨ì³','ìŠ¤ë¦´ëŸ¬',to_date('20/07/24','RR/MM/DD'),'ì˜êµ­',104,'12','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ê°•íƒœê´‘','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy19w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (19,'ì‚¬ìš´ë“œ ì˜¤ë¸Œ ë®¤ì§','ë“œë¼ë§ˆ',to_date('20/07/24','RR/MM/DD'),'ìŠ¤íŽ˜ì¸',106,'12','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','êµ¬ìˆ˜í™˜','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy20w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (20,'ë§¤íŠ¸ë¦­ìŠ¤','ì•¡ì…˜',to_date('20/07/24','RR/MM/DD'),'ë¯¸êµ­',108,'12','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ì œìž„ìŠ¤ ë§¨ê³¨ë“œ','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy21w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (21,'ì¸ìƒì€ ì•„ë¦„ë‹¤ì›Œ','ë¡œë§¨ìŠ¤',to_date('20/07/24','RR/MM/DD'),'ë…ì¼',110,'12','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ë¡œì¹¸ í”¼ë„¤ê±´','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy22w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (22,'í—¬í”„','ë‹¤í',to_date('20/07/24','RR/MM/DD'),'ê¸°íƒ€',112,'0','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','í”¼í„° íŒ¨ëŸ´ë¦¬','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy23w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (23,'í¬ë ˆìŠ¤íŠ¸ ê²€í”„','ë“œë¼ë§ˆ',to_date('20/07/24','RR/MM/DD'),'í•œêµ­',114,'15','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ì¦êµ­ìƒ','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy24w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (24,'ìœ„ëŒ€í•œ ì‡¼ë§¨','ì•¡ì…˜',to_date('20/07/24','RR/MM/DD'),'í”„ëž‘ìŠ¤',116,'15','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','êµ¬ìˆ˜í™˜','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy25w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (25,'í´ëž˜ì‹','í˜¸ëŸ¬',to_date('20/07/24','RR/MM/DD'),'ì¤‘êµ­',118,'15','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ë¸Œë¼ì´ì–¸ ì‹±ì–´','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy26w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (26,'ê¸€ëž˜ë””ì—ì´í„°','ë“œë¼ë§ˆ',to_date('20/07/24','RR/MM/DD'),'ì¼ë³¸',120,'15','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ì—°ìƒí˜¸','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy27w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (27,'ì„¼ê³¼ ì¹˜ížˆë¡œì˜ í–‰ë°©ë¶ˆëª…','í˜¸ëŸ¬',to_date('20/07/24','RR/MM/DD'),'ì¸ë„',122,'15','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ë¸Œë¼ì´ì–¸ ì‹±ì–´','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy28w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (28,'í† ì´ ìŠ¤í† ë¦¬ 3','ì•¡ì…˜',to_date('20/07/24','RR/MM/DD'),'ì´íƒˆë¦¬ì•„',124,'19','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ì—°ìƒí˜¸','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy29w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (29,'íƒ€ì´íƒ€ë‹‰','ë“œë¼ë§ˆ',to_date('20/07/24','RR/MM/DD'),'ì˜êµ­',126,'19','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ì¦êµ­ìƒ','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy30w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (30,'ì•Œë¼ë”˜','í˜¸ëŸ¬',to_date('20/07/24','RR/MM/DD'),'ìŠ¤íŽ˜ì¸',128,'19','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ë¸Œë¼ì´ì–¸ ì‹±ì–´','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy31w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (1,'ê·¸ë¦°ë¶','ë“œë¼ë§ˆ',to_date('20/07/24','RR/MM/DD'),'í•œêµ­',70,'0','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ëŒ„ ìŠ¤ìº”ë¡ ','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy2w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (2,'ê°€ë²„ë‚˜ì›€','ì•¡ì…˜',to_date('20/07/24','RR/MM/DD'),'í”„ëž‘ìŠ¤',72,'12','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','í”¼í„° íŒ¨ëŸ´ë¦¬','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy3w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (3,'ë² ì¼ë¦¬ ì–´ê²Œì¸','ì•¡ì…˜',to_date('20/07/24','RR/MM/DD'),'ì¤‘êµ­',74,'0','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ì¦êµ­ìƒ','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy4w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (4,'ì›ë”','ë“œë¼ë§ˆ',to_date('20/07/24','RR/MM/DD'),'ì¼ë³¸',76,'0','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','êµ¬ìˆ˜í™˜','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy5w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (5,'í¬ë“œ V íŽ˜ë¼ë¦¬','ìŠ¤ë¦´ëŸ¬',to_date('20/07/24','RR/MM/DD'),'ì¸ë„',78,'0','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ë‚˜ë”˜ ë¼ë°”í‚¤','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy6w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (6,'ì•„ì¼ë¼','ì•¡ì…˜',to_date('20/07/24','RR/MM/DD'),'ì´íƒˆë¦¬ì•„',80,'0','test','ë‚˜í™ì¸, ê³ ë¯¼êµ­','ëŒ„ ìŠ¤ìº”ë¡ ','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy7w&feature=youtu.be','Poster_Aladdin.jpg','admin');
+Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('1','í† ë¥´ ëŒ€ ì•„ì´ì–¸ë§¨',to_date('20/07/24','RR/MM/DD'),to_date('20/08/25','RR/MM/DD'),'í† ë¥´ ëŒ€ ì•„ì´ì–¸ë§¨ ëˆ„ê°€ ë” ì…€ê°€ìš”','í† ë¥´','ì•„ì´ì–¸ë§¨',null,null,null,'hongil');
+Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('2','í—í¬ ëŒ€ ì•„ì´ì–¸ë§¨',to_date('20/07/01','RR/MM/DD'),to_date('20/07/10','RR/MM/DD'),'í—í¬ê°€ ì„¼ê°€ìš” ì•„ì´ì–¸ë§¨ì´ ì„¼ê°€ìš”','í—í¬','ì•„ì´ì–¸ë§¨',null,null,null,'hongil');
+Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('3','ì•„ì´ì–¸ë§¨ ëŒ€ ë¡œí‚¤',to_date('20/07/02','RR/MM/DD'),to_date('20/07/11','RR/MM/DD'),'ë¡œí‚¤ë„ ì„¼ê°€ìš”?','ë¡œí‚¤','ì•„ì´ì–¸ë§¨',null,null,null,'hongil');
+Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('4','ë¡œí‚¤ ëŒ€ í† ë¥´',to_date('20/07/03','RR/MM/DD'),to_date('20/07/12','RR/MM/DD'),'í† ë¥´ê°€ ë´ì£¼ì§€ ì•Šì„ê¹Œìš”?','ë¡œí‚¤','í† ë¥´',null,null,null,'hongil');
+Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('5','ì˜¤ë”˜ ëŒ€ í† ë¥´',to_date('20/07/04','RR/MM/DD'),to_date('20/07/13','RR/MM/DD'),'ì˜¤ë”˜ì´ ê·¸ëž˜ë„ í† ë¥´ëŠ” ì´ê¸°ê² ì£ ?','ì˜¤ë”˜','í† ë¥´',null,null,null,'hongil');
+Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('6','íƒ€ë…¸ìŠ¤ ëŒ€ ì˜¤ë”˜',to_date('20/07/05','RR/MM/DD'),to_date('20/07/14','RR/MM/DD'),'ì˜¤ë”˜ì´ëž‘ íƒ€ë…¸ìŠ¤ëž‘ ì‹¸ìš°ëŠ” ê±° ì•ˆë‚˜ì™”ì£ ?','íƒ€ë…¸ìŠ¤','ì˜¤ë”˜',null,null,null,'hongil');
+Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('7','í˜¸í¬ì•„ì´ ëŒ€ ë¸”ëž™ìœ„ë„ìš°',to_date('20/07/06','RR/MM/DD'),to_date('20/07/15','RR/MM/DD'),'ì¸ê°„ê³„ì˜ ì‹¸ì›€','í˜¸í¬ì•„ì´','ë¸”ëž™ìœ„ë„ìš°',null,null,null,'hongil');
+Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('8','ë°°íŠ¸ë§¨ ëŒ€ ìŠˆí¼ë§¨',to_date('20/07/07','RR/MM/DD'),to_date('20/07/16','RR/MM/DD'),'ê¶ê¸ˆí•´ì„œ ì˜í™”ë„ ë‚˜ì™”ì–´ìš”','ë°°íŠ¸ë§¨','ìŠˆí¼ë§¨',null,null,null,'hongil');
+Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('9','ìŠ¤íŒŒì´ë”ë§¨ ëŒ€ ë§¨ìŠ¤íŒŒì´ë”',to_date('20/07/08','RR/MM/DD'),to_date('20/07/17','RR/MM/DD'),'ë§¨ìŠ¤íŒŒì´ë”ëŠ” ëˆ„êµ¬ì•¼?','ìŠ¤íŒŒì´ë”ë§¨','ë§¨ìŠ¤íŒŒì´ë”',null,null,null,'hongil');
+Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values ('10','ì˜í™”ë³´ê¸° ì œì¼ ì¢‹ì€ ê³„ì ˆì€?',to_date('20/07/09','RR/MM/DD'),to_date('20/07/18','RR/MM/DD'),'ë´„ì—¬ë¦„ê°€ì„ê²¨ìš¸ ì–¸ì œ ì˜í™” ë³´ì„¸ìš”?','ë´„','ì—¬ë¦„','ê°€ì„','ê²¨ìš¸',null,'hongil');
 commit;
