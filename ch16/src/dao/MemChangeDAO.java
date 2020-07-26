@@ -11,7 +11,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class MemChangeDAO {
-	private static MemChangeDAO instance;
+	private static MemChangeDAO instance; 
 
 	/*
 	 * private MemberChangeDAO() { }

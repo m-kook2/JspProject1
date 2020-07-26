@@ -3,7 +3,7 @@ package dao;
 public class MemChangeVO {
 	String id;
 	String password;
-	String email;
+	String email; 
 	String nickname;
 	public String getId() {
 		return id;
