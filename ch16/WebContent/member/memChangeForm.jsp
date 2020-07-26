@@ -44,7 +44,7 @@
 <body>
 <%@ include file="/inc/header.jsp" %> 
 	<div class="container">
-		<form action="memChangeUpdateForm.do" name="frm" method="post">
+		<form action="memChangeUpdateAction.do" name="frm" method="post">
 			<div class="form-group">
 			<h2>회원정보 수정</h2>
 			<br />
