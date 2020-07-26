@@ -42,7 +42,7 @@
 <%@ include file="/inc/top.jsp" %>
 </head>
 <body>
-<%@ include file="/inc/header.jsp" %>
+<%@ include file="/inc/header.jsp" %> 
 	<div class="container">
 		<form action="memChangeUpdateForm.do" name="frm" method="post">
 			<div class="form-group">
