@@ -12,7 +12,7 @@
 		var passChk=document.frm.chkpassword.value;
 		var idChk=document.getElementById("msg").innerHTML;
 		if(frm.id.value==""){
-			alert("id를 입력해주세요.");
+			alert("아이디를 입력해주세요.");
 			frm.id.value="";
 			frm.password.focus();
 			return false;
