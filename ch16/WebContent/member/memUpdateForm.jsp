@@ -44,7 +44,7 @@ return false;
 <body>
 	<%@ include file="/inc/header.jsp"%>
 	<div class="container">
-		<form action="memChangeUpdateAction.do" name="frm" method="post">
+		<form action="memUpdatdForm.do" name="frm" method="post">
 			<div class="form-group">
 				<h2>회원정보 수정</h2>
 				<br /> <label for="id">아이디 : </label> <input type="hidden"
