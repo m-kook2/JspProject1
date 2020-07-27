@@ -11,15 +11,15 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class MovieDAO {
-	private static MovieDAO instance;
+public class MovieDao {
+	private static MovieDao instance;
 
-	private MovieDAO() {
+	private MovieDao() {
 	}
 
-	public static MovieDAO getInstance() {
+	public static MovieDao getInstance() {
 		if (instance == null) {
-			instance = new MovieDAO();
+			instance = new MovieDao();
 		}
 		return instance;
 	}
@@ -36,18 +36,18 @@ public class MovieDAO {
 		return conn;
 	}
 	
-	public List<SearchDTO> selectMovie(String name) throws SQLException {
+	public List<SearchDto> selectMovie(String name) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		List<SearchDTO> list = new ArrayList<SearchDTO>();
+		List<SearchDto> list = new ArrayList<SearchDto>();
 		String sql = "SELECT M_IDX, M_NAME FROM MOVIE_BOARD WHERE M_NAME LIKE '%"+name+"%'";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				SearchDTO vo=new SearchDTO();
+				SearchDto vo=new SearchDto();
 				vo.setM_idx(rs.getString("M_IDX"));
 				vo.setName(rs.getString("M_NAME"));
 				list.add(vo);

@@ -1,6 +1,6 @@
 package dao;
 
-public class SearchDTO {
+public class SearchDto {
 	String name;
 	String m_idx;
 	
