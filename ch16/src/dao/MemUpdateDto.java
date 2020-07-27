@@ -4,7 +4,7 @@ public class MemUpdateDto {
 String id;
 String password;
 String email;
-	String nickname;
+String nickname;
 
 	public String getId() {
 		return id;
