@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONArray;
 
 import dao.SearchDAO;
-import dao.SearchVO;
+import dao.SearchDTO;
 
 public class AutocompleteAction{
 	public void autucomplete(HttpServletRequest request,
@@ -21,7 +21,7 @@ public class AutocompleteAction{
 		response.setCharacterEncoding("UTF-8");
 		String str=request.getParameter("keyWord");
 		try {
-			List<SearchVO> list = dao.search(str);
+			List<SearchDTO> list = dao.search(str);
 			if(list !=null){
 				JSONArray ja = new JSONArray();
 				for (int i = 0; i < list.size(); i++) {

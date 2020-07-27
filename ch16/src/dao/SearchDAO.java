@@ -36,10 +36,10 @@ public class SearchDAO {
 		return conn;
 	}
 
-	public List<SearchVO> search(String str) throws SQLException {
+	public List<SearchDTO> search(String str) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		List<SearchVO> list = new ArrayList<SearchVO>();
+		List<SearchDTO> list = new ArrayList<SearchDTO>();
 		ResultSet rs = null;
 		String sql = "SELECT M_NAME FROM MOVIE_INFO WHERE M_NAME LIKE '%"+str+"%' OR M_GENRE LIKE '%"+str+"%' OR M_DIRECTOR LIKE '%"+str+"%'";
 		try {
@@ -47,7 +47,7 @@ public class SearchDAO {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				SearchVO vo=new SearchVO();
+				SearchDTO vo=new SearchDTO();
 				vo.setName(rs.getString("M_NAME"));
 				list.add(vo);
 			}

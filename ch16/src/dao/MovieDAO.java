@@ -36,18 +36,18 @@ public class MovieDAO {
 		return conn;
 	}
 	
-	public List<SearchVO> selectMovie(String name) throws SQLException {
+	public List<SearchDTO> selectMovie(String name) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		List<SearchVO> list = new ArrayList<SearchVO>();
+		List<SearchDTO> list = new ArrayList<SearchDTO>();
 		String sql = "SELECT M_IDX, M_NAME FROM MOVIE_BOARD WHERE M_NAME LIKE '%"+name+"%'";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				SearchVO vo=new SearchVO();
+				SearchDTO vo=new SearchDTO();
 				vo.setM_idx(rs.getString("M_IDX"));
 				vo.setName(rs.getString("M_NAME"));
 				list.add(vo);
