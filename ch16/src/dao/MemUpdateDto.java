@@ -1,6 +1,6 @@
 package dao;
 
-public class MemUpdateVO {
+public class MemUpdateDto {
 String id;
 String password;
 String email;
