@@ -1,6 +1,6 @@
 package dao;
 
-public class MemberVO {
+public class MemberDto {
 	private int idx;
 	private String id;
 	private String email;

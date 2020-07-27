@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.MemberDAO;
-import dao.MemberVO;
+import dao.MemberDao;
+import dao.MemberDto;
 
 public class LogoutAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)

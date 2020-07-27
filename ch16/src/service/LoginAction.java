@@ -8,18 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.MemberDAO;
-import dao.MemberVO;
+import dao.MemberDao;
+import dao.MemberDto;
 
 public class LoginAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		MemberDAO dao = MemberDAO.getInstance();
+		MemberDao dao = MemberDao.getInstance();
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		try {
-			List<MemberVO> list = dao.loginchk(id, password);
+			List<MemberDto> list = dao.loginchk(id, password);
 			if (list != null) {
 				for (int i = 0; i < list.size(); i++) {
 					session.setAttribute("id", list.get(i).getId());

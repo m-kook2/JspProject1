@@ -7,13 +7,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.MemberDAO;
+import dao.MemberDao;
 
 public class IdChkAction{
 	public void idChk(HttpServletRequest request,
 		HttpServletResponse response) throws ServletException, IOException {
 		 String id=request.getParameter("id");
-		 MemberDAO dao=MemberDAO.getInstance();
+		 MemberDao dao=MemberDao.getInstance();
 		 int result;
 		try {
 			result = dao.idChk(id);
