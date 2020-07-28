@@ -11,15 +11,15 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class MemberDAO {
-	private static MemberDAO instance;
+public class MemberDao {
+	private static MemberDao instance;
 
-	private MemberDAO() {
+	private MemberDao() {
 	}
 
-	public static MemberDAO getInstance() {
+	public static MemberDao getInstance() {
 		if (instance == null) {
-			instance = new MemberDAO();
+			instance = new MemberDao();
 		}
 		return instance;
 	}
@@ -36,7 +36,7 @@ public class MemberDAO {
 		return conn;
 	}
 
-	public int insert(MemberVO memberVO) throws SQLException {
+	public int insert(MemberDto memberVO) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -111,11 +111,11 @@ public class MemberDAO {
 		return result;
 	}
 
-	public List<MemberVO> loginchk(String id, String passwd) throws SQLException {
+	public List<MemberDto> loginchk(String id, String passwd) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
-		List<MemberVO> list = new ArrayList<MemberVO>();
+		List<MemberDto> list = new ArrayList<MemberDto>();
 		String sql = "SELECT * FROM MEMBER WHERE ID='" + id + "' AND PASSWORD='" + passwd + "' AND DEL_YN='N'";
 		System.out.println(sql);
 		try {
@@ -123,7 +123,7 @@ public class MemberDAO {
 			pstm = conn.prepareStatement(sql);
 			rs = pstm.executeQuery();
 			if (rs.next()) {
-				MemberVO vo = new MemberVO();
+				MemberDto vo = new MemberDto();
 				vo.setId(rs.getString("ID"));
 				vo.setIdx(rs.getInt("IDX"));
 				vo.setPassword(rs.getString("PASSWORD"));

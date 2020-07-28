@@ -11,15 +11,15 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class MovieDAO {
-	private static MovieDAO instance;
+public class SearchDao {
+	private static SearchDao instance;
 
-	private MovieDAO() {
+	private SearchDao() {
 	}
 
-	public static MovieDAO getInstance() {
+	public static SearchDao getInstance() {
 		if (instance == null) {
-			instance = new MovieDAO();
+			instance = new SearchDao();
 		}
 		return instance;
 	}
@@ -35,20 +35,19 @@ public class MovieDAO {
 		}
 		return conn;
 	}
-	
-	public List<SearchVO> selectMovie(String name) throws SQLException {
+
+	public List<SearchDto> search(String str) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		List<SearchDto> list = new ArrayList<SearchDto>();
 		ResultSet rs = null;
-		List<SearchVO> list = new ArrayList<SearchVO>();
-		String sql = "SELECT M_IDX, M_NAME FROM MOVIE_BOARD WHERE M_NAME LIKE '%"+name+"%'";
+		String sql = "SELECT M_NAME FROM MOVIE_INFO WHERE M_NAME LIKE '%"+str+"%' OR M_GENRE LIKE '%"+str+"%' OR M_DIRECTOR LIKE '%"+str+"%'";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				SearchVO vo=new SearchVO();
-				vo.setM_idx(rs.getString("M_IDX"));
+			while(rs.next()) {
+				SearchDto vo=new SearchDto();
 				vo.setName(rs.getString("M_NAME"));
 				list.add(vo);
 			}
@@ -66,4 +65,5 @@ public class MovieDAO {
 		}
 		return list;
 	}
+	
 }
