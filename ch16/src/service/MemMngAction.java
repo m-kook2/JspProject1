@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.MemberDao;
 import dao.MemberDto;
-public class MemberMngAction implements CommandProcess {
+public class MemMngAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request,
 		HttpServletResponse response) throws ServletException, IOException {
 		MemberDao md = MemberDao.getInstance();
