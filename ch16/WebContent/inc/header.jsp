@@ -66,7 +66,7 @@ $(document).ready(function() {
 		      	<li class="nav-item" id="mem4">
 		       	 <a class="nav-link" href="logout.do">로그아웃</a>
 		      	</li>
-		      	<c:if test="${sessionScope.id eq 'admin'}">
+		      	<c:if test="${sessionScope.status eq '2'}">
 			      	<li class="nav-item dropdown" id="mem5">
 				      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">관리자</a>
 				      <div class="dropdown-menu">
