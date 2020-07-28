@@ -235,4 +235,44 @@ public class MemberDao {
 		}
 		return list;
 	}
+	
+	public List<MemberDto> select(String id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		List<MemberDto> list = new ArrayList<>();
+		String sql = "select * from member where id=? ";
+		try {
+			conn = getConnection();
+			if (id != null)
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, id);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				MemberDto dto = new MemberDto();
+				dto.setId(rs.getString("ID"));
+				dto.setIdx(rs.getInt("IDX"));
+				dto.setPassword(rs.getString("PASSWORD"));
+				dto.setEmail(rs.getString("EMAIL"));
+				dto.setNickname(rs.getString("NICKNAME"));
+				dto.setGender(rs.getString("GENDER"));
+				dto.setReg_date(rs.getString("REG_DATE"));
+				dto.setDel_yn(rs.getString("DEL_YN"));
+				dto.setStatus(rs.getString("STATUS"));
+				list.add(dto);
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstm != null)
+				pstm.close();
+			if (conn != null)
+				conn.close();
+		}
+		return list;
+	}
+	
 }
