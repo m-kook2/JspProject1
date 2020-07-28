@@ -238,6 +238,16 @@ REM INSERTING into J20200701.BOOK_MIND
 SET DEFINE OFF;
 REM INSERTING into J20200701.COMM
 SET DEFINE OFF;
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (1,'hongil2','첫번째 게시물의 첫 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',1,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (2,'hongil3','첫번째 게시물의 첫 댓글의 답글',null,null,null,to_date('20/07/28','RR/MM/DD'),'n',1,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (3,'hongil4','첫번째 게시물의 두번째 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',1,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (4,'hongil5','첫번째 게시물의 두번째 댓글의 답글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',1,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (5,'hongil6','두번째 게시물의 첫 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',2,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (6,'hongil7','두번째 게시물의 첫 댓글의 답글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',2,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (7,'hongil8','첫번째 게시물의 첫 댓글의 답글의 답글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',1,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (8,'hongil9','네번째 게시물 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',4,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (9,'hongil2','다섯번째 게시물 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',5,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (10,'hongil3','여섯번째 게시물 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',6,0,0);
 REM INSERTING into J20200701.MEMBER
 SET DEFINE OFF;
 Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS) values ('admin',1,'2468','email1@gmail.com','nickname2','남자','2020/07/01','N','2');
@@ -285,6 +295,45 @@ Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_
 Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (6,'아일라','액션',to_date('20/07/24','RR/MM/DD'),'이탈리아',80,'0','test','나홍인, 고민국','댄 스캔론','Photo_Aladdin.jpg','https://www.youtube.com/watch?v=KrM3vS5sy7w&feature=youtu.be','Poster_Aladdin.jpg','admin');
 REM INSERTING into J20200701.REVIEW
 SET DEFINE OFF;
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (1,'그린 북','비고 모텐슨, 마허샬라 알리 주연의 영화 #그린북 은 우리나라에서 2019년1월에 개봉한 웰메이드 드라마영화이다. 이 영화는 2019 아카데미 시상식에서 작품상을 수상하며 그 작품성을 인정받은 영화이다.',to_date('20/07/28','RR/MM/DD'),'admin',1);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (2,'가버나움','영화가 아닌 다큐멘터리를 보는 듯하고, 주인공의 말과 행동은 연기가 아닌 듯하다.',to_date('20/07/24','RR/MM/DD'),'admin',2);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (3,'베일리 어게인','영화 베일리어게인은 2017년도에 개봉한',to_date('20/07/23','RR/MM/DD'),'admin',3);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (4,'원더','원작소설이 있던 <원더>는 원작소설 조차도 전세계 800만 독자를 사로 잡은 베스트셀러인데요!',to_date('20/07/22','RR/MM/DD'),'admin',4);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (5,'포드 V 페라리','우선 이 영화는 실화를 바탕으로 한다.',to_date('20/07/21','RR/MM/DD'),'admin',5);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (6,'아일라','영화 아일라는 6.25. 한국전쟁 중 전쟁 고아가 된 소녀와 터키 한국참전 용사가 만나',to_date('20/07/20','RR/MM/DD'),'admin',6);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (7,'주전장','일본의 인종차별 문제를 언급했다가 우익들에게 맹공격을 당한 일본계 미국인 유투버 미키 데자키는',to_date('20/07/28','RR/MM/DD'),'admin',7);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (8,'당갈','이 영화는 2010년 영연방 대회에서 55kg부문 금메달을 딴 기타 포갓',to_date('20/07/28','RR/MM/DD'),'admin',8);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (9,'쇼생크 탈출','주인공 앤디 듀프레인이 바람핀 아내와 내연남을 죽였다는 판결을 받고 쇼생크 교도소에 수감된다. 수감되면서 겪는 이야기와 그 수감을 알아서 마무리 짓는 이야기. ',to_date('20/07/28','RR/MM/DD'),'admin',9);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (10,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (11,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (12,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (13,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (14,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (15,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (16,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (17,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (18,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (19,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (20,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (21,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (22,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (23,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (24,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (25,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (26,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (27,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (28,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (29,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (30,'터미네이터2','최고의 SF 액션 영화 중 하나이자 감독인 제임스 카메론의',to_date('20/07/28','RR/MM/DD'),'admin',10);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (31,'그린 북','비고 모텐슨, 마허샬라 알리 주연의 영화 #그린북 은 우리나라에서 2019년1월에 개봉한 웰메이드 드라마영화이다. 이 영화는 2019 아카데미 시상식에서 작품상을 수상하며 그 작품성을 인정받은 영화이다.',to_date('20/07/28','RR/MM/DD'),'admin',1);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (32,'가버나움','영화가 아닌 다큐멘터리를 보는 듯하고, 주인공의 말과 행동은 연기가 아닌 듯하다.',to_date('20/07/24','RR/MM/DD'),'admin',2);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (33,'베일리 어게인','영화 베일리어게인은 2017년도에 개봉한',to_date('20/07/23','RR/MM/DD'),'admin',3);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (34,'원더','원작소설이 있던 <원더>는 원작소설 조차도 전세계 800만 독자를 사로 잡은 베스트셀러인데요!',to_date('20/07/22','RR/MM/DD'),'admin',4);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (35,'포드 V 페라리','우선 이 영화는 실화를 바탕으로 한다.',to_date('20/07/21','RR/MM/DD'),'admin',5);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (36,'아일라','영화 아일라는 6.25. 한국전쟁 중 전쟁 고아가 된 소녀와 터키 한국참전 용사가 만나',to_date('20/07/20','RR/MM/DD'),'admin',6);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (37,'주전장','일본의 인종차별 문제를 언급했다가 우익들에게 맹공격을 당한 일본계 미국인 유투버 미키 데자키는',to_date('20/07/28','RR/MM/DD'),'admin',7);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (38,'당갈','이 영화는 2010년 영연방 대회에서 55kg부문 금메달을 딴 기타 포갓',to_date('20/07/28','RR/MM/DD'),'admin',8);
+Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (39,'쇼생크 탈출','주인공 앤디 듀프레인이 바람핀 아내와 내연남을 죽였다는 판결을 받고 쇼생크 교도소에 수감된다. 수감되면서 겪는 이야기와 그 수감을 알아서 마무리 짓는 이야기. ',to_date('20/07/28','RR/MM/DD'),'admin',9);
 REM INSERTING into J20200701.SUR
 SET DEFINE OFF;
 Insert into J20200701.SUR (S_IDX,S_SUB,S_SDATE,S_EDATE,S_CONTENT,S_OP1,S_OP2,S_OP3,S_OP4,S_OP5,ID) values (1,'토르 대 아이언맨',to_date('20/07/24','RR/MM/DD'),to_date('20/08/25','RR/MM/DD'),'토르 대 아이언맨 누가 더 셀가요','토르','아이언맨',null,null,null,'admin');
