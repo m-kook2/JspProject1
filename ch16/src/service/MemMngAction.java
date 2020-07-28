@@ -48,6 +48,6 @@ public class MemMngAction implements CommandProcess {
 				System.out.println("endPage-->" + endPage);  // /ch16/list.do
 			
 		} catch(Exception e) { System.out.println(e.getMessage()); }
-		return "mng/memberMng.jsp";
+		return "mng/memMng.jsp";
 	}
 }
