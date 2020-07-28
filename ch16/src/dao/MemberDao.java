@@ -117,6 +117,7 @@ public class MemberDao {
 		ResultSet rs = null;
 		List<MemberDto> list = new ArrayList<MemberDto>();
 		String sql = "SELECT * FROM MEMBER WHERE ID='" + id + "' AND PASSWORD='" + passwd + "' AND DEL_YN='N'";
+			//?로 표기해서 값받기.
 		System.out.println(sql);
 		try {
 			conn = getConnection();
