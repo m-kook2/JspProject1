@@ -124,6 +124,7 @@ public class MemberDao {
 			rs = pstm.executeQuery();
 			if (rs.next()) {
 				MemberDto vo = new MemberDto();
+				
 				vo.setId(rs.getString("ID"));
 				vo.setIdx(rs.getInt("IDX"));
 				vo.setPassword(rs.getString("PASSWORD"));
@@ -149,5 +150,29 @@ public class MemberDao {
 		}
 
 		return list;
+	}
+	public int memUpdateForm(MemberDto memberDto) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = "update member set id=?, password=?," + " email=?, nickname=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberDto.getId());
+			pstmt.setString(2, memberDto.getPassword());
+			pstmt.setString(3, memberDto.getEmail());
+			pstmt.setString(4, memberDto.getNickname());
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+
+		return result;
 	}
 }

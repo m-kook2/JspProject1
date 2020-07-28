@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.MemUpdateDao;
 import dao.MemUpdateDto;
 import dao.MemberDao;
+import dao.MemberDto;
 
 public class MemUpdateAction implements CommandProcess {
 
@@ -19,29 +19,39 @@ public class MemUpdateAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		MemUpdateDao dao = MemUpdateDao.getInstance();
-		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		String nickname = request.getParameter("nickname");
+		int result = 0;
+		
+		MemberDto vo2 = new MemberDto();
+		vo2.setId(id);
+		vo2.setPassword(password);
+		vo2.setEmail(email);
+		vo2.setNickname(nickname);
+		
+		MemberDao md = MemberDao.getInstance();
 		try {
-			List<MemUpdateDto> list = dao.memUpdateForm(id, password, email, nickname);
-			if(list != null) {
-				for(int i = 0; i > list.size();i++){
-					MemUpdateDto md = new MemUpdateDto();
-					session.setAttribute("id", list.get(i).getId());
-					session.setAttribute("password", list.get(i).getPassword());
-					session.setAttribute("email", list.get(i).getEmail());
-					session.setAttribute("nickname", list.get(i).getNickname());
-					session.setAttribute("nickname", nickname);
-				}
-			}
+			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+			// TODO: handle exception
 		}
-		return "memUpdateForm.jsp";
+		
+		return null;
 	}
-	
 
 }
+
+/*request.setCharacterEncoding("utf-8");
+		MemberDto mt = new MemberDto();
+		mt.setId(request.getParameter("id"));
+		mt.setPassword(request.getParameter("password"));
+		mt.setEmail(request.getParameter("email"));
+		mt.setPassword(request.getParameter("password"));
+		MemberDao md = MemberDao.getInstance();
+		try {
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}*/
