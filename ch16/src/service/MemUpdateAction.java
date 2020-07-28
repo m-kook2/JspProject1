@@ -24,6 +24,7 @@ public class MemUpdateAction implements CommandProcess {
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		String nickname = request.getParameter("nickname");
+		MemberDao md = MemberDao.getInstance();
 		int result = 0;
 		
 		/*MemberDto vo2 = new MemberDto();
@@ -32,7 +33,6 @@ public class MemUpdateAction implements CommandProcess {
 		vo2.setEmail(email);
 		vo2.setNickname(nickname);*/
 		
-		MemberDao md = MemberDao.getInstance();
 		request.setAttribute("id", id);
 		request.setAttribute("password", password);
 		request.setAttribute("email", email);
