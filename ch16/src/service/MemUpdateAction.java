@@ -37,7 +37,6 @@ public class MemUpdateAction implements CommandProcess {
 		request.setAttribute("password", password);
 		request.setAttribute("email", email);
 		request.setAttribute("nickname", nickname);
-		try {
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
