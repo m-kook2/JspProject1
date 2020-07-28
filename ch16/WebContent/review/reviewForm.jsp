@@ -6,18 +6,12 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp" %>
-<style type="text/css">
-	table{
-		width: 100%;
-		
-	}
-</style>
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-<div>
-<h2>게시판</h2>
-	<table border="1">
+<div class="col-sm text-center">
+<h2 class="text">리뷰 게시판</h2>
+	<table class="table">
 		<tr>
 			<th>번호</th>
 			<th>제목</th>
@@ -44,7 +38,7 @@
 		</c:if>
 	</table>
 	
-	<div style="text-align: center;">
+	<div class="text-center">
 		<c:if test="${startPage > blockSize }">
 			<a href='reivewForm.do?pageNum=${startPage-blockSize}'>[이전]</a>
 		</c:if>
@@ -55,6 +49,12 @@
 			<a href='reivewForm.do?pageNum=${startPage+blockSize }'>[다음]</a>
 		</c:if>
 	
+	</div>
+	<div class="row" style="float: right">
+			<div id="admin-only">
+				<button class="btn m-2 btn-primary mx-auto">게시글 작성</button>
+			</div>
+		</div>
 	</div>
 
 </body>
