@@ -6,29 +6,56 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp" %>
+<style type="text/css">
+	table{
+		width: 100%;
+		
+	}
+</style>
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
 <div>
-<h2>게사판</h2>
-	<table>
+<h2>게시판</h2>
+	<table border="1">
 		<tr>
-			<td><a href="writeForm.do">글쓰기</a></td>
+			<th>번호</th>
+			<th>제목</th>
+			<th>내용</th>
+			<th>작성자</th>
+			<th>작성일</th>
 		</tr>
+		<c:if test="${totCnt > 0 }">
+			<c:forEach var="review" items="${list }">
+				<tr>
+					<td>${startNum }</td>
+					<td>
+					<a href="content.do?num=${review.p_idx }&pageNum=${currentPage}">${review.p_title }</a>
+					</td>
+					<td>${review.p_content }</td>
+					<td>${review.id }</td>
+					<td>${review.p_date }</td>
+					</tr>
+					<c:set var="startNum" value="${startNum-1 }"></c:set>
+			</c:forEach>
+		</c:if>
+		<c:if test="${totCnt ==0 }">
+				<tr><td colspan="5">데이터가 없네</td></tr>
+		</c:if>
 	</table>
 	
 	<div style="text-align: center;">
-		<%-- <c:if test="${startPage > blockSize }">
-			<a href='list.do?pageNum=${startPage-blockSize}'>[이전]</a>
+		<c:if test="${startPage > blockSize }">
+			<a href='reivewForm.do?pageNum=${startPage-blockSize}'>[이전]</a>
 		</c:if>
 		<c:forEach var="i" begin="${startPage}" end="${endPage}">
-			<a href='list.do?pageNum=${i }'>[${i}]</a>
+			<a href='reivewForm.do?pageNum=${i }'>[${i}]</a>
 		</c:forEach>
 		<c:if test="${endPage > pageCnt }">
-			<a href='list.do?pageNum=${startPage+blockSize }'>[다음]</a>
-		</c:if> --%>
+			<a href='reivewForm.do?pageNum=${startPage+blockSize }'>[다음]</a>
+		</c:if>
 	
 	</div>
-</div>
+
 </body>
 </html>
