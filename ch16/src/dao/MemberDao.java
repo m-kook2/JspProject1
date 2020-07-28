@@ -88,10 +88,12 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		ResultSet rs = null;
-		String sql = "select count(id) as cnt from member where id='" + id + "'";
+		String sql = "select count(id) as cnt from member where id=?";
+		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				result = rs.getInt("cnt");
@@ -116,12 +118,14 @@ public class MemberDao {
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		List<MemberDto> list = new ArrayList<MemberDto>();
-		String sql = "SELECT * FROM MEMBER WHERE ID='" + id + "' AND PASSWORD='" + passwd + "' AND DEL_YN='N'";
+		String sql = "SELECT * FROM MEMBER WHERE ID=? AND PASSWORD=? AND DEL_YN='N'";
 			//?로 표기해서 값받기.
 		System.out.println(sql);
 		try {
 			conn = getConnection();
 			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, id);
+			pstm.setString(2, passwd);
 			rs = pstm.executeQuery();
 			if (rs.next()) {
 				MemberDto vo = new MemberDto();
