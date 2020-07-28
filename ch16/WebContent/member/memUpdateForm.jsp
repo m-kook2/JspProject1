@@ -44,11 +44,11 @@ return false;
 <body>
 	<%@ include file="/inc/header.jsp"%>
 	<div class="container">
-		<form action="memUpdatdForm.do" name="frm" method="post">
+		<form action="memUpdatePro.do" name="frm" method="post">
 			<div class="form-group">
 				<h2>회원정보 수정</h2>
-				<br /> <label for="id">아이디 : </label> <input type="hidden"
-					class="form-control" id="id" name="id">
+				<br /> <label for="id">아이디 : </label> <input type="text"
+					class="form-control" id="id" name="id" disabled="disabled" value="${sessionScope.id }">
 				<p>
 					<label for="password">비밀번호 : </label> <input type="password"
 						class="form-control" id="password" name="psssword">
@@ -61,8 +61,7 @@ return false;
 						class="form-control" id="nickname" name="nickname">
 			</div>
 			<br />
-			<button type="button" class="btn btn-primary" onclick="chg();">정보
-				수정</button>
+			<button type="button" class="btn btn-primary" onclick="chg();">정보 수정</button>
 		</form>
 	</div>
 	<%@ include file="/inc/footer.jsp"%>
