@@ -59,7 +59,7 @@ $(document).ready(function() {
 			      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">마이페이지</a>
 			      <div class="dropdown-menu">
 			        <a class="dropdown-item" href="#section41">즐겨찾기</a>
-			        <a class="dropdown-item" href="#section42">회원정보수정</a>
+			        <a class="dropdown-item" href="memUpdateForm.do">회원정보수정</a>
 			        <a class="dropdown-item" href="#section43">회원탈퇴</a>
 			      </div>
 			    </li>
