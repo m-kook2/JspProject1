@@ -18,6 +18,7 @@ public class MemUpdateAction implements CommandProcess {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		try {
 		HttpSession session = request.getSession();
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
