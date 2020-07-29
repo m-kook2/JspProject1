@@ -24,7 +24,8 @@ public class BookmarkFormAction implements CommandProcess {
 		
 		BookmarkDao bd = BookmarkDao.getInstance();
 		try {
-			int totCnt = bd.getTotalCnt();
+			//int totCnt = bd.getTotalCnt();
+			int totIdCnt = bd.getIdCnt(id);
 			String pageNum = request.getParameter("pageNum");
 			if (pageNum == null || pageNum.equals("")) {
 				pageNum = "1";
@@ -33,15 +34,15 @@ public class BookmarkFormAction implements CommandProcess {
 			int pageSize = 10, blockSize = 10;
 			int startRow = (currentPage - 1) * pageSize + 1;
 			int endRow = startRow + pageSize - 1;
-			int startNum = totCnt - startRow + 1;
+			int startNum = totIdCnt - startRow + 1;
 			List<BookmarkDto> list = bd.list(startRow, endRow, id);
-			int pageCnt = (int) Math.ceil((double) totCnt / pageSize);
+			int pageCnt = (int) Math.ceil((double) totIdCnt / pageSize);
 			int startPage = (int) (currentPage - 1) / blockSize * blockSize + 1;
 			int endPage = startPage + blockSize - 1;
 			if (endPage > pageCnt)
 				endPage = pageCnt;
 
-			request.setAttribute("totCnt", totCnt);
+			request.setAttribute("totCnt", totIdCnt);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("currentPage", currentPage);
 			request.setAttribute("startNum", startNum);
@@ -53,7 +54,7 @@ public class BookmarkFormAction implements CommandProcess {
 
 			System.out.println("-----------------------------------------------"); // /ch16/list.do
 			System.out.println("startNum-->" + startNum); // /ch16/list.do
-			System.out.println("totCnt-->" + totCnt); // /ch16/list.do
+			System.out.println("totIdCnt-->" + totIdCnt); // /ch16/list.do
 			System.out.println("currentPage-->" + currentPage); // /ch16/list.do
 			System.out.println("blockSize-->" + blockSize); // /ch16/list.do
 			System.out.println("pageSize-->" + pageSize); // /ch16/list.do

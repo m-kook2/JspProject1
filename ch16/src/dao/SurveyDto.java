@@ -5,8 +5,8 @@ import java.sql.Date;
 public class SurveyDto {
   private int s_idx;
   private String s_sub;
-  private Date s_sdate;
-  private Date s_edate;
+  private String s_sdate;
+  private String s_edate;
   private String s_content;
 
 
@@ -59,20 +59,20 @@ public class SurveyDto {
     this.s_sub = sub;
   }
 
-  public Date getS_sdate() {
+  public String getS_sdate() {
     return s_sdate;
   }
 
-  public void setS_sdate(Date s_sdate) {
-    this.s_sdate = s_sdate;
+  public void setS_sdate(String string) {
+    this.s_sdate = string;
   }
 
-  public Date getS_edate() {
+  public String getS_edate() {
     return s_edate;
   }
 
-  public void setS_edate(Date s_edate) {
-    this.s_edate = s_edate;
+  public void setS_edate(String string) {
+    this.s_edate = string;
   }
 
   public String getS_op1() {

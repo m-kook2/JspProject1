@@ -84,4 +84,47 @@ public class BookmarkDao {
 		}
 		return tot;
 	}
+
+	public int getIdCnt(String id) throws SQLException {
+		Connection conn = null;	
+		PreparedStatement pstmt= null; 
+		ResultSet rs = null;    
+		int tot = 0;
+		String sql = "select count(*) from book_mind where id=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) tot = rs.getInt(1);
+		} catch(Exception e) {	System.out.println(e.getMessage()); 
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return tot;
+	}
+
+	
+	public int delete(String id, int m_idx) throws SQLException {
+		Connection conn = null;	
+		PreparedStatement pstmt= null; 
+	    int result = 0;
+		String sql = "delete from book_mind where id=? and m_idx=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, m_idx);
+			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if(conn != null) conn.close();
+			if(pstmt != null) pstmt.close();
+		}
+		return result;
+	}
 }
