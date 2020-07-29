@@ -6,37 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-function chg() {
-	var frm=document.frm;
-	var pass=document.frm.password.value;
-	var passChk=document.frm.chkpassword.value;
-	var email=document.frm.email.value;
-	var nick=document.frm.nickname.value;
-if(frm.pass.value==""){
-	alert("비밀번호를 입력하세요.");
-	frm.password.value="";
-	frm.password.focus-"비밀번호";
-return false;
-}
-if(pass != passChk){
-	alert("비밀번호가 일치하지 않습니다.");
-	frm.password.value="";
-	frm.chkpassword.value="";
-	frm.password.focus();
-return false;
-if(frm.email.value=""){
-	alert="이메일을 입력하세요.";
-	frm.email.value="";
-	frm.email.focus="이메일";
-return false;
-}
-if(frm.nick.value=""){
-	alert("닉네임을 입력하세요.");
-	frm.nickname.value="";
-	frm.nickname.focus="닉네임";
-return false;
-}
-	document.frm.submit();
+function mut() {
+	var frm=document.f;
+	if(frm.password.value != frm.chkpassword.value){
+		alert("패스워드 확인이 필요합니다.");
+		frm.chkpassword.value="";
+		frm.chkpassword.focus();
+		return false;
+	}
+	frm.submit();
 }
 </script>
 <%@ include file="/inc/top.jsp"%>
@@ -44,24 +22,35 @@ return false;
 <body>
 	<%@ include file="/inc/header.jsp"%>
 	<div class="container">
-		<form action="memUpdatePro.do" name="frm" method="post">
+		<form action="memUpdatePro.do" name="f" method="post">
 			<div class="form-group">
 				<h2>회원정보 수정</h2>
 				<br /> <label for="id">아이디 : </label> <input type="text"
-					class="form-control" id="id" name="id" disabled="disabled" value="${sessionScope.id }">
+					class="form-control" id="id" name="id" 
+					value="${sessionScope.id }">
 				<p>
+
 					<label for="password">비밀번호 : </label> <input type="password"
-						class="form-control" id="password" name="psssword">
+						class="form-control" id="password" name="psssword"
+						value="${sessionScope.password }">
 				<p>
+
 					<label for="chkpassword">비밀번호 확인:</label> <input type="password"
 						class="form-control" id="chkpassword" name="chkpassword">
+				<p>
+
 					<label for="email">이메일 : </label> <input type="text"
-						class="form-control" id="email" name="email"> <label
-						for="nickname">닉네임 : </label> <input type="text"
-						class="form-control" id="nickname" name="nickname">
+						class="form-control" id="email" name="email" value="${sessionScope.email }">
+				<p>
+
+					<label for="nickname">닉네임 : </label> <input type="text"
+						class="form-control" id="nickname" name="nickname" value="${sessionScope.nickname }">
+				<p>
 			</div>
 			<br />
-			<button type="button" class="btn btn-primary" onclick="chg();">정보 수정</button>
+			<!-- <button type="button" class="btn btn-primary" onclick="return memUpdate()">정보수정</button> -->
+			<!-- <input type="button" name="f" onsubmit="return memUpdate();" value="정보수정"> -->
+			<button type="button" class="btn btn-danger" onclick="javascript:mut();">정보수정</button>
 		</form>
 	</div>
 	<%@ include file="/inc/footer.jsp"%>

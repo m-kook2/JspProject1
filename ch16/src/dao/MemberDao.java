@@ -161,14 +161,13 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update member set id=?, password=?," + " email=?, nickname=?";
+		String sql = "update member set email=?, nickname=? where id=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memberDto.getId());
-			pstmt.setString(2, memberDto.getPassword());
-			pstmt.setString(3, memberDto.getEmail());
-			pstmt.setString(4, memberDto.getNickname());
+			pstmt.setString(1, memberDto.getEmail());
+			pstmt.setString(2, memberDto.getNickname());
+			pstmt.setString(3, memberDto.getId());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
