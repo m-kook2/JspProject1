@@ -1,7 +1,7 @@
 package dao;
 
 public class MovieDto {
-	String name;
+	String m_name;
 	String m_idx;
 	String m_genre;
 	String m_date;
@@ -120,12 +120,12 @@ public class MovieDto {
 		this.m_idx = m_idx;
 	}
 
-	public String getName() {
-		return name;
+	public String getM_name() {
+		return m_name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
 	}
-	
+
 }
