@@ -3,7 +3,7 @@ package dao;
 import java.sql.Date;
 
 public class SurveyDto {
-  private String s_idx;
+  private int s_idx;
   private String s_sub;
   private Date s_sdate;
   private Date s_edate;
@@ -43,11 +43,11 @@ public class SurveyDto {
     this.s_content = s_content;
   }
 
-  public String getS_idx() {
+  public int getS_idx() {
     return s_idx;
   }
 
-  public void setS_idx(String s_idx) {
+  public void setS_idx(int s_idx) {
     this.s_idx = s_idx;
   }
 

@@ -68,6 +68,7 @@
 			</div>
 		<c:if test="${sessionScope.status == 2 }">
 			<div class="row admin">
+			<form action="SurveyWrite.do"></form>
 				<button class="btn m-2 btn-primary mx-auto">설문조사 작성</button>
 			</div>
 		</c:if>
