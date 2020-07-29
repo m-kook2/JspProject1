@@ -2,7 +2,7 @@ package dao;
 
 import java.sql.Date;
 
-public class Survey {
+public class SurveyDto {
   private String s_idx;
   private String s_sub;
   private Date s_sdate;
@@ -16,6 +16,24 @@ public class Survey {
   private String s_op4;
   private String s_op5;
   private String id;
+  private int commCnt;
+  private boolean votable;
+  
+  public boolean isVotable() {
+    return votable;
+  }
+
+  public void setVotable(boolean votable) {
+    this.votable = votable;
+  }
+
+  public int getCommCnt() {
+    return commCnt;
+  }
+
+  public void setCommCnt(int commCnt) {
+    this.commCnt = commCnt;
+  }
 
   public String getS_content() {
     return s_content;

@@ -10,6 +10,7 @@
 </style>
 </head>
 <body>
+	<%@ include file="/inc/adminChk.jsp"%>
 	<%@ include file="/inc/header.jsp"%>
 	<div class="container">
 		<form action="writePro.jsp" name="frm" method="post">
@@ -49,7 +50,23 @@
 				</dt>
 				<dd>
 					<div class="input-group">
-						<input type="text" class="form-control" />
+						<input type="text" class="form-control" name="op1"/>
+						<div class="input-group-append">
+							<input type="button" class="btn btn-danger"  value="DEL" />
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="input-group">
+						<input type="text" class="form-control" name="op2"/>
+						<div class="input-group-append">
+							<input type="button" class="btn btn-danger"  value="DEL" />
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="input-group">
+						<input type="text" class="form-control" name="op3"/>
 						<div class="input-group-append">
 							<input type="button" class="btn btn-danger" value="DEL" />
 						</div>
@@ -57,7 +74,7 @@
 				</dd>
 				<dd>
 					<div class="input-group">
-						<input type="text" class="form-control" />
+						<input type="text" class="form-control" name="op4"/>
 						<div class="input-group-append">
 							<input type="button" class="btn btn-danger" value="DEL" />
 						</div>
@@ -65,15 +82,7 @@
 				</dd>
 				<dd>
 					<div class="input-group">
-						<input type="text" class="form-control" />
-						<div class="input-group-append">
-							<input type="button" class="btn btn-danger" value="DEL" />
-						</div>
-					</div>
-				</dd>
-				<dd>
-					<div class="input-group">
-						<input type="text" class="form-control" />
+						<input type="text" class="form-control" name="op5"/>
 						<div class="input-group-append">
 							<input type="button" class="btn btn-danger" value="DEL" />
 						</div>

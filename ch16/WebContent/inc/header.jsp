@@ -44,7 +44,7 @@ $(document).ready(function() {
 	        <a class="nav-link" href="#">영화 게시판</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">설문조사</a>
+	        <a class="nav-link" href="surveyList.do">설문조사</a>
 	      </li>    
 	    </ul>
 	</div>  

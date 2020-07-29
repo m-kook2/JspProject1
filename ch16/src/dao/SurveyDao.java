@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -35,12 +36,19 @@ public class SurveyDao {
     return conn;
   }
 
-  public List<Survey> list(int startRow, int endRow) throws SQLException {
-    List<Survey> list = new ArrayList<Survey>();
+  public List<SurveyDto> list(int startRow, int endRow) throws SQLException {
+    List<SurveyDto> list = new ArrayList<SurveyDto>();
     Connection conn = null;
     PreparedStatement pstmt = null;
     ResultSet rs = null;
-    String sql = "SELECT * FROM sur WHERE S_IDX between ? and ? ORDER BY S_IDX DESC";
+    java.sql.Date sqlDate = new java.sql.Date(new Date().getTime());
+    String sql = "SELECT s.*, sc.commCnt " + 
+        "FROM sur s, ( SELECT s_IDX, count(*) commCnt " + 
+        "              FROM s_comm " + 
+        "              GROUP BY s_IDX " + 
+        "              ) sc " + 
+        "WHERE s.S_IDX = sc.s_IDX(+) " + 
+        "AND  s.S_IDX between ? and ? ORDER BY s.S_IDX DESC";
     try {
       conn = getConnection();
       pstmt = conn.prepareStatement(sql);
@@ -48,19 +56,21 @@ public class SurveyDao {
       pstmt.setInt(2, endRow);
       rs = pstmt.executeQuery();
       while (rs.next()) {
-        Survey survey = new Survey();
-        survey.setS_idx(rs.getString(1));
-        survey.setS_sub(rs.getString(2));
-        survey.setS_sdate(rs.getDate(3));
-        survey.setS_edate(rs.getDate(4));
-        survey.setS_content(rs.getString(5));
-        survey.setS_op1(rs.getString(6));
-        survey.setS_op2(rs.getString(7));
-        survey.setS_op3(rs.getString(8));
-        survey.setS_op4(rs.getString(9));
-        survey.setS_op5(rs.getString(10));
-        survey.setId(rs.getString(11));
-        list.add(survey);
+        SurveyDto surveyDto = new SurveyDto();
+        surveyDto.setS_idx(rs.getString(1));
+        surveyDto.setS_sub(rs.getString(2));
+        surveyDto.setS_sdate(rs.getDate(3));
+        surveyDto.setS_edate(rs.getDate(4));
+        surveyDto.setS_content(rs.getString(5));
+        surveyDto.setS_op1(rs.getString(6));
+        surveyDto.setS_op2(rs.getString(7));
+        surveyDto.setS_op3(rs.getString(8));
+        surveyDto.setS_op4(rs.getString(9));
+        surveyDto.setS_op5(rs.getString(10));
+        surveyDto.setId(rs.getString(11));
+        surveyDto.setCommCnt(rs.getInt(12));
+        surveyDto.setVotable(!rs.getDate(3).after(sqlDate) && !rs.getDate(4).before(sqlDate)); 
+        list.add(surveyDto);
       }
     } catch (Exception e) {
       System.out.println(e.getMessage());
