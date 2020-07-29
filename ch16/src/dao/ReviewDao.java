@@ -66,6 +66,7 @@ public class ReviewDao {
 		Connection conn = null;	Statement stmt= null; 
 		ResultSet rs = null;    int tot = 0;
 		String sql = "select count(*) from review";
+		System.out.println("test select2");
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
@@ -78,6 +79,34 @@ public class ReviewDao {
 			if (conn !=null) conn.close();
 		}
 		return tot;
+	}
+	
+	public ReviewDto select(int p_idx) throws SQLException {
+		Connection conn = null;	Statement stmt= null; ResultSet rs = null;
+		String sql = "select * from review where p_idx="+p_idx;
+		System.out.println("test select");
+		ReviewDto review = new ReviewDto();
+		try {
+			conn = getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			System.out.println(sql);
+			if (rs.next()) {				
+				review.setP_idx(rs.getInt("p_idx"));
+				review.setP_title(rs.getString("p_title"));
+				review.setP_content(rs.getString("p_content"));
+				review.setP_date(rs.getDate("p_date"));
+				review.setId(rs.getString("id"));
+				review.setM_idx(rs.getInt("m_idx"));
+				
+			}
+		} catch(Exception e) {	System.out.println(e.getMessage()); 
+		} finally {
+			if (stmt != null) stmt.close();
+			if (conn !=null) conn.close();
+			if (rs !=null) rs.close();
+		}
+		return review;
 	}
 	
 }
