@@ -8,10 +8,31 @@
 <script type="text/javascript">
 function mut() {
 	var frm=document.f;
+	alert("정말 수정할껀가?")
+	alert("정말 수정할껀가?")
+	alert("정말 수정할껀가?")
 	if(frm.password.value != frm.chkpassword.value){
 		alert("패스워드 확인이 필요합니다.");
 		frm.chkpassword.value="";
 		frm.chkpassword.focus();
+		return false;
+	}
+	if(frm.id.value == ""){
+		alert("아이디를 입력하세요");
+		frm.id.value="";
+		frm.id.focus();
+		return false;
+	}
+	if(frm.email.value == "") {
+		alert("이메일을 입력하세요");
+		frm.email.value="";
+		frm.email.focus();
+		return false;
+	}
+	if(frm.nickname.value == "") {
+		alert("닉네임을 입력하세요");
+		frm.nickname.value="";
+		frm.nickname.focus();
 		return false;
 	}
 	frm.submit();
@@ -51,6 +72,7 @@ function mut() {
 			<!-- <button type="button" class="btn btn-primary" onclick="return memUpdate()">정보수정</button> -->
 			<!-- <input type="button" name="f" onsubmit="return memUpdate();" value="정보수정"> -->
 			<button type="button" class="btn btn-danger" onclick="javascript:mut();">정보수정</button>
+			<button type="button" class="btn btn-primary" value="reset">초기화</button>
 		</form>
 	</div>
 	<%@ include file="/inc/footer.jsp"%>

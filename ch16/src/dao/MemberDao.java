@@ -90,7 +90,7 @@ public class MemberDao {
 		int result = 0;
 		ResultSet rs = null;
 		String sql = "select count(id) as cnt from member where id=?";
-		
+
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -120,7 +120,7 @@ public class MemberDao {
 		ResultSet rs = null;
 		List<MemberDto> list = new ArrayList<MemberDto>();
 		String sql = "SELECT * FROM MEMBER WHERE ID=? AND PASSWORD=? AND DEL_YN='N'";
-			//?로 표기해서 값받기.
+		// ?로 표기해서 값받기.
 		System.out.println(sql);
 		try {
 			conn = getConnection();
@@ -130,7 +130,7 @@ public class MemberDao {
 			rs = pstm.executeQuery();
 			if (rs.next()) {
 				MemberDto vo = new MemberDto();
-				
+
 				vo.setId(rs.getString("ID"));
 				vo.setIdx(rs.getInt("IDX"));
 				vo.setPassword(rs.getString("PASSWORD"));
@@ -157,6 +157,7 @@ public class MemberDao {
 
 		return list;
 	}
+
 	public int memUpdateForm(MemberDto memberDto) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -180,33 +181,41 @@ public class MemberDao {
 
 		return result;
 	}
+
 	public int getTotalCnt() throws SQLException {
-		Connection conn = null;	Statement stmt= null; 
-		ResultSet rs = null;    int tot = 0;
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		int tot = 0;
 		String sql = "select count(*) from member";
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
-			if (rs.next()) tot = rs.getInt(1);
-		} catch(Exception e) {	System.out.println(e.getMessage()); 
+			if (rs.next())
+				tot = rs.getInt(1);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		} finally {
-			if (rs !=null) rs.close();
-			if (stmt != null) stmt.close();
-			if (conn !=null) conn.close();
+			if (rs != null)
+				rs.close();
+			if (stmt != null)
+				stmt.close();
+			if (conn != null)
+				conn.close();
 		}
 		return tot;
 	}
-	
+
 	public List<MemberDto> memMng(int startRow, int endRow) throws SQLException {
 		List<MemberDto> list = new ArrayList<MemberDto>();
-		Connection conn = null;	PreparedStatement pstmt= null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		// String sql = "select * from board order by num desc";
-	// mysql select * from board order by num desc limit startPage-1,10;
-		 String sql = "select * from (select rownum rn ,a.* from " + 
-			" (select * from member) a ) "+
-			" where rn between ? and ?";
+		// mysql select * from board order by num desc limit startPage-1,10;
+		String sql = "select * from (select rownum rn ,a.* from " + " (select * from member) a ) "
+				+ " where rn between ? and ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -226,15 +235,19 @@ public class MemberDao {
 				dto.setStatus(rs.getString("STATUS"));
 				list.add(dto);
 			}
-		} catch(Exception e) {	System.out.println(e.getMessage()); 
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		} finally {
-			if (rs !=null) rs.close();
-			if (pstmt != null) pstmt.close();
-			if (conn !=null) conn.close();
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
 		}
 		return list;
 	}
-	
+
 	public MemberDto memMngView(String id) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -244,7 +257,7 @@ public class MemberDao {
 		try {
 			conn = getConnection();
 			if (id != null)
-			pstm = conn.prepareStatement(sql);
+				pstm = conn.prepareStatement(sql);
 			pstm.setString(1, id);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
@@ -258,7 +271,7 @@ public class MemberDao {
 				dto.setDel_yn(rs.getString("DEL_YN"));
 				dto.setStatus(rs.getString("STATUS"));
 			}
-			
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -271,5 +284,33 @@ public class MemberDao {
 		}
 		return dto;
 	}
-	
+
+	public int delete(String id, String password, String nickname) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		ResultSet rs = null;
+		String sql1 = "select id from member where id=? and password=? ";
+		String sql = "delete from member where id=?";
+		String id2 = "";
+		try {
+			
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql1);
+			pstmt.setString(1, id);
+			pstmt.setString(2, password);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				id2 = rs.getString(1);
+				rs.close();
+				pstmt.close();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, id2);
+				result = pstmt.executeUpdate();
+			} 
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;
+	}
 }

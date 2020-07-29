@@ -60,7 +60,7 @@ $(document).ready(function() {
 			      <div class="dropdown-menu">
 			        <a class="dropdown-item" href="#section41">즐겨찾기</a>
 			        <a class="dropdown-item" href="memUpdateForm.do">회원정보수정</a>
-			        <a class="dropdown-item" href="#section43">회원탈퇴</a>
+			        <a class="dropdown-item" href="memDeleteForm.do">회원탈퇴</a>
 			      </div>
 			    </li>
 		      	<li class="nav-item" id="mem4">
