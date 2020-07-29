@@ -21,7 +21,7 @@ public class MemMngAction implements CommandProcess {
 				int startRow = (currentPage - 1) * pageSize + 1;
 				int endRow   = startRow + pageSize - 1;
 				int startNum = totCnt - startRow + 1;
-				List<MemberDto> list = md.memberMng(startRow, endRow);
+				List<MemberDto> list = md.memMng(startRow, endRow);
 				int pageCnt = (int)Math.ceil((double)totCnt/pageSize);
 				int startPage = (int)(currentPage-1)/blockSize*blockSize + 1;
 				int endPage = startPage + blockSize -1;	

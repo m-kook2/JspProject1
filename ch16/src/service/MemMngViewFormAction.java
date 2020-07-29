@@ -19,8 +19,8 @@ public class MemMngViewFormAction implements CommandProcess {
 		try {
 			String id = request.getParameter("id");
 			MemberDao dao = MemberDao.getInstance();
-			List<MemberDto> list = new ArrayList<MemberDto>(); 
-			
+			MemberDto dto = dao.memMngView(id);
+			request.setAttribute("result", dto);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

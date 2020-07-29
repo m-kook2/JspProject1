@@ -44,7 +44,7 @@ $(document).ready(function() {
 	        <a class="nav-link" href="#">영화 게시판</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">설문조사</a>
+	        <a class="nav-link" href="surveyList.do">설문조사</a>
 	      </li>    
 	    </ul>
 	</div>  
@@ -70,7 +70,7 @@ $(document).ready(function() {
 			      	<li class="nav-item dropdown" id="mem5">
 				      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">관리자</a>
 				      <div class="dropdown-menu">
-				        <a class="dropdown-item" href="#section41">회원관리</a>
+				        <a class="dropdown-item" href="memMng.do">회원관리</a>
 				        <a class="dropdown-item" href="#section42">리뷰관리</a>
 				        <a class="dropdown-item" href="#section43">영화정보 관리</a>
 				      </div>

@@ -5,7 +5,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import dao.Survey;
+import dao.SurveyDto;
 import dao.SurveyDao;
 
 public class SurveyListAction implements CommandProcess {
@@ -25,7 +25,7 @@ public class SurveyListAction implements CommandProcess {
       int startRow = (currentPage - 1) * pageSize + 1;
       int endRow = startRow + pageSize - 1;
       int startNum = totCnt - startRow + 1;
-      List<Survey> list = sd.list(startRow, endRow);
+      List<SurveyDto> list = sd.list(startRow, endRow);
       int pageCnt = (int) Math.ceil((double) totCnt / pageSize);
       int startPage = (int) (currentPage - 1) / blockSize * blockSize + 1;
       int endPage = startPage + blockSize - 1;

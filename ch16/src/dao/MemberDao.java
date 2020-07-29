@@ -199,7 +199,7 @@ public class MemberDao {
 		return tot;
 	}
 	
-	public List<MemberDto> memberMng(int startRow, int endRow) throws SQLException {
+	public List<MemberDto> memMng(int startRow, int endRow) throws SQLException {
 		List<MemberDto> list = new ArrayList<MemberDto>();
 		Connection conn = null;	PreparedStatement pstmt= null;
 		ResultSet rs = null;
@@ -236,11 +236,11 @@ public class MemberDao {
 		return list;
 	}
 	
-	public List<MemberDto> select(String id) throws SQLException {
+	public MemberDto memMngView(String id) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
-		List<MemberDto> list = new ArrayList<>();
+		MemberDto dto = new MemberDto();
 		String sql = "select * from member where id=? ";
 		try {
 			conn = getConnection();
@@ -249,7 +249,6 @@ public class MemberDao {
 			pstm.setString(1, id);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
-				MemberDto dto = new MemberDto();
 				dto.setId(rs.getString("ID"));
 				dto.setIdx(rs.getInt("IDX"));
 				dto.setPassword(rs.getString("PASSWORD"));
@@ -259,7 +258,6 @@ public class MemberDao {
 				dto.setReg_date(rs.getString("REG_DATE"));
 				dto.setDel_yn(rs.getString("DEL_YN"));
 				dto.setStatus(rs.getString("STATUS"));
-				list.add(dto);
 			}
 			
 		} catch (Exception e) {
@@ -272,7 +270,7 @@ public class MemberDao {
 			if (conn != null)
 				conn.close();
 		}
-		return list;
+		return dto;
 	}
 	
 }
