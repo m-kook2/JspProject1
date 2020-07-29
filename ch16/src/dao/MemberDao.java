@@ -284,7 +284,34 @@ public class MemberDao {
 		}
 		return dto;
 	}
+	
+	public int memMngUpdate(MemberDto memberDto) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = "update member set email=?, nickname=?, gender=?, status=?, del_yn=? where id=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberDto.getEmail());
+			pstmt.setString(2, memberDto.getNickname());
+			pstmt.setString(3, memberDto.getGender());
+			pstmt.setString(4, memberDto.getStatus());
+			pstmt.setString(5, memberDto.getDel_yn());
+			pstmt.setString(6, memberDto.getId());
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
 
+		return result;
+	}
+	
 	public int delete(String id, String password, String nickname) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

@@ -30,7 +30,7 @@ function reg() {
 <%@ include file="/inc/header.jsp" %>
 <div class="container">
 		<h2>회원정보수정</h2>
-		<form action="memMngViewForm.do" name="frm" method="post">
+		<form action="memMngUpdatePro.do" name="frm" method="post">
 				<div class="form-group">
 					<label for="id">아이디:</label> 
 					<input type="text" class="form-control" id="id" name="id" value="${result.id }"> 
@@ -39,6 +39,18 @@ function reg() {
 					<label for="nickname">이메일:</label> 
 					<input type="text" class="form-control" id="email" name="email" value="${result.email }">
 					<label for="nickname">회원상태확인:</label> 
+				</div>
+				<div class="form-group">
+					<div class="form-check-inline">
+					  <label class="form-check-label">
+					    <input type="radio" class="form-check-input" id="gender" name="gender" value="남자" ${result.gender eq '남자'?"checked='checked'":'' }>남자
+					  </label>
+					</div>
+					<div class="form-check-inline">
+					  <label class="form-check-label">
+					    <input type="radio" class="form-check-input" id="gender" name="gender" value="여자" ${result.gender eq '여자'?"checked='checked'":'' }>여자
+					  </label>
+					</div>
 				</div>
 				<div class="form-group">
 					<div class="form-check-inline">
