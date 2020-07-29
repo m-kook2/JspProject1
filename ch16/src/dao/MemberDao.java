@@ -294,7 +294,6 @@ public class MemberDao {
 		String sql = "delete from member where id=?";
 		String id2 = "";
 		try {
-			
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql1);
 			pstmt.setString(1, id);
