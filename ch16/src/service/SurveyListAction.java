@@ -21,11 +21,13 @@ public class SurveyListAction implements CommandProcess {
         pageNum = "1";
       }
       int currentPage = Integer.parseInt(pageNum);
-      int pageSize = 4, blockSize = 3;
+      int pageSize = 5, blockSize = 3;
       int startRow = (currentPage - 1) * pageSize + 1;
       int endRow = startRow + pageSize - 1;
       int startNum = totCnt - startRow + 1;
+      System.out.println("SurveyDao list 메소드 실행");
       List<SurveyDto> list = sd.list(startRow, endRow);
+      System.out.println("SurveyDao list 메소드 실행 완료");
       int pageCnt = (int) Math.ceil((double) totCnt / pageSize);
       int startPage = (int) (currentPage - 1) / blockSize * blockSize + 1;
       int endPage = startPage + blockSize - 1;

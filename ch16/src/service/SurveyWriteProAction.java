@@ -17,16 +17,12 @@ public class SurveyWriteProAction implements CommandProcess {
     try {
       HttpSession session = request.getSession();
       request.setCharacterEncoding("utf-8");
-      String s_sdate = request.getParameter("s_sdate");
-      String s_edate = request.getParameter("s_edate");
-      System.out.println(s_sdate);
-      System.out.println(s_edate);
       String pageNum = request.getParameter("pageNum");
       SurveyDao sd = SurveyDao.getInstance();
       SurveyDto survey = new SurveyDto();
       survey.setS_sub(request.getParameter("s_sub"));
-      survey.setS_sdate(Date.valueOf(s_sdate));
-      survey.setS_edate(Date.valueOf(s_edate));
+      survey.setS_sdate(request.getParameter("s_sdate"));
+      survey.setS_edate(request.getParameter("s_edate"));
       survey.setS_content(request.getParameter("s_content"));
       survey.setS_op1(request.getParameter("s_op1"));
       survey.setS_op2(request.getParameter("s_op2"));
