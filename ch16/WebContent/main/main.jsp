@@ -7,19 +7,28 @@
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-<div class="container">
-  		<c:forEach var="result" items="${list}" varStatus="i">
-  		<%-- <c:if test="${i.index%5==0}">
-  			<br/>
-  		</c:if> --%>
-		<div class="row">
-			<div class="col-sm-3">
-				<a href="#">
+<div class="container-fluid">
+	<div class="container-fluid">
+	    <div class="row">
+	  		<c:forEach var="result" items="${list}" varStatus="i">
+	  		<%-- <c:if test="${i.index%5==0}">
+	  			<br/>
+	  		</c:if> --%>
+			<div class="col-3" style="margin-top:30px">
+				<a href="movieInfo.do?m_idx=${result.m_idx }">
 					<img src="./images/main/photo/${result.m_photo}" width="270" height="385"/>
 				</a>
+				<p class="font-weight-bold">${result.m_name}
+					<br/><span class="small">국적: ${result.m_nation}</span>
+					<br/><span class="small">장르: ${result.m_genre}</span>
+				</p>
+				
+				
+				
 			</div>
+			</c:forEach>
 		</div>
-		</c:forEach>
+	</div>
 </div>
 <%@ include file="/inc/footer.jsp" %>
 </body>
