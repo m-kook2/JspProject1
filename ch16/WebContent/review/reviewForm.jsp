@@ -31,7 +31,7 @@
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="수정" 
 	            onclick="location.href='updateForm.do?p_idx=${review.p_idx}&pageNum=${pageNum}'">
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="삭제"
-	            onclick="location.href='deleteForm.do?p_idx=${review.p_idx}&pageNum=${pageNum}'">
+	            onclick="location.href='reviewdeleteForm.do?p_idx=${review.p_idx}&pageNum=${pageNum}'">
 	</c:if>
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="목록"
 			    onclick="location.href='r_list.do?pageNum=${pageNum}'">
