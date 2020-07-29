@@ -115,7 +115,7 @@ public class SurveyDao {
     PreparedStatement pstmt = null;
     ResultSet rs = null;
     String sql1 = "select nvl(max(s_idx),1) from sur";
-    String sql = "insert into board values(?,?,?,?,?,?,?,?,?,?,?)";
+    String sql = "INSERT INTO sur VALUES(?,?,?,?,?,?,?,?,?,?,?)";
     try {
       conn = getConnection();
       pstmt = conn.prepareStatement(sql1);
