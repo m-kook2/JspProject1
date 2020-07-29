@@ -38,13 +38,13 @@ $(document).ready(function() {
   	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 	    <ul class="navbar-nav">
 	      <li class="nav-item">
-	        <a class="nav-link" href="reivewForm.do">영화 리뷰</a>
+	        <a class="nav-link" href="r_list.do">영화 리뷰</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">영화 게시판</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">설문조사</a>
+	        <a class="nav-link" href="surveyList.do">설문조사</a>
 	      </li>    
 	    </ul>
 	</div>  
@@ -59,7 +59,7 @@ $(document).ready(function() {
 			      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">마이페이지</a>
 			      <div class="dropdown-menu">
 			        <a class="dropdown-item" href="#section41">즐겨찾기</a>
-			        <a class="dropdown-item" href="#section42">회원정보수정</a>
+			        <a class="dropdown-item" href="memUpdateForm.do">회원정보수정</a>
 			        <a class="dropdown-item" href="#section43">회원탈퇴</a>
 			      </div>
 			    </li>
@@ -70,7 +70,7 @@ $(document).ready(function() {
 			      	<li class="nav-item dropdown" id="mem5">
 				      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">관리자</a>
 				      <div class="dropdown-menu">
-				        <a class="dropdown-item" href="#section41">회원관리</a>
+				        <a class="dropdown-item" href="memMng.do">회원관리</a>
 				        <a class="dropdown-item" href="#section42">리뷰관리</a>
 				        <a class="dropdown-item" href="#section43">영화정보 관리</a>
 				      </div>

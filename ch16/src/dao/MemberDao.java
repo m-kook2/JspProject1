@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -160,14 +161,13 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update member set id=?, password=?," + " email=?, nickname=?";
+		String sql = "update member set email=?, nickname=? where id=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memberDto.getId());
-			pstmt.setString(2, memberDto.getPassword());
-			pstmt.setString(3, memberDto.getEmail());
-			pstmt.setString(4, memberDto.getNickname());
+			pstmt.setString(1, memberDto.getEmail());
+			pstmt.setString(2, memberDto.getNickname());
+			pstmt.setString(3, memberDto.getId());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -180,4 +180,96 @@ public class MemberDao {
 
 		return result;
 	}
+	public int getTotalCnt() throws SQLException {
+		Connection conn = null;	Statement stmt= null; 
+		ResultSet rs = null;    int tot = 0;
+		String sql = "select count(*) from member";
+		try {
+			conn = getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) tot = rs.getInt(1);
+		} catch(Exception e) {	System.out.println(e.getMessage()); 
+		} finally {
+			if (rs !=null) rs.close();
+			if (stmt != null) stmt.close();
+			if (conn !=null) conn.close();
+		}
+		return tot;
+	}
+	
+	public List<MemberDto> memMng(int startRow, int endRow) throws SQLException {
+		List<MemberDto> list = new ArrayList<MemberDto>();
+		Connection conn = null;	PreparedStatement pstmt= null;
+		ResultSet rs = null;
+		// String sql = "select * from board order by num desc";
+	// mysql select * from board order by num desc limit startPage-1,10;
+		 String sql = "select * from (select rownum rn ,a.* from " + 
+			" (select * from member) a ) "+
+			" where rn between ? and ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				MemberDto dto = new MemberDto();
+				dto.setId(rs.getString("ID"));
+				dto.setIdx(rs.getInt("IDX"));
+				dto.setPassword(rs.getString("PASSWORD"));
+				dto.setEmail(rs.getString("EMAIL"));
+				dto.setNickname(rs.getString("NICKNAME"));
+				dto.setGender(rs.getString("GENDER"));
+				dto.setReg_date(rs.getString("REG_DATE"));
+				dto.setDel_yn(rs.getString("DEL_YN"));
+				dto.setStatus(rs.getString("STATUS"));
+				list.add(dto);
+			}
+		} catch(Exception e) {	System.out.println(e.getMessage()); 
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return list;
+	}
+	
+	public MemberDto memMngView(String id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		MemberDto dto = new MemberDto();
+		String sql = "select * from member where id=? ";
+		try {
+			conn = getConnection();
+			if (id != null)
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, id);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				dto.setId(rs.getString("ID"));
+				dto.setIdx(rs.getInt("IDX"));
+				dto.setPassword(rs.getString("PASSWORD"));
+				dto.setEmail(rs.getString("EMAIL"));
+				dto.setNickname(rs.getString("NICKNAME"));
+				dto.setGender(rs.getString("GENDER"));
+				dto.setReg_date(rs.getString("REG_DATE"));
+				dto.setDel_yn(rs.getString("DEL_YN"));
+				dto.setStatus(rs.getString("STATUS"));
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstm != null)
+				pstm.close();
+			if (conn != null)
+				conn.close();
+		}
+		return dto;
+	}
+	
 }

@@ -12,27 +12,27 @@
 		<ul class="navbar-nav">
 			<li class="nav-item">
 				<a class="nav-link" href="#">
-					<img src="/images/main/main_img1.jpg" width="270" height="385"/>
+					<img src="./images/main/main_img1.jpg" width="270" height="385"/>
 				</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">
-					<img src="/images/main/main_img2.jpg" width="270" height="385"/>
+					<img src="./images/main/main_img2.jpg" width="270" height="385"/>
 				</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">
-					<img src="/images/main/main_img3.jpg" width="270" height="385"/>
+					<img src="./images/main/main_img3.jpg" width="270" height="385"/>
 				</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">
-					<img src="/images/main/main_img4.jpg" width="270" height="385"/>
+					<img src="./images/main/main_img4.jpg" width="270" height="385"/>
 				</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">
-					<img src="/images/main/main_img5.jpg" width="270" height="385"/>
+					<img src="./images/main/main_img5.jpg" width="270" height="385"/>
 				</a>
 			</li>
 		</ul>

@@ -10,15 +10,16 @@
 </style>
 </head>
 <body>
+	<%@ include file="/inc/adminChk.jsp"%>
 	<%@ include file="/inc/header.jsp"%>
 	<div class="container">
-		<form action="writePro.jsp" name="frm" method="post">
+		<form action="SurveyWriteAction.do" name="frm" method="post">
 			<dl>
 				<dt>
 					<label for="sub">제목</label>
 				</dt>
 				<dd>
-					<input class="form-control" type="text" name="sub"
+					<input class="form-control" type="text" name="s_sub"
 						required="required" />
 				</dd>
 			</dl>
@@ -27,11 +28,11 @@
 					<label for="date_start">설문조사 시작/종료일</label>
 				</dt>
 				<dd>
-					<input class="form-control" type="date" name="date_start"
+					<input class="form-control" type="date" name="s_sdate"
 						required="required" />
 				</dd>
 				<dd>
-					<input class="form-control" type="date" name="date_end"
+					<input class="form-control" type="date" name="s_edate"
 						required="required" />
 				</dd>
 			</dl>
@@ -40,7 +41,7 @@
 					<label for="content">소개글</label>
 				</dt>
 				<dd>
-					<textarea name="content" id="" cols="30" rows="10" class="form-control"></textarea>
+					<textarea name="s_content" id="" cols="30" rows="10" class="form-control"></textarea>
 				</dd>
 			</dl>
 				<dl>
@@ -49,7 +50,23 @@
 				</dt>
 				<dd>
 					<div class="input-group">
-						<input type="text" class="form-control" />
+						<input type="text" class="form-control" name="s_op1"/>
+						<div class="input-group-append">
+							<input type="button" class="btn btn-danger"  value="DEL" />
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="input-group">
+						<input type="text" class="form-control" name="s_op2"/>
+						<div class="input-group-append">
+							<input type="button" class="btn btn-danger"  value="DEL" />
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="input-group">
+						<input type="text" class="form-control" name="s_op3"/>
 						<div class="input-group-append">
 							<input type="button" class="btn btn-danger" value="DEL" />
 						</div>
@@ -57,7 +74,7 @@
 				</dd>
 				<dd>
 					<div class="input-group">
-						<input type="text" class="form-control" />
+						<input type="text" class="form-control" name="s_op4"/>
 						<div class="input-group-append">
 							<input type="button" class="btn btn-danger" value="DEL" />
 						</div>
@@ -65,15 +82,7 @@
 				</dd>
 				<dd>
 					<div class="input-group">
-						<input type="text" class="form-control" />
-						<div class="input-group-append">
-							<input type="button" class="btn btn-danger" value="DEL" />
-						</div>
-					</div>
-				</dd>
-				<dd>
-					<div class="input-group">
-						<input type="text" class="form-control" />
+						<input type="text" class="form-control" name="s_op5"/>
 						<div class="input-group-append">
 							<input type="button" class="btn btn-danger" value="DEL" />
 						</div>

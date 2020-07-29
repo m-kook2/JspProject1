@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <%@ include file="/inc/top.jsp"%>
@@ -30,8 +30,21 @@
 						<td>${startNum }</td>
 						<td>${sur.s_sub }</td>
 						<td>${sur.s_sdate }~${sur.s_edate }</td>
-						<td>--명</td>
-						<td><c:if test=""></c:if></td>
+						<td>${sur.commCnt }명</td>
+						<td>
+						<c:choose>
+						<c:when test="${sur.votable }">
+						<span style="color: green">
+						참여가 가능합니다.						
+						</span>
+						</c:when>
+						<c:when test="${!sur.votable }">
+						<span style="color: red">
+						참여가 불가능합니다.
+						</span>
+						</c:when>
+						</c:choose>
+						</td>
 					</tr>
 					<c:set var="startNum" value="${startNum -1 }"></c:set>
 				</c:forEach>
@@ -53,11 +66,13 @@
 					<a href='surveyList.do?pageNum=${startPage - blockSize }'>[이전]</a>
 				</c:if>
 			</div>
-		<div class="row">
-			<div id="admin-only" style]]>
+		<c:if test="${sessionScope.status == 2 }">
+			<div class="row admin">
+			<form action="surveyWrite.do">
 				<button class="btn m-2 btn-primary mx-auto">설문조사 작성</button>
+			</form>
 			</div>
-		</div>
+		</c:if>
 	</div>
 
 
