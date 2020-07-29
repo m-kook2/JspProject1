@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.BookmarkDao;
 import dao.BookmarkDto;
@@ -17,6 +18,9 @@ public class BookmarkFormAction implements CommandProcess {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("id");
 		
 		BookmarkDao bd = BookmarkDao.getInstance();
 		try {
@@ -30,7 +34,7 @@ public class BookmarkFormAction implements CommandProcess {
 			int startRow = (currentPage - 1) * pageSize + 1;
 			int endRow = startRow + pageSize - 1;
 			int startNum = totCnt - startRow + 1;
-			List<BookmarkDto> list = bd.list(startRow, endRow);
+			List<BookmarkDto> list = bd.list(startRow, endRow, id);
 			int pageCnt = (int) Math.ceil((double) totCnt / pageSize);
 			int startPage = (int) (currentPage - 1) / blockSize * blockSize + 1;
 			int endPage = startPage + blockSize - 1;
