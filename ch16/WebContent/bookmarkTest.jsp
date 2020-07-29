@@ -8,7 +8,7 @@
 </head>
 <body>
 <script> 
-location.href = "bkmarkFrom.do";
+location.href = "bkmarkForm.do";
 </script>
 </body>
 </html>

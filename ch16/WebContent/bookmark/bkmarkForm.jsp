@@ -26,24 +26,29 @@
 	
 	<table class="table">
 		<tr>
-		 <td>번호</td>
-		 <td>순번</td>
-		 <td>아이디</td>
-		 <td>영화번호</td>
-		 <td>등록일</td>
+		 <th>번호</th>
+		 <th>순번</th>
+		 <th>아이디</th>
+		 <th>영화번호</th>
+		 <th>등록일</th>
+		 <th>삭제</th>
 		</tr>
 		
 		
 		<c:if test="${totCnt > 0 }">
 			<c:forEach var="bookmark" items="${list }">
-				<tr>
-					<td>${startNum }</td>
-					<td>
-					<a href="content.do?num=${bookmark.idx }&pageNum=${currentPage}">${bookmark.idx }</a>
-					</td>
-					<td>${bookmark.id}</td>
-					<td>${bookmark.m_idx }</td>
-					<td>${bookmark.reg_date }</td>
+					<tr>
+						<form action="delete.do?id=${bookmark.id }&m_idx=${bookmark.m_idx }">
+							<input type="hidden" name="pageNum" value="${pageNum }">
+							<td>${startNum }</td>
+							<td>
+							<a href="content.do?num=${bookmark.idx }&pageNum=${currentPage}">${bookmark.idx }</a>
+							</td>
+							<td>${bookmark.id}</td>
+							<td>${bookmark.m_idx }</td>
+							<td>${bookmark.reg_date }</td>
+							<td><button class="btn btn-primary">삭제</button></td>
+						</form>
 					</tr>
 					<c:set var="startNum" value="${startNum-1 }"></c:set>
 			</c:forEach>
@@ -54,16 +59,11 @@
 	</table>
 	
 	</div>
-	<div class="text-center">
-			<div id="bk_delete">
-				<button class="btn m-2 btn-primary mx-auto">찜하기 삭제</button>
-			</div>
-		</div>
-	</div>
+	
 	
 	<div class="text-center">
 		<c:if test="${startPage > blockSize }">
-			<a href='bookmark.do?pageNum=${startPage-blockSize}'>[이전]</a>
+			<a href='bkmarkForm.do?pageNum=${startPage-blockSize}'>[이전]</a>
 		</c:if>
 		<c:forEach var="i" begin="${startPage}" end="${endPage}">
 			<a href='bkmarkForm.do?pageNum=${i }'>[${i}]</a>
@@ -71,7 +71,7 @@
 		<c:if test="${endPage > pageCnt }">
 			<a href='bkmarkForm.do?pageNum=${startPage+blockSize }'>[다음]</a>
 		</c:if>
-	
+	</div>
 
 <%@ include file="/inc/footer.jsp" %>
 </body>
