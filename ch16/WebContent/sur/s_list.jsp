@@ -53,10 +53,8 @@
 					<a href='surveyList.do?pageNum=${startPage - blockSize }'>[이전]</a>
 				</c:if>
 			</div>
-		<div class="row">
-			<div id="admin-only" style]]>
+		<div class="row admin">
 				<button class="btn m-2 btn-primary mx-auto">설문조사 작성</button>
-			</div>
 		</div>
 	</div>
 
