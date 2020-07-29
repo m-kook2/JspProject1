@@ -11,9 +11,6 @@
 	<div class="container-fluid">
 	    <div class="row">
 	  		<c:forEach var="result" items="${list}" varStatus="i">
-	  		<%-- <c:if test="${i.index%5==0}">
-	  			<br/>
-	  		</c:if> --%>
 			<div class="col-3" style="margin-top:30px">
 				<a href="movieInfo.do?m_idx=${result.m_idx }">
 					<img src="./images/main/photo/${result.m_photo}" width="270" height="385"/>
@@ -22,9 +19,6 @@
 					<br/><span class="small">국적: ${result.m_nation}</span>
 					<br/><span class="small">장르: ${result.m_genre}</span>
 				</p>
-				
-				
-				
 			</div>
 			</c:forEach>
 		</div>
