@@ -42,7 +42,7 @@ public class SurveyWriteProAction implements CommandProcess {
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }
-    return "s_writePro.jsp";
+    return "sur/s_writePro.jsp";
   }
 }
 

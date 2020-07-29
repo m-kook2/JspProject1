@@ -12,16 +12,17 @@ public class SurveyWriteAction implements CommandProcess {
   @Override
   public String requestPro(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+    System.out.println("SurveyWriteAction Start");
     HttpSession session = request.getSession();
-    String pageNum = request.getParameter("pageNum");
+    String pageNum = (String) request.getParameter("pageNum");
     if (pageNum == null) pageNum = "1";
-    int status = (int) session.getAttribute("status");
+    int status = Integer.parseInt((String)session.getAttribute("status"));
     if (status != 2) {
       return "inc/adminChk.jsp";
     }
     request.setAttribute("pageNum", pageNum);
 
-    return "s_writeForm.jsp";
+    return "sur/s_writeForm.jsp";
   }
 
 }
