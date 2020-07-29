@@ -23,7 +23,7 @@
 				<tr>
 					<td>${startNum}</td>
 					<td class="left" width=50>
-						<a href="memberMngView.do?id=${mng.id}">${mng.idx}</a> 
+						<a href="memMngViewForm.do?id=${mng.id}">${mng.idx}</a> 
 					</td>
 					<td class="left" width=100>${mng.id}</td>
 					<td>${mng.email}</td>
