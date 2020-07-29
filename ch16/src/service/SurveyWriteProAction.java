@@ -24,11 +24,10 @@ public class SurveyWriteProAction implements CommandProcess {
       String pageNum = request.getParameter("pageNum");
       SurveyDao sd = SurveyDao.getInstance();
       SurveyDto survey = new SurveyDto();
-      // survey.setS_idx(sd.getTotalCnt()+1);
       survey.setS_sub(request.getParameter("s_sub"));
-      //
-      //
-      survey.setS_content(request.getParameter("content"));
+      survey.setS_sdate(Date.valueOf(s_sdate));
+      survey.setS_edate(Date.valueOf(s_edate));
+      survey.setS_content(request.getParameter("s_content"));
       survey.setS_op1(request.getParameter("s_op1"));
       survey.setS_op2(request.getParameter("s_op2"));
       survey.setS_op3(request.getParameter("s_op3"));
@@ -42,7 +41,7 @@ public class SurveyWriteProAction implements CommandProcess {
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }
-    return "s_writePro.jsp";
+    return "sur/s_writePro.jsp";
   }
 }
 

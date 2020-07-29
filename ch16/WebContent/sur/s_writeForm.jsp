@@ -13,7 +13,7 @@
 	<%@ include file="/inc/adminChk.jsp"%>
 	<%@ include file="/inc/header.jsp"%>
 	<div class="container">
-		<form action="SurveyWriteAction.do" name="frm" method="post">
+		<form action="surveyWritePro.do" name="frm" method="post">
 			<dl>
 				<dt>
 					<label for="sub">제목</label>

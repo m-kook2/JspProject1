@@ -45,13 +45,13 @@
 	
 	<div style="text-align: center;">
 		<c:if test="${startPage > blockSize }">
-			<a href='memberMng.do?pageNum=${startPage-blockSize}'>[이전]</a>
+			<a href='memMng.do?pageNum=${startPage-blockSize}'>[이전]</a>
 		</c:if>
 		<c:forEach var="i" begin="${startPage}" end="${endPage}">
-			<a href='memberMng.do?pageNum=${i}'>[${i}]</a>
+			<a href='memMng.do?pageNum=${i}'>[${i}]</a>
 		</c:forEach>
 		<c:if test="${endPage < pageCnt }">
-			<a href='memberMng.do?pageNum=${startPage+blockSize}'>[다음]</a>
+			<a href='memMng.do?pageNum=${startPage+blockSize}'>[다음]</a>
 		</c:if>
 	</div>
 <%@ include file="/inc/footer.jsp" %>
