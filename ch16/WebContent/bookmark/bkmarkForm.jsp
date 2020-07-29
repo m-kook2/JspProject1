@@ -26,17 +26,13 @@
 	
 	<table class="table">
 		<tr>
-		 <td rowsapan="2">사진</td>
-		 <td rowsapan="2">사진</td>
-		 <td rowsapan="2">사진</td>
-		 <td rowsapan="2">사진</td>
+		 <td>번호</td>
+		 <td>순번</td>
+		 <td>아이디</td>
+		 <td>영화번호</td>
+		 <td>등록일</td>
 		</tr>
-		<tr>
-		 <td>제목</td> 
-		 <td>제목</td> 
-		 <td>제목</td> 
-		 <td>제목</td> 
-		</tr>
+		
 		
 		<c:if test="${totCnt > 0 }">
 			<c:forEach var="bookmark" items="${list }">
