@@ -7,7 +7,7 @@
 <c:if test="${sessionScope.status != 2 }">
 <script>
 alert("관리자 전용 페이지입니다.")
-location.href = "../main.do"
+location.href = "main.do"
 </script>
 </c:if>
 </body>
