@@ -7,37 +7,20 @@
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  	<div class="collapse navbar-collapse" id="collapsibleNavbar">
-		<ul class="navbar-nav">
-			<li class="nav-item">
-				<a class="nav-link" href="#">
-					<img src="./images/main/main_img1.jpg" width="270" height="385"/>
+<div class="container">
+  		<c:forEach var="result" items="${list}" varStatus="i">
+  		<%-- <c:if test="${i.index%5==0}">
+  			<br/>
+  		</c:if> --%>
+		<div class="row">
+			<div class="col-sm-3">
+				<a href="#">
+					<img src="./images/main/photo/${result.m_photo}" width="270" height="385"/>
 				</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">
-					<img src="./images/main/main_img2.jpg" width="270" height="385"/>
-				</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">
-					<img src="./images/main/main_img3.jpg" width="270" height="385"/>
-				</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">
-					<img src="./images/main/main_img4.jpg" width="270" height="385"/>
-				</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">
-					<img src="./images/main/main_img5.jpg" width="270" height="385"/>
-				</a>
-			</li>
-		</ul>
-	</div>
-</nav>
+			</div>
+		</div>
+		</c:forEach>
+</div>
 <%@ include file="/inc/footer.jsp" %>
 </body>
 </html>
