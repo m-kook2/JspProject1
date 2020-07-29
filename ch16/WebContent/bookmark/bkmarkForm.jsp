@@ -15,41 +15,47 @@
 
 <div class="bk_array" style="float: right">
 <button type="button" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle" data-toggle="dropdown" > 
-정렬
-</button>
+정렬</button>
 <div class="dropdown-menu">
 <a class="dropdown-item">최신순</a>
 <a class="dropdown-item">장르별</a>
 <a class="dropdown-item">국적별</a>
 </div>
 </div>
+
+<div class="bk_href" style="float: right">
+<button type="button" class="btn btn-primary btn-sm" >
+찜추가</button>
+</div>
 	
 	<table class="table">
 		<tr>
-		 <th>번호</th>
-		 <th>순번</th>
-		 <th>아이디</th>
-		 <th>영화번호</th>
-		 <th>등록일</th>
-		 <th>삭제</th>
+		 <td>번호</td>
+		 <td>순번</td>
+		 <td>아이디</td>
+		 <td>영화번호</td>
+		 <td>등록일</td>
+		 <td>삭제</td>
 		</tr>
 		
 		
 		<c:if test="${totCnt > 0 }">
 			<c:forEach var="bookmark" items="${list }">
-					<tr>
-						<form action="delete.do?id=${bookmark.id }&m_idx=${bookmark.m_idx }">
-							<input type="hidden" name="pageNum" value="${pageNum }">
-							<td>${startNum }</td>
-							<td>
-							<a href="content.do?num=${bookmark.idx }&pageNum=${currentPage}">${bookmark.idx }</a>
-							</td>
-							<td>${bookmark.id}</td>
-							<td>${bookmark.m_idx }</td>
-							<td>${bookmark.reg_date }</td>
-							<td><button class="btn btn-primary">삭제</button></td>
-						</form>
-					</tr>
+				<tr>
+					<form action="delete.do?id=${bookmark.id }&m_idx=${bookmark.m_idx}">
+						<input type="hidden" value="${pageNum }">
+						<input type="hidden" name="id" value="${bookmark.id }">
+						<input type="hidden" name="m_idx" value="${bookmark.m_idx }">
+						<td>${startNum }</td>
+						<td>
+						<a href="content.do?num=${bookmark.idx }&pageNum=${currentPage}">${bookmark.idx }</a>
+						</td>
+						<td>${bookmark.id}</td>
+						<td>${bookmark.m_idx }</td>
+						<td>${bookmark.reg_date }</td>
+						<td><input type="submit" class="btn btn-primary" value="삭제"></input> </td>
+					</form>
+				</tr>
 					<c:set var="startNum" value="${startNum-1 }"></c:set>
 			</c:forEach>
 		</c:if>
@@ -63,7 +69,7 @@
 	
 	<div class="text-center">
 		<c:if test="${startPage > blockSize }">
-			<a href='bkmarkForm.do?pageNum=${startPage-blockSize}'>[이전]</a>
+			<a href='bookmark.do?pageNum=${startPage-blockSize}'>[이전]</a>
 		</c:if>
 		<c:forEach var="i" begin="${startPage}" end="${endPage}">
 			<a href='bkmarkForm.do?pageNum=${i }'>[${i}]</a>
@@ -71,7 +77,7 @@
 		<c:if test="${endPage > pageCnt }">
 			<a href='bkmarkForm.do?pageNum=${startPage+blockSize }'>[다음]</a>
 		</c:if>
-	</div>
+	
 
 <%@ include file="/inc/footer.jsp" %>
 </body>

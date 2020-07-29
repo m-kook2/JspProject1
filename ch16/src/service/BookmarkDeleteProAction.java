@@ -15,17 +15,21 @@ public class BookmarkDeleteProAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			System.out.println("BookmarkDeleteProAction start...");
 			String id = request.getParameter("id");
 			int m_idx = Integer.parseInt(request.getParameter("m_idx"));
+			System.out.println("BookmarkDeleteProAction id->" + id);
+			System.out.println("BookmarkDeleteProAction m_idx->" + m_idx);
 			String pageNum = request.getParameter("pageNum");
 			BookmarkDao bd = BookmarkDao.getInstance();
 			int result = bd.delete(id, m_idx);
+			System.out.println("BookmarkDeleteProAction result->" + result);
 			request.setAttribute("pageNum", pageNum);
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return "bookmark/bkmarkForm.jsp";
+		return "bookmark/bookmarkTest.jsp";
 	}
 
 }
