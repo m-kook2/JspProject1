@@ -49,7 +49,6 @@
 				<tr>
 					<td>
 						<a href="content.do?num=${bookmark.idx }&pageNum=${currentPage}">${bookmark.idx }</a>
-
 						</td>
 						<td><img src="./images/main/photo/${bookmark.m_photo}" width="65" height="93"/></td>
 						<td>${bookmark.id}</td>
@@ -58,7 +57,8 @@
 						<td>${bookmark.m_name}</td>
 						<td>${bookmark.m_date }</td>
 						<td>${bookmark.reg_date }</td>
-						<td><input type="submit" class="btn btn-primary" value="삭제"></input> </td>
+						<!-- <td><input type="submit" class="btn btn-primary" value="삭제"></input> </td> -->
+						<td><a href="delete.do?m_idx=${bookmark.m_idx }&pageNum=${pageNum}">삭제</a></td>
 				</tr>
 					<c:set var="startNum" value="${startNum-1 }"></c:set>
 			</c:forEach>
@@ -68,7 +68,7 @@
 		</c:if>
 	</table>
 </form>	
-	</div>
+</div>
 	
 	
 	<div class="text-center">
@@ -81,7 +81,7 @@
 		<c:if test="${endPage > pageCnt }">
 			<a href='bkmarkForm.do?pageNum=${startPage+blockSize }'>[다음]</a>
 		</c:if>
-	
+	</div>
 
 <%@ include file="/inc/footer.jsp" %>
 </body>
