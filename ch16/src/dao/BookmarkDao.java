@@ -36,7 +36,7 @@ public class BookmarkDao {
 		
 		 String sql = "select *" + 
 		 		"		 from (select rownum rn, a.*" + 
-		 		"		       from (select bk.id, bk.m_idx, bk.idx, bk.reg_date, mi.m_name, mi.m_photo, mi.m_genre" + 
+		 		"		       from (select bk.id, bk.m_idx, bk.idx, bk.reg_date, mi.m_name, mi.m_photo, mi.m_genre, mi.m_date" + 
 		 		"		             from book_mind bk, movie_info mi" + 
 		 		"		             where bk.m_idx = mi.m_idx" + 
 		 		"		             AND bk.id = ?) a )" + 
@@ -54,9 +54,10 @@ public class BookmarkDao {
 				book.setId(rs.getString("id"));
 				book.setM_idx(rs.getInt("m_idx"));
 				book.setIdx(rs.getInt("idx"));
-				book.setM_name(rs.getString("m_genre"));
+				book.setM_genre(rs.getString("m_genre"));
 				book.setM_name(rs.getString("m_name"));
 				book.setM_photo(rs.getString("m_photo"));
+				book.setM_date(rs.getDate("m_date"));
 				book.setReg_date(rs.getDate("reg_date"));
 			
 				list.add(book);
