@@ -108,6 +108,49 @@ public class SCommDao {
     }
     return list;
   }
+
+  public int insert(SCommDto comment) throws SQLException {
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    String sql = 
+        "INSERT INTO S_COMM VALUES("
+                                  + "?,"
+                                  + "?,"
+                                  + "(select max(r_idx)+1 from s_comm),"
+                                  + "?,"
+                                  + "?,"
+                                  + "SYSDATE"
+                                  + ")";
+    System.out.println("SCommDao INSERT SQL => " + sql);
+    int result = 0;
+    
+    int s_idx = comment.getS_idx();
+    String id = comment.getId();
+    String r_op = comment.getR_op();
+    String r_content = comment.getR_content();
+    
+    try {
+      conn = getConnection();
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setInt(1, s_idx);
+      pstmt.setString(2, id);
+      pstmt.setString(3, r_op);
+      pstmt.setString(4, r_content);
+      result = pstmt.executeUpdate();
+      
+      
+    } catch (Exception e) {
+      System.out.println("SCommDao Insert ERROR!!");
+      System.out.println(e.getMessage());
+    } finally {
+
+      if (pstmt != null)
+        pstmt.close();
+      if (conn != null)
+        conn.close();
+    }
+    return result;
+  }
 }
 
 

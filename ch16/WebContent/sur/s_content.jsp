@@ -44,9 +44,9 @@
 				</tr>
 				<tr>
 
-					<td><p>댓글 :</p></td>
+					<td><p>댓글</p></td>
 					<td colspan="2">
-						<form action="surveyCommentWrite.do" name="scWrite" id="comment">
+						<form action="surveyCommentWrite.do" method="post" name="scWrite" id="comment">
 							<input type="hidden" name="pageNum" value="${pageNum }" /> <input
 								type="hidden" name="s_idx" value="${s_idx }" /> 
 							<p><textarea id="r_content" name="r_content" rows="10" cols="40"></textarea></p>
