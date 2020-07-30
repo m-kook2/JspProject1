@@ -30,10 +30,10 @@
 	
 	<table class="table">
 		<tr>
-		 <td>번호</td>
+		 <!-- <td>번호</td> -->
 		 <td>순번</td>
 		 <td>아이디</td>
-		 <td>영화번호</td>
+		<!--  <td>영화번호</td> -->
 		 <td>영화제목</td>
 		 <td>사진</td>
 		 <td>등록일</td>
@@ -48,14 +48,14 @@
 						<input type="hidden" value="${pageNum }">
 						<input type="hidden" name="id" value="${bookmark.id }">
 						<input type="hidden" name="m_idx" value="${bookmark.m_idx }">
-						<td>${startNum }</td>
+						<%-- <td>${startNum }</td> --%>
 						<td>
 						<a href="content.do?num=${bookmark.idx }&pageNum=${currentPage}">${bookmark.idx }</a>
 						</td>
 						<td>${bookmark.id}</td>
-						<td>${bookmark.m_idx }</td>
+						<%-- <td>${bookmark.m_idx }</td> --%>
 						<td>${bookmark.m_name}</td>
-						<td>${bookmark.m_photo}</td>
+						<td><img src="./images/main/photo/${bookmark.m_photo}" width="65" height="93"/></td>
 						<td>${bookmark.reg_date }</td>
 						<td><input type="submit" class="btn btn-primary" value="삭제"></input> </td>
 					</form>
