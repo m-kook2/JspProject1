@@ -47,49 +47,31 @@ $(document).ready(function() {
                         <li data-target="#mycarousel" data-slide-to="5"></li>
                         <li data-target="#mycarousel" data-slide-to="6"></li>
                         <li data-target="#mycarousel" data-slide-to="7"></li>
+                        <li data-target="#mycarousel" data-slide-to="8"></li>
                     </ul>
 
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                        <img src="images/main/photo/photo1.jpg" alt="0">
-                        <img src="images/main/photo/photo2.jpg" alt="0">
-                        <img src="images/main/photo/photo3.jpg" alt="0">
-                        <img src="images/main/photo/photo4.jpg" alt="0"></div>
+                       <img src="images/main/photo/1.jpg" alt="0" width="800" height="450"></div>
                         <div class="carousel-item">
-                        <img src="images/main/photo/photo5.jpg" alt="1">
-                        <img src="images/main/photo/photo6.jpg" alt="1">
-                        <img src="images/main/photo/photo7.jpg" alt="1">
-                        <img src="images/main/photo/photo8.jpg" alt="1"></div>
+                        <img src="images/main/photo/2.jpg" alt="2" width="800" height="450"></div>
                         <div class="carousel-item">
-                        <img src="images/main/photo/photo9.jpg" alt="2">
-                        <img src="images/main/photo/photo10.jpg" alt="2">
-                        <img src="images/main/photo/photo11.jpg" alt="2">
-                        <img src="images/main/photo/photo12.jpg" alt="2"></div>
+                        <img src="images/main/photo/3.png" alt="7" width="800" height="450"></div>
                         <div class="carousel-item">
-                        <img src="images/main/photo/photo13.jpg" alt="3">
-                        <img src="images/main/photo/photo14.jpg" alt="3">
-                        <img src="images/main/photo/photo15.jpg" alt="3">
-                        <img src="images/main/photo/photo16.jpg" alt="3"></div>
+                        <img src="images/main/photo/4.jpg" alt="3" width="800" height="450"></div>
                         <div class="carousel-item">
-                        <img src="images/main/photo/photo17.jpg" alt="4">
-                        <img src="images/main/photo/photo18.jpg" alt="4">
-                        <img src="images/main/photo/photo19.jpg" alt="4">
-                        <img src="images/main/photo/photo20.jpg" alt="4"></div>
+                        <img src="images/main/photo/5.jpg" alt="8" width="800" height="450"></div>
                         <div class="carousel-item">
-                        <img src="images/main/photo/photo21.jpg" alt="5">
-                        <img src="images/main/photo/photo22.jpg" alt="5">
-                        <img src="images/main/photo/photo23.jpg" alt="5">
-                        <img src="images/main/photo/photo24.jpg" alt="5"></div>
+                        <img src="images/main/photo/6.jpg" alt="5" width="800" height="450"></div>
                         <div class="carousel-item">
-                        <img src="images/main/photo/photo25.jpg" alt="6">
-                        <img src="images/main/photo/photo26.jpg" alt="6">
-                        <img src="images/main/photo/photo27.jpg" alt="6">
-                        <img src="images/main/photo/photo28.jpg" alt="6"></div>
+                        <img src="images/main/photo/7.png" alt="1" width="800" height="450"></div>
                         <div class="carousel-item">
-                        <img src="images/main/photo/photo29.jpg" alt="7">
-                        <img src="images/main/photo/photo30.jpg" alt="7"></div>
+                        <img src="images/main/photo/8.jpg" alt="6" width="800" height="450"></div>
+                        <div class="carousel-item">
+                        <img src="images/main/photo/9.jpg" alt="4" width="800" height="450"></div>
+                        
                     
-
+                
                     <a class="carousel-control-prev" data-slide="prev" href="#mycarousel">
                     <span class="carousel-control-prev-icon"></span>
                     </a>
