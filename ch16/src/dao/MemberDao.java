@@ -313,7 +313,7 @@ public class MemberDao {
 		return result;
 	}
 
-	public int delete(String id, String password, String nickname) throws SQLException {
+	public int delete(String id, String password) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;

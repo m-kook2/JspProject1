@@ -8,9 +8,6 @@
 <script type="text/javascript">
 	function mut() {
 		var frm = document.f;
-		alert("정말 수정할껀가?")
-		alert("정말 수정할껀가?")
-		alert("정말 수정할껀가?")
 		if (frm.password.value != frm.chkpassword.value) {
 			alert("패스워드 확인이 필요합니다.");
 			frm.chkpassword.value = "";
