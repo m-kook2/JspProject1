@@ -34,8 +34,7 @@ $(document).ready(function() {
 
 <div class="container">
         <div class="row">
-            <div >
-
+         	<div class="col-12">
                 <div class="carousel slide" data-ride="carousel" id="mycarousel">
 
                     <ul class="carousel-indicators">
@@ -79,11 +78,10 @@ $(document).ready(function() {
                     <a class="carousel-control-next" data-slide="next" href="#mycarousel">
                     <span class="carousel-control-next-icon"></span>    
                 </a>
-                </div>
+               
             </div>
         </div>
     </div>
-
 </div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 	<a class="navbar-brand" href="main.do"><img alt="POPcorn Review" src="/images/main/logo.png" width="60" height="60"> </a>
