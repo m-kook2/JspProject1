@@ -29,22 +29,32 @@ public class BookmarkDao {
 		return conn;
 	}
 	
-	public List<BookmarkDto> list(int startRow, int endRow, String id) throws SQLException {
+	public List<BookmarkDto> list(int startRow, int endRow, String id, String str) throws SQLException {
 		List<BookmarkDto> list = new ArrayList<BookmarkDto>();
 		Connection conn = null;	PreparedStatement pstmt= null;
 		ResultSet rs = null;
 		
-		 String sql = "select *" + 
+		 String sql = "select * from (select *" + 
 		 		"		 from (select rownum rn, a.*" + 
 		 		"		       from (select bk.id, bk.m_idx, bk.idx, bk.reg_date, mi.m_name, mi.m_photo, mi.m_genre, mi.m_date" + 
 		 		"		             from book_mind bk, movie_info mi" + 
 		 		"		             where bk.m_idx = mi.m_idx" + 
 		 		"		             AND bk.id = ?) a )" + 
-		 		"		 where rn between ? and ?";
-		 
+		 		"		 where rn between ? and ?) where 1=1 ";
+		 StringBuffer buf=new StringBuffer();
+		 System.out.println("sql : "+sql);
+		 buf.append(sql);
+		 if(str!=null && !str.equals("")) {
+			 if(str.equals("1")) {
+				 buf.append("	order by m_date desc");	 
+			 }else if(str.equals("2")) {
+				 buf.append("	order by m_genre desc");
+			 }
+			 
+		 }
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(buf.toString());
 			pstmt.setString(1, id);
 			pstmt.setInt(2, startRow);
 			pstmt.setInt(3, endRow);
