@@ -17,6 +17,23 @@ public class CommMngListAction implements CommandProcess {
 			throws ServletException, IOException {
 		CommDao com = CommDao.getInstance();
 		try {
+			String idx[]=request.getParameterValues("c_idx");//체크박스를 배열로 받는다. ex: 1-Y
+			String delChk="";
+			if(idx!=null) {
+				for(int i=0; i < idx.length; i++) {
+					String gubun[]=idx[i].split("-");//split을 이용해서 - 기준으로 나눈다. 1은 0번째 Y는 1번째 [1,Y]
+/*					System.out.println("idx[i] : "+idx[i]);
+					System.out.println("gubun[0] : "+gubun[0]);
+					System.out.println("gubun[1] : "+gubun[1]);*/
+					if(gubun[1].equals("Y")) {
+						delChk="N";
+						com.update(delChk, Integer.parseInt(gubun[0]));// update comm set del_yn=? where c_idx=?
+					}else {
+						delChk="Y";
+						com.update(delChk, Integer.parseInt(gubun[0]));
+					}
+				}
+			}
 			int totCnt  = com.getTotalCnt();			
 			String pageNum = request.getParameter("pageNum");	
 			if (pageNum==null || pageNum.equals("")) {	pageNum = "1";	}
@@ -26,6 +43,9 @@ public class CommMngListAction implements CommandProcess {
 			int endRow   = startRow + pageSize - 1;
 			int startNum = totCnt - startRow + 1;
 			List<CommDto> list = com.commMngList(startRow, endRow);	
+			for (int i = 0; i < list.size(); i++) {
+				System.out.println("list:"+list.get(i).getC_content());
+			}
 			int pageCnt = (int)Math.ceil((double)totCnt/pageSize);
 			int startPage = (int)(currentPage-1)/blockSize*blockSize + 1;
 			int endPage = startPage + blockSize -1;	
