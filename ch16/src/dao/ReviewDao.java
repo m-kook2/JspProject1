@@ -42,15 +42,15 @@ public class ReviewDao {
 			pstmt.setInt(2, endRow);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ReviewDto review = new ReviewDto();
-				review.setP_idx(rs.getInt("P_idx"));
-				review.setP_title(rs.getString("p_title"));
-				review.setP_content(rs.getString("p_content"));
-				review.setP_date(rs.getDate("p_date"));
-				review.setId(rs.getString("id"));
-				review.setM_idx(rs.getInt("m_idx"));
+				ReviewDto review1 = new ReviewDto();
+				review1.setP_idx(rs.getInt("P_idx"));
+				review1.setP_title(rs.getString("p_title"));
+				review1.setP_content(rs.getString("p_content"));
+				review1.setP_date(rs.getDate("p_date"));
+				review1.setId(rs.getString("id"));
+				review1.setM_idx(rs.getInt("m_idx"));
 			
-				list.add(review);
+				list.add(review1);
 			}
 			
 		} catch(Exception e) {	System.out.println(e.getMessage()); 
@@ -157,8 +157,9 @@ public class ReviewDao {
 		int p_idx = review.getP_idx();		
 		Connection conn = null;	PreparedStatement pstmt= null; 
 		int result = 0;			ResultSet rs = null;
-		String sql1 = "select nvl(max(p_idx),0) from review";
-		String sql="insert into review values(?,?,?,sysdate,?,?)";
+		String sql1 ="select nvl(max(p_idx),0) from review";
+		String sql="Insert into REVIEW values (?,?,?,sysdate,'admin',1)";
+		System.out.println("test insert"+sql);
 		try {			
 			conn = getConnection();
 
@@ -169,14 +170,14 @@ public class ReviewDao {
 			// sequence를 사용 : values(시퀀스명(board_seq).nextval,?,?...)
 			int number = rs.getInt(1) + 1;  
 			rs.close();   pstmt.close();
+			System.out.println("number"+ number);
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, number);
 			pstmt.setString(2, review.getP_title());
 			pstmt.setString(3, review.getP_content());
-			pstmt.setString(4, review.getId());
-			pstmt.setInt(5, review.getM_idx());
-			result = pstmt.executeUpdate(); 
+			result = pstmt.executeUpdate();
+			System.out.println("result="+result);
 		} catch(Exception e) {	System.out.println(e.getMessage()); 
 		} finally {
 			if (rs !=null) rs.close();

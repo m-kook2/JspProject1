@@ -17,19 +17,25 @@ public class ReviewWriterProAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			System.out.println("왔나?");
 		 	request.setCharacterEncoding("utf-8"); 
 	        String pageNum = request.getParameter("pageNum");
+	        System.out.println("pageNum"+pageNum);
 	        ReviewDto review = new ReviewDto();
-	        review.setP_idx(Integer.parseInt(request.getParameter("p_idx")));
+	        
 	        review.setP_title(request.getParameter("p_title"));
 	        review.setP_content(request.getParameter("p_content"));
-	        review.setM_idx(Integer.parseInt(request.getParameter("m_idx")));
+	        System.out.println("왔나?");
+	        
 	        ReviewDao rd = ReviewDao.getInstance();//DB 
 	        int result = rd.insert(review);
 	        request.setAttribute("num", review.getP_idx());
 	        request.setAttribute("result", result);
 	        request.setAttribute("pageNum", pageNum);
-		} catch(Exception e) { System.out.println(e.getMessage()); }
+	        System.out.println("왔나?");
+		} catch(Exception e) { 
+			System.out.println(e.getMessage()); 
+			}
      return "/review/reviewwritePro.jsp";
 	}
 
