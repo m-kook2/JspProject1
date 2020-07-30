@@ -5,37 +5,39 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import dao.SurveyDto;
-import dao.SurveyDao;
+import dao.SCommDao;
+import dao.SCommDto;
 
-public class SurveyListAction implements CommandProcess {
+public class SurveyCommentListAction implements CommandProcess {
 
   @Override
   public String requestPro(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    SurveyDao sd = SurveyDao.getInstance();
+    System.out.println("surveyCommentListAction init");
+    SCommDao scd = SCommDao.getInstance();
     try {
-      int totCnt = sd.getTotalCnt();
-      String pageNum = request.getParameter("pageNum");
-      if (pageNum == null || pageNum.equals("")) {
-        pageNum = "1";
+      int s_idx = Integer.parseInt(request.getParameter("s_idx"));
+      int surCnt = scd.getSurCnt(s_idx);
+      String commPageNum = request.getParameter("commPageNum");
+      if (commPageNum == null || commPageNum.equals("")) {
+        commPageNum = "1";
       }
-      int currentPage = Integer.parseInt(pageNum);
+      int currentPage = Integer.parseInt(commPageNum);
       int pageSize = 4, blockSize = 3;
       int startRow = (currentPage - 1) * pageSize + 1;
       int endRow = startRow + pageSize - 1;
-      int startNum = totCnt - startRow + 1;
-      System.out.println("SurveyDao list 메소드 실행");
-      List<SurveyDto> list = sd.list(startRow, endRow);
-      System.out.println("SurveyDao list 메소드 실행 완료");
-      int pageCnt = (int) Math.ceil((double) totCnt / pageSize);
+      int startNum = surCnt - startRow + 1;
+      System.out.println("SCommDao list 메소드 실행");
+      List<SCommDto> list = scd.list(startRow, endRow, s_idx);
+      System.out.println("SCommDao list 메소드 실행 완료");
+      int pageCnt = (int) Math.ceil((double) surCnt / pageSize);
       int startPage = (int) (currentPage - 1) / blockSize * blockSize + 1;
       int endPage = startPage + blockSize - 1;
       if (endPage > pageCnt)
         endPage = pageCnt;
 
-      request.setAttribute("totCnt", totCnt);
-      request.setAttribute("pageNum", pageNum);
+      request.setAttribute("surCnt", surCnt);
+      request.setAttribute("commPageNum", commPageNum);
       request.setAttribute("currentPage", currentPage);
       request.setAttribute("startNum", startNum);
       request.setAttribute("list", list);
@@ -46,7 +48,7 @@ public class SurveyListAction implements CommandProcess {
 
       System.out.println("-----------------------------------------------"); // /ch16/list.do
       System.out.println("startNum-->" + startNum); // /ch16/list.do
-      System.out.println("totCnt-->" + totCnt); // /ch16/list.do
+      System.out.println("commPageNum-->" + commPageNum); // /ch16/list.do
       System.out.println("currentPage-->" + currentPage); // /ch16/list.do
       System.out.println("blockSize-->" + blockSize); // /ch16/list.do
       System.out.println("pageSize-->" + pageSize); // /ch16/list.do
@@ -57,7 +59,7 @@ public class SurveyListAction implements CommandProcess {
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }
-    return "sur/s_list.jsp";
+    return "sur/s_comment.jsp";
   }
 
 }

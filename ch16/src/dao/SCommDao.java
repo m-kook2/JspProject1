@@ -1,12 +1,17 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+import service.StringUtil;
 
 public class SCommDao {
   private static SCommDao instance;
@@ -56,6 +61,52 @@ public class SCommDao {
     }
 
     return sCnt;
+  }
+
+  public List<SCommDto> list(int startRow, int endRow, int s_idx) throws SQLException {
+    List<SCommDto> list = new ArrayList<SCommDto>();
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+    String sql =    "SELECT a.*  " + 
+                    "FROM (     SELECT rownum rn, sc.* " + 
+                    "           FROM (  SELECT sc.*, m.nickname " + 
+                    "                   FROM s_comm sc, member m " + 
+        "                               WHERE sc.id = m.id) sc " + 
+        "                       WHERE S_IDX = ?         " + 
+        "                       ORDER BY R_IDX) a" + 
+        "            WHERE RN BETWEEN ? AND ?";
+    
+    System.out.println("SCommDao List SQL =>" + sql);
+    try {
+      conn = getConnection();
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setInt(1, s_idx);
+      pstmt.setInt(2, startRow);
+      pstmt.setInt(3, endRow);
+      rs = pstmt.executeQuery();
+      while(rs.next()) {
+        SCommDto comment = new SCommDto();
+        comment.setS_idx(s_idx);
+        comment.setId(rs.getString(3));
+        comment.setR_idx(rs.getInt(4));
+        comment.setR_op(rs.getString(5));
+        comment.setR_content(rs.getString(6));
+        String dateString = format.format(rs.getDate(7));
+        comment.setR_regdate(StringUtil.NullToEmpty(dateString));
+        comment.setNickname(rs.getString(8));
+        list.add(comment);
+      }
+    } catch (Exception e) {
+      System.out.println("SCommDao list ERROR!!!");
+      System.out.println(e.getMessage());
+    } finally {
+      if(rs != null) rs.close();
+      if(pstmt != null) pstmt.close();
+      if(conn != null) conn.close();
+    }
+    return list;
   }
 }
 

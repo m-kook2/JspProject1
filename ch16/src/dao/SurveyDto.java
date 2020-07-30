@@ -1,7 +1,5 @@
 package dao;
 
-import java.sql.Date;
-
 public class SurveyDto {
   private int s_idx;
   private String s_sub;

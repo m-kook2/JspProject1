@@ -45,26 +45,18 @@ public class SurveyDao {
     ResultSet rs = null;
     Date today = new Date();
     SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-    String sql = "SELECT rowSC.* " + 
-        "FROM (SELECT rownum r, surComm.* " + 
-        "      FROM (SELECT  s.s_idx, " + 
-        "                    s.s_sub, " + 
-        "                    to_char(s_sdate,'yyyy/mm/dd') as s_sdate, " + 
-        "                    to_char(s_edate,'YYYY/mm/dd') as s_edate, " + 
-        "                    s.s_content, " + 
-        "                    s.s_op1, " + 
-        "                    s.s_op2, " + 
-        "                    s.s_op3, " + 
-        "                    s.s_op4, " + 
-        "                    s.s_op5, " + 
-        "                    s.id, " + 
-        "                    nvl(sc.commCnt,0)  " + 
-        "            FROM sur s, ( SELECT s_idx, COUNT(*) commCnt " + 
-        "                          FROM s_comm " + 
-        "                          GROUP BY s_idx) sc " + 
-        "            WHERE s.s_idx = sc.s_idx(+) " + 
-        "            ORDER by s.s_idx desc) surComm) rowSC " + 
-        "WHERE r between ? and ?";
+    String sql = "SELECT rowSC.* " + "FROM (SELECT rownum r, surComm.* "
+        + "      FROM (SELECT  s.s_idx, " + "                    s.s_sub, "
+        + "                    to_char(s_sdate,'yyyy/mm/dd') as s_sdate, "
+        + "                    to_char(s_edate,'YYYY/mm/dd') as s_edate, "
+        + "                    s.s_content, " + "                    s.s_op1, "
+        + "                    s.s_op2, " + "                    s.s_op3, "
+        + "                    s.s_op4, " + "                    s.s_op5, "
+        + "                    s.id, " + "                    nvl(sc.commCnt,0)  "
+        + "            FROM sur s, ( SELECT s_idx, COUNT(*) commCnt "
+        + "                          FROM s_comm " + "                          GROUP BY s_idx) sc "
+        + "            WHERE s.s_idx = sc.s_idx(+) "
+        + "            ORDER by s.s_idx desc) surComm) rowSC " + "WHERE r between ? and ?";
     System.out.println(sql);
     System.out.println("SQL 문 출력 완료");
     try {
@@ -91,7 +83,8 @@ public class SurveyDao {
         surveyDto.setS_op5(rs.getString(11));
         surveyDto.setId(rs.getString(12));
         surveyDto.setCommCnt(rs.getInt(13));
-        if (StringUtil.NullToEmpty(rs.getString(4)).equals("") || StringUtil.NullToEmpty(rs.getString(5)).equals("")) {
+        if (StringUtil.NullToEmpty(rs.getString(4)).equals("")
+            || StringUtil.NullToEmpty(rs.getString(5)).equals("")) {
           surveyDto.setVotable(true);
         } else {
           surveyDto.setVotable(!format.parse(rs.getString(4)).after(today)
@@ -186,15 +179,19 @@ public class SurveyDao {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pstmt = null;
-    String sql = "select * from sur where s_idx = ?";
+    String sql =
+        "select  s_idx, " + "        s_sub, " + "        to_char(s_sdate,'yyyy/mm/dd') as s_sdate, "
+            + "        to_char(s_edate,'yyyy/mm/dd') as s_edate, " + "        s_content, "
+            + "        s_op1, " + "        s_op2, " + "        s_op3, " + "        s_op4, "
+            + "        s_op5, " + "        Id " + "from sur  " + "where s_idx = ?";
     SurveyDto surveyDto = null;
-    
+    System.out.println(sql);
     try {
       conn = getConnection();
       pstmt = conn.prepareStatement(sql);
       pstmt.setInt(1, s_idx);
       rs = pstmt.executeQuery();
-      if(rs.next()) {
+      if (rs.next()) {
         surveyDto = new SurveyDto();
         surveyDto.setS_idx(rs.getInt(1));
         surveyDto.setS_sub(rs.getString(2));
@@ -208,25 +205,29 @@ public class SurveyDao {
         surveyDto.setS_op5(rs.getString(10));
         surveyDto.setId(rs.getString(11));
       }
-      
+
     } catch (Exception e) {
-System.out.println(e.getMessage());
+      System.out.println("SurveyDao select ERROR!!!");
+      System.out.println(e.getMessage());
     } finally {
-      if(rs != null) rs.close();
-      if(pstmt != null) pstmt.close();
-      if(conn != null) conn.close();
+      if (rs != null)
+        rs.close();
+      if (pstmt != null)
+        pstmt.close();
+      if (conn != null)
+        conn.close();
     }
-    
+
     return surveyDto;
   }
 
   public int delete(int s_idx) throws SQLException {
-    
+
     int result1 = 0;
     int result2 = 0;
     Connection conn = null;
     PreparedStatement pstmt = null;
-    
+
     String sqlComm = "DELETE FROM s_comm WHERE s_idx = ?";
     String sqlSur = "DELETE FROM sur WHERE s_idx = ?";
     try {
@@ -246,8 +247,10 @@ System.out.println(e.getMessage());
       System.out.println("surveyDao delete() ERROR!!!");
       System.out.println(e.getMessage());
     } finally {
-      if(pstmt != null) pstmt.close();
-      if(conn != null) conn.close();
+      if (pstmt != null)
+        pstmt.close();
+      if (conn != null)
+        conn.close();
     }
     return result2;
   }
