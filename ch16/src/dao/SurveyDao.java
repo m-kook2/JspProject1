@@ -12,7 +12,6 @@ import java.util.List;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-import com.sun.xml.internal.ws.util.StringUtils;
 import service.StringUtil;
 
 public class SurveyDao {
@@ -181,6 +180,44 @@ public class SurveyDao {
         conn.close();
     }
     return result;
+  }
+
+  public SurveyDto select(int s_idx) throws SQLException {
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pstmt = null;
+    String sql = "select * from sur where s_idx = ?";
+    SurveyDto surveyDto = null;
+    
+    try {
+      conn = getConnection();
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setInt(1, s_idx);
+      rs = pstmt.executeQuery();
+      if(rs.next()) {
+        surveyDto = new SurveyDto();
+        surveyDto.setS_idx(rs.getInt(1));
+        surveyDto.setS_sub(rs.getString(2));
+        surveyDto.setS_sdate(StringUtil.NullToEmpty(rs.getString(3)));
+        surveyDto.setS_edate(StringUtil.NullToEmpty(rs.getString(4)));
+        surveyDto.setS_content(rs.getString(5));
+        surveyDto.setS_op1(rs.getString(6));
+        surveyDto.setS_op2(rs.getString(7));
+        surveyDto.setS_op3(rs.getString(8));
+        surveyDto.setS_op4(rs.getString(9));
+        surveyDto.setS_op5(rs.getString(10));
+        surveyDto.setId(rs.getString(11));
+      }
+      
+    } catch (Exception e) {
+System.out.println(e.getMessage());
+    } finally {
+      if(rs != null) rs.close();
+      if(pstmt != null) pstmt.close();
+      if(conn != null) conn.close();
+    }
+    
+    return surveyDto;
   }
 
 }

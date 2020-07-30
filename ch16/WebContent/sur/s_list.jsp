@@ -28,7 +28,7 @@
 				<c:forEach var="sur" items="${list }">
 					<tr>
 						<td>${startNum }</td>
-						<td><a href="SurveyContentAction.do?pageNum=${pageNum }">${sur.s_sub }</a></td>
+						<td><a href="surveyContent.do?s_idx=${sur.s_idx }&pageNum=${pageNum }">${sur.s_sub }</a></td>
 						<td>${sur.s_sdate }~${sur.s_edate }</td>
 						<td>${sur.commCnt }명</td>
 						<td>
