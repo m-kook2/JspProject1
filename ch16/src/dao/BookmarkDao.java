@@ -123,7 +123,8 @@ public class BookmarkDao {
 			pstmt.setString(1, id);
 			pstmt.setInt(2, m_idx);
 			result = pstmt.executeUpdate();
-
+			pstmt.close();
+			conn.close();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
