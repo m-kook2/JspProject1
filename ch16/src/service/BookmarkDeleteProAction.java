@@ -25,11 +25,12 @@ public class BookmarkDeleteProAction implements CommandProcess {
 			int result = bd.delete(id, m_idx);
 			System.out.println("BookmarkDeleteProAction result->" + result);
 			request.setAttribute("pageNum", pageNum);
+			request.setAttribute("result", result);
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return "bookmark/bookmarkTest.jsp";
+		return "bookmark/bkDeleteChk.jsp";
 	}
 
 }

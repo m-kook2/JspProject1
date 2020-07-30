@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,14 +39,14 @@ public class CommDao {
 	//댓글관리 전체카운트
 	public int getTotalCnt() throws SQLException {
 		Connection conn = null;
-		PreparedStatement pstm = null;
+		Statement stmt = null;
 		ResultSet rs = null;
 		int tot = 0;
 		String sql = "select count(*) from comm";
 		try {
 			conn = getConnection();
-			pstm = conn.prepareStatement(sql);
-			rs = pstm.executeQuery();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
 			if (rs.next()) {
 				tot = rs.getInt(1);
 			}
@@ -53,7 +54,7 @@ public class CommDao {
 			System.out.println(e.getMessage());
 		} finally {
 			if(rs !=null) rs.close();
-			if(pstm !=null) pstm.close();
+			if(stmt !=null) stmt.close();
 			if(conn !=null) conn.close();
 		}
 		 return tot;
@@ -68,6 +69,7 @@ public class CommDao {
 		String sql = "select * from (select rownum rn ,a.* from " + 
 				" (select * from comm) a ) "+
 				" where rn between ? and ?";
+		System.out.println("sql : "+sql);
 		try {
 			conn = getConnection();
 			pstm = conn.prepareStatement(sql);
@@ -82,7 +84,7 @@ public class CommDao {
 				dto.setC_sympathy(rs.getInt("c_sympathy"));
 				dto.setC_unsympathy(rs.getInt("c_unsympathy"));
 				dto.setC_grade(rs.getInt("c_grade"));
-				dto.setDate(rs.getDate("date"));
+				dto.setDate(rs.getString("c_date"));
 				dto.setDel_yn(rs.getString("del_yn"));
 				dto.setM_idx(rs.getInt("m_idx"));
 				dto.setStep(rs.getInt("step"));
@@ -97,5 +99,25 @@ public class CommDao {
 			if(conn!=null) conn.close();
 		}
 		return list;
-	}	
+	}
+	
+	public int update(String del_yn, int idx) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = "update comm set del_yn=? where c_idx=?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, del_yn);
+			pstmt.setInt(2, idx);
+			result = pstmt.executeUpdate();
+			pstmt.close();
+			conn.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;
+	}
 }

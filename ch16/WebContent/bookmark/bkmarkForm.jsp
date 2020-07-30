@@ -24,16 +24,18 @@
 </div>
 
 <div class="bk_href" style="float: right">
-<button type="button" class="btn btn-primary btn-sm" >
+<button type="button" class="btn btn-primary btn-sm" onclick="location.href='movieList.do'">
 찜추가</button>
 </div>
 	
 	<table class="table">
 		<tr>
-		 <td>번호</td>
+		 <!-- <td>번호</td> -->
 		 <td>순번</td>
+		 <td>사진</td>
 		 <td>아이디</td>
-		 <td>영화번호</td>
+		<!--  <td>영화번호</td> -->
+		 <td>영화제목</td>
 		 <td>등록일</td>
 		 <td>삭제</td>
 		</tr>
@@ -42,16 +44,18 @@
 		<c:if test="${totCnt > 0 }">
 			<c:forEach var="bookmark" items="${list }">
 				<tr>
-					<form action="delete.do?id=${bookmark.id }&m_idx=${bookmark.m_idx}">
+					<form action="delete.do">
 						<input type="hidden" value="${pageNum }">
 						<input type="hidden" name="id" value="${bookmark.id }">
 						<input type="hidden" name="m_idx" value="${bookmark.m_idx }">
-						<td>${startNum }</td>
+						<%-- <td>${startNum }</td> --%>
 						<td>
 						<a href="content.do?num=${bookmark.idx }&pageNum=${currentPage}">${bookmark.idx }</a>
 						</td>
+						<td><img src="./images/main/photo/${bookmark.m_photo}" width="65" height="93"/></td>
 						<td>${bookmark.id}</td>
-						<td>${bookmark.m_idx }</td>
+						<%-- <td>${bookmark.m_idx }</td> --%>
+						<td>${bookmark.m_name}</td>
 						<td>${bookmark.reg_date }</td>
 						<td><input type="submit" class="btn btn-primary" value="삭제"></input> </td>
 					</form>
@@ -59,8 +63,8 @@
 					<c:set var="startNum" value="${startNum-1 }"></c:set>
 			</c:forEach>
 		</c:if>
-		<c:if test="${totCnt ==0 }">
-				<tr><td colspan="5">데이터가 없네</td></tr>
+		<c:if test="${totIdCnt ==0 }">
+				<tr><td colspan="5">데이터가 없습니다.</td></tr>
 		</c:if>
 	</table>
 	

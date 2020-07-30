@@ -33,12 +33,15 @@ public class BookmarkDao {
 		List<BookmarkDto> list = new ArrayList<BookmarkDto>();
 		Connection conn = null;	PreparedStatement pstmt= null;
 		ResultSet rs = null;
-		// String sql = "select * from board order by num desc";
-	    // mysql select * from board order by num desc limit startPage-1,10;
-		 String sql = "select * from (select rownum rn ,a.* from " + 
-			" (select * from book_mind where id=? order by idx desc) a ) "+
-			" where rn between ? and ?";
-		 
+		
+		 String sql = "select *" + 
+		 		"		 from (select rownum rn, a.*" + 
+		 		"		       from (select bk.id, bk.m_idx, bk.idx, bk.mind, bk.reg_date, mi.m_name, mi.m_photo" + 
+		 		"		             from book_mind bk, movie_info mi" + 
+		 		"		             where bk.m_idx = mi.m_idx" + 
+		 		"		             AND bk.id = ?" + 
+		 		"		             order by bk.idx desc) a )" + 
+		 		"		 where rn between ? and ?";
 		 
 		try {
 			conn = getConnection();
@@ -53,6 +56,8 @@ public class BookmarkDao {
 				book.setMind(rs.getString("mind"));
 				book.setM_idx(rs.getInt("m_idx"));
 				book.setIdx(rs.getInt("idx"));
+				book.setM_name(rs.getString("m_name"));
+				book.setM_photo(rs.getString("m_photo"));
 				book.setReg_date(rs.getDate("reg_date"));
 			
 				list.add(book);
