@@ -31,7 +31,77 @@ $(document).ready(function() {
 </script>
 <div class="jumbotron text-center" style="margin-bottom:0">
   <h1>1조 영화리뷰</h1>
-  <p><iframe width="560" height="315" src="https://www.youtube.com/embed/mNezVsOX9N8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p> 
+
+<div class="container">
+        <div class="row">
+            <div >
+
+                <div class="carousel slide" data-ride="carousel" id="mycarousel">
+
+                    <ul class="carousel-indicators">
+                        <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#mycarousel" data-slide-to="1"></li>
+                        <li data-target="#mycarousel" data-slide-to="2"></li>
+                        <li data-target="#mycarousel" data-slide-to="3"></li>
+                        <li data-target="#mycarousel" data-slide-to="4"></li>
+                        <li data-target="#mycarousel" data-slide-to="5"></li>
+                        <li data-target="#mycarousel" data-slide-to="6"></li>
+                        <li data-target="#mycarousel" data-slide-to="7"></li>
+                    </ul>
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <img src="images/main/photo/photo1.jpg" alt="0">
+                        <img src="images/main/photo/photo2.jpg" alt="0">
+                        <img src="images/main/photo/photo3.jpg" alt="0">
+                        <img src="images/main/photo/photo4.jpg" alt="0"></div>
+                        <div class="carousel-item">
+                        <img src="images/main/photo/photo5.jpg" alt="1">
+                        <img src="images/main/photo/photo6.jpg" alt="1">
+                        <img src="images/main/photo/photo7.jpg" alt="1">
+                        <img src="images/main/photo/photo8.jpg" alt="1"></div>
+                        <div class="carousel-item">
+                        <img src="images/main/photo/photo9.jpg" alt="2">
+                        <img src="images/main/photo/photo10.jpg" alt="2">
+                        <img src="images/main/photo/photo11.jpg" alt="2">
+                        <img src="images/main/photo/photo12.jpg" alt="2"></div>
+                        <div class="carousel-item">
+                        <img src="images/main/photo/photo13.jpg" alt="3">
+                        <img src="images/main/photo/photo14.jpg" alt="3">
+                        <img src="images/main/photo/photo15.jpg" alt="3">
+                        <img src="images/main/photo/photo16.jpg" alt="3"></div>
+                        <div class="carousel-item">
+                        <img src="images/main/photo/photo17.jpg" alt="4">
+                        <img src="images/main/photo/photo18.jpg" alt="4">
+                        <img src="images/main/photo/photo19.jpg" alt="4">
+                        <img src="images/main/photo/photo20.jpg" alt="4"></div>
+                        <div class="carousel-item">
+                        <img src="images/main/photo/photo21.jpg" alt="5">
+                        <img src="images/main/photo/photo22.jpg" alt="5">
+                        <img src="images/main/photo/photo23.jpg" alt="5">
+                        <img src="images/main/photo/photo24.jpg" alt="5"></div>
+                        <div class="carousel-item">
+                        <img src="images/main/photo/photo25.jpg" alt="6">
+                        <img src="images/main/photo/photo26.jpg" alt="6">
+                        <img src="images/main/photo/photo27.jpg" alt="6">
+                        <img src="images/main/photo/photo28.jpg" alt="6"></div>
+                        <div class="carousel-item">
+                        <img src="images/main/photo/photo29.jpg" alt="7">
+                        <img src="images/main/photo/photo30.jpg" alt="7"></div>
+                    
+
+                    <a class="carousel-control-prev" data-slide="prev" href="#mycarousel">
+                    <span class="carousel-control-prev-icon"></span>
+                    </a>
+
+                    <a class="carousel-control-next" data-slide="next" href="#mycarousel">
+                    <span class="carousel-control-next-icon"></span>    
+                </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 	<a class="navbar-brand" href="main.do"><img alt="POPcorn Review" src="/images/main/logo.png" width="60" height="60"> </a>
