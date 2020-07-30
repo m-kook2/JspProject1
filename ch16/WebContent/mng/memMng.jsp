@@ -7,8 +7,10 @@
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-<div class="container text-center">
-<h2>회원관리</h2>
+
+<div class="container text-center" style="margin-top: 10px ">
+<h2><img src="https://img.icons8.com/doodle/48/000000/hand-right.png"/>
+회원관리</h2>
 	<table class="table table-bordered">
 		<thead>
 	      <tr>
