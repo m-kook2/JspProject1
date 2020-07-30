@@ -21,15 +21,15 @@ public class MemDeleteProAction implements CommandProcess {
 			MemberDto md = new MemberDto();
 			md.setId(request.getParameter("id"));
 			md.setPassword(request.getParameter("password"));
-			md.setNickname(request.getParameter("nickname"));
 			String id = request.getParameter("id");
 			String password = request.getParameter("password");
-			String nickname = request.getParameter("nickname");
+			
 			MemberDao dao = MemberDao.getInstance();
-			int result = dao.delete(id, password, nickname);
+			int result = dao.delete(id, password);
+			
 			request.setAttribute("result", result);
+			request.setAttribute("id", id);
 			request.setAttribute("password", password);
-			request.setAttribute("nickname", nickname);
 			
 			if(result != 0) {
 				session.invalidate();//세션끊는거
