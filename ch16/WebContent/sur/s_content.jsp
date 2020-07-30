@@ -31,7 +31,7 @@
 					<td colspan="2">${survey.s_content }</td>
 				</tr>
 				<tr>
-					<td>설문 내용</td>
+					<td>설문 항목</td>
 					<td colspan="2">
 						<form action="">
 							<c:if test="${survey.s_op1 != null && !survey.s_op1.equals('') }">
@@ -67,23 +67,13 @@
 				</c:if>
 			</div>
 		</div>
-		<div class="text-center">
-			<c:if test="${startPage > blockSize }">
-				<a href='surveyContent.do?pageNum=${param.pageNum }&s_idx=${param.s_idx }&commPageNum=${startPage - blockSize }'>[이전]</a>
-			</c:if>
-			<c:forEach var="i" begin="${startPage }" end="${endPage }">
-				<a href='surveyContent.do?pageNum=${param.pageNum }&s_idx=${param.s_idx }&commPageNum=${i}'>[${i}]</a>
-			</c:forEach>
-			<c:if test="${endPage > surCnt }">
-				<a href='surveyContent.do?pageNum=${param.pageNum }&s_idx=${param.s_idx }&commPageNum=${startPage - blockSize }'>[이전]</a>
-			</c:if>
-		</div>
+
 
 
 		<div class="row">
 			<table>
 				<tr>
-					<th>댓글 작성</th>
+					<th>댓글</th>
 					<th colspan="2">
 						<!-- 댓글 페이지 include -->
 					</th>
@@ -96,7 +86,7 @@
 						<tr>
 							<td><b>${sgComm.nickname }</b></td>
 							<td class="p-3" colspan="2">
-								<p><b>${sgComm.nickname } 님은 ${sgComm.r_op} 에 투표하셨습니다!</b></p>
+								<p><b>${sgComm.nickname } 님은 ${sgComm.r_op}번 항목에 투표하셨습니다!</b></p>
 								<p>${sgComm.r_content}</p>
 								<p class="text-right">${sgComm.r_regdate}</p>
 							</td>
@@ -109,6 +99,8 @@
 					</tr>
 				</c:if>
 			</table>
+
+
 		</div>
 	</div>
 
