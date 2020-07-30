@@ -14,7 +14,7 @@ public class ReviewFormAction implements CommandProcess{
 	public String requestPro(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		try {
-			System.out.println("왔나?");
+			
 			int p_idx = Integer.parseInt(request.getParameter("p_idx"));
 			String pageNum = request.getParameter("pageNum");
 			ReviewDao rd = ReviewDao.getInstance();
