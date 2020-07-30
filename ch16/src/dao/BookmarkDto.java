@@ -6,10 +6,11 @@ public class BookmarkDto {
 private String id;
 private int m_idx;
 private Number idx;
-private String mind;
 private Date reg_date;
 private String m_photo;
 private String m_name;
+private String m_genre;
+private Date m_date;
 
 public String getM_photo() {
 	return m_photo;
@@ -48,12 +49,19 @@ public Number getIdx() {
 public void setIdx(Number idx) {
 	this.idx = idx;
 }
-public String getMind() {
-	return mind;
+public String getM_genre() {
+	return m_genre;
 }
-public void setMind(String mind) {
-	this.mind = mind;
+public void setM_genre(String m_genre) {
+	this.m_genre = m_genre;
 }
+public Date getM_date() {
+	return m_date;
+}
+public void setM_date(Date m_date) {
+	this.m_date = m_date;
+}
+
 
 
 }

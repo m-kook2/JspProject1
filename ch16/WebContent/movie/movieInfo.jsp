@@ -25,14 +25,20 @@
 포토 : ${mt.m_photo}<p>
 동영상 : ${mt.m_video}<p>
 포스터 : ${mt.m_poster}<p>
+	<input class="btn m-2 btn-primary mx-auto" type="button" value="즐겨찾기 추가"
+			    onclick="location.href='BookList.do'">
+	<input class="btn m-2 btn-primary mx-auto" type="button" value="평점 및 댓글 추가"
+			    onclick="location.href='r_list.do'">
+
+
 	</tr>
 
 </table>
 	<c:if test="${sessionScope.status eq '2'}">
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="수정" 
-	            onclick="location.href='movieUpdateForm.do?p_idx=${movieDto.m_idx}&pageNum=${pageNum}'">
+	            onclick="location.href='movieUpdateForm.do?p_idx=${mt.m_idx}&pageNum=${pageNum}'">
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="삭제"
-	            onclick="location.href='movieDeleteForm.do?p_idx=${movieDto.m_idx}&pageNum=${pageNum}'">
+	            onclick="location.href='movieDeleteForm.do?p_idx=${mt.m_idx}&pageNum=${pageNum}'">
 	</c:if>
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="목록"
 			    onclick="location.href='movieList.do?pageNum=${pageNum}'">
@@ -40,6 +46,5 @@
 </div>
 
 
-<%@ include file="/inc/footer.jsp" %>
 </body>
 </html>

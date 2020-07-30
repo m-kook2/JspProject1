@@ -19,7 +19,10 @@
 			<c:if test="${totCnt > 0 }">
 				<c:forEach var="mt" items="${list }">
 					<tr>
-						<td><a href="movieInfo.do?m_idx=${mt.m_idx }&pageNum=${currentPage}">${mt.m_poster } ${mt.m_idx }</a>
+						<td>
+							<a href="movieInfo.do?m_idx=${mt.m_idx }&pageNum=${currentPage}">
+								<img src="./images/main/photo/${mt.m_photo}"/>
+							</a>
 						</td>
 					</tr>
 					<c:set var="startNum" value="${startNum-1 }"></c:set>
@@ -46,7 +49,9 @@
 		</div>
 		<c:if test="${sessionScope.status eq '2'}">
 		<div class="row" style="float: right">
-			<button class="btn m-2 btn-primary mx-auto">게시글 작성</button>
+			<form action="movieInsertForm.do">
+			<button class="btn m-2 btn-primary mx-auto">영화 추가</button>
+			</form>
 		</div>
 		</c:if>
 	</div>

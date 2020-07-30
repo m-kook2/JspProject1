@@ -33,14 +33,16 @@ public class MovieDao {
 			// mysql select * from movie_info order by num desc limit startPage-1,10;
 			String sql = "select * from (select rownum rn ,a.* from (select * from movie_info) a )  where 1=1";
 			StringBuffer strBuffer=new StringBuffer();
+			strBuffer.append(sql);
 			if(str != null && !str.equals("")){
-				strBuffer.append(sql);
 				strBuffer.append("	AND M_NAME LIKE '%"+str+"%' OR M_GENRE LIKE '%"+str+"%' OR M_DIRECTOR LIKE '%"+str+"%'");
 			}
 			strBuffer.append("and rn between ? and ?");
+			System.out.println(strBuffer.toString());
 			try {
 				conn = getConnection();
 				pstmt = conn.prepareStatement(strBuffer.toString());
+//				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, startRow);
 				pstmt.setInt(2, endRow);
 				rs = pstmt.executeQuery();
@@ -76,14 +78,15 @@ public class MovieDao {
 			ResultSet rs = null;    int tot = 0;
 			String sql = "select count(*) from movie_info where 1=1";
 			StringBuffer strBuffer=new StringBuffer();
+			strBuffer.append(sql);
 			if(str != null && !str.equals("")){
-				strBuffer.append(sql);
 				strBuffer.append("	AND M_NAME LIKE '%"+str+"%' OR M_GENRE LIKE '%"+str+"%' OR M_DIRECTOR LIKE '%"+str+"%'");
 			}
 			try {
 				conn = getConnection();
 				stmt = conn.createStatement();
-				rs = stmt.executeQuery(strBuffer.toString());
+//				rs = stmt.executeQuery(strBuffer.toString());
+				rs = stmt.executeQuery(sql);
 				if (rs.next()) tot = rs.getInt(1);
 			} catch(Exception e) {	System.out.println(e.getMessage()); 
 			} finally {

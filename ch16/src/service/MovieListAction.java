@@ -19,7 +19,8 @@ public class MovieListAction implements CommandProcess {
 			
 			String pageNum = request.getParameter("pageNum");
 			String str = request.getParameter("testText")==null?"":request.getParameter("testText");
-			int totCnt  = md.getTotalCnt(str);	
+			int totCnt = md.getTotalCnt(str);
+			System.out.println("int totCnt = md.getTotalCnt(str); ->" + totCnt);
 			if (pageNum==null || pageNum.equals("")) {	pageNum = "1";	}
 			int currentPage = Integer.parseInt(pageNum);	
 			int pageSize  = 10, blockSize = 10;
@@ -47,7 +48,8 @@ public class MovieListAction implements CommandProcess {
 			 
 			System.out.println("-----------------------------------------------");  // /ch16/list.do
 			System.out.println("totCnt-->" + totCnt);  // /ch16/list.do
-			System.out.println("pageNum-->" + pageNum);  
+			System.out.println("pageNum-->" + pageNum);
+	  		System.out.println("list-->" + list);
 			System.out.println("startNum-->" + startNum);  // /ch16/list.do
 			System.out.println("currentPage-->" + currentPage);  // /ch16/list.do
 			System.out.println("blockSize-->" + blockSize);  // /ch16/list.do

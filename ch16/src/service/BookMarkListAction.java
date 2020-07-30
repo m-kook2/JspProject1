@@ -13,7 +13,7 @@ import dao.BookmarkDto;
 import dao.ReviewDao;
 import dao.ReviewDto;
 
-public class BookmarkFormAction implements CommandProcess {
+public class BookMarkListAction implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
@@ -65,7 +65,7 @@ public class BookmarkFormAction implements CommandProcess {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return "bookmark/bkmarkForm.jsp";
+		return "bookmark/bookMarkList.jsp";
 	}
 
 }
