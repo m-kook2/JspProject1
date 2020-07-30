@@ -5,6 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="style.css" type="text/css">
+<style type="text/css">
+body{
+	background-image : url("../images/color.jpg");
+	background-repeat: repeat;
+}
+</style>
 <script type="text/javascript">
 	function mut() {
 		var frm = document.f;
