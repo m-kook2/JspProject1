@@ -11,6 +11,8 @@
 <form name="frm" action="commMngList.do" method="post">
 	<h2>댓글 관리 게시판</h2>
 	<input type="submit" value="확인" style="float: right;"/>
+	<br>
+	<br>
 	<table class="table table-bordered">
 		<thead>
 	      <tr>
