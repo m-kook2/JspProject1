@@ -10,8 +10,8 @@ public class SurveyContentAction implements CommandProcess {
   @Override
   public String requestPro(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    // TODO Auto-generated method stub
-    return null;
+    System.out.println("test");
+    return "s_content.jsp";
   }
 
 }
