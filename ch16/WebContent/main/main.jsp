@@ -7,8 +7,7 @@
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-<div class="container-fluid">
-	<div class="container-fluid">
+	<div class="container-fluid text-center">
 	    <div class="row">
 	  		<c:forEach var="result" items="${list}" varStatus="i">
 			<div class="col-3" style="margin-top:30px">
@@ -23,7 +22,6 @@
 			</c:forEach>
 		</div>
 	</div>
-</div>
 <%@ include file="/inc/footer.jsp" %>
 </body>
 </html>
