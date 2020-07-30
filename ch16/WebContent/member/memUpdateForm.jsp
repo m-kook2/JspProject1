@@ -88,8 +88,7 @@
 			<br />
 			<!-- <button type="button" class="btn btn-primary" onclick="return memUpdate()">정보수정</button> -->
 			<!-- <input type="button" name="f" onsubmit="return memUpdate();" value="정보수정"> -->
-			<button type="button" class="btn btn-info"
-				onclick="javascript:mut();">정보수정</button>
+			<button type="button" class="btn btn-info" onclick="javascript:mut();">정보수정</button>
 		</form>
 	</div>
 	<%@ include file="/inc/footer.jsp"%>

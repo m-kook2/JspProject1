@@ -1,14 +1,21 @@
 package dao;
 
-import java.sql.Date;
-
 public class SCommDto {
   private int s_idx;
   private String id;
   private int r_idx;
   private String r_op;
   private String r_content;
-  private Date r_regdate;
+  private String r_regdate;
+  private String nickname;
+
+  public String getNickname() {
+    return nickname;
+  }
+
+  public void setNickname(String nickname) {
+    this.nickname = nickname;
+  }
 
   public int getS_idx() {
     return s_idx;
@@ -50,11 +57,11 @@ public class SCommDto {
     this.r_content = r_content;
   }
 
-  public Date getR_regdate() {
+  public String getR_regdate() {
     return r_regdate;
   }
 
-  public void setR_regdate(Date r_regdate) {
+  public void setR_regdate(String r_regdate) {
     this.r_regdate = r_regdate;
   }
 
