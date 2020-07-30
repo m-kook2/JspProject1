@@ -30,7 +30,7 @@ $(document).ready(function() {
 });
 </script>
 <div class="jumbotron text-center" style="margin-bottom:0">
-  <h1>1조 영화리뷰</h1>
+  <h1>""</h1>
 
 <div class="container">
         <div class="row">
