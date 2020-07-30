@@ -74,7 +74,7 @@ $(document).ready(function() {
 				        <a class="dropdown-item" href="r_list.do">영화 리뷰 관리</a>
 				        <a class="dropdown-item" href="movieList.do">영화게시판 관리</a>
 				        <a class="dropdown-item" href="surveyList.do">설문조사 관리</a>
-				        <a class="dropdown-item" href="#section46">댓글 관리</a>
+				        <a class="dropdown-item" href="commMngList.do">댓글 관리</a>
 				      </div>
 				    </li>
 			    </c:if>

@@ -7,30 +7,32 @@
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
+<div class="container text-center">
 <h2>회원관리</h2>
-	<table>
-		<tr>
-			<th width="50">번호</th> 
-			<th width="100">아이디</th>
-			<th width="100">이메일</th>
-			<th width="100">닉네임</th>	
-			<th width="100">성별</th>
-			<th width="100">가입날짜</th>
-			<th width="100">조회수</th>
-		</tr>
+	<table class="table table-bordered">
+		<thead>
+	      <tr>
+	      	<th>번호</th> 
+			<th>아이디</th>
+			<th>이메일</th>
+			<th>닉네임</th>	
+			<th>성별</th>
+			<th>가입날짜</th>
+			<th>회원상태</th>
+	      </tr>
+	    </thead>
+		
 		<c:if test="${totCnt > 0 }">
 			<c:forEach var="mng" items="${list}">
 				<tr>
 					<td>${startNum}</td>
-					<td class="left" width=50>
-						<a href="memMngViewForm.do?id=${mng.id}">${mng.idx}</a> 
+					<td>
+						<a href="memMngViewForm.do?id=${mng.id}">${mng.id}</a> 
 					</td>
-					<td class="left" width=100>${mng.id}</td>
-					<td>${mng.email}</td>
+					<td>${mng.email }</td>
 					<td>${mng.nickname }</td>
-					<td class="left" width=150 >${mng.gender }</td>
+					<td>${mng.gender }</td>
 					<td>${mng.reg_date }</td>
-					<td>${mng.del_yn }</td>
 					<td>${mng.status }</td>
 				</tr>
 				<c:set var="startNum" value="${startNum - 1 }" />
@@ -54,6 +56,7 @@
 			<a href='memMng.do?pageNum=${startPage+blockSize}'>[다음]</a>
 		</c:if>
 	</div>
+</div>
 <%@ include file="/inc/footer.jsp" %>
 </body>
 </html>
