@@ -78,7 +78,8 @@ $(document).ready(function() {
                     <a class="carousel-control-next" data-slide="next" href="#mycarousel">
                     <span class="carousel-control-next-icon"></span>    
                 </a>
-               
+               </div>
+               </div>
             </div>
         </div>
     </div>
