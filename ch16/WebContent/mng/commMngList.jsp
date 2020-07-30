@@ -10,6 +10,9 @@
 <div class="container text-center">
 <form name="frm" action="commMngList.do" method="post">
 	<h2>댓글 관리 게시판</h2>
+	<input type="submit" value="확인" style="float: right;"/>
+	<br>
+	<br>
 	<table class="table table-bordered">
 		<thead>
 	      <tr>
@@ -44,9 +47,6 @@
 				<c:set var="startNum" value="${startNum - 1 }" />
 			</c:forEach>
 		</c:if>
-		<tr>
-			<td colspan="6"><input type="submit" value="확인"/></td>
-		</tr>
 		<c:if test="${totCnt == 0 }">
 			<tr>
 				<td colspan=7>데이터가 없네</td>
