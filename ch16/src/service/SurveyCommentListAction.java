@@ -7,27 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import dao.SCommDao;
 import dao.SCommDto;
-import dao.SurveyDao;
-import dao.SurveyDto;
 
-public class SurveyContentAction implements CommandProcess {
+public class SurveyCommentListAction implements CommandProcess {
 
   @Override
   public String requestPro(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    try {
-      int s_idx = Integer.parseInt(request.getParameter("s_idx"));
-      String pageNum = request.getParameter("pageNum");
-      SurveyDao sd = SurveyDao.getInstance();
-      SurveyDto survey = sd.select(s_idx);
-
-      request.setAttribute("s_idx", s_idx);
-      request.setAttribute("pageNum", pageNum);
-      request.setAttribute("survey", survey);
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-    }
-    
     System.out.println("surveyCommentListAction init");
     SCommDao scd = SCommDao.getInstance();
     try {
@@ -60,17 +45,8 @@ public class SurveyContentAction implements CommandProcess {
       request.setAttribute("pageCnt", pageCnt);
       request.setAttribute("startPage", startPage);
       request.setAttribute("endPage", endPage);
-      
-      int cnt = 1;
-      System.out.println("list.size()=>" + list.size());
-      for(SCommDto item : list) {
-   
-        System.out.println("item["+cnt+"]=>" +item);
-        cnt++;
-      }
 
       System.out.println("-----------------------------------------------"); // /ch16/list.do
-      System.out.println("surCnt-->" + surCnt); // /ch16/list.do
       System.out.println("startNum-->" + startNum); // /ch16/list.do
       System.out.println("commPageNum-->" + commPageNum); // /ch16/list.do
       System.out.println("currentPage-->" + currentPage); // /ch16/list.do
@@ -83,8 +59,7 @@ public class SurveyContentAction implements CommandProcess {
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }
-
-    return "sur/s_content.jsp";
+    return "sur/s_comment.jsp";
   }
 
 }
