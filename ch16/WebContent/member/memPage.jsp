@@ -9,12 +9,9 @@
 </head>
 <body>
 	<%@ include file="/inc/header.jsp"%>
-	<div class="container">
+	<div class="container text-center">
 		<h2>마이페이지</h2>
 		<form action="" name="frm" method="post">
-			<ul>
-			<li class="btn btn-success"><a class="form-control"
-				href="#0001">즐겨 찾기</a></li></ul>
 			<div class="form-group">
 				<label for="id">아이디 : <input type="text"
 					class="form-control" id="id" name="id" value="${sessionScope.id }"
@@ -38,11 +35,12 @@
 					value="">정보 수정</button>
 				<button type="button" class="btn btn-danger" href="memDeleteForm.do";
 					value="">회원 탈퇴</button> -->
+
+		
 		<ul>
-			<li class="btn btn-primary"><a class="form-control"
-				href="memUpdateForm.do">정보 수정</a></li>
-			<li class="btn btn-danger"><a class="form-control"
-				href="memDeleteForm.do">회원탈퇴</a></li>
+			<li class="btn btn-success" class="form-control" href="#0001"> 즐겨찾기</li>
+			<li class="btn btn-primary" class="form-control" href="memUpdateForm.do">정보 수정</li>
+			<li class="btn btn-danger" class="form-control" href="memDeleteForm.do">회원탈퇴</li>
 		</ul>
 	</div>
 	</div>

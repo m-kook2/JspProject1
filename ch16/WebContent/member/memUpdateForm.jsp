@@ -39,6 +39,7 @@
 </head>
 <body>
 	<%@ include file="/inc/header.jsp"%>
+	<!-- <div class="text-auto"> -->
 	<div class="container">
 		<form action="memUpdatePro.do" name="f" method="post">
 			<div class="form-group">
@@ -46,25 +47,30 @@
 				<br /> <label for="id">아이디 : </label> <input type="text"
 					class="form-control" id="id" name="id" value="${sessionScope.id }" disabled="disabled">
 				<p>
+				<br/>
 
 					<label for="password">비밀번호 : </label> <input type="password"
 						class="form-control" id="password" name="psssword"
 						value="${sessionScope.password }" disabled="disabled">
 				<p>
+				<br/>
 
 					<label for="chkpassword">비밀번호 확인:</label> <input type="password"
 						class="form-control" id="chkpassword" name="chkpassword">
 				<p>
+				<br/>
 
 					<label for="email">이메일 : </label> <input type="text"
 						class="form-control" id="email" name="email"
 						value="${sessionScope.email }">
 				<p>
+				<br/>
 
 					<label for="nickname">닉네임 : </label> <input type="text"
 						class="form-control" id="nickname" name="nickname"
 						value="${sessionScope.nickname }">
 				<p>
+				<br/>
 					<label for="gender">성별 : </label>
 				<div class="form-check-inline">
 					<label class="form-check-label" for="gender"> <input
@@ -82,9 +88,8 @@
 			<br />
 			<!-- <button type="button" class="btn btn-primary" onclick="return memUpdate()">정보수정</button> -->
 			<!-- <input type="button" name="f" onsubmit="return memUpdate();" value="정보수정"> -->
-			<button type="button" class="btn btn-danger"
+			<button type="button" class="btn btn-info"
 				onclick="javascript:mut();">정보수정</button>
-			<button type="button" class="btn btn-primary" value="reset">초기화</button>
 		</form>
 	</div>
 	<%@ include file="/inc/footer.jsp"%>
