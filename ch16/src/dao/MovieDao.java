@@ -32,7 +32,6 @@ public class MovieDao {
 			// String sql = "select * from movie_info order by num desc";
 			// mysql select * from movie_info order by num desc limit startPage-1,10;
 			String sql = "select * from (select rownum rn ,a.* from (select * from movie_info) a )  where 1=1";
-			 
 			StringBuffer strBuffer=new StringBuffer();
 			if(str != null && !str.equals("")){
 				strBuffer.append(sql);
