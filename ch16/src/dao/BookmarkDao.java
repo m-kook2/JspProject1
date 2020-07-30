@@ -36,11 +36,10 @@ public class BookmarkDao {
 		
 		 String sql = "select *" + 
 		 		"		 from (select rownum rn, a.*" + 
-		 		"		       from (select bk.id, bk.m_idx, bk.idx, bk.mind, bk.reg_date, mi.m_name, mi.m_photo" + 
+		 		"		       from (select bk.id, bk.m_idx, bk.idx, bk.reg_date, mi.m_name, mi.m_photo, mi.m_genre" + 
 		 		"		             from book_mind bk, movie_info mi" + 
 		 		"		             where bk.m_idx = mi.m_idx" + 
-		 		"		             AND bk.id = ?" + 
-		 		"		             order by bk.idx desc) a )" + 
+		 		"		             AND bk.id = ?) a )" + 
 		 		"		 where rn between ? and ?";
 		 
 		try {
@@ -53,9 +52,9 @@ public class BookmarkDao {
 			while (rs.next()) {
 				BookmarkDto book = new BookmarkDto();
 				book.setId(rs.getString("id"));
-				book.setMind(rs.getString("mind"));
 				book.setM_idx(rs.getInt("m_idx"));
 				book.setIdx(rs.getInt("idx"));
+				book.setM_name(rs.getString("m_genre"));
 				book.setM_name(rs.getString("m_name"));
 				book.setM_photo(rs.getString("m_photo"));
 				book.setReg_date(rs.getDate("reg_date"));

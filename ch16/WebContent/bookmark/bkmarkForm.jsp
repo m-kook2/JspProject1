@@ -35,7 +35,9 @@
 		 <td>사진</td>
 		 <td>아이디</td>
 		<!--  <td>영화번호</td> -->
+		 <td>장르</td>
 		 <td>영화제목</td>
+		 <td>개봉일</td>
 		 <td>등록일</td>
 		 <td>삭제</td>
 		</tr>
@@ -55,7 +57,9 @@
 						<td><img src="./images/main/photo/${bookmark.m_photo}" width="65" height="93"/></td>
 						<td>${bookmark.id}</td>
 						<%-- <td>${bookmark.m_idx }</td> --%>
+						<td>${bookmark.m_genre}</td>
 						<td>${bookmark.m_name}</td>
+						<td>${bookmark.m_date }</td>
 						<td>${bookmark.reg_date }</td>
 						<td><input type="submit" class="btn btn-primary" value="삭제"></input> </td>
 					</form>
