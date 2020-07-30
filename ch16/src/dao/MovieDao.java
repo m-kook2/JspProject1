@@ -25,56 +25,66 @@ public class MovieDao {
 	}
 	
 	
-		public List<MovieDto> list(int startRow, int endRow) throws SQLException {
-		List<MovieDto> list = new ArrayList<MovieDto>();
-		Connection conn = null;	PreparedStatement pstmt= null;
-		ResultSet rs = null;
-		// String sql = "select * from movie_info order by num desc";
-	// mysql select * from movie_info order by num desc limit startPage-1,10;
-		 String sql = "select * from (select rownum rn ,a.* from " + 
-			" (select * from movie_info) a ) "+
-			" where rn between ? and ?";
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				MovieDto movieDto = new MovieDto();
-				movieDto.setM_idx(rs.getString("m_idx"));
-				movieDto.setM_name(rs.getString("m_name"));
-				movieDto.setM_genre(rs.getString("m_genre"));
-				movieDto.setM_date(rs.getString("m_date"));
-				movieDto.setM_nation(rs.getString("m_nation"));
-				movieDto.setM_time(rs.getString("m_time"));
-				movieDto.setM_rate(rs.getString("m_rate"));
-				movieDto.setM_story(rs.getString("m_story"));
-				movieDto.setM_cast(rs.getString("m_cast"));
-				movieDto.setM_director(rs.getString("m_director"));
-				movieDto.setM_photo(rs.getString("m_photo"));
-				movieDto.setM_video(rs.getString("m_video"));
-				movieDto.setM_poster(rs.getString("m_poster"));
-				movieDto.setId(rs.getString("id"));
-				list.add(movieDto);
+		public List<MovieDto> list(int startRow, int endRow, String str) throws SQLException {
+			List<MovieDto> list = new ArrayList<MovieDto>();
+			Connection conn = null;	PreparedStatement pstmt= null;
+			ResultSet rs = null;
+			// String sql = "select * from movie_info order by num desc";
+			// mysql select * from movie_info order by num desc limit startPage-1,10;
+			String sql = "select * from (select * from (select rownum rn ,a.* from (select * from movie_info) a ) where rn between ? and ?) where 1=1";
+			 
+			StringBuffer strBuffer=new StringBuffer();
+			if(str != null && !str.equals("")){
+				strBuffer.append(sql);
+				strBuffer.append("	AND M_NAME LIKE '%"+str+"%' OR M_GENRE LIKE '%"+str+"%' OR M_DIRECTOR LIKE '%"+str+"%'");
 			}
-		} catch(Exception e) {	System.out.println(e.getMessage()); 
-		} finally {
-			if (rs !=null) rs.close();
-			if (pstmt != null) pstmt.close();
-			if (conn !=null) conn.close();
-		}
-		return list;
+			System.out.println(strBuffer.toString());
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(strBuffer.toString());
+				pstmt.setInt(1, startRow);
+				pstmt.setInt(2, endRow);
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					MovieDto movieDto = new MovieDto();
+					movieDto.setM_idx(rs.getString("m_idx"));
+					movieDto.setM_name(rs.getString("m_name"));
+					movieDto.setM_genre(rs.getString("m_genre"));
+					movieDto.setM_date(rs.getString("m_date"));
+					movieDto.setM_nation(rs.getString("m_nation"));
+					movieDto.setM_time(rs.getString("m_time"));
+					movieDto.setM_rate(rs.getString("m_rate"));
+					movieDto.setM_story(rs.getString("m_story"));
+					movieDto.setM_cast(rs.getString("m_cast"));
+					movieDto.setM_director(rs.getString("m_director"));
+					movieDto.setM_photo(rs.getString("m_photo"));
+					movieDto.setM_video(rs.getString("m_video"));
+					movieDto.setM_poster(rs.getString("m_poster"));
+					movieDto.setId(rs.getString("id"));
+					list.add(movieDto);
+				}
+			} catch(Exception e) {	System.out.println(e.getMessage()); 
+			} finally {
+				if (rs !=null) rs.close();
+				if (pstmt != null) pstmt.close();
+				if (conn !=null) conn.close();
+			}
+			return list;
 	}
 
-		public int getTotalCnt() throws SQLException {
+		public int getTotalCnt(String str) throws SQLException {
 			Connection conn = null;	Statement stmt= null; 
 			ResultSet rs = null;    int tot = 0;
-			String sql = "select count(*) from movie_info";
+			String sql = "select count(*) from movie_info where 1=1";
+			StringBuffer strBuffer=new StringBuffer();
+			if(str != null && !str.equals("")){
+				strBuffer.append(sql);
+				strBuffer.append("	AND M_NAME LIKE '%"+str+"%' OR M_GENRE LIKE '%"+str+"%' OR M_DIRECTOR LIKE '%"+str+"%'");
+			}
 			try {
 				conn = getConnection();
 				stmt = conn.createStatement();
-				rs = stmt.executeQuery(sql);
+				rs = stmt.executeQuery(strBuffer.toString());
 				if (rs.next()) tot = rs.getInt(1);
 			} catch(Exception e) {	System.out.println(e.getMessage()); 
 			} finally {

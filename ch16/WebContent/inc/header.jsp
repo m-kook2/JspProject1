@@ -48,8 +48,8 @@ $(document).ready(function() {
 	      </li>    
 	    </ul>
 	</div>  
-  	<form class="form-inline" action="">
-    	<input class="form-control mr-sm-2" type="text" id="testText" placeholder="작품제목, 감독, 장르">
+  	<form class="form-inline" action="movieList.do">
+    	<input class="form-control mr-sm-2" type="text" id="testText" name="testText" placeholder="작품제목, 감독, 장르">
     	<button class="btn btn-success" type="submit">Search</button>
 	</form>
 	<ul class="navbar-nav">

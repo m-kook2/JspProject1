@@ -10,7 +10,6 @@ var retVal = confirm("정말 삭제하시나요 ?");
 
 if( retVal == true ){
 	
-   alert("삭제 완료!");
    location.href="reviewdeletepro.do?p_idx=${review.p_idx }&pageNum=${pageNum}";
 
 }else{

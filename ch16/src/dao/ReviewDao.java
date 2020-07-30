@@ -129,4 +129,60 @@ public class ReviewDao {
 		return result;
 	}
 	
+	public int update(ReviewDto review) throws SQLException {
+		Connection conn = null;	PreparedStatement pstmt= null; 
+		int result = 0;			
+		String sql="update review set p_title=?,p_content=?,p_date=sysdate where p_idx=?";
+		System.out.println("update");
+		System.out.println(sql);
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, review.getP_title());
+			pstmt.setString(2, review.getP_content());
+			pstmt.setInt(3, review.getP_idx());
+			
+			result = pstmt.executeUpdate();
+		} catch(Exception e) {	System.out.println(e.getMessage()); 
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return result;
+	
+	}
+	
+	
+	public int insert(ReviewDto review) throws SQLException {
+		int p_idx = review.getP_idx();		
+		Connection conn = null;	PreparedStatement pstmt= null; 
+		int result = 0;			ResultSet rs = null;
+		String sql1 = "select nvl(max(p_idx),0) from review";
+		String sql="insert into review values(?,?,?,sysdate,?,?)";
+		try {			
+			conn = getConnection();
+
+			pstmt = conn.prepareStatement(sql1);
+			rs = pstmt.executeQuery();
+			rs.next();
+			// key인 num 1씩 증가, mysql auto_increment 또는 oracle sequence
+			// sequence를 사용 : values(시퀀스명(board_seq).nextval,?,?...)
+			int number = rs.getInt(1) + 1;  
+			rs.close();   pstmt.close();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, number);
+			pstmt.setString(2, review.getP_title());
+			pstmt.setString(3, review.getP_content());
+			pstmt.setString(4, review.getId());
+			pstmt.setInt(5, review.getM_idx());
+			result = pstmt.executeUpdate(); 
+		} catch(Exception e) {	System.out.println(e.getMessage()); 
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return result;
+	}
 }

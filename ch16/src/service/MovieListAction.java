@@ -16,15 +16,18 @@ public class MovieListAction implements CommandProcess {
 		MovieDao md = MovieDao.getInstance();	
 		try {
 			// Board TBL Row Count
-			int totCnt  = md.getTotalCnt();	
-			String pageNum = request.getParameter("pageNum");	
+			
+			String pageNum = request.getParameter("pageNum");
+			String str = request.getParameter("testText")==null?"":request.getParameter("testText");
+			int totCnt  = md.getTotalCnt(str);	
+			System.out.println("str : "+str);
 			if (pageNum==null || pageNum.equals("")) {	pageNum = "1";	}
 			int currentPage = Integer.parseInt(pageNum);	
 			int pageSize  = 10, blockSize = 10;
 			int startRow = (currentPage - 1) * pageSize + 1;   //1
 			int endRow   = startRow + pageSize - 1;            //10
 			int startNum = totCnt - startRow + 1;
-			List<MovieDto> list = md.list(startRow, endRow);
+			List<MovieDto> list = md.list(startRow, endRow, str);
 			for(int i=0; i<list.size(); i++) {
 				System.out.println("aa : "+list.get(i).getM_idx());
 			}
