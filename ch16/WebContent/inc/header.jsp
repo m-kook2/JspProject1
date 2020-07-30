@@ -31,7 +31,7 @@ $(document).ready(function() {
 </script>
 <div class="jumbotron text-center" style="margin-bottom:0">
   <h1>1조 영화리뷰</h1>
-  <p>프로젝트!</p> 
+  <p><iframe width="560" height="315" src="https://www.youtube.com/embed/mNezVsOX9N8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p> 
 </div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 	<a class="navbar-brand" href="main.do">Logo</a>
