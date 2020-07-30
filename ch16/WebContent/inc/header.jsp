@@ -34,7 +34,7 @@ $(document).ready(function() {
   <p><iframe width="560" height="315" src="https://www.youtube.com/embed/mNezVsOX9N8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p> 
 </div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-	<a class="navbar-brand" href="main.do">Logo</a>
+	<a class="navbar-brand" href="main.do"><img alt="POPcorn Review" src="/images/main/logo.png" width="60" height="60"> </a>
   	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 	    <ul class="navbar-nav">
 	      <li class="nav-item">
