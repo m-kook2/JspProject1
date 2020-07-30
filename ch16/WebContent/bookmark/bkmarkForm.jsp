@@ -27,7 +27,6 @@
 <button type="button" class="btn btn-primary btn-sm" onclick="location.href='movieList.do'">
 찜추가</button>
 </div>
-<form action="delete.do">
 	<table class="table">
 		<tr>
 		 <!-- <td>번호</td> -->
@@ -45,14 +44,12 @@
 		
 		<c:if test="${totCnt > 0 }">
 			<c:forEach var="bookmark" items="${list }">
-				<input type="hidden" value="${pageNum }"/>
 				<tr>
 					<td>
 						<a href="content.do?num=${bookmark.idx }&pageNum=${currentPage}">${bookmark.idx }</a>
 						</td>
 						<td><img src="./images/main/photo/${bookmark.m_photo}" width="65" height="93"/></td>
 						<td>${bookmark.id}</td>
-						<%-- <td>${bookmark.m_idx }</td> --%>
 						<td>${bookmark.m_genre}</td>
 						<td>${bookmark.m_name}</td>
 						<td>${bookmark.m_date }</td>
@@ -67,7 +64,6 @@
 				<tr><td colspan="5">데이터가 없습니다.</td></tr>
 		</c:if>
 	</table>
-</form>	
 </div>
 	
 	

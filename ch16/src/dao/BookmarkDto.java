@@ -49,6 +49,18 @@ public Number getIdx() {
 public void setIdx(Number idx) {
 	this.idx = idx;
 }
+public String getM_genre() {
+	return m_genre;
+}
+public void setM_genre(String m_genre) {
+	this.m_genre = m_genre;
+}
+public Date getM_date() {
+	return m_date;
+}
+public void setM_date(Date m_date) {
+	this.m_date = m_date;
+}
 
 
 
