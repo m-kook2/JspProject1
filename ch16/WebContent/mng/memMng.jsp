@@ -40,7 +40,7 @@
 		</c:if>
 		<c:if test="${totCnt == 0 }">
 			<tr>
-				<td colspan=9>데이터가 없네</td>
+				<td colspan=9>데이터가 없습니다</td>
 			</tr>
 		</c:if>
 	</table>
