@@ -32,7 +32,7 @@ public class BookmarkDeleteProAction implements CommandProcess {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return "bookmark/bkDeleteChk.jsp";
+		return "bookmark/bookDeleteChk.jsp";
 	}
 
 }

@@ -58,7 +58,7 @@ $(document).ready(function() {
 				<li class="nav-item dropdown" id="mem3">
 			      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">마이페이지</a>
 			      <div class="dropdown-menu">
-			        <a class="dropdown-item" href="bkmarkForm.do">즐겨찾기</a>
+			        <a class="dropdown-item" href="bookMarkList.do">즐겨찾기</a>
 			        <a class="dropdown-item" href="memUpdateForm.do">회원정보수정</a>
 			        <a class="dropdown-item" href="memDeleteForm.do">회원탈퇴</a>
 			      </div>

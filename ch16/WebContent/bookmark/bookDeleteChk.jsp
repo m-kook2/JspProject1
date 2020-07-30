@@ -12,7 +12,7 @@
 	<c:if test="${result > 0 }">
 		<script>
 			alert("삭제되었습니다.")
-			location.href = "bkmarkForm.do"
+			location.href = "bookMarkList.do"
 		</script>
 	</c:if>
 		<c:if test="${result <= 0 }">

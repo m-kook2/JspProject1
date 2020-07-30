@@ -54,7 +54,6 @@
 						<td>${bookmark.m_name}</td>
 						<td>${bookmark.m_date }</td>
 						<td>${bookmark.reg_date }</td>
-						<!-- <td><input type="submit" class="btn btn-primary" value="삭제"></input> </td> -->
 						<td><a href="delete.do?m_idx=${bookmark.m_idx }&pageNum=${pageNum}">삭제</a></td>
 				</tr>
 					<c:set var="startNum" value="${startNum-1 }"></c:set>
