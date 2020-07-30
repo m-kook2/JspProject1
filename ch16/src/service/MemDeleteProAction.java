@@ -25,8 +25,10 @@ public class MemDeleteProAction implements CommandProcess {
 			String id = request.getParameter("id");
 			String password = request.getParameter("password");
 			String nickname = request.getParameter("nickname");
+			
 			MemberDao dao = MemberDao.getInstance();
 			int result = dao.delete(id, password, nickname);
+			
 			request.setAttribute("result", result);
 			request.setAttribute("password", password);
 			request.setAttribute("nickname", nickname);
