@@ -59,8 +59,6 @@
 						<td>${bookmark.m_date }</td>
 						<td>${bookmark.reg_date }</td>
 						<td><input type="submit" class="btn btn-primary" value="삭제"></input> </td>
-					</form>
-
 				</tr>
 					<c:set var="startNum" value="${startNum-1 }"></c:set>
 			</c:forEach>
