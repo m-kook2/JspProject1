@@ -42,7 +42,7 @@ public class SCommDao {
     Statement stmt = null;
     ResultSet rs = null;
     int sCnt = 0;
-    String sql = "select count(*) from sur where s_idx = " + s_idx;
+    String sql = "select count(*) from s_comm where s_idx = " + s_idx;
     try {
       conn = getConnection();
       stmt = conn.createStatement();

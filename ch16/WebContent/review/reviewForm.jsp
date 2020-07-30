@@ -21,8 +21,13 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>포스터</td>
+		<td><img src="./images/main/photo/${review.m_photo}" width="270" height="385"></td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>내용</td>
-		<td><pre>${review.p_content}</pre></td>
+		<td> <textarea rows="100" cols="100">${review.p_content}</textarea></td>
 		<td></td>
 	</tr>
 	
