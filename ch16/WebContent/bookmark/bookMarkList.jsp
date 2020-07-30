@@ -17,9 +17,8 @@
 <button type="button" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle" data-toggle="dropdown" > 
 정렬</button>
 <div class="dropdown-menu">
-<a class="dropdown-item">최신순</a>
-<a class="dropdown-item">장르별</a>
-<a class="dropdown-item">국적별</a>
+<a class="dropdown-item" href="bookMarkList.do?str=1">개봉일</a>
+<a class="dropdown-item" href="bookMarkList.do?str=2">장르</a>
 </div>
 </div>
 
@@ -45,7 +44,8 @@
 		<c:if test="${totCnt > 0 }">
 			<c:forEach var="bookmark" items="${list }">
 				<tr>
-						<td><a href="content.do?num=${bookmark.idx }&pageNum=${currentPage}">${bookmark.idx }</a></td>
+						<%-- <td>${startNum }</td> --%>
+						<td>${bookmark.idx }</td>
 						<td><img src="./images/main/photo/${bookmark.m_photo}" width="65" height="93"/></td>
 						<td>${bookmark.m_genre}</td>
 						<td>${bookmark.m_name}</td>
