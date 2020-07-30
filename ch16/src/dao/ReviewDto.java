@@ -9,6 +9,14 @@ public class ReviewDto {
 	private Date p_date;
 	private String id;
 	private int m_idx;
+	private String m_photo;
+	
+	public String getM_photo() {
+		return m_photo;
+	}
+	public void setM_photo(String m_photo) {
+		this.m_photo = m_photo;
+	}
 	public int getP_idx() {
 		return p_idx;
 	}
