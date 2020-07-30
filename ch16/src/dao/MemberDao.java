@@ -317,24 +317,15 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		ResultSet rs = null;
-		String sql1 = "select id from member where id=? and password=? ";
-		String sql = "delete from member where id=?";
-		String id2 = "";
+		String sql = "update member set status = 3 where id = ? and password=?";
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement(sql1);
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, password);
-			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				id2 = rs.getString(1);
-				rs.close();
-				pstmt.close();
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, id2);
-				result = pstmt.executeUpdate();
-			}
+			result = pstmt.executeUpdate();
+			pstmt.close();
+			conn.close();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
