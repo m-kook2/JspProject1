@@ -100,7 +100,7 @@ public class CommDao {
 		}
 		return list;
 	}
-	
+	//댓글 업데이트
 	public int update(String del_yn, int idx) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
