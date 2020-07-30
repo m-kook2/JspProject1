@@ -30,12 +30,13 @@ public class BookMarkListAction implements CommandProcess {
 			if (pageNum == null || pageNum.equals("")) {
 				pageNum = "1";
 			}
+			String str=request.getParameter("str")==null?"":request.getParameter("str");
 			int currentPage = Integer.parseInt(pageNum);
 			int pageSize = 10, blockSize = 10;
 			int startRow = (currentPage - 1) * pageSize + 1;
 			int endRow = startRow + pageSize - 1;
 			int startNum = totIdCnt - startRow + 1;
-			List<BookmarkDto> list = bd.list(startRow, endRow, id);
+			List<BookmarkDto> list = bd.list(startRow, endRow, id, str);
 			int pageCnt = (int) Math.ceil((double) totIdCnt / pageSize);
 			int startPage = (int) (currentPage - 1) / blockSize * blockSize + 1;
 			int endPage = startPage + blockSize - 1;
