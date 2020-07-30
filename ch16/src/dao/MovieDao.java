@@ -38,7 +38,6 @@ public class MovieDao {
 				strBuffer.append(sql);
 				strBuffer.append("	AND M_NAME LIKE '%"+str+"%' OR M_GENRE LIKE '%"+str+"%' OR M_DIRECTOR LIKE '%"+str+"%'");
 			}
-			System.out.println(strBuffer.toString());
 			try {
 				conn = getConnection();
 				pstmt = conn.prepareStatement(strBuffer.toString());

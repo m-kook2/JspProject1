@@ -20,7 +20,6 @@ public class MovieListAction implements CommandProcess {
 			String pageNum = request.getParameter("pageNum");
 			String str = request.getParameter("testText")==null?"":request.getParameter("testText");
 			int totCnt  = md.getTotalCnt(str);	
-			System.out.println("str : "+str);
 			if (pageNum==null || pageNum.equals("")) {	pageNum = "1";	}
 			int currentPage = Integer.parseInt(pageNum);	
 			int pageSize  = 10, blockSize = 10;
