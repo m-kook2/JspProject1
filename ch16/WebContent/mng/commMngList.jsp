@@ -28,7 +28,10 @@
 					<td>${startNum}</td>
 					<td>${result.id}</td>
 					<td>${result.c_content }</td>
-					<td class="left" width=150 >${result.date }</td>
+					<td class="left" width=150 >
+						<fmt:parseDate value="${result.date }" var="date" pattern="yyyy-MM-dd"/>
+						<fmt:formatDate value="${date }" pattern="yyyy-MM-dd"/>
+					</td>
 					<td>
 						<c:if test="${result.del_yn eq 'Y'}">
 							삭제
@@ -42,7 +45,7 @@
 			</c:forEach>
 		</c:if>
 		<tr>
-			<td colspan="6"><input type="submit" value="삭제여부"/></td>
+			<td colspan="6"><input type="submit" value="확인"/></td>
 		</tr>
 		<c:if test="${totCnt == 0 }">
 			<tr>
