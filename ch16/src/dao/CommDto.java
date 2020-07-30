@@ -9,7 +9,7 @@ public class CommDto {
 	private int c_sympathy;
 	private int c_unsympathy;
 	private int c_grade;
-	private Date date;
+	private String date;
 	private String del_yn;
 	private int m_idx;
 	private int step;
@@ -51,10 +51,11 @@ public class CommDto {
 	public void setC_grade(int c_grade) {
 		this.c_grade = c_grade;
 	}
-	public Date getDate() {
+	
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getDel_yn() {
