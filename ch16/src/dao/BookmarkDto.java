@@ -8,8 +8,22 @@ private int m_idx;
 private Number idx;
 private String mind;
 private Date reg_date;
+private String m_photo;
+private String m_name;
 
+public String getM_photo() {
+	return m_photo;
+}
+public void setM_photo(String m_photo) {
+	this.m_photo = m_photo;
+}
 
+public String getM_name() {
+	return m_name;
+}
+public void setM_name(String m_name) {
+	this.m_name = m_name;
+}
 public Date getReg_date() {
 	return reg_date;
 }
