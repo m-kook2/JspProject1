@@ -16,11 +16,11 @@
 		<table class=table >
 				
 			<tr>
-				<td>제목  <input type="text" name="subject" required="required"></td>
+				<td>제목  <input type="text" name="p_title" required="required"></td>
 				
 			</tr>
 			<tr>
-				<td>내용  <textarea rows="10" cols="30" name="content" required="required"></textarea></td>
+				<td>내용  <textarea rows="10" cols="30" name="p_content" required="required"></textarea></td>
 				
 			</tr>
 			<tr>

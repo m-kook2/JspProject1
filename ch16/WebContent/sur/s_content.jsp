@@ -40,8 +40,10 @@
 						class="button btn-primary">목록으로</button></a>
 				<c:if test="${sessionScope.status == 2 }">
 					<div class="row admin">
-						<form action="surveyDelete.do?pageNum=${pageNum }">
-							<button class="btn m-2 btn-primary">설문조사 삭제</button>
+						<form action="surveyDelete.do">
+							<input type="hidden" name="s_idx" value=${survey.s_idx } />
+							<input type="hidden" name="pageNum" value=${pageNum } />
+							<input type=submit class="btn m-2 btn-primary" value="설문조사 삭제">
 						</form>
 					</div>
 				</c:if>

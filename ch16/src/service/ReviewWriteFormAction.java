@@ -13,6 +13,9 @@ public class ReviewWriteFormAction implements CommandProcess {
 			throws ServletException, IOException {
 		try {
 			String pageNum = request.getParameter("pageNum");
+			
+			
+			request.setAttribute("pageNum", pageNum);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

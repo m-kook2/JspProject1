@@ -220,4 +220,36 @@ System.out.println(e.getMessage());
     return surveyDto;
   }
 
+  public int delete(int s_idx) throws SQLException {
+    
+    int result1 = 0;
+    int result2 = 0;
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    
+    String sqlComm = "DELETE FROM s_comm WHERE s_idx = ?";
+    String sqlSur = "DELETE FROM sur WHERE s_idx = ?";
+    try {
+      conn = getConnection();
+      pstmt = conn.prepareStatement(sqlComm);
+      System.out.println(sqlComm);
+      pstmt.setInt(1, s_idx);
+      result1 = pstmt.executeUpdate();
+      System.out.println("result1=>" + result1);
+      pstmt.close();
+      pstmt = conn.prepareStatement(sqlSur);
+      System.out.println(sqlSur);
+      pstmt.setInt(1, s_idx);
+      result2 = pstmt.executeUpdate();
+      System.out.println("result1=>" + result2);
+    } catch (Exception e) {
+      System.out.println("surveyDao delete() ERROR!!!");
+      System.out.println(e.getMessage());
+    } finally {
+      if(pstmt != null) pstmt.close();
+      if(conn != null) conn.close();
+    }
+    return result2;
+  }
+
 }
