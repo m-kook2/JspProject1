@@ -30,13 +30,13 @@
 	<table class="table">
 		<tr>
 		 <!-- <td>번호</td> -->
-		 <td>순번</td>
+		 <td>찜 등록순번</td>
 		 <td>사진</td>
-		 <td>아이디</td>
 		<!--  <td>영화번호</td> -->
 		 <td>장르</td>
 		 <td>영화제목</td>
 		 <td>개봉일</td>
+		 <td>아이디</td>
 		 <td>찜 등록일</td>
 		 <td>삭제</td>
 		</tr>
@@ -45,14 +45,12 @@
 		<c:if test="${totCnt > 0 }">
 			<c:forEach var="bookmark" items="${list }">
 				<tr>
-					<td>
-						<a href="content.do?num=${bookmark.idx }&pageNum=${currentPage}">${bookmark.idx }</a>
-						</td>
+						<td><a href="content.do?num=${bookmark.idx }&pageNum=${currentPage}">${bookmark.idx }</a></td>
 						<td><img src="./images/main/photo/${bookmark.m_photo}" width="65" height="93"/></td>
-						<td>${bookmark.id}</td>
 						<td>${bookmark.m_genre}</td>
 						<td>${bookmark.m_name}</td>
 						<td>${bookmark.m_date }</td>
+						<td>${bookmark.id}</td>
 						<td>${bookmark.reg_date }</td>
 						<td><a href="delete.do?m_idx=${bookmark.m_idx }&pageNum=${pageNum}">삭제</a></td>
 				</tr>
