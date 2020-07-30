@@ -29,7 +29,7 @@
 </table>
 	<c:if test="${sessionScope.status eq '2'}">
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="수정" 
-	            onclick="location.href='updateForm.do?p_idx=${review.p_idx}&pageNum=${pageNum}'">
+	            onclick="location.href='reviewupdateForm.do?p_idx=${review.p_idx}&pageNum=${pageNum}'">
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="삭제"
 	            onclick="location.href='reviewdeleteForm.do?p_idx=${review.p_idx}&pageNum=${pageNum}'">
 	</c:if>
