@@ -11,31 +11,40 @@
 	<%@ include file="/inc/header.jsp"%>
 	<div class="container">
 		<h2>마이페이지</h2>
-		<form action="" name="frm" method="post"></form>
-		<button type="button" class="btn btn-primary" onclick="" value="즐겨찾기"></button>
-		<div class="form-group">
-			<label for="id">아이디 : <input type="text" class="form-control"
-				id="id" name="id" value="${sessionScope.id }" disabled="disabled"></label>
-			<p>
-				<label for="email">이메일 : <input type="text"
-					class="form-control" id="email" name="email"
-					value="${sessionScope.email }" disabled="disabled"></label>
-			<p>
-				<label for="nickname">닉네임 : <input type="text"
-					class="form-control" id="nickname" name="nickname"
-					value="${sessionScope.nickname }" disabled="disabled"></label>
-			<p>
-				<label for="gender">성별 : <input type="text"
-					class="form-control" id="gender" name="gender"
-					value="${sessionScope.gender }" disabled="disabled"></label>
-			<p>
-
-				<br />
-				<button type="button" class="btn btn-primary" onclick=""
-					value="정보 수정"></button>
-				<button type="button" class="btn btn-danger" onclick=""
-					value="회원 탈퇴"></button>
-		</div>
+		<form action="" name="frm" method="post">
+			<ul>
+			<li class="btn btn-success"><a class="form-control"
+				href="#0001">즐겨 찾기</a></li></ul>
+			<div class="form-group">
+				<label for="id">아이디 : <input type="text"
+					class="form-control" id="id" name="id" value="${sessionScope.id }"
+					disabled="disabled"></label>
+				<p>
+					<label for="email">이메일 : <input type="text"
+						class="form-control" id="email" name="email"
+						value="${sessionScope.email }" disabled="disabled"></label>
+				<p>
+					<label for="nickname">닉네임 : <input type="text"
+						class="form-control" id="nickname" name="nickname"
+						value="${sessionScope.nickname }" disabled="disabled"></label>
+				<p>
+					<label for="gender">성별 : <input type="text"
+						class="form-control" id="gender" name="gender"
+						value="${sessionScope.gender }" disabled="disabled"></label>
+				<p>
+		</form>
+		<br />
+		<!-- <button type="button" class="btn btn-primary" href="memUpdateForm.do";
+					value="">정보 수정</button>
+				<button type="button" class="btn btn-danger" href="memDeleteForm.do";
+					value="">회원 탈퇴</button> -->
+		<ul>
+			<li class="btn btn-primary"><a class="form-control"
+				href="memUpdateForm.do">정보 수정</a></li>
+			<li class="btn btn-danger"><a class="form-control"
+				href="memDeleteForm.do">회원탈퇴</a></li>
+		</ul>
+	</div>
 	</div>
 	<%@ include file="/inc/footer.jsp"%>
 </body>

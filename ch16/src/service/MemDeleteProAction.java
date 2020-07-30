@@ -18,19 +18,13 @@ public class MemDeleteProAction implements CommandProcess {
 		try {
 			HttpSession session = request.getSession();
 			request.setCharacterEncoding("utf-8");
-			MemberDto md = new MemberDto();
-			md.setId(request.getParameter("id"));
-			md.setPassword(request.getParameter("password"));
-			String id = request.getParameter("id");
-			String password = request.getParameter("password");
-			
+			String id = (String) session.getAttribute("id");
+			String password = request.getParameter("chkpassword");
+			System.out.println(id+password);
 			MemberDao dao = MemberDao.getInstance();
-			int result = dao.delete(id, password);
+			int result = dao.delete(id,password);
 			
-			request.setAttribute("result", result);
-			request.setAttribute("id", id);
-			request.setAttribute("password", password);
-			
+			System.out.println(result);
 			if(result != 0) {
 				session.invalidate();//세션끊는거
 			}
@@ -39,7 +33,7 @@ public class MemDeleteProAction implements CommandProcess {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return "member/memdelete.jsp";
+		return "member/memDelete.jsp";
 	}
 
 }
