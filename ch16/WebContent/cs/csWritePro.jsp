@@ -12,7 +12,7 @@
 	<c:if test="${result >0 }"> 
 	<script type="text/javascript">
 		alert("전송완료");
-		location.href="list.do?pageNum=${pageNum}";
+		location.href="csList.do?pageNum=${pageNum}";
 	</script>
 </c:if>
 <c:if test="${result ==0 }">

@@ -11,7 +11,7 @@
 <%@ include file="/inc/header.jsp" %>
 <div style="margin-top:30px"></div>
 <div class="col-sm text-center">
-<form action="csPro.do?pageNum=${pageNum }" method="post">
+<form action="csWritePro.do?pageNum=${pageNum }" method="post">
 <input type="hidden" name="num" value="${num }">
 <table align="center">
 	<h2>관리자에게 의견 보내기</h2>

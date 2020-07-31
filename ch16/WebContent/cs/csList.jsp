@@ -46,13 +46,13 @@
 	
 	<div class="text-center">
 		<c:if test="${startPage > blockSize }">
-			<a href='csListForm.do?pageNum=${startPage-blockSize}'>[이전]</a>
+			<a href='csList.do?pageNum=${startPage-blockSize}'>[이전]</a>
 		</c:if>
 		<c:forEach var="i" begin="${startPage}" end="${endPage}">
-			<a href='csListForm.do?pageNum=${i }'>[${i}]</a>
+			<a href='csList.do?pageNum=${i }'>[${i}]</a>
 		</c:forEach>
 		<c:if test="${endPage > pageCnt }">
-			<a href='csListForm.do?pageNum=${startPage+blockSize }'>[다음]</a>
+			<a href='csList.do?pageNum=${startPage+blockSize }'>[다음]</a>
 		</c:if>
 	</div>
 

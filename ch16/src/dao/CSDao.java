@@ -111,13 +111,13 @@ public class CSDao {
 		return cs;
 	}
 	public int insert(CSDto cs) throws SQLException {
-		int num = cs.getNum();
+		int num = (int) cs.getNum();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
 		ResultSet rs = null;
-		String sql1 = "select nvl(max(num),0) from board";
-		String sql = "insert into board values(?,?,?,?,?,sysdate)";
+		String sql1 = "select nvl(max(num),0) from cs";
+		String sql = "insert into cs values(?,?,?,?,?,sysdate)";
 		try {
 			conn = getConnection();
 			
@@ -143,6 +143,10 @@ public class CSDao {
 			if(rs != null) rs.close();
 		}
 		return result;
+	}
+	public Object getNum() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

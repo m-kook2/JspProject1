@@ -12,7 +12,7 @@ import dao.BookmarkDto;
 import dao.CSDao;
 import dao.CSDto;
 
-public class CSListFormAction implements CommandProcess {
+public class CSListAction implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
@@ -60,7 +60,7 @@ public class CSListFormAction implements CommandProcess {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return "cs/csListForm.jsp";
+		return "cs/csList.jsp";
 	}
 
 }
