@@ -29,7 +29,7 @@ $(document).ready(function() {
 	});
 });
 </script>
-<div class="jumbotron text-center" style="margin-bottom:0">
+<div class="text-center jumbotron" style="margin-bottom:0">
   <h1>""</h1>
 
 <div class="container">

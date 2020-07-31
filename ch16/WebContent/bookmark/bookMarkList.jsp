@@ -47,7 +47,8 @@
 				<tr>
 						<%-- <td>${startNum }</td> --%>
 						<td>${bookmark.idx }</td>
-						<td><img src="./images/main/photo/${bookmark.m_photo}" width="65" height="93"/></td>
+						<td><a href="movieInfo.do?m_idx=${bookmark.m_idx }">
+						<img src="./images/main/photo/${bookmark.m_photo}" width="65" height="93"/></a></td>
 						<td>${bookmark.m_genre}</td>
 						<td>${bookmark.m_name}</td>
 						<td>${bookmark.m_date }</td>
