@@ -63,7 +63,7 @@
 					<a href='surveyList.do?pageNum=${i}'>[${i}]</a>
 				</c:forEach>
 				<c:if test="${endPage > pageCnt }">
-					<a href='surveyList.do?pageNum=${startPage - blockSize }'>[이전]</a>
+					<a href='surveyList.do?pageNum=${startPage + blockSize }'>[다음]</a>
 				</c:if>
 			</div>
 		<c:if test="${sessionScope.status == 2 }">

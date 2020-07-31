@@ -4,8 +4,52 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp"%>
+<style>
+.graph {
+	width: 100%;
+}
+
+#graph_op1 {
+	width: 1%;
+	height: 12px;
+	background-color: green;
+}
+
+#graph_op2 {
+	width: 1%;
+	height: 12px;
+	background-color: green;
+}
+
+#graph_op3 {
+	width: 1%;
+	height: 12px;
+	background-color: green;
+}
+
+#graph_op4 {
+	width: 1%;
+	height: 12px;
+	background-color: green;
+}
+
+#graph_op5 {
+	width: 1%;
+	height: 12px;
+	background-color: green;
+}
+</style>
 </head>
-<body>
+<body onload="move()">
+	<!-- 
+
+	이 페이지가 제공하는/제공 받아야하는 파라메터 목록
+
+	s_idx : 설문조사 ID
+	pageNum : 설문조사 게시판 페이지 넘버
+	commPageNum : 설문조사 게시판 코멘트의 페이지 넘버
+	
+ -->
 	<%@ include file="/inc/header.jsp"%>
 	<div class="container">
 		<div class="row">
@@ -29,33 +73,81 @@
 				</tr>
 				<tr>
 					<td>설문 항목</td>
-					<td colspan="2"><c:if
-							test="${survey.s_op1 != null && !survey.s_op1.equals('') }">
-							<p><input type="radio" name="r_op" value="1" form="comment" />${survey.s_op1 }</p>
-						</c:if> <c:if test="${survey.s_op2 != null && !survey.s_op2.equals('') }">
-							<p><input type="radio" name="r_op" value="12" form="comment" />${survey.s_op2 }</p>
-						</c:if> <c:if test="${survey.s_op3 != null && !survey.s_op3.equals('') }">
-							<p><input type="radio" name="r_op" value="3" form="comment" />${survey.s_op3 }</p>
-						</c:if> <c:if test="${survey.s_op4 != null && !survey.s_op4.equals('') }">
-							<p><input type="radio" name="r_op" value="4" form="comment" />${survey.s_op4 }</p>
-						</c:if> <c:if test="${survey.s_op5 != null && !survey.s_op5.equals('') }">
-							<p><input type="radio" name="r_op" value="5" form="comment" />${survey.s_op15 }</p>
-						</c:if></td>
+					<td colspan="2"><c:if test="${isVoted }">
+							<c:if test="${survey.s_op1 != null && !survey.s_op1.equals('') }">
+								<div class="graph">
+									${survey.s_op1 } : 
+									<fmt:formatNumber value="${survey.op1Cnt / surCnt * 100}" pattern="#"/>%
+									<div id="graph_op1"></div>
+								</div>
+							</c:if>
+							<c:if test="${survey.s_op2 != null && !survey.s_op2.equals('') }">
+								<div class="graph">
+									${survey.s_op2 } : 
+									<fmt:formatNumber value="${survey.op2Cnt / surCnt * 100}" pattern="#"/>%
+									<div id="graph_op2"></div>
+								</div>
+							</c:if>
+							<c:if test="${survey.s_op3 != null && !survey.s_op3.equals('') }">
+								<div class="graph">
+									${survey.s_op3 } : 
+									<fmt:formatNumber value="${survey.op3Cnt / surCnt * 100}" pattern="#"/>%
+									<div id="graph_op3"></div>
+								</div>
+							</c:if>
+							<c:if test="${survey.s_op4 != null && !survey.s_op4.equals('') }">
+								<div class="graph">
+									${survey.s_op4 } : $
+									<fmt:formatNumber value="${survey.op4Cnt / surCnt * 100}" pattern="#"/>%
+									<div id="graph_op4"></div>
+								</div>
+							</c:if>
+							<c:if test="${survey.s_op5 != null && !survey.s_op5.equals('') }">
+								<div class="graph">
+									${survey.s_op5 } : 
+									<fmt:formatNumber value="${survey.op5Cnt / surCnt * 100}" pattern="#"/>%
+									<div id="graph_op5"></div>
+								</div>
+							</c:if>
+							<p>이미 투표하셨습니다!</p>
+						</c:if> <c:if test="${!isVoted }">
+							<c:if test="${survey.s_op1 != null && !survey.s_op1.equals('') }">
+								<p><input type="radio" name="r_op" value="1" form="comment"
+									required />${survey.s_op1 }</p>
+							</c:if>
+							<c:if test="${survey.s_op2 != null && !survey.s_op2.equals('') }">
+								<p><input type="radio" name="r_op" value="2" form="comment" />${survey.s_op2 }</p>
+							</c:if>
+							<c:if test="${survey.s_op3 != null && !survey.s_op3.equals('') }">
+								<p><input type="radio" name="r_op" value="3" form="comment" />${survey.s_op3 }</p>
+							</c:if>
+							<c:if test="${survey.s_op4 != null && !survey.s_op4.equals('') }">
+								<p><input type="radio" name="r_op" value="4" form="comment" />${survey.s_op4 }</p>
+							</c:if>
+							<c:if test="${survey.s_op5 != null && !survey.s_op5.equals('') }">
+								<p><input type="radio" name="r_op" value="5" form="comment" />${survey.s_op15 }</p>
+							</c:if>
+						</c:if>
+						<p>현재 참여 인원수 ${survey.commCnt}</p></td>
 				</tr>
-				<tr>
-
-					<td><p>댓글</p></td>
-					<td colspan="2">
-						<form action="surveyCommentWrite.do" method="post" name="scWrite" id="comment">
-							<input type="hidden" name="pageNum" value="${pageNum }" /> <input
-								type="hidden" name="s_idx" value="${s_idx }" /> 
-							<p><textarea id="r_content" name="r_content" rows="10" cols="40"></textarea></p>
-							<p><input type="submit" class="btn m-2 btn-primary"
-								value="투표+댓글 작성" /> <input type="button"
-								class="btn m-2 btn-secondary" value="댓글없이 투표" onclick="noCommentHandler()"/></p>
-						</form>
-					</td>
-				</tr>
+				<c:if test="${!isVoted }">
+					<tr>
+						<td><p>댓글</p></td>
+						<td colspan="2">
+							<form action="surveyCommentWrite.do" method="post" name="scWrite"
+								id="comment">
+								<input type="hidden" name="pageNum" value="${pageNum }" /> <input
+									type="hidden" name="s_idx" value="${s_idx }" />
+								<p><textarea id="r_content" name="r_content" rows="10"
+										cols="40"></textarea></p>
+								<p><input type="submit" class="btn m-2 btn-primary"
+									value="투표+댓글 작성" /> <input type="button"
+									class="btn m-2 btn-secondary" value="댓글없이 투표"
+									onclick="noCommentHandler()" /></p>
+							</form>
+						</td>
+					</tr>
+				</c:if>
 			</table>
 
 
@@ -80,7 +172,7 @@
 			<table class="table">
 				<tr>
 					<th>작성자</th>
-					<th colspan="2">내용</th>
+					<th colspan="2">코멘트</th>
 				</tr>
 
 
@@ -93,7 +185,17 @@
 								<p><b>${sgComm.nickname } 님은 ${sgComm.r_op}번 항목에
 										투표하셨습니다!</b></p>
 								<p>${sgComm.r_content}</p>
-								<p class="text-right">${sgComm.r_regdate}</p>
+								<p class="text-right">작성일 : ${sgComm.r_regdate}</p>
+								<div class="text-right">
+									<form action="surveyCommentDelete.do">
+										<input type="hidden" name="s_idx" value="${param.s_idx }">
+										<input type="hidden" name="pageNum" value="${param.pageNum }">
+										<input type="hidden" name="writerid" value="${sgComm.id }">
+										<input type="hidden" name="commPageNum"
+											value="${param.commPageNum }"> <input type="submit"
+											class="button btn btn-secondary" value="댓글 삭제" />
+									</form>
+								</div>
 							</td>
 						</tr>
 					</c:forEach>
@@ -107,14 +209,51 @@
 
 
 		</div>
+		<div class="row text-center">
+			<c:if test="${startPage > blockSize }">
+				<a
+					href='surveyContent.do?pageNum=${param.pageNum }&s_idx=${param.s_idx }&commPageNum=${startPage - blockSize }'>[이전]</a>
+			</c:if>
+			<c:forEach var="i" begin="${startPage }" end="${endPage }">
+				<a
+					href='surveyContent.do?pageNum=${param.pageNum }&s_idx=${param.s_idx }&commPageNum=${i}'>[${i}]</a>
+			</c:forEach>
+			<c:if test="${endPage > surCnt }">
+				<a
+					href='surveyContent.do?pageNum=${param.pageNum }&s_idx=${param.s_idx }&commPageNum=${startPage + blockSize }'>[다음]</a>
+			</c:if>
+		</div>
 	</div>
 
 	<%@ include file="/inc/footer.jsp"%>
 	<script>
-	function noCommentHandler(){
-		document.getElementById("r_content").value =""
-		document.getElementById("comment").submit();
-	}
+		function noCommentHandler() {
+			document.getElementById("r_content").value = ""
+			document.getElementById("comment").submit();
+		}
+
+		function move() {
+
+			var elem1 = document.getElementById("graph_op1");
+			var width1 = ${survey.op1Cnt / surCnt * 100}
+			elem1.style.width = width1 + "%";
+
+			var elem2 = document.getElementById("graph_op2");
+			var width2 = ${survey.op2Cnt / surCnt * 100}
+			elem2.style.width = width2 + "%";
+
+			var elem3 = document.getElementById("graph_op3");
+			var width3 = ${survey.op3Cnt / surCnt * 100}
+			elem3.style.width = width3 + "%";
+
+			var elem4 = document.getElementById("graph_op4");
+			var width4 = ${survey.op4Cnt / surCnt * 100}
+			elem4.style.width = width4 + "%";
+
+			var elem5 = document.getElementById("graph_op5");
+			var width5 = ${survey.op5Cnt / surCnt * 100}
+			elem5.style.width = width5 + "%";
+		}
 	</script>
 </body>
 </html>

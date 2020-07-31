@@ -29,10 +29,10 @@ $(document).ready(function() {
 	});
 });
 </script>
-<div class="text-center jumbotron bg-light" style="margin-bottom:0; background-image: url(../images/main4.jpg); background-repeat: no-repeat; background-size : cover;">
+<div class="text-center" style="background-color: black; margin-top: 30px;">
   <h1>""</h1>
 
-<div class="container">
+	<div class="container">
         <div class="row">
          	<div class="col-12">
                 <div class="carousel slide" data-ride="carousel" id="mycarousel">
@@ -51,7 +51,7 @@ $(document).ready(function() {
 
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                       <img src="images/main/photo/1.jpg" alt="0" width="800" height="450"></div>
+                        <img src="images/main/photo/1.jpg" alt="0" width="800" height="450"></div>
                         <div class="carousel-item">
                         <img src="images/main/photo/2.jpg" alt="2" width="800" height="450"></div>
                         <div class="carousel-item">
@@ -68,23 +68,20 @@ $(document).ready(function() {
                         <img src="images/main/photo/8.jpg" alt="6" width="800" height="450"></div>
                         <div class="carousel-item">
                         <img src="images/main/photo/9.jpg" alt="4" width="800" height="450"></div>
-                        
-                    
-                
                     <a class="carousel-control-prev" data-slide="prev" href="#mycarousel">
-                    <span class="carousel-control-prev-icon"></span>
+                    	<span class="carousel-control-prev-icon"></span>
                     </a>
 
                     <a class="carousel-control-next" data-slide="next" href="#mycarousel">
-                    <span class="carousel-control-next-icon"></span>    
-                </a>
+                    	<span class="carousel-control-next-icon"></span>    
+                	</a>
                </div>
                </div>
             </div>
         </div>
     </div>
 </div>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top font-weight-bold">
+<nav class="navbar navbar-expand-sm fixed-top font-weight-bold" style="background-color: black;">
 	<a class="navbar-brand" href="main.do"><img alt="POPcorn Review" src="/images/main/logo.png" width="60" height="60"> </a>
   	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 	    <ul class="navbar-nav">

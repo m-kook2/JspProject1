@@ -21,23 +21,24 @@ public class FileUtil extends HttpServlet {
 		try {
 			request.setCharacterEncoding("utf-8");
 			int maxSize = 5 * 1024 * 1024;  // 5 * 1K * 1K = 5M
-			String fileSave = path; //ex:) /images/main/photo/
+			String fileSave = path; //ex:) c:/images/main/photo/
 			//String realPath = request.getServletContext().getRealPath(fileSave);
 			String realPath = fileSave;
-			System.out.println(System.getProperty ( "user.home" )) ;
 			System.out.println("realPath->"+realPath);
 			MultipartRequest multi;
-		
 			multi = new MultipartRequest(request,realPath,	maxSize,"utf-8", new DefaultFileRenamePolicy());
 		
 			Enumeration en = multi.getFileNames();
 			while(en.hasMoreElements()) {
 				//input 태그의 속성이 file인 태그의 name 속성값 :파라미터이름
 				String filename1 = (String)en.nextElement(); 
+				//System.out.println("1"+filename1);
 				//서버에 저장된 파일 이름 
 				String filename = multi.getFilesystemName(filename1); 
+				//System.out.println("2"+filename);
 				//전송전 원래의 파일 이름 
 				String original = multi.getOriginalFileName(filename1);
+				//System.out.println("3"+original);
 				//전송된 파일의 내용 타입 
 				String type = multi.getContentType(filename1); 
 				//전송된 파일속성이 file인 태그의 name 속성값을 이용해 파일객체생성 
@@ -52,8 +53,8 @@ public class FileUtil extends HttpServlet {
 		}
 	}
 	
-	public void fileDelete(String path){
-		File file = new File(path); 
+	public void fileDelete(String path, String filename){
+		File file = new File(path+filename);
 		if( file.exists() ){ 
 			if(file.delete()){ 
 				System.out.println("파일삭제 성공"); 

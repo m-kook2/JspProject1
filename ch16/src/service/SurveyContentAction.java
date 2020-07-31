@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import dao.SCommDao;
 import dao.SCommDto;
 import dao.SurveyDao;
@@ -16,18 +17,23 @@ public class SurveyContentAction implements CommandProcess {
   public String requestPro(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     try {
+      // s_idx pagenum 받아옴
+
       int s_idx = Integer.parseInt(request.getParameter("s_idx"));
       String pageNum = request.getParameter("pageNum");
+
+      // surveydao select 실행
       SurveyDao sd = SurveyDao.getInstance();
       SurveyDto survey = sd.select(s_idx);
 
+      // attribute 전달
       request.setAttribute("s_idx", s_idx);
       request.setAttribute("pageNum", pageNum);
       request.setAttribute("survey", survey);
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }
-    
+
     System.out.println("surveyCommentListAction init");
     SCommDao scd = SCommDao.getInstance();
     try {
@@ -45,6 +51,18 @@ public class SurveyContentAction implements CommandProcess {
       System.out.println("SCommDao list 메소드 실행");
       List<SCommDto> list = scd.list(startRow, endRow, s_idx);
       System.out.println("SCommDao list 메소드 실행 완료");
+
+      HttpSession session = request.getSession();
+      String userid = (String) session.getAttribute("id");
+      Boolean isVoted = false;
+      for (SCommDto comment : list) {
+        if (comment.getId() != null && !comment.getId().equals("")
+            && comment.getId().equals(userid)) {
+          isVoted = true;
+        }
+      }
+      request.setAttribute("isVoted", isVoted);
+
       int pageCnt = (int) Math.ceil((double) surCnt / pageSize);
       int startPage = (int) (currentPage - 1) / blockSize * blockSize + 1;
       int endPage = startPage + blockSize - 1;
@@ -60,12 +78,12 @@ public class SurveyContentAction implements CommandProcess {
       request.setAttribute("pageCnt", pageCnt);
       request.setAttribute("startPage", startPage);
       request.setAttribute("endPage", endPage);
-      
+
       int cnt = 1;
       System.out.println("list.size()=>" + list.size());
-      for(SCommDto item : list) {
-   
-        System.out.println("item["+cnt+"]=>" +item);
+      for (SCommDto item : list) {
+
+        System.out.println("item[" + cnt + "]=>" + item);
         cnt++;
       }
 
