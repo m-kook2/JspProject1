@@ -8,38 +8,40 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="/movie/movieInfo.jsp" %>
+
 	<!-- 댓글 부분 -->
 	<div id="comment">
 		<table class="table" border="1" bordercolor="lightgray">
 		
-		<%-- <!-- 로그인 했을 경우만 댓글 작성가능 -->
-			<c:if test="${sessionScope.sessionID !=null}"> --%>
+		<!-- 로그인 했을 경우만 댓글 작성가능 -->
+			<c:if test="${sessionScope.id !=null}"> 
 			<tr bgcolor="#F5F5F5">
-			<form id="writeCommentForm">
-				<input type="hidden" name="m_idx" value="1"> <%-- ${board.board_num} --%>
-				<input type="hidden" name="id" value="admin"> <%-- ${sessionScope.sessionID} --%>
+			<form id="writeCommentForm" action="">
+				<%-- <input type="hidden" name="m_idx" value="1"> ${board.board_num} --%>
+				<input type="hidden" name="m_idx" value="${m_idx }">
+				<input type="hidden" name="id" value="${id }">
+				 <%-- ${sessionScope.sessionID} --%>
 				<!-- 아이디-->
 				<td width="150">
 					<div>
-						${sessionScope.sessionID}
+						${id}
 					</div>
 				</td>
 				<!-- 본문 작성-->
 				<td width="550">
 					<div>
-						<textarea name="comment_content" rows="4" cols="200" ></textarea>
+						<textarea name="c_content" rows="4" cols="200" ></textarea>
 					</div>
 				</td>
 				<!-- 댓글 등록 버튼 -->
 				<td width="100">
 					<div id="btn" style="text-align:center;">
-						<p><a href="#" onclick="writeCmt()">[댓글등록]</a></p>	
+						<p><a href="commwritePro.do" onclick="writeCmt()">[댓글등록]</a></p>	
 					</div>
 				</td>
 			</form>
 			</tr>
-			<%-- </c:if> --%>
+			</c:if>
 		
 	<!-- 댓글 목록 -->	
 	<%-- <c:if test="${requestScope.commentList != null}">
