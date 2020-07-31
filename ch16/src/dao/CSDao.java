@@ -149,6 +149,31 @@ public class CSDao {
 		return null;
 	}
 	
-	
+	public int update(CSDto cs) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = "update cs set subject=?,content=? where num=?";
+		System.out.println("update");
+		System.out.println(sql);
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cs.getSubject());
+			pstmt.setString(2, cs.getContent());
+			pstmt.setInt(3, cs.getNum());
+
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return result;
+
+	}
 	
 }

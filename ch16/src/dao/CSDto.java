@@ -5,12 +5,19 @@ import java.util.Date;
 public class CSDto {
 	private int num;
 	private String writer;
+	private String id;
 	private String subject;
 	private String content;
 	private String passwd;
 	private Date reg_date;
 	
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public int getNum() {
 		return num;
 	}

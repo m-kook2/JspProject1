@@ -18,7 +18,6 @@
 		 <td>제목</td>
 		 <td>작성자</td>
 		 <td>글 등록일</td>
-		 <td>삭제</td>
 		</tr>
 		
 		
@@ -26,10 +25,9 @@
 			<c:forEach var="cs" items="${list }">
 				<tr>
 						<td>${startNum }</td>
-						<td>${cs.subject}</td>
+						<td><a href='csView.do?num=${cs.num }&pageNum=${currentPage}'> ${cs.subject}</a></td>
 						<td>${cs.writer }</td>
 						<td>${cs.reg_date }</td>
-						<td>삭제</td>
 				</tr>
 					<c:set var="startNum" value="${startNum-1 }"></c:set>
 			</c:forEach>
