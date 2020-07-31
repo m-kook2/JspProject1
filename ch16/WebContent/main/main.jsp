@@ -7,16 +7,16 @@
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-	<div class="container-fluid text-center bg-dark" style="background-image: url(../images/main4.jpg); background-repeat: repeat; background-size : no-cover;">
+	<div class="container-fluid text-center">
 	    <div class="row">
 	  		<c:forEach var="result" items="${list}" varStatus="i">
 			<div class="col-3" style="margin-top:30px">
 				<a href="movieInfo.do?m_idx=${result.m_idx }">
-					<img src="./images/main/photo/${result.m_photo}" width="270" height="385" class="img-thumbnail" />
+					<img src="./images/main/photo/${result.m_photo}" width="270" height="385"/>
 				</a>
-				<p class="font-weight-bold text-white">${result.m_name}
-					<br/><span class="small text-white">국적: ${result.m_nation}</span>
-					<br/><span class="small text-white">장르: ${result.m_genre}</span>
+				<p class="font-weight-bold">${result.m_name}
+					<br/><span class="small">국적: ${result.m_nation}</span>
+					<br/><span class="small">장르: ${result.m_genre}</span>
 				</p>
 				
 			</div>
