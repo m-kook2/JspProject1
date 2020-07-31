@@ -22,13 +22,11 @@ public class CSWriteProAction implements CommandProcess {
 			cs.setSubject(request.getParameter("subject"));
 			cs.setWriter(request.getParameter("writer"));
 			cs.setContent(request.getParameter("content"));
-			cs.setPasswd(request.getParameter("password"));
 			
 			System.out.println(Integer.parseInt(request.getParameter("num")));
 			System.out.println(request.getParameter("subject"));
 			System.out.println(cs.getWriter());
 			System.out.println(cs.getContent());
-			System.out.println(cs.getPasswd());
 			CSDao cd = CSDao.getInstance();
 			int result = cd.insert(cs);
 			request.setAttribute("num", cd.getNum());

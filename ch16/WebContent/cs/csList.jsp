@@ -15,11 +15,10 @@
 <table class="table">
 		<tr>
 		 <td>번호</td>
-		 <td>작성자</td>
 		 <td>제목</td>
-		 <td>내용</td>
-		 <td>암호</td>
+		 <td>작성자</td>
 		 <td>글 등록일</td>
+		 <td>삭제</td>
 		</tr>
 		
 		
@@ -27,10 +26,8 @@
 			<c:forEach var="cs" items="${list }">
 				<tr>
 						<td>${startNum }</td>
-						<td>${cs.writer }</td>
 						<td>${cs.subject}</td>
-						<td>${cs.content}</td>
-						<td>${cs.passwd }</td>
+						<td>${cs.writer }</td>
 						<td>${cs.reg_date }</td>
 						<td>삭제</td>
 				</tr>
