@@ -11,14 +11,13 @@
 <%@ include file="/inc/header.jsp" %>
 <div style="margin-top:30px"></div>
 <div class="col-sm text-center">
-<form action="csPro.do?pageNum=${pageNum }" method="post">
+<form action="csWritePro.do?pageNum=${pageNum }" method="post">
 <input type="hidden" name="num" value="${num }">
 <table align="center">
 	<h2>관리자에게 의견 보내기</h2>
 	<tr><td>제목</td><td><input type="text" name="subject" required="required"></td></tr>
-	<tr><td>작성자</td><td><input type="text" name="writer" required="required"></td></tr>
+	<tr><td></td><td><input type="hidden" name="writer" value="${id }" required="required"></td></tr>
 	<tr><td>내용</td><td><textarea rows="10" cols="30" name="content" required="required"></textarea></td></tr>
-	<tr><td>암호</td><td><input type="password" name="password" required="required"></td></tr>
 	<tr><td><input type="submit" value="전송"></td>
 		<td><input type="reset" value="다시작성"></td></tr>
 	
