@@ -26,7 +26,6 @@ public class FileUtil extends HttpServlet {
 			String realPath = fileSave;
 			System.out.println("realPath->"+realPath);
 			MultipartRequest multi;
-		
 			multi = new MultipartRequest(request,realPath,	maxSize,"utf-8", new DefaultFileRenamePolicy());
 		
 			Enumeration en = multi.getFileNames();
