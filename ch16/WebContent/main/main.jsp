@@ -18,6 +18,7 @@
 					<br/><span class="small text-white">국적: ${result.m_nation}</span>
 					<br/><span class="small text-white">장르: ${result.m_genre}</span>
 				</p>
+				
 			</div>
 			</c:forEach>
 		</div>
