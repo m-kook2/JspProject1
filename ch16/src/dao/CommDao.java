@@ -120,4 +120,46 @@ public class CommDao {
 		}
 		return result;
 	}
+	
+	public int insert(CommDto comm) throws SQLException {
+		int c_idx = comm.getC_idx();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		ResultSet rs = null;
+		String sql1 = "select nvl(max(c_idx),0) from comm";
+		String sql = "Insert into comm values (?,?,?,0,0,0,sysdate,n,?,0,0)";
+		System.out.println("test insert" + sql);
+		try {
+			conn = getConnection();
+
+			pstmt = conn.prepareStatement(sql1);
+			rs = pstmt.executeQuery();
+			rs.next();
+			// key인 num 1씩 증가, mysql auto_increment 또는 oracle sequence
+			// sequence를 사용 : values(시퀀스명(board_seq).nextval,?,?...)
+			int number = rs.getInt(1) + 1;
+			rs.close();
+			pstmt.close();
+			System.out.println("number" + number);
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, number);
+			pstmt.setString(2, comm.getId());
+			pstmt.setString(3, comm.getC_content());
+			pstmt.setInt(4, comm.getM_idx());
+			result = pstmt.executeUpdate();
+			System.out.println("result=" + result);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return result;
+	}
 }

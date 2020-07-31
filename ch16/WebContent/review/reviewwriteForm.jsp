@@ -10,11 +10,17 @@
 <body>
 	<%@ include file="/inc/header.jsp"%>
 	<div class="col-sm text-center" style="padding: 30px">
-	<form action="reviewwritePro.do?pageNum=${pageNum}" method="post">
+	<form action="reviewwritePro.do?pageNum=${pageNum}&id=${id}" method="post">
 		<input type="hidden" name="p_idx" value="${p_idx}">
 		<h2>게시판 글쓰기</h2>
 		<table class=table >
-				
+			<tr>
+				<select name="m_idx">
+					<c:forEach var="result" items="${list}">
+						<option value="${result.m_idx}">${result.m_name}</option>
+					</c:forEach>
+				</select>
+			</tr>
 			<tr>
 				<td>제목  <input type="text" name="p_title" required="required"></td>
 				

@@ -6,5 +6,5 @@
 <script>
 alert("관리자 전용 페이지입니다.")
 location.href = "main.do"
-</script>
+</script>	
 </c:if>

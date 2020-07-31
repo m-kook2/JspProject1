@@ -45,6 +45,6 @@
 
 </div>
 
-
+<%@ include file="/movie/m_comm.jsp" %>
 </body>
 </html>

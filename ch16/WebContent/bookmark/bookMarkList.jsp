@@ -9,9 +9,10 @@
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-
+<div style="margin-top:30px"></div>
 <div class="col-sm text-center">
-<h2 class="text">내가 찜한 목록</h2>
+<h2 class="text"><img alt="icon" src="images/main/star.png" width="50" height="40"/> 
+즐겨찾기<img alt="icon" src="images/main/star.png" width="50" height="40"/></h2>
 
 <div class="bk_array" style="float: right">
 <button type="button" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle" data-toggle="dropdown" > 
@@ -24,19 +25,19 @@
 
 <div class="bk_href" style="float: right">
 <button type="button" class="btn btn-primary btn-sm" onclick="location.href='movieList.do'">
-찜추가</button>
+즐겨찾기 추가</button>
 </div>
 	<table class="table">
 		<tr>
 		 <!-- <td>번호</td> -->
-		 <td>찜 등록순번</td>
+		 <td>즐겨찾기 등록순번</td>
 		 <td>사진</td>
 		<!--  <td>영화번호</td> -->
 		 <td>장르</td>
 		 <td>영화제목</td>
 		 <td>개봉일</td>
 		 <td>아이디</td>
-		 <td>찜 등록일</td>
+		 <td>즐겨찾기 등록일</td>
 		 <td>삭제</td>
 		</tr>
 		
@@ -46,7 +47,8 @@
 				<tr>
 						<%-- <td>${startNum }</td> --%>
 						<td>${bookmark.idx }</td>
-						<td><img src="./images/main/photo/${bookmark.m_photo}" width="65" height="93"/></td>
+						<td><a href="movieInfo.do?m_idx=${bookmark.m_idx }">
+						<img src="./images/main/photo/${bookmark.m_photo}" width="65" height="93"/></a></td>
 						<td>${bookmark.m_genre}</td>
 						<td>${bookmark.m_name}</td>
 						<td>${bookmark.m_date }</td>
