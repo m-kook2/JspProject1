@@ -40,7 +40,7 @@
 }
 </style>
 </head>
-<body onload="move()">
+<body>
 	<!-- 
 
 	이 페이지가 제공하는/제공 받아야하는 파라메터 목록
@@ -73,44 +73,52 @@
 				</tr>
 				<tr>
 					<td>설문 항목</td>
-					<td colspan="2"><c:if test="${isVoted }">
+					<td colspan="2"><c:if test="${isVoted || !survey.votable}">
 							<c:if test="${survey.s_op1 != null && !survey.s_op1.equals('') }">
-								<div class="graph">
 									${survey.s_op1 } : 
+								<div class="progress" style="background-color: transparent;">
+									<div class="progress-bar" style="width:${survey.op1Cnt / surCnt * 100}%">
 									<fmt:formatNumber value="${survey.op1Cnt / surCnt * 100}" pattern="#"/>%
-									<div id="graph_op1"></div>
+									</div>
 								</div>
 							</c:if>
 							<c:if test="${survey.s_op2 != null && !survey.s_op2.equals('') }">
-								<div class="graph">
 									${survey.s_op2 } : 
+								<div class="progress" style="background-color: transparent;">
+									<div class="progress-bar" style="width:${survey.op2Cnt / surCnt * 100}%">
 									<fmt:formatNumber value="${survey.op2Cnt / surCnt * 100}" pattern="#"/>%
-									<div id="graph_op2"></div>
+									</div>
 								</div>
 							</c:if>
 							<c:if test="${survey.s_op3 != null && !survey.s_op3.equals('') }">
-								<div class="graph">
 									${survey.s_op3 } : 
+								<div class="progress" style="background-color: transparent;">
+									<div class="progress-bar" style="width:${survey.op3Cnt / surCnt * 100}%">
 									<fmt:formatNumber value="${survey.op3Cnt / surCnt * 100}" pattern="#"/>%
-									<div id="graph_op3"></div>
+									</div>
 								</div>
 							</c:if>
 							<c:if test="${survey.s_op4 != null && !survey.s_op4.equals('') }">
-								<div class="graph">
-									${survey.s_op4 } : $
+									${survey.s_op4 } : 
+								<div class="progress" style="background-color: transparent;">
+									<div class="progress-bar" style="width:${survey.op4Cnt / surCnt * 100}%">
 									<fmt:formatNumber value="${survey.op4Cnt / surCnt * 100}" pattern="#"/>%
-									<div id="graph_op4"></div>
+									</div>
 								</div>
 							</c:if>
 							<c:if test="${survey.s_op5 != null && !survey.s_op5.equals('') }">
-								<div class="graph">
-									${survey.s_op5 } : 
+									${survey.s_op5 } style="background-color: transparent;": 
+								<div class="progress">
+									<div class="progress-bar" style="width:${survey.op5Cnt / surCnt * 100}%">
 									<fmt:formatNumber value="${survey.op5Cnt / surCnt * 100}" pattern="#"/>%
-									<div id="graph_op5"></div>
+									</div>
 								</div>
 							</c:if>
+						</c:if> 
+						<c:if test="${isVoted }">						
 							<p>이미 투표하셨습니다!</p>
-						</c:if> <c:if test="${!isVoted }">
+						</c:if>
+						<c:if test="${!isVoted && survey.votable}">
 							<c:if test="${survey.s_op1 != null && !survey.s_op1.equals('') }">
 								<p><input type="radio" name="r_op" value="1" form="comment"
 									required />${survey.s_op1 }</p>
@@ -128,9 +136,19 @@
 								<p><input type="radio" name="r_op" value="5" form="comment" />${survey.s_op15 }</p>
 							</c:if>
 						</c:if>
-						<p>현재 참여 인원수 ${survey.commCnt}</p></td>
+						<p>참여 인원수 : ${survey.commCnt}</p></td>
 				</tr>
-				<c:if test="${!isVoted }">
+				<c:if test="${!survey.votable}">
+				<tr>
+					<td></td>
+					<td colspan="1">
+						<p><b>투표가 종료되었습니다!</b></p>
+					</td>
+					<td></td>
+				</tr>
+				</c:if>
+				
+				<c:if test="${!isVoted && survey.votable}">
 					<tr>
 						<td><p>댓글</p></td>
 						<td colspan="2">
@@ -186,6 +204,7 @@
 										투표하셨습니다!</b></p>
 								<p>${sgComm.r_content}</p>
 								<p class="text-right">작성일 : ${sgComm.r_regdate}</p>
+								<<c:if test="${sgComm.id == sessionScope.id || sessionScope.status == 2 }">
 								<div class="text-right">
 									<form action="surveyCommentDelete.do">
 										<input type="hidden" name="s_idx" value="${param.s_idx }">
@@ -196,6 +215,7 @@
 											class="button btn btn-secondary" value="댓글 삭제" />
 									</form>
 								</div>
+								</c:if>
 							</td>
 						</tr>
 					</c:forEach>
@@ -232,28 +252,6 @@
 			document.getElementById("comment").submit();
 		}
 
-		function move() {
-
-			var elem1 = document.getElementById("graph_op1");
-			var width1 = ${survey.op1Cnt / surCnt * 100}
-			elem1.style.width = width1 + "%";
-
-			var elem2 = document.getElementById("graph_op2");
-			var width2 = ${survey.op2Cnt / surCnt * 100}
-			elem2.style.width = width2 + "%";
-
-			var elem3 = document.getElementById("graph_op3");
-			var width3 = ${survey.op3Cnt / surCnt * 100}
-			elem3.style.width = width3 + "%";
-
-			var elem4 = document.getElementById("graph_op4");
-			var width4 = ${survey.op4Cnt / surCnt * 100}
-			elem4.style.width = width4 + "%";
-
-			var elem5 = document.getElementById("graph_op5");
-			var width5 = ${survey.op5Cnt / surCnt * 100}
-			elem5.style.width = width5 + "%";
-		}
 	</script>
 </body>
 </html>
