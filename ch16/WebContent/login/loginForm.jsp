@@ -4,12 +4,6 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp"%>
-<style type="text/css">
-.form-control {
-	width: 280px;
-	margin-left: 415px;
-}
-</style>
 <script type="text/javascript">
 	function reg() {
 		var f = document.frm;
@@ -29,24 +23,27 @@
 </head>
 <body>
 	<%@ include file="/inc/header.jsp"%>
-	<div class="container text-center">
-		<h2>로그인</h2>
-		<form action="login.do" name="frm" method="post">
-			<div class="form-row">
-				<div class="form-group">
-					<label for="id">아이디:</label> <input type="text"
-						class="form-control" style="" id="id" name="id"> <label
-						for="password">비밀번호:</label> <input type="password"
-						class="form-control" id="password" name="password">
-				</div>
-				<br />
-				<button type="button" class="btn btn-primary" style="height: 50px;" position="" onclick="reg();">로그인</button>
-				<div class="form-check mb-2 mr-sm-2">
-					<label class="form-check-label"> <input
-						class="form-check-input" type="checkbox"> id저장
-					</label>
-				</div>
+	<div class="container">
+		<h2 class="text-center">로그인</h2>
+		<form action="login.do" name="frm" method="post" class="was-validated">
+			<div class="form-group">
+				<label for="id">아이디</label> 
+				<input type="text" class="form-control" id="id" name="id" placeholder="Enter username" required> 
+				<div class="valid-feedback">Valid.</div>
+    			<div class="invalid-feedback">Please fill out this field.</div>
 			</div>
+			<div class="form-group">
+				<label for="password">비밀번호</label> 
+				<input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+				<div class="valid-feedback">Valid.</div>
+   				<div class="invalid-feedback">Please fill out this field.</div>
+			</div>
+			<button type="button" class="btn btn-success" onclick="reg();">로그인</button>
+			<!-- <div class="form-check mb-2 mr-sm-2">
+				<label class="form-check-label"> <input
+					class="form-check-input" type="checkbox"> id저장
+				</label>
+			</div> -->
 		</form>
 	</div>
 	<%@ include file="/inc/footer.jsp"%>
