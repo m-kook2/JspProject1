@@ -14,7 +14,8 @@
 				<a href="movieInfo.do?m_idx=${result.m_idx }">
 					<img src="./images/main/photo/${result.m_photo}" width="270" height="385" class="img-thumbnail" />
 				</a>
-				<p class="font-weight-bold text-white">${result.m_name}
+				<p class="font-weight-bold text-white">
+					${result.m_name}
 					<br/><span class="small text-white">국적: ${result.m_nation}</span>
 					<br/><span class="small text-white">장르: ${result.m_genre}</span>
 				</p>
