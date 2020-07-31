@@ -84,18 +84,18 @@ $(document).ready(function() {
         </div>
     </div>
 </div>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top font-weight-bold">
 	<a class="navbar-brand" href="main.do"><img alt="POPcorn Review" src="/images/main/logo.png" width="60" height="60"> </a>
   	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 	    <ul class="navbar-nav">
 	      <li class="nav-item">
-	        <a class="nav-link" href="r_list.do">영화 리뷰</a>
+	        <a class="nav-link text-white" href="r_list.do">영화 리뷰</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="movieList.do">영화 게시판</a>
+	        <a class="nav-link text-white" href="movieList.do">영화 게시판</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="surveyList.do">설문조사</a>
+	        <a class="nav-link text-white" href="surveyList.do">설문조사</a>
 	      </li>    
 	    </ul>
 	</div>  
@@ -115,15 +115,15 @@ $(document).ready(function() {
 			      </div>
 			    </li> -->
 			    <li class="nav-item" id="mem0">
-		        	<a class="nav-link" href="memPageForm.do">마이페이지</a>
+		        	<a class="nav-link text-white" href="memPageForm.do">마이페이지</a>
 		      	</li>
 			    
 		      	<li class="nav-item" id="mem4">
-		       	 <a class="nav-link" href="logout.do">로그아웃</a>
+		       	 <a class="nav-link text-white" href="logout.do">로그아웃</a>
 		      	</li>
 		      	<c:if test="${sessionScope.status eq '2'}">
 			      	<li class="nav-item dropdown" id="mem5">
-				      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">관리자</a>
+				      <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">관리자</a>
 				      <div class="dropdown-menu">
 				        <a class="dropdown-item" href="memMng.do">회원 관리</a>
 				        <a class="dropdown-item" href="r_list.do">영화 리뷰 관리</a>
@@ -136,10 +136,10 @@ $(document).ready(function() {
 			</c:when>
 			<c:otherwise>
 				<li class="nav-item" id="mem1">
-		        	<a class="nav-link" href="loginForm.do">로그인</a>
+		        	<a class="nav-link text-white" href="loginForm.do">로그인</a>
 		      	</li>
 		      	<li class="nav-item" id="mem2">
-		       	 <a class="nav-link" href="memWriteForm.do">회원가입</a>
+		       	 <a class="nav-link text-white" href="memWriteForm.do">회원가입</a>
 		      	</li>
 			</c:otherwise>
 		</c:choose>
