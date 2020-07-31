@@ -29,10 +29,10 @@ $(document).ready(function() {
 	});
 });
 </script>
-<div class="text-center jumbotron" style="margin-bottom:0">
+<div class="text-center jumbotron bg-light" style="margin-bottom:0">
   <h1>""</h1>
 
-<div class="container">
+<div class="container bg-dark">
         <div class="row">
          	<div class="col-12">
                 <div class="carousel slide" data-ride="carousel" id="mycarousel">
