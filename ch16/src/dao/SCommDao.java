@@ -11,7 +11,7 @@ import java.util.List;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-import service.StringUtil;
+import util.StringUtil;
 
 public class SCommDao {
   private static SCommDao instance;
@@ -69,15 +69,13 @@ public class SCommDao {
     PreparedStatement pstmt = null;
     ResultSet rs = null;
     SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-    String sql =    "SELECT a.*  " + 
-                    "FROM (     SELECT rownum rn, sc.* " + 
-                    "           FROM (  SELECT sc.*, m.nickname " + 
-                    "                   FROM s_comm sc, member m " + 
-        "                               WHERE sc.id = m.id) sc " + 
-        "                       WHERE S_IDX = ?         " + 
-        "                       ORDER BY R_IDX) a" + 
-        "            WHERE RN BETWEEN ? AND ?";
-    
+    String sql = "SELECT a.*  " + "FROM (     SELECT rownum rn, sc.* "
+        + "           FROM (  SELECT sc.*, m.nickname "
+        + "                   FROM s_comm sc, member m "
+        + "                               WHERE sc.id = m.id) sc "
+        + "                       WHERE S_IDX = ?         "
+        + "                       ORDER BY R_IDX) a" + "            WHERE RN BETWEEN ? AND ?";
+
     System.out.println("SCommDao List SQL =>" + sql);
     try {
       conn = getConnection();
@@ -86,7 +84,7 @@ public class SCommDao {
       pstmt.setInt(2, startRow);
       pstmt.setInt(3, endRow);
       rs = pstmt.executeQuery();
-      while(rs.next()) {
+      while (rs.next()) {
         SCommDto comment = new SCommDto();
         comment.setS_idx(s_idx);
         comment.setId(rs.getString(3));
@@ -102,9 +100,12 @@ public class SCommDao {
       System.out.println("SCommDao list ERROR!!!");
       System.out.println(e.getMessage());
     } finally {
-      if(rs != null) rs.close();
-      if(pstmt != null) pstmt.close();
-      if(conn != null) conn.close();
+      if (rs != null)
+        rs.close();
+      if (pstmt != null)
+        pstmt.close();
+      if (conn != null)
+        conn.close();
     }
     return list;
   }
@@ -112,23 +113,16 @@ public class SCommDao {
   public int insert(SCommDto comment) throws SQLException {
     Connection conn = null;
     PreparedStatement pstmt = null;
-    String sql = 
-        "INSERT INTO S_COMM VALUES("
-                                  + "?,"
-                                  + "?,"
-                                  + "(select max(r_idx)+1 from s_comm),"
-                                  + "?,"
-                                  + "?,"
-                                  + "SYSDATE"
-                                  + ")";
+    String sql = "INSERT INTO S_COMM VALUES(" + "?," + "?," + "(select max(r_idx)+1 from s_comm),"
+        + "?," + "?," + "SYSDATE" + ")";
     System.out.println("SCommDao INSERT SQL => " + sql);
     int result = 0;
-    
+
     int s_idx = comment.getS_idx();
     String id = comment.getId();
     String r_op = comment.getR_op();
     String r_content = comment.getR_content();
-    
+
     try {
       conn = getConnection();
       pstmt = conn.prepareStatement(sql);
@@ -137,8 +131,8 @@ public class SCommDao {
       pstmt.setString(3, r_op);
       pstmt.setString(4, r_content);
       result = pstmt.executeUpdate();
-      
-      
+
+
     } catch (Exception e) {
       System.out.println("SCommDao Insert ERROR!!");
       System.out.println(e.getMessage());
@@ -149,6 +143,31 @@ public class SCommDao {
       if (conn != null)
         conn.close();
     }
+    return result;
+  }
+
+  public int delete(int s_idx, String id) throws SQLException {
+    int result = 0;
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    String sql = "DELETE FROM s_comm WHERE s_idx =? AND id = ?";
+
+    try {
+      conn = getConnection();
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setInt(1, s_idx);
+      pstmt.setString(2, id);
+      result = pstmt.executeUpdate();
+
+    } catch (Exception e) {
+      System.out.println("surveyDao delete() ERROR!!!");
+      System.out.println(e.getMessage());
+    } finally {
+      if (pstmt != null ) pstmt.close();
+      if (conn != null ) conn.close();
+      
+    }
+
     return result;
   }
 }

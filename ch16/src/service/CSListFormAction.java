@@ -7,41 +7,30 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.CommDao;
-import dao.CommDto;
-import dao.MovieDao;
-import dao.MovieDto;
+import dao.BookmarkDao;
+import dao.BookmarkDto;
+import dao.CSDao;
+import dao.CSDto;
 
-public class MovieInfoAction implements CommandProcess {
+public class CSListFormAction implements CommandProcess {
+
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		CommDao cd = CommDao.getInstance();
-		try {
-			System.out.println("MovieInfoAction 시작");
-			String m_idx = request.getParameter("m_idx");
-			String pageNum = request.getParameter("pageNum");
-			MovieDao md = MovieDao.getInstance();
-			MovieDto mt = md.select(m_idx);
-			System.out.println(pageNum);
-			System.out.println(m_idx);
-			System.out.println(mt);
 
-			request.setAttribute("m_idx", m_idx);
-			request.setAttribute("pageNum", pageNum);
-			request.setAttribute("mt", mt);
-			// 댓글 리스트
-			int totCnt = cd.getTotalCnt();
-			String pageNum2 = request.getParameter("pageNum2");
-			if (pageNum2 == null || pageNum2.equals("")) {
-				pageNum2 = "1";
-			}
-			int currentPage = Integer.parseInt(pageNum2);
+		CSDao cs = CSDao.getInstance();
+		try {
+			//int totCnt = bd.getTotalCnt();
+			int totCnt = cs.getTotalCnt();
+			String pageNum = request.getParameter("pageNum");
+			if (pageNum == null || pageNum.equals("")) {
+				pageNum = "1";			}
+			int currentPage = Integer.parseInt(pageNum);
 			int pageSize = 10, blockSize = 10;
 			int startRow = (currentPage - 1) * pageSize + 1;
 			int endRow = startRow + pageSize - 1;
 			int startNum = totCnt - startRow + 1;
-			List<CommDto> list = cd.list(startRow, endRow, m_idx);
+			List<CSDto> list = cs.list(startRow, endRow);
 			int pageCnt = (int) Math.ceil((double) totCnt / pageSize);
 			int startPage = (int) (currentPage - 1) / blockSize * blockSize + 1;
 			int endPage = startPage + blockSize - 1;
@@ -49,7 +38,7 @@ public class MovieInfoAction implements CommandProcess {
 				endPage = pageCnt;
 
 			request.setAttribute("totCnt", totCnt);
-			request.setAttribute("pageNum2", pageNum2);
+			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("currentPage", currentPage);
 			request.setAttribute("startNum", startNum);
 			request.setAttribute("list", list);
@@ -71,6 +60,7 @@ public class MovieInfoAction implements CommandProcess {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return "movie/movieInfo.jsp";
+		return "cs/csListForm.jsp";
 	}
+
 }

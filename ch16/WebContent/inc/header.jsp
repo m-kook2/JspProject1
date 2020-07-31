@@ -29,7 +29,7 @@ $(document).ready(function() {
 	});
 });
 </script>
-<div class="text-center jumbotron bg-light" style="margin-bottom:0; background-image: url(../images/main3.jpg); background-repeat: no-repeat; background-size : cover;">
+<div class="text-center jumbotron bg-light" style="margin-bottom:0; background-image: url(../images/main4.jpg); background-repeat: no-repeat; background-size : cover;">
   <h1>""</h1>
 
 <div class="container">
@@ -130,6 +130,7 @@ $(document).ready(function() {
 				        <a class="dropdown-item" href="movieList.do">영화게시판 관리</a>
 				        <a class="dropdown-item" href="surveyList.do">설문조사 관리</a>
 				        <a class="dropdown-item" href="commMngList.do">댓글 관리</a>
+				        <a class="dropdown-item" href="csListForm.do">의견 관리</a>
 				      </div>
 				    </li>
 			    </c:if>
