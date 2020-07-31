@@ -43,7 +43,7 @@ public class BookMarkListAction implements CommandProcess {
 			if (endPage > pageCnt)
 				endPage = pageCnt;
 
-			request.setAttribute("totCnt", totIdCnt);
+			request.setAttribute("totIdCnt", totIdCnt);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("currentPage", currentPage);
 			request.setAttribute("startNum", startNum);
