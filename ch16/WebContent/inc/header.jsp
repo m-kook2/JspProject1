@@ -29,7 +29,7 @@ $(document).ready(function() {
 	});
 });
 </script>
-<div class="text-center jumbotron bg-light" style="margin-bottom:0; background-image: url(../images/main3.jpg); background-repeat: no-repeat; background-size : cover;">
+<div class="text-center jumbotron bg-light" style="margin-bottom:0; background-image: url(../images/main4.jpg); background-repeat: no-repeat; background-size : cover;">
   <h1>""</h1>
 
 <div class="container">
