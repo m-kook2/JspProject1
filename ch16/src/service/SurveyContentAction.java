@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import dao.SCommDao;
 import dao.SCommDto;
 import dao.SurveyDao;
@@ -17,10 +18,10 @@ public class SurveyContentAction implements CommandProcess {
       throws ServletException, IOException {
     try {
       // s_idx pagenum 받아옴
-      
+
       int s_idx = Integer.parseInt(request.getParameter("s_idx"));
       String pageNum = request.getParameter("pageNum");
-      
+
       // surveydao select 실행
       SurveyDao sd = SurveyDao.getInstance();
       SurveyDto survey = sd.select(s_idx);
@@ -50,6 +51,18 @@ public class SurveyContentAction implements CommandProcess {
       System.out.println("SCommDao list 메소드 실행");
       List<SCommDto> list = scd.list(startRow, endRow, s_idx);
       System.out.println("SCommDao list 메소드 실행 완료");
+
+      HttpSession session = request.getSession();
+      String userid = (String) session.getAttribute("id");
+      Boolean isVoted = false;
+      for (SCommDto comment : list) {
+        if (comment.getId() != null && !comment.getId().equals("")
+            && comment.getId().equals(userid)) {
+          isVoted = true;
+        }
+      }
+      request.setAttribute("isVoted", isVoted);
+
       int pageCnt = (int) Math.ceil((double) surCnt / pageSize);
       int startPage = (int) (currentPage - 1) / blockSize * blockSize + 1;
       int endPage = startPage + blockSize - 1;
