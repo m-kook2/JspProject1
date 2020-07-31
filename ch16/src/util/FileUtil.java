@@ -17,7 +17,6 @@ public class FileUtil extends HttpServlet {
 			int maxSize = 5 * 1024 * 1024;  // 5 * 1K * 1K = 5M
 			String fileSave = path; //ex:) /images/main/photo/
 			//String realPath = request.getServletContext().getRealPath(fileSave);
-			
 			String realPath = fileSave;
 			System.out.println(System.getProperty ( "user.home" )) ;
 			System.out.println("realPath->"+realPath);
