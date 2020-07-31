@@ -5,6 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.form-control {
+	width: 280px;
+	margin-left: 415px;
+}
+</style>
 <script type="text/javascript">
 	function del() {
 		var del = document.d;
@@ -21,20 +27,20 @@
 </head>
 <body>
 	<%@ include file="/inc/header.jsp"%>
-	<div class="container">
+	<div class="container text-center">
 		<form action="memDeletePro.do" name="d" method="post">
 			<h2>회원 탈퇴</h2>
-			<br /> <label for="id">아이디 : </label> <input type="text"
+			<br /> <label for="id">아이디 </label> <input type="text" style="width: 250px;"
 				class="form-control" id="id" name="id" value="${sessionScope.id }"
 				disabled="disabled">
 			<p>
 
-				<label for="password">비밀 번호 : </label> <input type="password"
+				<label for="password">비밀 번호 </label> <input type="password" style="width: 250px;"
 					class="form-control" id="password" name="password"
 					value="${sessionScope.password }" disabled="disabled">
 			<p>
 
-				<label for="chkpassword">비밀번호 확인 :</label> <input type="password"
+				<label for="chkpassword">비밀번호 확인 :</label> <input type="password" style="width: 250px;"
 					class="form-control" id="chkpassword" name="chkpassword">
 					<br />
 				<!-- <button type="button" class="btn btn-danger" onclick="javascript:del();">회원 탈퇴</button> -->
