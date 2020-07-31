@@ -42,7 +42,7 @@
 		</tr>
 		
 		
-		<c:if test="${totCnt > 0 }">
+		<c:if test="${totIdCnt > 0 }">
 			<c:forEach var="bookmark" items="${list }">
 				<tr>
 						<%-- <td>${startNum }</td> --%>
@@ -68,13 +68,13 @@
 	
 	<div class="text-center">
 		<c:if test="${startPage > blockSize }">
-			<a href='bookmark.do?pageNum=${startPage-blockSize}'>[이전]</a>
+			<a href='bookMarkList.do?pageNum=${startPage-blockSize}'>[이전]</a>
 		</c:if>
 		<c:forEach var="i" begin="${startPage}" end="${endPage}">
-			<a href='bkmarkForm.do?pageNum=${i }'>[${i}]</a>
+			<a href='bookMarkList.do?pageNum=${i }'>[${i}]</a>
 		</c:forEach>
 		<c:if test="${endPage > pageCnt }">
-			<a href='bkmarkForm.do?pageNum=${startPage+blockSize }'>[다음]</a>
+			<a href='bookMarkList.do?pageNum=${startPage+blockSize }'>[다음]</a>
 		</c:if>
 	</div>
 

@@ -12,7 +12,7 @@ import java.util.List;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-import service.StringUtil;
+import util.StringUtil;
 
 public class SurveyDao {
   private static SurveyDao instance;
@@ -184,15 +184,19 @@ public class SurveyDao {
             + "        to_char(s_edate,'yyyy/mm/dd') as s_edate, " + "        s_content, "
             + "        s_op1, " + "        s_op2, " + "        s_op3, " + "        s_op4, "
             + "        s_op5, " + "        Id " + "from sur  " + "where s_idx = ?";
-    SurveyDto surveyDto = null;
+    SurveyDto surveyDto = new SurveyDto();;
     System.out.println(sql);
+    Date today = new Date();
+    SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+    String sqlCount = "SELECT COUNT(*) FROM S_COMM WHERE S_IDX = ?";
+    String sqlOpCount =
+        "SELECT count(id), r_op " + "FROM S_COMM " + "WHERE s_idx = ? " + "GROUP BY r_op ";
     try {
       conn = getConnection();
       pstmt = conn.prepareStatement(sql);
       pstmt.setInt(1, s_idx);
       rs = pstmt.executeQuery();
       if (rs.next()) {
-        surveyDto = new SurveyDto();
         surveyDto.setS_idx(rs.getInt(1));
         surveyDto.setS_sub(rs.getString(2));
         surveyDto.setS_sdate(StringUtil.NullToEmpty(rs.getString(3)));
@@ -204,8 +208,67 @@ public class SurveyDao {
         surveyDto.setS_op4(rs.getString(9));
         surveyDto.setS_op5(rs.getString(10));
         surveyDto.setId(rs.getString(11));
+        if (StringUtil.NullToEmpty(rs.getString(3)).equals("")
+            || StringUtil.NullToEmpty(rs.getString(4)).equals("")) {
+          surveyDto.setVotable(true);
+        } else {
+          System.out.println("투표 참여 가능 여부 체크");
+          System.out.println("----------------------");
+          System.out.println("오늘 : " + format.format(today));
+          System.out.println("시작 : " + rs.getString(3));
+          System.out.println("종료 : " + rs.getString(4));
+          System.out.println("----------------------");
+
+          surveyDto.setVotable(!format.parse(rs.getString(3)).after(today)
+              && !format.parse(rs.getString(4)).before(today));
+        }
+      }
+      rs.close();
+      pstmt.close();
+      pstmt = conn.prepareStatement(sqlCount);
+      pstmt.setInt(1, s_idx);
+      rs = pstmt.executeQuery();
+      if (rs.next()) {
+        System.out.println("commCnt=> " + rs.getInt(1));
+        surveyDto.setCommCnt(rs.getInt(1));
       }
 
+      rs.close();
+      pstmt.close();
+      pstmt = conn.prepareStatement(sqlOpCount);
+      pstmt.setInt(1, s_idx);
+      rs = pstmt.executeQuery();
+      while (rs.next()) {
+        switch (rs.getString(2)) { // R_OP
+          case "1":
+            surveyDto.setOp1Cnt(rs.getInt(1)); // Count(id) Group By R_OP
+            break;
+          case "2":
+            surveyDto.setOp2Cnt(rs.getInt(1));
+            break;
+          case "3":
+            surveyDto.setOp3Cnt(rs.getInt(1));
+            break;
+          case "4":
+            surveyDto.setOp4Cnt(rs.getInt(1));
+            break;
+          case "5":
+            surveyDto.setOp5Cnt(rs.getInt(1));
+            break;
+          default :
+            System.out.println("비정상적인 투표 감지");
+        }
+        
+
+      }
+
+      System.out.println("Op1 Count => " + surveyDto.getOp1Cnt());
+      System.out.println("Op2 Count => " + surveyDto.getOp2Cnt());
+      System.out.println("Op3 Count => " + surveyDto.getOp3Cnt());
+      System.out.println("Op4 Count => " + surveyDto.getOp4Cnt());
+      System.out.println("Op5 Count => " + surveyDto.getOp5Cnt());
+      
+      
     } catch (Exception e) {
       System.out.println("SurveyDao select ERROR!!!");
       System.out.println(e.getMessage());

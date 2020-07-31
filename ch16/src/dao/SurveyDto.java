@@ -16,7 +16,52 @@ public class SurveyDto {
   private String id;
   private int commCnt;
   private boolean votable;
+  private int op1Cnt;
+  private int op2Cnt;
+  private int op3Cnt;
+  private int op4Cnt;
+  private int op5Cnt;
   
+  public int getOp1Cnt() {
+    return op1Cnt;
+  }
+
+  public void setOp1Cnt(int op1Cnt) {
+    this.op1Cnt = op1Cnt;
+  }
+
+  public int getOp2Cnt() {
+    return op2Cnt;
+  }
+
+  public void setOp2Cnt(int op2Cnt) {
+    this.op2Cnt = op2Cnt;
+  }
+
+  public int getOp3Cnt() {
+    return op3Cnt;
+  }
+
+  public void setOp3Cnt(int op3Cnt) {
+    this.op3Cnt = op3Cnt;
+  }
+
+  public int getOp4Cnt() {
+    return op4Cnt;
+  }
+
+  public void setOp4Cnt(int op4Cnt) {
+    this.op4Cnt = op4Cnt;
+  }
+
+  public int getOp5Cnt() {
+    return op5Cnt;
+  }
+
+  public void setOp5Cnt(int op5Cnt) {
+    this.op5Cnt = op5Cnt;
+  }
+
   public boolean isVotable() {
     return votable;
   }
