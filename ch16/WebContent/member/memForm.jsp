@@ -96,7 +96,7 @@
 	<div class="container text-center">
 		<div class="form-group">
 			<h2>회원가입</h2>
-			<form action="memInsert.do" name="frm" method="post">
+			<form action="memInsert.do" name="frm" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="id">아이디</label> <input type="text" id="id"
 						class="form-control" name="id" placeholder="아이디"> <input
@@ -119,6 +119,7 @@
 						class="form-control" id="nickname" name="nickname"
 						placeholder="닉네임">
 				</div>
+				파일<input type="file" name="fime1">
 			</form>
 		</div>
 		<div class="form-check-inline">

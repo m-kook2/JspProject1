@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="style.css" type="text/css">
 <style type="text/css">
-body{
-	background-image : url("../images/color.jpg");
-	background-repeat: repeat;
-}
 .form-control {
 	width: 280px;
 	margin-left: 415px;
@@ -55,7 +51,9 @@ body{
 		<form action="memUpdatePro.do" name="f" method="post">
 			<div class="form-group">
 				<h2>회원정보 수정</h2>
-				<br /> <label for="id">아이디 </label> <input type="text" style="width: 250px;"
+				<br /> 
+				<img alt="" src="./images/${sessionScope.pic}">
+				<label for="id">아이디 </label> <input type="text" style="width: 250px;"
 					class="form-control" id="id" name="id" value="${sessionScope.id }" disabled="disabled">
 				<p>
 				<br/>

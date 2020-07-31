@@ -31,6 +31,7 @@ public class LoginAction implements CommandProcess {
 					session.setAttribute("reg_date", list.get(i).getReg_date());
 					session.setAttribute("del_yn", list.get(i).getDel_yn());
 					session.setAttribute("status", list.get(i).getStatus());
+					session.setAttribute("pic", list.get(i).getPic());
 				}
 			}
 		} catch (Exception e) {
