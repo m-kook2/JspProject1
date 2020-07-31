@@ -16,10 +16,11 @@
 		<!-- 로그인 했을 경우만 댓글 작성가능 -->
 			<c:if test="${sessionScope.id !=null}"> 
 			<tr bgcolor="#F5F5F5">
-			<form id="writeCommentForm" action="">
+			<form id="writeCommentForm" action="commwritePro.do">
 				<%-- <input type="hidden" name="m_idx" value="1"> ${board.board_num} --%>
 				<input type="hidden" name="m_idx" value="${m_idx }">
 				<input type="hidden" name="id" value="${id }">
+			
 				 <%-- ${sessionScope.sessionID} --%>
 				<!-- 아이디-->
 				<td width="150">
@@ -36,7 +37,7 @@
 				<!-- 댓글 등록 버튼 -->
 				<td width="100">
 					<div id="btn" style="text-align:center;">
-						<p><a href="commwritePro.do" onclick="writeCmt()">[댓글등록]</a></p>	
+						<button class="btn m-2 btn-primary mx-auto" onclick="location.href='commwritePro.do?&pageNum=${pageNum}&id=${id }&c_content=${c_content }&m_idx=${m_idx }'">등록</button>
 					</div>
 				</td>
 			</form>
@@ -44,38 +45,51 @@
 			</c:if>
 		
 	<!-- 댓글 목록 -->	
-	<%-- <c:if test="${requestScope.commentList != null}">
-		<c:forEach var="comment" items="${requestScope.commentList}"> --%>
+	<%-- <c:if test="${requestScope.commentList != null}">--%>
+		<c:forEach var="comm" items="${list }">
 		
 			<tr>
 				<!-- 아이디, 작성날짜 -->
 				<td width="150">
 					<div>
-						${comment.comment_id}<br>
-						<font size="2" color="lightgray">${comment.comment_date}</font>
+						${comm.id}<br>
+						<%-- <font size="2" color="lightgray">${comment.comment_date}</font> --%>
 					</div>
 				</td>
 				<!-- 본문내용 -->
 				<td width="550">
 					<div class="text_wrapper">
-						${comment.comment_content}
+					<c:if test="${comm.del_yn == 'y'}">
+						삭제된글
+					</c:if>
+					<c:if test="${comm.del_yn == 'n'}">
+						${comm.c_content}
+					</c:if>
+						
 					</div>
 				</td>
 				<!-- 버튼 -->
 				<td width="100">
 					<div id="btn" style="text-align:center;">
+					<c:if test="${sessionScope.status eq '2'}">
 						<a href="#">[답변]</a><br>
+					</c:if>
+					<c:if test="${sessionScope.status eq '1'}">
+						<a href="#">[답변]</a><br>
+					</c:if>
 					<!-- 댓글 작성자만 수정, 삭제 가능하도록 -->	
+					<c:if test="${sessionScope.id == comm.id}">
 					<%-- <c:if test="${comment.comment_id == sessionScope.sessionID}"> --%>
-						<a href="#">[수정]</a><br>	
+						<button class="btn m-2 btn-primary mx-auto" onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'">삭제</button><br>	
 						<a href="#">[삭제]</a>
-					<%-- </c:if>		 --%>
+					</c:if>
+					<%-- </c:if> --%>
 					</div>
 				</td>
 			</tr>
 			
-	<%-- 	</c:forEach>
-	</c:if> --%>
+		</c:forEach>
+	<%-- </c:if>  --%>
 			
 			
 	

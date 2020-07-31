@@ -128,7 +128,8 @@ public class CommDao {
 		int result = 0;
 		ResultSet rs = null;
 		String sql1 = "select nvl(max(c_idx),0) from comm";
-		String sql = "Insert into comm values (?,?,?,0,0,0,sysdate,n,?,0,0)";
+	
+		String sql = "Insert into comm values (?,?,?,0,0,0,sysdate,'n',?,0,0)";
 		System.out.println("test insert" + sql);
 		try {
 			conn = getConnection();
@@ -162,4 +163,76 @@ public class CommDao {
 		}
 		return result;
 	}
+	
+	public List<CommDto> list(int startRow, int endRow,String m_idx) throws SQLException {
+		List<CommDto> list = new ArrayList<CommDto>();
+
+		Connection conn = null;	PreparedStatement pstmt= null;
+		ResultSet rs = null;
+		// String sql = "select * from board order by num desc";
+	// mysql select * from board order by num desc limit startPage-1,10;
+		 String sql = "select * from (select rownum rn ,a.* from " + 
+			" (select * from comm where m_idx = ? order by step desc,dep) a ) "+
+			" where rn between ? and ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m_idx);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				CommDto comm = new CommDto();
+				comm.setC_idx(rs.getInt("c_idx"));
+				comm.setId(rs.getString("id"));
+				comm.setC_content(rs.getString("c_content"));
+				comm.setC_sympathy(rs.getInt("c_sympathy"));
+				comm.setC_unsympathy(rs.getInt("c_unsympathy"));
+				comm.setC_grade(rs.getInt("c_grade"));
+				comm.setDate(rs.getString("c_date"));
+				comm.setDel_yn(rs.getString("del_yn"));
+				comm.setM_idx(rs.getInt("m_idx"));
+				comm.setStep(rs.getInt("step"));
+				comm.setDep(rs.getInt("dep"));
+				list.add(comm);				
+				
+			}
+		} catch(Exception e) {	System.out.println(e.getMessage()); 
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return list;
+	}
+	
+
+	public int delete(int c_idx) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = "delete from comm where c_idx=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, c_idx);
+			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
 }
