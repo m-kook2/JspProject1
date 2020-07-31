@@ -7,7 +7,7 @@
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-	<div class="container-fluid text-center bg-dark" style="opacity:0.7;">
+	<div class="container-fluid text-center bg-dark" style="background-image: url(../images/main3.jpg); background-repeat: no-repeat; background-size : cover;">
 	    <div class="row">
 	  		<c:forEach var="result" items="${list}" varStatus="i">
 			<div class="col-3" style="margin-top:30px">
