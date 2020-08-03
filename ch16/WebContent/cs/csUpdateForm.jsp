@@ -32,7 +32,7 @@
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><pre><textarea rows="10" cols="40" name="content" required="required">
+				<td><pre><textarea rows="10" cols="40" name="content" style="text-align: left;" required="required">
 				${cs.content}</textarea>
 				</pre></td>
 				<td></td>
