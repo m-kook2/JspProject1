@@ -7,16 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="style.css" type="text/css">
 <style type="text/css">
-body {
-	background-image : url("../images/memUpdate.png");
-	background-repeat: repeat;
-	background-size: 50px;
-}
- div:hover{
-            background-image: url("../images/hot.gif"); 
-            background-repeat: repeat;
-			background-size: 150px;
-        } 
+
 </style>
 <%@ include file="/inc/top.jsp"%>
 </head>
@@ -30,16 +21,23 @@ body {
 	<br/><p>
 		<br/>
 		<br/>
+	<br/>
+	<br/>
+	<br/>
+		<br/>
 		<a class="btn btn-success" class="form-control" href="bookMarkList.do"><img src="https://img.icons8.com/cotton/64/000000/filled-star.png"/> 즐겨찾기</a>
 		<a class="btn btn-primary" class="form-control" href="memUpdateForm.do"><img src="https://img.icons8.com/cotton/64/000000/name--v2.png"/>정보 수정</a>
-		<a class="btn btn-primary" class="form-control" href="csWriteForm.do"><img src="https://img.icons8.com/cotton/64/000000/name--v2.png"/>의견보내기</a>
+		<a class="btn btn-primary" class="form-control" href="csWriteForm.do"><img src="https://img.icons8.com/color/64/000000/same-opinion.png"/>의견보내기</a>
 		<a class="btn btn-danger" class="form-control" href="memDeleteForm.do"><img src="https://img.icons8.com/cotton/64/000000/fire-alarm.png"/>회원탈퇴</a>
 	</div>
+	<p>
 	<br/>
+	<br/><br/>
 	<br/>
+	<br/><br/>
+	<br/><br/>
+	<br/><br/>
 	<br/>
-	
-	
 	
 	<%@ include file="/inc/footer.jsp"%>
 </body>
