@@ -3,13 +3,48 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<style> 
+<style>
+* {
+  box-sizing: border-box;
+}
+
 input[type=text], select, textarea {
-  width: 60%;
+  width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 12px;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.col-25 {
+  float: left;
+  text-align:center;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
 }
 </style>
 <%@ include file="/inc/top.jsp" %>
@@ -37,72 +72,78 @@ function reg() {
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-<div class="container text-center">
-	<div class="row justify-content-center">
-	<div>
-		<h2>회원정보수정</h2>
-		<br>
-		<img alt="" src="./images/member/img/${result.pic}" class="rounded"><p><br/>
-				<input type="hidden" name="pic" value="${result.pic}"/>
-				<input type="file" name="file1"> 
-		<form action="memMngUpdatePro.do" name="frm" method="post">
-				<div class="form-group">
-					<label for="id">아이디:</label> 
-					<input type="text" id="id" name="id" value="${result.id }"> 
-				</div>
-				<div class="form-group">
-					<label for="nickname">닉네임:</label> 
-					<input type="text" id="nickname" name="nickname" value="${result.nickname }">
-				</div>
-				<div class="form-group">
-					<label for="nickname">이메일:</label> 
-					<input type="text" id="email" name="email" value="${result.email }">
-				</div>
-				<div class="form-group">
-					<div class="form-check-inline">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" id="gender" name="gender" value="남자" ${result.gender eq '남자'?"checked='checked'":'' }>남자
-					  </label>
-					</div>
-					<div class="form-check-inline">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" id="gender" name="gender" value="여자" ${result.gender eq '여자'?"checked='checked'":'' }>여자
-					  </label>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="form-check-inline">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" id="status" name="status" value="1" ${result.status eq '1'?"checked='checked'":'' }>회원
-					  </label>
-					</div>
-					<div class="form-check-inline">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" id="status" name="status" value="2" ${result.status eq '2'?"checked='checked'":'' }>관리자
-					  </label>
-					</div>
-					<div class="form-check-inline">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" id="status" name="status" value="3" ${result.status eq '3'?"checked='checked'":'' }>정지
-					  </label>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="form-check-inline">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" id="delYn" name="del_yn" value="Y" ${result.del_yn eq 'Y'?"checked='checked'":'' }>탈퇴
-					  </label>
-					</div>
-					<div class="form-check-inline">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" id="delYn" name="del_yn" value="N" ${result.del_yn eq 'N'?"checked='checked'":'' }>미탈퇴
-					  </label>
-					</div>
-				</div>
-				<button type="button" class="btn btn-primary" onclick="reg();">회원정보수정</button>
-		</form>
-		</div>
+
+<div class="container" style="margin-top: 10px ">
+	<h2>회원정보수정</h2>
+	<form action="memMngUpdatePro.do" name="frm" method="post">
+		<input type="hidden" name="pic" value="${result.pic}"/>
+	<div class="row">
+		<img alt="${result.pic}" src="./images/member/img/${result.pic}" class="rounded mx-auto"/>
 	</div>
+	<div class="row">
+		<div class="col-25">
+	      <label for="file1">사진등록: </label>
+	    </div>
+	    <div class="col-75">
+	      <input type="file" name="file1">
+	    </div>
+	</div>
+	<div class="row">
+		<div class="col-25">
+	      <label for="id">아이디:</label>
+	    </div>
+	    <div class="col-75">
+	      <input type="text" id="id" name="id" value="${result.id }">
+	    </div>
+	</div>
+	<div class="row">
+		<div class="col-25">
+	      <label for="nickname">닉네임:</label>
+	    </div>
+	    <div class="col-75">
+	      <input type="text" id="nickname" name="nickname" value="${result.nickname }">
+	    </div>
+	</div>
+	<div class="row">
+		<div class="col-25">
+	      <label for="nickname">이메일:</label>
+	    </div>
+	    <div class="col-75">
+	      <input type="text" id="email" name="email" value="${result.email }">
+	    </div>
+	</div>
+	<div class="row">
+		<div class="col-25">
+	      <label for="gender">성별:</label>
+	    </div>
+	    <div class="col-75">
+    		<input type="radio" id="gender" name="gender" value="남자" ${result.gender eq '남자'?"checked='checked'":'' }>남자
+			<input type="radio" id="gender" name="gender" value="여자" ${result.gender eq '여자'?"checked='checked'":'' }>여자
+	    </div>
+	</div>
+	<div class="row">
+		<div class="col-25">
+	      <label for="status">회원구분:</label>
+	    </div>
+	    <div class="col-75">
+    		<input type="radio" id="status" name="status" value="1" ${result.status eq '1'?"checked='checked'":'' }>회원<br/>
+			<input type="radio" id="status" name="status" value="2" ${result.status eq '2'?"checked='checked'":'' }>관리자<br/>
+			<input type="radio" id="status" name="status" value="3" ${result.status eq '3'?"checked='checked'":'' }>정지
+	    </div>
+	</div>
+	<div class="row">
+		<div class="col-25">
+	      <label for="del_yn">탈퇴여부:(Y:탈퇴)</label>
+	    </div>
+	    <div class="col-75">
+    		<input type="radio" id="delYn" name="del_yn" value="Y" ${result.del_yn eq 'Y'?"checked='checked'":'' }>Y<br/>
+			<input type="radio" id="delYn" name="del_yn" value="N" ${result.del_yn eq 'N'?"checked='checked'":'' }>N
+	    </div>
+	</div>
+	<div class="row">
+		<button type="button" class="btn btn-outline-primary mx-auto" onclick="reg();">회원정보수정</button>
+	</div>
+</form>
 </div>
 <%@ include file="/inc/footer.jsp"%>
 </body>
