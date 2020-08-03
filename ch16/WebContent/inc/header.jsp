@@ -30,23 +30,24 @@ $(document).ready(function() {
 });
 </script>
 <nav class="navbar navbar-expand-sm font-weight-bold" style="background-color: black;">
-	<a class="navbar-brand" href="main.do"><img alt="POPcorn Review" src="/images/main/logo.png" width="60" height="60"> </a>
+	<a class="navbar-brand" href="main.do"> 
+	<img alt="POPcorn Review" src="images/main/pl.png" width="40" height="40"/></a>
   	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 	    <ul class="navbar-nav">
 	      <li class="nav-item">
-	        <a class="nav-link text-white" href="r_list.do">영화 리뷰</a>
+	        <a class="nav-link text-warning" href="r_list.do">영화 리뷰</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link text-white" href="movieList.do">영화 게시판</a>
+	        <a class="nav-link text-warning" href="movieList.do">영화 게시판</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link text-white" href="surveyList.do">설문조사</a>
+	        <a class="nav-link text-warning" href="surveyList.do">설문조사</a>
 	      </li>    
 	    </ul>
 	</div>  
   	<form class="form-inline" action="movieList.do">
     	<input class="form-control mr-sm-2" type="text" id="testText" name="testText" placeholder="작품제목, 감독, 장르">
-    	<button class="btn btn-success" type="submit">Search</button>
+    	<button class="btn btn-outline-warning" type="submit" >Search</button>
 	</form>
 	<ul class="navbar-nav">
 		<c:choose>
@@ -82,10 +83,10 @@ $(document).ready(function() {
 			</c:when>
 			<c:otherwise>
 				<li class="nav-item" id="mem1">
-		        	<a class="nav-link text-white" href="loginForm.do">로그인</a>
+		        	<a class="nav-link text-warning" href="loginForm.do">로그인</a>
 		      	</li>
 		      	<li class="nav-item" id="mem2">
-		       	 <a class="nav-link text-white" href="memWriteForm.do">회원가입</a>
+		       	 <a class="nav-link text-warning" href="memWriteForm.do">회원가입</a>
 		      	</li>
 			</c:otherwise>
 		</c:choose>
