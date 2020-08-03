@@ -44,7 +44,7 @@
 	            onclick="location.href='csDeleteForm.do?c_idx=${cs.c_idx}&pageNum=${pageNum}'">
 	</c:if>
 	
-	<input type="button" value="목록" onclick="location.href='csList.do?pageNum=${pageNum }'"></td></tr>
+	<input class="btn m-2 btn-primary mx-auto" type="button" value="목록" onclick="location.href='csList.do?pageNum=${pageNum }'"></td></tr>
 </div>
 
 
