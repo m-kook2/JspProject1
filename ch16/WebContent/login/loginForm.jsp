@@ -37,8 +37,9 @@
 				<input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
 				<div class="valid-feedback">Valid.</div>
    				<div class="invalid-feedback">Please fill out this field.</div>
-			</div>
+			</div><br/>
 			<button type="button" class="btn btn-success" onclick="reg();">로그인</button>
+			<br/><br/><br/>
 			<!-- <div class="form-check mb-2 mr-sm-2">
 				<label class="form-check-label"> <input
 					class="form-check-input" type="checkbox"> id저장

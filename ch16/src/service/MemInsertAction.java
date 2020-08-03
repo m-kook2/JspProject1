@@ -23,6 +23,7 @@ public class MemInsertAction implements CommandProcess {
 		String email = mp.getParameter("email");
 		String nickname = mp.getParameter("nickname");
 		String gender = mp.getParameter("gender");
+		String pic = mp.getParameter("pic");
 		
 		FileUtil fu = new FileUtil();
 		fu.filUpload(request, saveDirectory);
@@ -32,6 +33,7 @@ public class MemInsertAction implements CommandProcess {
 		String email = request.getParameter("email");
 		String nickname = request.getParameter("nickname");
 		String gender = request.getParameter("gender");*/
+		
 		int result = 0;
 		String filename ="";
 		Enumeration en = mp.getFileNames();
@@ -46,7 +48,7 @@ public class MemInsertAction implements CommandProcess {
 		vo.setEmail(email);
 		vo.setNickname(nickname);
 		vo.setGender(gender);
-		vo.setPic(filename);
+		vo.setPic(pic);
 		//vo.setFileName(filename);
 		MemberDao mem = MemberDao.getInstance();
 		

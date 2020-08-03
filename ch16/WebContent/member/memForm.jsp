@@ -118,8 +118,9 @@
 					<label for="nickname">닉네임</label> <input type="text"
 						class="form-control" id="nickname" name="nickname"
 						placeholder="닉네임">
-				</div>
-				파일<input type="file" name="fime1">
+				</div><br/>
+				<input type="file" name="fime1">
+				<br/><br/>
 			</form>
 		</div>
 		<div class="form-check-inline">
@@ -137,6 +138,7 @@
 				<br /> <br />
 				<button type="button" class="btn btn-primary" onclick="reg();">회원
 					가입</button>
+					<br/><br/>
 		</div>
 	</div>
 	<%@ include file="/inc/footer.jsp"%>

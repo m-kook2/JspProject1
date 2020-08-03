@@ -71,7 +71,6 @@ public class MemberDao {
 				result = pstmt.executeUpdate();
 				pstmt.close();
 			}
-
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -159,19 +158,42 @@ public class MemberDao {
 
 		return list;
 	}
+	
+	public int memUpdatePic(String id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = "update member set pic='' where id=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
 
+		return result;
+	}
+	
 	public int memUpdateForm(MemberDto memberDto) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update member set email=?, nickname=?, gender=? where id=?";
+		String sql = "update member set email=?, nickname=?, gender=?, pic=? where id=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memberDto.getEmail());
 			pstmt.setString(2, memberDto.getNickname());
 			pstmt.setString(3, memberDto.getGender());
-			pstmt.setString(4, memberDto.getId());
+			pstmt.setString(4, memberDto.getPic());
+			pstmt.setString(5, memberDto.getId());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

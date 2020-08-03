@@ -48,11 +48,14 @@
 	<%@ include file="/inc/header.jsp"%>
 	<!-- <div class="text-auto"> -->
 	<div class="container text-center">
-		<form action="memUpdatePro.do" name="f" method="post">
+		<form action="memUpdatePro.do" name="f" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<h2>회원정보 수정</h2>
 				<br /> 
-				<img alt="" src="./images/member/img/${sessionScope.pic}"><p><br/><br/>
+				<img alt="" src="./images/member/img/${sessionScope.pic}"><p><br/>
+				<input type="hidden" name="pic" value="${sessionScope.pic}"/>
+				<input type="file" name="file1">
+				<br/>
 				<label for="id">아이디 </label> <input type="text" style="width: 250px;"
 					class="form-control" id="id" name="id" value="${sessionScope.id }" disabled="disabled">
 				<p>
