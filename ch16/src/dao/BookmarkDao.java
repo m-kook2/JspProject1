@@ -41,14 +41,20 @@ public class BookmarkDao {
 		 		"		             where bk.m_idx = mi.m_idx" + 
 		 		"		             AND bk.id = ?) a )" + 
 		 		"		 where rn between ? and ?) where 1=1 ";
+		 //where 1=1은 참을 의미하고 where 1=2는 거짓을 의미한다
+		 //string 클래스의 인스턴스는 한 번 생성되면 그 값을 읽기만 할 수 있고 변경할 수는 없다
+		 //하지만 StringBuffer 클래스의 인스턴스는 그 값을 변경할 수도 있고 추가할 수도 있다
 		 StringBuffer buf=new StringBuffer();
 		 System.out.println("sql : "+sql);
+		 //append는 선택된 요소의 마지막에 새로운 요소나 콘텐츠를 추가할 수 있다
 		 buf.append(sql);
 		 if(str!=null && !str.equals("")) {
 			 if(str.equals("1")) {
-				 buf.append("	order by m_date desc");	 
+				 buf.append("	order by m_date");	 
 			 }else if(str.equals("2")) {
-				 buf.append("	order by m_genre desc");
+				 buf.append("	order by m_genre");
+			 }else if(str.equals("3")) {
+				buf.append("    order by idx");
 			 }
 			 
 		 }

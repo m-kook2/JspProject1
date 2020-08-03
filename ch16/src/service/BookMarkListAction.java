@@ -30,7 +30,9 @@ public class BookMarkListAction implements CommandProcess {
 			if (pageNum == null || pageNum.equals("")) {
 				pageNum = "1";
 			}
+			//정렬 
 			String str=request.getParameter("str")==null?"":request.getParameter("str");
+			
 			int currentPage = Integer.parseInt(pageNum);
 			int pageSize = 10, blockSize = 10;
 			int startRow = (currentPage - 1) * pageSize + 1;
