@@ -36,7 +36,8 @@ public class CommDao {
 		}
 		return conn;
 	}
-	//댓글관리 전체카운트
+
+	// 댓글관리 전체카운트
 	public int getTotalCnt() throws SQLException {
 		Connection conn = null;
 		Statement stmt = null;
@@ -53,23 +54,25 @@ public class CommDao {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
-			if(rs !=null) rs.close();
-			if(stmt !=null) stmt.close();
-			if(conn !=null) conn.close();
+			if (rs != null)
+				rs.close();
+			if (stmt != null)
+				stmt.close();
+			if (conn != null)
+				conn.close();
 		}
-		 return tot;
+		return tot;
 	}
-	
-	//댓글관리 목록조회
+
+	// 댓글관리 목록조회
 	public List<CommDto> commMngList(int startRow, int endRow) throws SQLException {
 		List<CommDto> list = new ArrayList<CommDto>();
 		Connection conn = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
-		String sql = "select * from (select rownum rn ,a.* from " + 
-				" (select * from comm) a ) "+
-				" where rn between ? and ?";
-		System.out.println("sql : "+sql);
+		String sql = "select * from (select rownum rn ,a.* from " + " (select * from comm) a ) "
+				+ " where rn between ? and ?";
+		System.out.println("sql : " + sql);
 		try {
 			conn = getConnection();
 			pstm = conn.prepareStatement(sql);
@@ -89,24 +92,28 @@ public class CommDao {
 				dto.setM_idx(rs.getInt("m_idx"));
 				dto.setStep(rs.getInt("step"));
 				dto.setDep(rs.getInt("dep"));
-				list.add(dto);				
+				list.add(dto);
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
-			if(rs!=null) rs.close();
-			if(pstm!=null) pstm.close();
-			if(conn!=null) conn.close();
+			if (rs != null)
+				rs.close();
+			if (pstm != null)
+				pstm.close();
+			if (conn != null)
+				conn.close();
 		}
 		return list;
 	}
-	//댓글 업데이트
+
+	// 댓글 업데이트
 	public int update(String del_yn, int idx) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
 		String sql = "update comm set del_yn=? where c_idx=?";
-		
+
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -120,7 +127,7 @@ public class CommDao {
 		}
 		return result;
 	}
-	
+
 	public int insert(CommDto comm) throws SQLException {
 		int c_idx = comm.getC_idx();
 		Connection conn = null;
@@ -128,7 +135,7 @@ public class CommDao {
 		int result = 0;
 		ResultSet rs = null;
 		String sql1 = "select nvl(max(c_idx),0) from comm";
-	
+
 		String sql = "Insert into comm values (?,?,?,0,0,0,sysdate,'n',?,0,0)";
 		System.out.println("test insert" + sql);
 		try {
@@ -163,17 +170,17 @@ public class CommDao {
 		}
 		return result;
 	}
-	
-	public List<CommDto> list(int startRow, int endRow,String m_idx) throws SQLException {
+
+	public List<CommDto> list(int startRow, int endRow, String m_idx) throws SQLException {
 		List<CommDto> list = new ArrayList<CommDto>();
 
-		Connection conn = null;	PreparedStatement pstmt= null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		// String sql = "select * from board order by num desc";
-	// mysql select * from board order by num desc limit startPage-1,10;
-		 String sql = "select * from (select rownum rn ,a.* from " + 
-			" (select * from comm where m_idx = ? order by step desc,dep) a ) "+
-			" where rn between ? and ?";
+		// mysql select * from board order by num desc limit startPage-1,10;
+		String sql = "select * from (select rownum rn ,a.* from "
+				+ " (select * from comm where m_idx = ? order by step desc,dep) a ) " + " where rn between ? and ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -194,18 +201,21 @@ public class CommDao {
 				comm.setM_idx(rs.getInt("m_idx"));
 				comm.setStep(rs.getInt("step"));
 				comm.setDep(rs.getInt("dep"));
-				list.add(comm);				
-				
+				list.add(comm);
+
 			}
-		} catch(Exception e) {	System.out.println(e.getMessage()); 
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		} finally {
-			if (rs !=null) rs.close();
-			if (pstmt != null) pstmt.close();
-			if (conn !=null) conn.close();
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
 		}
 		return list;
 	}
-	
 
 	public int delete(int c_idx) throws SQLException {
 		Connection conn = null;
@@ -228,11 +238,43 @@ public class CommDao {
 		}
 		return result;
 	}
-	
-	
-	
-	
-	
-	
-	
+
+	public List<CommDto> commMngExcelDown() throws SQLException {
+		List<CommDto> list = new ArrayList<CommDto>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from comm";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				CommDto comm = new CommDto();
+				comm.setC_idx(rs.getInt("c_idx"));
+				comm.setId(rs.getString("id"));
+				comm.setC_content(rs.getString("c_content"));
+				comm.setC_sympathy(rs.getInt("c_sympathy"));
+				comm.setC_unsympathy(rs.getInt("c_unsympathy"));
+				comm.setC_grade(rs.getInt("c_grade"));
+				comm.setDate(rs.getString("c_date"));
+				comm.setDel_yn(rs.getString("del_yn"));
+				comm.setM_idx(rs.getInt("m_idx"));
+				comm.setStep(rs.getInt("step"));
+				comm.setDep(rs.getInt("dep"));
+				list.add(comm);
+
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return list;
+	}
 }
