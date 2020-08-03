@@ -44,14 +44,14 @@
 			<div class="form-group">
 				<label for="id"></label> 
 				<input type="text" style="margin-left: 220px;" class="form-control" id="id" name="id" placeholder="Enter username" required> 
-				<div class="valid-feedback"> 좋았어!</div>
+				<div class="valid-feedback">&nbsp; 좋았어!</div>
     			<div class="invalid-feedback">아이디를 적어라.</div>
 			</div>
 			<p><br/>
 			<div class="form-group">
 				<label for="password"></label> 
 				<input type="password" style="margin-left: 220px;" class="form-control" id="password" name="password" placeholder="Enter password" required>
-				<div class="valid-feedback"> 좋았어!</div>
+				<div class="valid-feedback">&nbsp; 좋았어!</div>
    				<div class="invalid-feedback">비밀번호를 적어라.</div>
 			</div><br/>
 		</form>

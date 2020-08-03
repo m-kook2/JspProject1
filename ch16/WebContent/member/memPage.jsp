@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="style.css" type="text/css">
 <style type="text/css">
-
+p {
+	text-align: center;
+}
 </style>
 <%@ include file="/inc/top.jsp"%>
 </head>
@@ -17,12 +19,12 @@
 		<br/>
 	<br/><p>
 	<br/><p>
-	<h2>사용할 메뉴를 눌러주세요.</h2>
-	<br/><p>
+	<h2><strong><span style="color: red;">사</span><span style="color: orange;">용</span><span style="color: #FFC81E;">할</span> <span style="color: green;">메</span><span style="color: blue;">뉴</span><span style="color: Indigo;">를</span> <span style="color: violet;">눌</span><span style="color: red;">러</span><span style="color: orange;">주</span><span style="color: #FFC81E;">세</span>요.</strong></h2>
+	<!-- <br/><p>
 		<br/>
 		<br/>
 	<br/>
-	<br/>
+	<br/> -->
 	<br/>
 		<br/>
 		<a class="btn btn-success" class="form-control" href="bookMarkList.do"><img src="https://img.icons8.com/cotton/64/000000/filled-star.png"/> 즐겨찾기</a>
@@ -34,10 +36,10 @@
 	<br/>
 	<br/><br/>
 	<br/>
+	 <br/><br/>
 	<br/><br/>
 	<br/><br/>
-	<br/><br/>
-	<br/>
+	<br/> 
 	
 	<%@ include file="/inc/footer.jsp"%>
 </body>

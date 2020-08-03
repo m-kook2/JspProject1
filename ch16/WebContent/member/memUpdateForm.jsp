@@ -57,32 +57,32 @@
 		<div class="row justify-content-center">
 			<form action="memUpdatePro.do" name="f" method="post" enctype="multipart/form-data">
 				<div class="form-group">
-					<h2>회원정보 수정</h2>
+					<h2><strong>회원정보 수정</strong></h2>
 					<br /> <img id="pm" alt="profilPhoto" src="./images/member/img/${sessionScope.pic}">
 					<p>
 						<br /> <input type="hidden" name="pic" value="${sessionScope.pic}" />
 						
 						<input type="file" name="file1"><p> <br /> 
 						
-						<label id="id2" for="id2" style="">아이디</label>
+						<label id="id2" for="id2"><strong>아이디</strong></label>
 						<input type="text" style="text-align: center;" class="form-control" id="id" name="id" value="${sessionScope.id }" disabled="disabled">
 					<p>
 						<br /> 
-						<label id="id2" for="password">비밀번호 </label> 
+						<label id="id2" for="password"><strong>비밀번호 </strong></label> 
 						<input type="password" style="text-align: center;" class="form-control" id="password" name="psssword" value="${sessionScope.password }" disabled="disabled">
 					<p>
 						<br /> 
-						<label id="id2" for="chkpassword">비밀번호 확인</label> 
+						<label id="id2" for="chkpassword"><strong>비밀번호 확인</strong></label> 
 						<input type="password" style="text-align: center;" class="form-control" id="chkpassword" name="chkpassword">
 					<p>
 						<br /> 
-						<label id="id2" for="email">이메일 </label> 
+						<label id="id2" for="email"><strong>이메일 </strong></label> 
 						<input type="text" style="text-align: center;" class="form-control" id="email" name="email" value="${sessionScope.email }">
 					<p>
-						<br /> <label id="id2" for="nickname">닉네임 </label> 
+						<br /> <label id="id2" for="nickname"><strong>닉네임</strong> </label> 
 						<input type="text" style="text-align: center;" class="form-control" id="nickname" name="nickname" value="${sessionScope.nickname }">
 					<p>
-						<br /> <label for="gender">성별 </label>
+						<br /> <label for="gender"><strong>성별</strong> </label>
 					<div class="form-check-inline">
 						<label class="form-check-label" for="gender"> 남</label>
 						<input type="radio"  class="form-check-input" id="gender" name="gender" value="M" disabled="disabled" checked>
