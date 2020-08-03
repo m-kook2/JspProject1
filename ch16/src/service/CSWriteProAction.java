@@ -26,19 +26,34 @@ public class CSWriteProAction implements CommandProcess {
 				c_idx = Integer.parseInt(request.getParameter("c_idx"));
 			}
 			if(pageNum == null || pageNum == "") pageNum = "1";
-			System.out.println("c_idx ->" + Integer.parseInt(request.getParameter("c_idx")));
+			System.out.println("pageNum==>" + pageNum);
+			System.out.println("c_idx==>" + c_idx);
 			System.out.println("subject ->" +request.getParameter("subject"));
 			System.out.println("writer ->" +request.getParameter("writer"));
 			System.out.println("content ->" +request.getParameter("content"));
 			CSDto cs = new CSDto();
-			cs.setC_idx(Integer.parseInt(request.getParameter("c_idx")));
+			cs.setC_idx(c_idx);
 			cs.setSubject(request.getParameter("subject"));
 			cs.setWriter(request.getParameter("writer"));
 			cs.setContent(request.getParameter("content"));
 			System.out.println("ref=>" + cs.getRef());
 			cs.setRef(Integer.parseInt(request.getParameter("ref")));
-			cs.setRe_step(Integer.parseInt(request.getParameter("re_step")));
-			cs.setRe_level(Integer.parseInt(request.getParameter("re_level")));
+			String re_step_s = request.getParameter("re_step");
+			int re_step;
+			if(re_step_s == null || re_step_s == "") {
+				re_step = 0;
+			}else {
+				re_step = Integer.parseInt(request.getParameter("re_step"));
+			}
+			cs.setRe_step(re_step);
+			String re_level_s = request.getParameter("re_level");
+			int re_level;
+			if(re_level_s == null || re_level_s == "") {
+				re_level = 0;
+			}else {
+				re_level = Integer.parseInt(request.getParameter("re_level"));
+			}
+			cs.setRe_level(re_level);
 			
 			System.out.println(cs.getWriter());
 			System.out.println(cs.getContent());

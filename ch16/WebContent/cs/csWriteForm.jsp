@@ -11,8 +11,10 @@
 <%@ include file="/inc/header.jsp" %>
 <div style="margin-top:30px"></div>
 <div class="col-sm text-center">
-<form action="csWritePro.do?pageNum=${pageNum }" method="get">
+<form action="csWritePro.do" method="get">
 	<input type="hidden" name="c_idx" value="${c_idx }">
+	<input type="hidden" name="pageNum" value="${pageNum }">
+	
 	<input type="hidden" name="ref" value="${ref }">
 	<input type="hidden" name="re_level" value="${re_level }">
 	<input type="hidden" name="re_step" value="${re_step }">

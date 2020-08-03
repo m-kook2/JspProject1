@@ -20,11 +20,18 @@ public class CSWriteFormAction implements CommandProcess {
 			try {
 				int ref = 0, re_level = 0, re_step = 0;
 				HttpSession session = request.getSession();
-				String writer = (String) session.getAttribute("writer");
+				String writer = (String) session.getAttribute("id");
 				String pageNum = request.getParameter("pageNum");
 				String c_idx_s = request.getParameter("c_idx");
-				ref = Integer.parseInt(request.getParameter("ref"));
-				System.out.println("pageNum =>" + pageNum);
+				String ref_s = request.getParameter("ref");
+				if(ref_s == null || ref_s == "") {
+					ref = 0;
+				}else {
+					ref = Integer.parseInt(request.getParameter("ref"));
+				}
+
+				System.out.println("pageNum1 =>" + pageNum);
+				
 				int c_idx;
 				if(c_idx_s == null || c_idx_s == "") {
 					c_idx = 0;
@@ -32,7 +39,7 @@ public class CSWriteFormAction implements CommandProcess {
 					c_idx = Integer.parseInt(request.getParameter("c_idx"));
 				}
 				if(pageNum == null || pageNum == "") pageNum = "1";
-				System.out.println("pageNum =>" + pageNum);
+				System.out.println("pageNum2 =>" + pageNum);
 				
 				System.out.println("ref 1 =>" + ref);
 				//댓글
