@@ -4,12 +4,21 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp" %>
+<script>
+	function excelDown(){
+		document.frm.action="/memExcelDown.do";
+		document.frm.method="post";
+		document.frm.submit();
+	}
+</script>
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
 
 <div class="container text-center" style="margin-top: 10px ">
+<form name="frm">
 <h2><img src="https://img.icons8.com/doodle/48/000000/hand-right.png"/> 회원관리</h2>
+<p><input type="button" value="엑셀 다운로드" onclick="excelDown();"/></p>
 	<table class="table table-bordered">
 		<thead>
 	      <tr>
@@ -45,7 +54,7 @@
 			</tr>
 		</c:if>
 	</table>
-	
+</form>	
 	<div style="text-align: center;">
 		<c:if test="${startPage > blockSize }">
 			<a href='memMng.do?pageNum=${startPage-blockSize}'>[이전]</a>
