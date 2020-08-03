@@ -5,6 +5,18 @@
 <head>
 <title>영화 리뷰 : 회원 가입</title>
 <%@ include file="/inc/top.jsp"%>
+<style type="text/css">
+	#id{
+		width: 65%;
+		float: left;
+		text-align: reft;
+	}
+	#chk{
+		width: 35%;
+		float: left;
+		text-align: reft;
+	}
+</style>
 <script type="text/javascript">
 	function reg() {
 		var frm = document.frm;
@@ -89,27 +101,38 @@
 		<div class="row justify-content-center">
 			<title>영화 리뷰 : 회원 가입</title>
 			<form action="memInsert.do" name="frm" method="post" enctype="multipart/form-data">
+			<br/>
 					<h2>회원가입 </h2>
 					<div class="form-group">
-						<label for="id">아이디</label> 
+						<!-- <label for="id">아이디</label> -->
 						<input type="text" id="id" class="form-control" name="id" placeholder="아이디"> 
 						<input type="button" class="btn btn-secondary" id="chk" value="중복확인" />
 						<span id="msg"></span>
 					</div>
+					<p>
+					<br/>
 					<div class="form-group">
-						<label for="password">비밀번호</label> 
+						<!-- <label for="password">비밀번호</label>  -->
 						<input type="password" class="form-control" id="password" name="password" placeholder="비밀번호"> 
-						<label for="chkpassword">비밀번호 확인</label> 
+						<p>
+					<br/>
+						<!-- <label for="chkpassword">비밀번호 확인</label>  -->
 						<input type="password" class="form-control" id="chkpassword" name="chkpassword" placeholder="비밀번호 확인">
 					</div>
+					<p>
+					
 					<div class="form-group">
-						<label for="email">이메일</label> 
+						<!-- <label for="email">이메일</label>  -->
 						<input type="text" class="form-control" id="email" name="email" placeholder="이메일">
 					</div>
+					<p>
+					
 					<div class="form-group">
-						<label for="nickname">닉네임</label> 
+						<!-- <label for="nickname">닉네임</label>  -->
 						<input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임">
 					</div>
+					<p>
+					
 					<div class="form-group">
 						<input type="file" name="fime1" class="form-control-file border">
 					</div>
@@ -123,9 +146,9 @@
 						<input type="radio" class="form-check-input" id="gender" name="gender" value="W">여
 					</label>
 					<p>
-						<br /> <br />
-						<button type="button" class="btn btn-primary" onclick="reg();">회원가입</button><br/><br/>
+						<br />
 				</div>
+						<button type="button" style="margin-left: 95px;" class="btn btn-primary" onclick="reg();">회원가입</button><br/><br/>
 			</form>
 		</div>
 	</div>
