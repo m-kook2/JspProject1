@@ -57,7 +57,7 @@ public class CSDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "SELECT * FROM ( select rownum rn, a.* "
-				+ "from (select * from cs order by c_idx) a ) "
+				+ "from (select * from cs order by c_idx desc) a ) "
 				+ "WHERE rn between ? and ?";
 		try {
 			conn = getConnection();
