@@ -16,7 +16,7 @@ import util.FileUtil;
 public class MemInsertAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request,
 		HttpServletResponse response) throws ServletException, IOException {
-		String saveDirectory ="C:/Users/user/git/jspProject/ch16/WebContent/images/";
+		String saveDirectory ="C:/Users/user/git/jspProject/ch16/WebContent/images/member/img/";
 		MultipartRequest mp = new MultipartRequest(request, saveDirectory);
 		String id = mp.getParameter("id");
 		String password = mp.getParameter("password");

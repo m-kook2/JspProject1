@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
+<title>회원 탈퇴</title>
+<!-- <style type="text/css">
 .form-control {
 	width: 280px;
 	margin-left: 415px;
 }
-</style>
+</style> -->
 <script type="text/javascript">
 	function del() {
 		var del = document.d;
@@ -28,24 +28,24 @@
 <body>
 	<%@ include file="/inc/header.jsp"%>
 	<div class="container text-center">
-		<form action="memDeletePro.do" name="d" method="post">
-			<h2>회원 탈퇴</h2>
-			<br /> <label for="id">아이디 </label> <input type="text" style="width: 250px;"
-				class="form-control" id="id" name="id" value="${sessionScope.id }"
-				disabled="disabled">
-			<p>
+		<div class="row justify-content-center">
+			<form action="memDeletePro.do" name="d" method="post">
+				<h2>회원 탈퇴</h2>
+				<br /> 
+						<label for="id">아이디 </label> 
+						<input type="text" class="form-control" id="id" name="id" value="${sessionScope.id }" disabled="disabled">
+				<p>
 
-				<label for="password">비밀 번호 </label> <input type="password" style="width: 250px;"
-					class="form-control" id="password" name="password"
-					value="${sessionScope.password }" disabled="disabled">
-			<p>
+					<label for="password">비밀 번호 </label> 
+					<input type="password" class="form-control" id="password" name="password" value="${sessionScope.password }" disabled="disabled">
+				<p>
 
-				<label for="chkpassword">비밀번호 확인 :</label> <input type="password" style="width: 250px;"
-					class="form-control" id="chkpassword" name="chkpassword">
+					<label for="chkpassword">비밀번호 확인 :</label> 
+					<input type="password" class="form-control" id="chkpassword" name="chkpassword"> 
 					<br />
-				<!-- <button type="button" class="btn btn-danger" onclick="javascript:del();">회원 탈퇴</button> -->
-				<input type="submit" class="btn btn-danger" onclick="del();" value="회원탈퇴">
-		</form>
+					<input type="submit" class="btn btn-danger" onclick="del();" value="회원탈퇴">
+			</form>
+		</div>
 	</div>
 	<%@ include file="/inc/footer.jsp"%>
 </body>
