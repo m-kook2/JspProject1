@@ -295,6 +295,7 @@ public class MemberDao {
 				dto.setReg_date(rs.getString("REG_DATE"));
 				dto.setDel_yn(rs.getString("DEL_YN"));
 				dto.setStatus(rs.getString("STATUS"));
+				dto.setPic(rs.getString("PIC"));
 			}
 
 		} catch (Exception e) {
