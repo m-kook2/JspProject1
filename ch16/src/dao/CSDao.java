@@ -57,7 +57,7 @@ public class CSDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "SELECT * FROM ( select rownum rn, a.* "
-				+ "from (select * from cs order by num) a ) "
+				+ "from (select * from cs order by c_idx desc) a ) "
 				+ "WHERE rn between ? and ?";
 		try {
 			conn = getConnection();
@@ -68,7 +68,7 @@ public class CSDao {
 			
 			while(rs.next()) {
 				CSDto cs = new CSDto();
-					cs.setNum(rs.getInt("num"));
+					cs.setC_idx(rs.getInt("c_idx"));
 					cs.setWriter(rs.getString("writer"));
 					cs.setSubject(rs.getString("subject"));
 					cs.setReg_date(rs.getDate("reg_date"));
@@ -84,18 +84,18 @@ public class CSDao {
 		return list;
 	}
 	
-	public CSDto select(int num) throws SQLException {
+	public CSDto select(int c_idx) throws SQLException {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
-		String sql = "select * from cs where num=" + num;
+		String sql = "select * from cs where c_idx=" + c_idx;
 		CSDto cs = new CSDto();
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			if(rs.next()) {
-				cs.setNum(rs.getInt("num"));
+				cs.setC_idx(rs.getInt("c_idx"));
 				cs.setWriter(rs.getString("writer"));
 				cs.setSubject(rs.getString("subject"));
 				cs.setContent(rs.getString("content"));
@@ -111,12 +111,12 @@ public class CSDao {
 		return cs;
 	}
 	public int insert(CSDto cs) throws SQLException {
-		int num = (int) cs.getNum();
+		int c_idx = (int) cs.getC_idx();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
 		ResultSet rs = null;
-		String sql1 = "select nvl(max(num),0) from cs";
+		String sql1 = "select nvl(max(c_idx),0) from cs";
 		String sql = "insert into cs values(?,?,?,?,?,sysdate)";
 		try {
 			conn = getConnection();
@@ -144,16 +144,12 @@ public class CSDao {
 		}
 		return result;
 	}
-	public Object getNum() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+
 	public int update(CSDto cs) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update cs set subject=?,content=? where num=?";
+		String sql = "update cs set subject=?,content=? where c_idx=?";
 		System.out.println("update");
 		System.out.println(sql);
 		try {
@@ -161,7 +157,7 @@ public class CSDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, cs.getSubject());
 			pstmt.setString(2, cs.getContent());
-			pstmt.setInt(3, cs.getNum());
+			pstmt.setInt(3, cs.getC_idx());
 
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -175,5 +171,25 @@ public class CSDao {
 		return result;
 
 	}
-	
+	public int delete(int c_idx) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = "delete from cs where c_idx=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, c_idx);
+			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return result;
+}
 }

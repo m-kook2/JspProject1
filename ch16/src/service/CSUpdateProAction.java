@@ -17,26 +17,31 @@ public class CSUpdateProAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			
+			//updateForm에서 받아옴
 			request.setCharacterEncoding("utf-8"); 
 	        String pageNum = request.getParameter("pageNum");
-	        CSDto cs = new CSDto();
-	        int num=Integer.parseInt(request.getParameter("num"));
+	        int c_idx=Integer.parseInt(request.getParameter("c_idx"));
 	        String subject=request.getParameter("subject");
 	        String content =request.getParameter("content");
-	        System.out.println(num);
+	        
+	        
+	        System.out.println(c_idx);
 	        System.out.println(subject);
 	        System.out.println(content);
-	        cs.setNum(num);
+	        
+	        
+	        CSDto cs = new CSDto();
+	        cs.setC_idx(c_idx);
 	        cs.setSubject(subject);
 	        cs.setContent(content);
-	        /*review.setP_idx(Integer.parseInt(request.getParameter("p_idx")));
-	        review.setP_title(request.getParameter("p_title"));
-	        review.setP_content(request.getParameter("p_content"));*/
+	        
+	        
 			CSDao cd = CSDao.getInstance();
 			int result = cd.update(cs);
 			System.out.println(result);
 			request.setAttribute("result", result);
-			request.setAttribute("num", cs.getNum());
+			request.setAttribute("c_idx", cs.getC_idx());
 			request.setAttribute("pageNum", pageNum);
 		} catch(Exception e) { 
 			System.out.println(e.getMessage()); 

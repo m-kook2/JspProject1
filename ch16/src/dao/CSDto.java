@@ -3,26 +3,18 @@ package dao;
 import java.util.Date;
 
 public class CSDto {
-	private int num;
+	private int c_idx;
 	private String writer;
-	private String id;
 	private String subject;
 	private String content;
 	private String passwd;
 	private Date reg_date;
 	
-	
-	public String getId() {
-		return id;
+	public int getC_idx() {
+		return c_idx;
 	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public int getNum() {
-		return num;
-	}
-	public void setNum(int num) {
-		this.num = num;
+	public void setC_idx(int c_idx) {
+		this.c_idx = c_idx;
 	}
 	public String getWriter() {
 		return writer;

@@ -14,13 +14,21 @@ public class CSWriteFormAction implements CommandProcess {
 			throws ServletException, IOException {
 			try {
 				HttpSession session = request.getSession();
-				String id = (String) session.getAttribute("id");
+				String writer = (String) session.getAttribute("writer");
 				String pageNum = request.getParameter("pageNum");
-				int num = Integer.parseInt(request.getParameter("num"));
-				if(pageNum == null) pageNum = "1";
+				String c_idx_s = request.getParameter("c_idx");
+				System.out.println("pageNum =>" + pageNum);
+				int c_idx;
+				if(c_idx_s == null || c_idx_s == "") {
+					c_idx = 0;
+				}else {
+					c_idx = Integer.parseInt(request.getParameter("c_idx"));
+				}
+				if(pageNum == null || pageNum == "") pageNum = "1";
+				System.out.println("pageNum =>" + pageNum);
 				request.setAttribute("pageNum", pageNum);
-				request.setAttribute("num", num);
-				request.setAttribute("id", id);
+				request.setAttribute("c_idx", c_idx);
+				request.setAttribute("writer", writer);
 				
 			} catch (Exception e) {
 				System.out.println(e.getMessage());

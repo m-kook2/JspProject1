@@ -15,8 +15,8 @@
 <h2 style="margin-bottom: 50px">의견 상세내역</h2>
 <table class="table">
 	<tr>
-		<td>번호${cs.num }</td>
-		<td>${cs.num }</td><td></td><td></td>
+		<td>번호${cs.c_idx }</td>
+		<td>${cs.c_idx }</td><td></td><td></td>
 	</tr>
 	<tr>
 		<td>작성자</td>
@@ -37,15 +37,14 @@
 		style="text-align:center; width:700px; height:300px;"></td><td></td><td></td><td></td>
 	</tr>
 </table>
-
-	<c:if test="${sessionScope.status eq '2'}">
+	<c:if test="${sessionScope.status eq '2' || sessionScope.id eq cs.writer}">
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="수정" 
-	            onclick="location.href='csUpdateForm.do?num=${cs.num}&pageNum=${pageNum}'">
+	            onclick="location.href='csUpdateForm.do?c_idx=${cs.c_idx}&pageNum=${pageNum}'">
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="삭제"
-	            onclick="location.href='csDeleteForm.do?num=${cs.num}&pageNum=${pageNum}'">
+	            onclick="location.href='csDeleteForm.do?c_idx=${cs.c_idx}&pageNum=${pageNum}'">
 	</c:if>
 	
-	<input type="button" value="목록" onclick="location.href='csList.do?num=${pageNum }'"></td></tr>
+	<input class="btn m-2 btn-primary mx-auto" type="button" value="목록" onclick="location.href='csList.do?pageNum=${pageNum }'"></td></tr>
 </div>
 
 
