@@ -30,10 +30,16 @@ public class BookmarkDao {
 	}
 	
 	public List<BookmarkDto> list(int startRow, int endRow, String id, String str) throws SQLException {
+		//arraylist란 list 인터페이스를 상속받은 클래스로 크기가 가변적으로 변하는 선형리스트이다
+		//일반적인 배열과 같은 순차리스트이며 인덱스로 내부의 객체를 관리한다는점등이 유사하지만 한번 생성되면 크기가 변하지 않는 배열과는 달리
+		//arraylist는 객체들이 추가되어 저장용량을 초과한다면 자동으로 부족한 크기만큼 저장 용량이 늘어난다는 특징을 가지고 있다
 		List<BookmarkDto> list = new ArrayList<BookmarkDto>();
 		Connection conn = null;	PreparedStatement pstmt= null;
 		ResultSet rs = null;
 		
+		//rownum은 의사 컬럼으로 참조만 될 뿐 데이터베이스에 저장되지 않는다
+		//select절에 추출되는 데이터(row)에 붙는 순번이다
+		//다시 말해 where절까지 만족시킨 자료에 1부터 붙는 순번이다
 		 String sql = "select * from (select *" + 
 		 		"		 from (select rownum rn, a.*" + 
 		 		"		       from (select bk.id, bk.m_idx, bk.idx, bk.reg_date, mi.m_name, mi.m_photo, mi.m_genre, mi.m_date" + 
@@ -41,7 +47,9 @@ public class BookmarkDao {
 		 		"		             where bk.m_idx = mi.m_idx" + 
 		 		"		             AND bk.id = ?) a )" + 
 		 		"		 where rn between ? and ?) where 1=1 ";
+		 
 		 //where 1=1은 참을 의미하고 where 1=2는 거짓을 의미한다
+		 //where 1=1을 붙이지 않으면 조건이 성립되지않는다고 오류가 뜰 수 있기 때문에 일반적으로 붙여준다
 		 //string 클래스의 인스턴스는 한 번 생성되면 그 값을 읽기만 할 수 있고 변경할 수는 없다
 		 //하지만 StringBuffer 클래스의 인스턴스는 그 값을 변경할 수도 있고 추가할 수도 있다
 		 StringBuffer buf=new StringBuffer();
@@ -60,6 +68,7 @@ public class BookmarkDao {
 		 }
 		try {
 			conn = getConnection();
+			//buf.append가 쿼리문 뒤에 붙어서 가기 때문에 그것을 연결해주기 위해서 buf.tostring을 써준다
 			pstmt = conn.prepareStatement(buf.toString());
 			pstmt.setString(1, id);
 			pstmt.setInt(2, startRow);

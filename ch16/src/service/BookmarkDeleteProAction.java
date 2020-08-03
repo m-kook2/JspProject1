@@ -18,7 +18,9 @@ public class BookmarkDeleteProAction implements CommandProcess {
 		try {
 			HttpSession session = request.getSession();
 			System.out.println("BookmarkDeleteProAction start...");
+			//로그인 된 id를 받아온다
 			String id = (String) session.getAttribute("id");
+			//jsp에서 보낸 m_idx를 받아온다
 			int m_idx = Integer.parseInt(request.getParameter("m_idx"));
 			System.out.println("BookmarkDeleteProAction id->" + id);
 			System.out.println("BookmarkDeleteProAction m_idx->" + m_idx);
