@@ -73,7 +73,7 @@ function reg() {
 <body>
 <%@ include file="/inc/header.jsp" %>
 
-<div class="container" style="margin-top: 10px ">
+<div class="container" style="margin-top: 30px ">
 	<h2>회원정보수정</h2>
 	<form action="memMngUpdatePro.do" name="frm" method="post">
 		<input type="hidden" name="pic" value="${result.pic}"/>
