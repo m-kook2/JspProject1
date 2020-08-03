@@ -5,12 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원 탈퇴</title>
-<!-- <style type="text/css">
-.form-control {
-	width: 280px;
-	margin-left: 415px;
+<style type="text/css">
+#id2{
+	width: 115px;
+	float: left;
 }
-</style> -->
+</style>
 <script type="text/javascript">
 	function del() {
 		var del = document.d;
@@ -30,23 +30,40 @@
 	<div class="container text-center">
 		<div class="row justify-content-center">
 			<form action="memDeletePro.do" name="d" method="post">
+			<br/>
+	<br/>
+	<br/>
 				<h2>회원 탈퇴</h2>
 				<br /> 
-						<label for="id">아이디 </label> 
-						<input type="text" class="form-control" id="id" name="id" value="${sessionScope.id }" disabled="disabled">
+						<label id="id2" for="id">아이디 </label> 
+						<input type="text" style="text-align: center;" class="form-control" id="id" name="id" value="${sessionScope.id }" disabled="disabled">
 				<p>
-
-					<label for="password">비밀 번호 </label> 
-					<input type="password" class="form-control" id="password" name="password" value="${sessionScope.password }" disabled="disabled">
+				<br/>
+					<label id="id2" for="password">비밀 번호 </label> 
+					<input type="password" style="text-align: center;" class="form-control" id="password" name="password" value="${sessionScope.password }" disabled="disabled">
 				<p>
-
-					<label for="chkpassword">비밀번호 확인 :</label> 
-					<input type="password" class="form-control" id="chkpassword" name="chkpassword"> 
+				
+					<label id="id2" for="chkpassword">비밀번호 확인 :</label> 
+					<input type="password" style="text-align: center;" class="form-control" id="chkpassword" name="chkpassword"> 
 					<br />
-					<input type="submit" class="btn btn-danger" onclick="del();" value="회원탈퇴">
+					<input type="submit" style="margin-left: 220px;" class="btn btn-danger" onclick="del();" value="회원탈퇴">
 			</form>
 		</div>
 	</div>
+	<p>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	
+	
+	<br/>
+	<br/>
 	<%@ include file="/inc/footer.jsp"%>
 </body>
 </html>

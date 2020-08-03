@@ -152,6 +152,7 @@
 			</form>
 		</div>
 	</div>
+	<p><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	<%@ include file="/inc/footer.jsp"%>
 </body>
 </html>
