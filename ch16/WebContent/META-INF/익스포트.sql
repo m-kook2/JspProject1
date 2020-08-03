@@ -32,28 +32,6 @@ DROP TABLE "J20200701"."S_COMM" cascade constraints;
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "SYSTEM" ;
 --------------------------------------------------------
---  DDL for Table BOOK_MIND
---------------------------------------------------------
-
-  CREATE TABLE "J20200701"."BOOK_MIND" 
-   (	"ID" VARCHAR2(30 BYTE), 
-	"M_IDX" NUMBER, 
-	"IDX" NUMBER, 
-	"MIND" VARCHAR2(20 BYTE), 
-	"REG_DATE" DATE
-   ) SEGMENT CREATION IMMEDIATE 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
-  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-  TABLESPACE "SYSTEM" ;
-
-   COMMENT ON COLUMN "J20200701"."BOOK_MIND"."ID" IS '회원아이디';
-   COMMENT ON COLUMN "J20200701"."BOOK_MIND"."M_IDX" IS '영화번호';
-   COMMENT ON COLUMN "J20200701"."BOOK_MIND"."IDX" IS '순번';
-   COMMENT ON COLUMN "J20200701"."BOOK_MIND"."MIND" IS '찜한 영화';
-   COMMENT ON COLUMN "J20200701"."BOOK_MIND"."REG_DATE" IS '등록날짜';
-   COMMENT ON TABLE "J20200701"."BOOK_MIND"  IS '즐겨찾기-찜하기';
---------------------------------------------------------
 --  DDL for Table COMM
 --------------------------------------------------------
 
@@ -216,6 +194,200 @@ DROP TABLE "J20200701"."S_COMM" cascade constraints;
    COMMENT ON COLUMN "J20200701"."SUR"."S_OP5" IS '항목5';
    COMMENT ON COLUMN "J20200701"."SUR"."ID" IS '관리자아이디';
    COMMENT ON TABLE "J20200701"."SUR"  IS '설문조사 게시판';
+   --------------------------------------------------------
+--  DDL for Table BOOK_MIND
+--------------------------------------------------------
+
+  CREATE TABLE "J20200701"."BOOK_MIND" 
+   (	"ID" VARCHAR2(30 BYTE), 
+	"M_IDX" NUMBER, 
+	"IDX" NUMBER, 
+	"REG_DATE" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+
+   COMMENT ON COLUMN "J20200701"."BOOK_MIND"."ID" IS '회원아이디';
+   COMMENT ON COLUMN "J20200701"."BOOK_MIND"."M_IDX" IS '영화번호';
+   COMMENT ON COLUMN "J20200701"."BOOK_MIND"."IDX" IS '순번';
+   COMMENT ON COLUMN "J20200701"."BOOK_MIND"."REG_DATE" IS '등록날짜';
+   COMMENT ON TABLE "J20200701"."BOOK_MIND"  IS '즐겨찾기-찜하기';
+REM INSERTING into J20200701.BOOK_MIND
+SET DEFINE OFF;
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil3',5,1,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil3',6,2,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil2',9,3,to_date('20/07/28','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil2',10,4,to_date('20/07/28','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil2',11,5,to_date('20/07/28','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil2',12,6,to_date('20/07/28','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil2',13,7,to_date('20/07/28','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil2',14,8,to_date('20/07/28','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil2',15,9,to_date('20/07/28','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil2',16,10,to_date('20/07/28','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil2',17,11,to_date('20/07/28','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil2',18,12,to_date('20/07/28','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil2',19,13,to_date('20/07/28','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil10',30,1,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil10',29,2,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil10',28,3,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil10',27,4,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil10',26,5,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil10',25,6,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil10',24,7,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil10',23,8,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil10',22,9,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil10',21,10,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil10',20,11,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil10',19,12,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil10',18,13,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil3',7,3,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil3',8,4,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil3',9,5,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil3',10,6,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil3',11,7,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil3',12,8,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil3',13,9,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('admin',14,1,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil4',5,1,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil4',6,2,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil4',7,3,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil4',8,4,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil4',9,5,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil4',10,6,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil4',111,7,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil4',12,8,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil4',13,9,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil5',15,1,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil6',2,1,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil6',3,2,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil6',4,3,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil6',5,4,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil6',6,5,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil7',1,1,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil8',11,1,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil8',12,2,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil8',13,3,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil8',14,4,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil8',15,5,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil8',16,6,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil8',17,7,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil9',18,2,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil11',10,2,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil11',11,3,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil11',12,4,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil11',13,5,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil11',14,6,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil11',15,7,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil11',16,8,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil11',17,9,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil11',18,10,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil9',20,3,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil9',21,4,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil9',22,5,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil9',23,6,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil7',2,2,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil7',3,3,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil7',4,4,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil7',5,5,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil7',6,6,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil5',16,2,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil5',17,3,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil5',18,4,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil5',19,5,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('admin',16,3,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('admin',17,4,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('admin',18,5,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('admin',19,6,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('admin',21,8,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('admin',22,9,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('admin',23,10,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('admin',24,11,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('admin',25,12,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('admin',26,13,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('admin',27,14,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('admin',28,15,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil4',14,10,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil5',20,6,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil6',1,6,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil7',7,7,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil8',10,8,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil9',19,1,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('hongil11',19,1,to_date('20/07/16','RR/MM/DD'));
+Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,REG_DATE) values ('admin',29,16,to_date('20/07/16','RR/MM/DD'));
+--------------------------------------------------------
+--  DDL for Index PK_BOOK_MIND
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "J20200701"."PK_BOOK_MIND" ON "J20200701"."BOOK_MIND" ("ID", "M_IDX") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  Constraints for Table BOOK_MIND
+--------------------------------------------------------
+
+  ALTER TABLE "J20200701"."BOOK_MIND" ADD CONSTRAINT "PK_BOOK_MIND" PRIMARY KEY ("ID", "M_IDX")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "J20200701"."BOOK_MIND" MODIFY ("IDX" NOT NULL ENABLE);
+  ALTER TABLE "J20200701"."BOOK_MIND" MODIFY ("M_IDX" NOT NULL ENABLE);
+  ALTER TABLE "J20200701"."BOOK_MIND" MODIFY ("ID" NOT NULL ENABLE);
+
+--------------------------------------------------------
+--  파일이 생성됨 - 월요일-8월-03-2020   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table CS
+--------------------------------------------------------
+
+  CREATE TABLE "J20200701"."CS" 
+   (	"C_IDX" NUMBER(*,0), 
+	"WRITER" VARCHAR2(20 BYTE), 
+	"SUBJECT" VARCHAR2(30 BYTE), 
+	"CONTENT" VARCHAR2(100 BYTE), 
+	"REG_DATE" DATE, 
+	"REF" NUMBER, 
+	"RE_STEP" NUMBER, 
+	"RE_LEVEL" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+
+   COMMENT ON COLUMN "J20200701"."CS"."REF" IS '답변글끼리 그룹';
+   COMMENT ON COLUMN "J20200701"."CS"."RE_STEP" IS 'ref내의 순서';
+   COMMENT ON COLUMN "J20200701"."CS"."RE_LEVEL" IS '들여쓰기';
+REM INSERTING into J20200701.CS
+SET DEFINE OFF;
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (12,'hongil2','마음에 안들어요ㅎ','				hongil3 댓글 진짜 ㅡㅡㅎ',to_date('20/08/03','RR/MM/DD'),12,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (9,'hongil3','이게 뭐야','hongil4 탈퇴부탁해요',to_date('20/08/01','RR/MM/DD'),9,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (11,'hongil3','짜증나요','hongil2 인성보소',to_date('20/08/03','RR/MM/DD'),11,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (8,'hongil4','화가 나네요','hongil3 댓글 보셨나요',to_date('20/08/01','RR/MM/DD'),8,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (7,'hongil5','말이 되나요','관리자님 일 좀 하세요',to_date('20/08/01','RR/MM/DD'),7,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (6,'hongil6','관리자님','hongil11 탈퇴 ㄱㄱ',to_date('20/08/01','RR/MM/DD'),6,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (5,'hongil7','이건 좀..','아니지않나요?댓글관리좀',to_date('20/07/07','RR/MM/DD'),5,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (4,'hongil8','글쎄요','hongil6 아닌거같아요',to_date('20/07/07','RR/MM/DD'),4,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (3,'hongil9','와 진짜','관리자님 힘내세요',to_date('20/07/07','RR/MM/DD'),3,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (2,'hongil10','장난하나요','이 사이트 너무 좋잖아 ㅎㅎ',to_date('20/07/07','RR/MM/DD'),2,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (1,'hongil11','신고합니다','팝콘리뷰 내 마음 속에 신고',to_date('20/07/07','RR/MM/DD'),1,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (15,'admin','답글','넵!',to_date('20/08/03','RR/MM/DD'),9,1,1);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (16,'hongil2','ff','ff',to_date('20/08/03','RR/MM/DD'),16,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (13,'admin','답글','저희 사이트를 사랑해주셔서 감사합니다^^',to_date('20/08/03','RR/MM/DD'),2,1,1);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (14,'admin','답글','항상 사랑해주세요',to_date('20/08/03','RR/MM/DD'),2,2,2);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (10,'admin','회원님들','진정하세요',to_date('20/08/03','RR/MM/DD'),10,0,0);
+--------------------------------------------------------
+--  Constraints for Table CS
+--------------------------------------------------------
+
+  ALTER TABLE "J20200701"."CS" MODIFY ("CONTENT" NOT NULL ENABLE);
+  ALTER TABLE "J20200701"."CS" MODIFY ("SUBJECT" NOT NULL ENABLE);
+  ALTER TABLE "J20200701"."CS" MODIFY ("WRITER" NOT NULL ENABLE);
 --------------------------------------------------------
 --  DDL for Table S_COMM
 --------------------------------------------------------
@@ -243,34 +415,6 @@ DROP TABLE "J20200701"."S_COMM" cascade constraints;
 REM INSERTING into J20200701.BOARD
 SET DEFINE OFF;
 Insert into J20200701.BOARD (NUM,WRITER,SUBJECT,CONTENT,EMAIL,READCOUNT,PASSWD,REF,RE_STEP,RE_LEVEL,IP,REG_DATE) values (1,'1','1','1','test@naver.com',2,'1',1,0,0,'0:0:0:0:0:0:0:1',to_date('20/07/22','RR/MM/DD'));
-REM INSERTING into J20200701.BOOK_MIND
-SET DEFINE OFF;
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil2',7,1,null,to_date('20/07/28','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil2',8,2,null,to_date('20/07/28','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil2',9,3,null,to_date('20/07/28','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil2',10,4,null,to_date('20/07/28','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil2',11,5,null,to_date('20/07/28','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil2',12,6,null,to_date('20/07/28','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil2',13,7,null,to_date('20/07/28','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil2',14,8,null,to_date('20/07/28','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil2',15,9,null,to_date('20/07/28','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil2',16,10,null,to_date('20/07/28','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil2',17,11,null,to_date('20/07/28','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil2',18,12,null,to_date('20/07/28','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil2',19,13,null,to_date('20/07/28','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil10',30,1,null,to_date('20/07/16','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil10',29,2,null,to_date('20/07/16','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil10',28,3,null,to_date('20/07/16','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil10',27,4,null,to_date('20/07/16','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil10',26,5,null,to_date('20/07/16','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil10',25,6,null,to_date('20/07/16','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil10',24,7,null,to_date('20/07/16','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil10',23,8,null,to_date('20/07/16','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil10',22,9,null,to_date('20/07/16','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil10',21,10,null,to_date('20/07/16','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil10',20,11,null,to_date('20/07/16','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil10',19,12,null,to_date('20/07/16','RR/MM/DD'));
-Insert into J20200701.BOOK_MIND (ID,M_IDX,IDX,MIND,REG_DATE) values ('hongil10',18,13,null,to_date('20/07/16','RR/MM/DD'));
 REM INSERTING into J20200701.COMM
 SET DEFINE OFF;
 Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (1,'hongil2','첫번째 게시물의 첫 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',1,0,0);
