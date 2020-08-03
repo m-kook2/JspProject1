@@ -246,7 +246,7 @@ public class CommDao {
 		ResultSet rs = null;
 		String sql = "select * from comm";
 		try {
-			conn = getConnection();
+			conn = getConnection(); 
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
