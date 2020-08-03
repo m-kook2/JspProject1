@@ -21,7 +21,7 @@
 				<h2>글 수정</h2>
 			
 				<td>글번호 ${cs.c_idx}</td>
-				<td>작성자 ${cs.id}</td>
+				<td>작성자 ${cs.writer}</td>
 				<td>작성일 ${cs.reg_date}</td>
 			</tr>
 			<tr>

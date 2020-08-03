@@ -14,7 +14,7 @@ public class CSWriteFormAction implements CommandProcess {
 			throws ServletException, IOException {
 			try {
 				HttpSession session = request.getSession();
-				String id = (String) session.getAttribute("id");
+				String writer = (String) session.getAttribute("writer");
 				String pageNum = request.getParameter("pageNum");
 				String c_idx_s = request.getParameter("c_idx");
 				System.out.println("pageNum =>" + pageNum);
@@ -28,7 +28,7 @@ public class CSWriteFormAction implements CommandProcess {
 				System.out.println("pageNum =>" + pageNum);
 				request.setAttribute("pageNum", pageNum);
 				request.setAttribute("c_idx", c_idx);
-				request.setAttribute("id", id);
+				request.setAttribute("writer", writer);
 				
 			} catch (Exception e) {
 				System.out.println(e.getMessage());

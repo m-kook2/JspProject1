@@ -37,8 +37,7 @@
 		style="text-align:center; width:700px; height:300px;"></td><td></td><td></td><td></td>
 	</tr>
 </table>
-
-	<c:if test="${sessionScope.status eq '2'}">
+	<c:if test="${sessionScope.status eq '2' || sessionScope.id eq cs.writer}">
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="수정" 
 	            onclick="location.href='csUpdateForm.do?c_idx=${cs.c_idx}&pageNum=${pageNum}'">
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="삭제"
