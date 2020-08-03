@@ -4,16 +4,7 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp"%>
-<style type="text/css">
-.form-control {
-	width: 280px;
-	margin-left: 415px;
-}
-/* input[id="chk"] {
-        margin-left: 0px;
-        display: inline-flex;
-      } */
-</style>
+
 <script type="text/javascript">
 	function reg() {
 		var frm = document.frm;
@@ -67,6 +58,7 @@
 			frm.id.focus();
 			return false;
 		}
+
 		document.frm.submit();
 	}
 	$(function() {
@@ -93,53 +85,46 @@
 </head>
 <body>
 	<%@ include file="/inc/header.jsp"%>
-	<div class="container text-center">
-		<div class="form-group">
-			<h2>회원가입</h2>
-			<form action="memInsert.do" name="frm" method="post" enctype="multipart/form-data">
+	<div class="container">
+		<form action="memInsert.do" name="frm" method="post" enctype="multipart/form-data">
+				<h2>회원가입</h2>
 				<div class="form-group">
-					<label for="id">아이디</label> <input type="text" id="id"
-						class="form-control" name="id" placeholder="아이디"> <input
-						type="button" class="btn btn-secondary" id="chk" value="중복확인" />
+					<label for="id">아이디</label> 
+					<input type="text" id="id" class="form-control" width="40px;" name="id" placeholder="아이디"> 
+					<input type="button" class="btn btn-secondary" id="chk" value="중복확인" />
 					<span id="msg"></span>
 				</div>
 				<div class="form-group">
-					<label for="password">비밀번호</label> <input type="password"
-						class="form-control" id="password" name="password"
-						placeholder="비밀번호"> <br /> <label for="chkpassword">비밀번호
-						확인</label> <input type="password" class="form-control" id="chkpassword"
-						name="chkpassword" placeholder="비밀번호 확인"><br />
+					<label for="password">비밀번호</label> 
+					<input type="password" class="form-control" id="password" name="password" placeholder="비밀번호"> 
+					<label for="chkpassword">비밀번호 확인</label> 
+					<input type="password" class="form-control" id="chkpassword" name="chkpassword" placeholder="비밀번호 확인">
 				</div>
 				<div class="form-group">
-					<label for="email">이메일</label> <input type="text"
-						class="form-control" id="email" name="email" placeholder="이메일">
+					<label for="email">이메일</label> 
+					<input type="text" class="form-control" id="email" name="email" placeholder="이메일">
 				</div>
 				<div class="form-group">
-					<label for="nickname">닉네임</label> <input type="text"
-						class="form-control" id="nickname" name="nickname"
-						placeholder="닉네임">
-				</div><br/>
-				<input type="file" name="fime1">
-				<br/><br/>
-			</form>
-		</div>
-		<div class="form-check-inline">
-			<label class="form-check-label" for="gender"> <input
-				type="radio" class="form-check-input" id="gender" name="gender"
-				value="M" checked>남
-			</label>
-		</div>
-		<div class="form-check-inline">
-			<label class="form-check-label" for="gender"> <input
-				type="radio" class="form-check-input" id="gender" name="gender"
-				value="W">여
-			</label>
-			<p>
-				<br /> <br />
-				<button type="button" class="btn btn-primary" onclick="reg();">회원
-					가입</button>
-					<br/><br/>
-		</div>
+					<label for="nickname">닉네임</label> 
+					<input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임">
+				</div>
+				<div class="form-group">
+					<input type="file" name="fime1" class="form-control-file border">
+				</div>
+				<div class="form-check-inline">
+					<label class="form-check-label" for="gender"> 
+						<input type="radio" class="form-check-input" id="gender" name="gender" value="M" checked="checked">남
+					</label>
+				</div>
+			<div class="form-check-inline">
+				<label class="form-check-label" for="gender"> 
+					<input type="radio" class="form-check-input" id="gender" name="gender" value="W">여
+				</label>
+				<p>
+					<br /> <br />
+					<button type="button" class="btn btn-primary" onclick="reg();">회원가입</button><br/><br/>
+			</div>
+		</form>
 	</div>
 	<%@ include file="/inc/footer.jsp"%>
 </body>
