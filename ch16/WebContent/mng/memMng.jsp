@@ -18,7 +18,7 @@
 <div class="container text-center">
 <form name="frm">
 <h2><img src="https://img.icons8.com/doodle/48/000000/hand-right.png"/> 회원관리</h2>
-<p><input type="button" value="엑셀 다운로드" onclick="excelDown();"/></p>
+<p><input type="button" value="엑셀 다운로드" onclick="excelDown();" style="float: right; margin-bottom: 10px;" /></p>
 	<table class="table table-bordered">
 		<thead>
 	      <tr>
