@@ -417,16 +417,16 @@ SET DEFINE OFF;
 Insert into J20200701.BOARD (NUM,WRITER,SUBJECT,CONTENT,EMAIL,READCOUNT,PASSWD,REF,RE_STEP,RE_LEVEL,IP,REG_DATE) values (1,'1','1','1','test@naver.com',2,'1',1,0,0,'0:0:0:0:0:0:0:1',to_date('20/07/22','RR/MM/DD'));
 REM INSERTING into J20200701.COMM
 SET DEFINE OFF;
-Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (1,'hongil2','첫번째 게시물의 첫 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',1,0,0);
-Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (2,'hongil3','첫번째 게시물의 첫 댓글의 답글',null,null,null,to_date('20/07/28','RR/MM/DD'),'n',1,0,0);
-Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (3,'hongil4','첫번째 게시물의 두번째 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',1,0,0);
-Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (4,'hongil5','첫번째 게시물의 두번째 댓글의 답글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',1,0,0);
-Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (5,'hongil6','두번째 게시물의 첫 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',2,0,0);
-Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (6,'hongil7','두번째 게시물의 첫 댓글의 답글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',2,0,0);
-Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (7,'hongil8','첫번째 게시물의 첫 댓글의 답글의 답글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',1,0,0);
-Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (8,'hongil9','네번째 게시물 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',4,0,0);
-Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (9,'hongil2','다섯번째 게시물 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',5,0,0);
-Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (10,'hongil3','여섯번째 게시물 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'n',6,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (1,'hongil2','첫번째 게시물의 첫 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'N',1,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (2,'hongil3','첫번째 게시물의 첫 댓글의 답글',null,null,null,to_date('20/07/28','RR/MM/DD'),'N',1,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (3,'hongil4','첫번째 게시물의 두번째 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'N',1,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (4,'hongil5','첫번째 게시물의 두번째 댓글의 답글',100,20,8,to_date('20/07/28','RR/MM/DD'),'N',1,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (5,'hongil6','두번째 게시물의 첫 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'N',2,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (6,'hongil7','두번째 게시물의 첫 댓글의 답글',100,20,8,to_date('20/07/28','RR/MM/DD'),'N',2,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (7,'hongil8','첫번째 게시물의 첫 댓글의 답글의 답글',100,20,8,to_date('20/07/28','RR/MM/DD'),'N',1,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (8,'hongil9','네번째 게시물 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'N',4,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (9,'hongil2','다섯번째 게시물 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'N',5,0,0);
+Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (10,'hongil3','여섯번째 게시물 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'N',6,0,0);
 REM INSERTING into J20200701.MEMBER
 SET DEFINE OFF;
 Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('admin',1,'2468','email1@gmail.com','nickname2','남자','2020/07/01','N','2','who.jpg');
