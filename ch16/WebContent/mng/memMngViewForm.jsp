@@ -44,7 +44,7 @@ function reg() {
 		<br>
 		<img alt="" src="./images/member/img/${result.pic}" class="rounded"><p><br/>
 				<input type="hidden" name="pic" value="${result.pic}"/>
-				<input type="file" name="file1">
+				<input type="file" name="file1"> 
 		<form action="memMngUpdatePro.do" name="frm" method="post">
 				<div class="form-group">
 					<label for="id">아이디:</label> 
