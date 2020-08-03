@@ -25,7 +25,14 @@
 			<c:forEach var="cs" items="${list }">
 				<tr>
 						<td>${startNum }</td>
-						<td><a href='csView.do?c_idx=${cs.c_idx }&pageNum=${currentPage}'> ${cs.subject}</a></td>
+						<td class="left" width="200">
+	<!-- ref=본문 참조 번호 || ref_step=같은 본문의 댓글순차번호 || re_level=0:본문/1:첫번째 댓글/ 2:대댓글 -->
+						<c:if test="${cs.re_level > 0 }">
+						<img src='images/level.gif' width="${cs.re_level * 10 }">
+									<!-- 빈칸이미지 -->
+						<img src='images/re.gif'>
+						</c:if>
+						<a href='csView.do?c_idx=${cs.c_idx }&pageNum=${currentPage}'> ${cs.subject}</a></td>
 						<td>${cs.writer }</td>
 						<td>${cs.reg_date }</td>
 				</tr>

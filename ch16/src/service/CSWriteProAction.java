@@ -5,7 +5,6 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import dao.CSDao;
 import dao.CSDto;
 
@@ -16,18 +15,21 @@ public class CSWriteProAction implements CommandProcess {
 			throws ServletException, IOException {
 		try {
 			System.out.println("writeProAction");
-			System.out.println(request.getParameter("pageNum"));
+			System.out.println("pageNum ->" + request.getParameter("pageNum"));
 			request.setCharacterEncoding("utf-8");
 			String pageNum = request.getParameter("pageNum");
+			System.out.println("c_idx ->" + Integer.parseInt(request.getParameter("c_idx")));
+			System.out.println("subject ->" +request.getParameter("subject"));
+			System.out.println("writer ->" +request.getParameter("writer"));
+			System.out.println("content ->" +request.getParameter("content"));
 			CSDto cs = new CSDto();
-			System.out.println(Integer.parseInt(request.getParameter("c_idx")));
-			System.out.println(request.getParameter("subject"));
-			System.out.println(request.getParameter("writer"));
-			System.out.println(request.getParameter("content"));
 			cs.setC_idx(Integer.parseInt(request.getParameter("c_idx")));
 			cs.setSubject(request.getParameter("subject"));
 			cs.setWriter(request.getParameter("writer"));
 			cs.setContent(request.getParameter("content"));
+			cs.setRef(Integer.parseInt(request.getParameter("ref")));
+			cs.setRe_step(Integer.parseInt(request.getParameter("re_step")));
+			cs.setRe_level(Integer.parseInt(request.getParameter("re_level")));
 			
 			System.out.println(cs.getWriter());
 			System.out.println(cs.getContent());
