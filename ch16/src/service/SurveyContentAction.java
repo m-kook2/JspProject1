@@ -30,14 +30,9 @@ public class SurveyContentAction implements CommandProcess {
       request.setAttribute("s_idx", s_idx);
       request.setAttribute("pageNum", pageNum);
       request.setAttribute("survey", survey);
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-    }
 
-    System.out.println("surveyCommentListAction init");
-    SCommDao scd = SCommDao.getInstance();
-    try {
-      int s_idx = Integer.parseInt(request.getParameter("s_idx"));
+      System.out.println("surveyCommentListAction init");
+      SCommDao scd = SCommDao.getInstance();
       int surCnt = scd.getSurCnt(s_idx);
       String commPageNum = request.getParameter("commPageNum");
       if (commPageNum == null || commPageNum.equals("")) {
@@ -56,6 +51,27 @@ public class SurveyContentAction implements CommandProcess {
       String userid = (String) session.getAttribute("id");
       Boolean isVoted = false;
       for (SCommDto comment : list) {
+        switch (comment.getR_op()) {
+          case "1":
+            comment.setR_op(survey.getS_op1());
+            break;
+          case "2":
+            comment.setR_op(survey.getS_op2());
+
+            break;
+          case "3":
+            comment.setR_op(survey.getS_op3());
+
+            break;
+          case "4":
+            comment.setR_op(survey.getS_op4());
+
+            break;
+          case "5":
+            comment.setR_op(survey.getS_op5());
+
+            break;
+        }
         if (comment.getId() != null && !comment.getId().equals("")
             && comment.getId().equals(userid)) {
           isVoted = true;

@@ -83,18 +83,18 @@
 							</c:if>
 
 							<c:if test="${survey.s_op1 != null && !survey.s_op1.equals('') }">
-									${survey.s_op1 } : 
+								${survey.s_op1 } : <fmt:formatNumber value="${survey.op1Cnt / surCnt2 * 100}" pattern="#" />%
 								<div class="progress" style="background-color: transparent;">
-									<div class="progress-bar"
-										style="width:${survey.op1Cnt / surCnt2 * 100}%">
-										<fmt:formatNumber value="${survey.op1Cnt / surCnt2 * 100}"
-											pattern="#" />
+									<div class="progress-bar" style="width:${survey.op1Cnt / surCnt2 * 100}%">
+										<fmt:formatNumber value="${survey.op1Cnt / surCnt2 * 100}"							pattern="#" />
 										%
 									</div>
 								</div>
 							</c:if>
 							<c:if test="${survey.s_op2 != null && !survey.s_op2.equals('') }">
-									${survey.s_op2 } : 
+									${survey.s_op2 } : <fmt:formatNumber
+									value="${survey.op2Cnt / surCnt2 * 100}" pattern="#" />
+										%
 								<div class="progress" style="background-color: transparent;">
 									<div class="progress-bar"
 										style="width:${survey.op2Cnt / surCnt2 * 100}%">
@@ -105,7 +105,9 @@
 								</div>
 							</c:if>
 							<c:if test="${survey.s_op3 != null && !survey.s_op3.equals('') }">
-									${survey.s_op3 } : 
+									${survey.s_op3 } : <fmt:formatNumber
+									value="${survey.op3Cnt / surCnt2 * 100}" pattern="#" />
+										%
 								<div class="progress" style="background-color: transparent;">
 									<div class="progress-bar"
 										style="width:${survey.op3Cnt / surCnt2 * 100}%">
@@ -116,7 +118,9 @@
 								</div>
 							</c:if>
 							<c:if test="${survey.s_op4 != null && !survey.s_op4.equals('') }">
-									${survey.s_op4 } : 
+									${survey.s_op4 } : <fmt:formatNumber
+									value="${survey.op4Cnt / surCnt2 * 100}" pattern="#" />
+										%
 								<div class="progress" style="background-color: transparent;">
 									<div class="progress-bar"
 										style="width:${survey.op4Cnt / surCnt2 * 100}%">
@@ -127,7 +131,8 @@
 								</div>
 							</c:if>
 							<c:if test="${survey.s_op5 != null && !survey.s_op5.equals('') }">
-									${survey.s_op5 } style="background-color: transparent;": 
+									${survey.s_op5 } : <fmt:formatNumber
+									value="${survey.op5Cnt / surCnt2 * 100}" pattern="#" /> %
 								<div class="progress">
 									<div class="progress-bar"
 										style="width:${survey.op5Cnt / surCnt2 * 100}%">
@@ -221,7 +226,7 @@
 						<tr>
 							<td><b>${sgComm.nickname }</b></td>
 							<td class="p-3" colspan="2">
-								<p><b>${sgComm.nickname } 님은 ${sgComm.r_op}번 항목에
+								<p><b>${sgComm.nickname } 님은 ${sgComm.r_op}에
 										투표하셨습니다!</b></p>
 								<p>${sgComm.r_content}</p>
 								<p class="text-right">작성일 : ${sgComm.r_regdate}</p> <c:if
