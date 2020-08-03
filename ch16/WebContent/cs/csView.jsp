@@ -45,7 +45,7 @@
 	</c:if>
 	
 	<c:if test="${sessionScope.status eq '2'}">
-	<input class="btn m-2 btn-primary mx-auto" type="button" value="답변작성" onclick="location.href='csWriteForm.do?c_idx=${cs.c_idx}&pageNum=${pageNum }'">
+	<input class="btn m-2 btn-primary mx-auto" type="button" value="답변작성" onclick="location.href='csWriteForm.do?ref=${cs.ref }&c_idx=${cs.c_idx}&pageNum=${pageNum }'">
 	</c:if>
 	
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="목록" onclick="location.href='csList.do?pageNum=${pageNum }'">

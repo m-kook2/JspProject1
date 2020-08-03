@@ -57,7 +57,7 @@ public class CSDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "SELECT * FROM ( select rownum rn, a.* "
-				+ "from (select * from cs order by c_idx desc) a ) "
+				+ "from (select * from cs  order by ref desc, re_step) a ) "
 				+ "WHERE rn between ? and ?";
 		try {
 			conn = getConnection();
@@ -146,6 +146,7 @@ public class CSDao {
 			int number = rs.getInt(1)+1;
 			rs.close();
 			pstmt.close();
+			if(c_idx == 0) cs.setRef(number);
 			System.out.println("insert 쿼리문 준비=>" + sql);
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, number);

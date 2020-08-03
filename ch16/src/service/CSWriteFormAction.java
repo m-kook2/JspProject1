@@ -23,6 +23,7 @@ public class CSWriteFormAction implements CommandProcess {
 				String writer = (String) session.getAttribute("writer");
 				String pageNum = request.getParameter("pageNum");
 				String c_idx_s = request.getParameter("c_idx");
+				ref = Integer.parseInt(request.getParameter("ref"));
 				System.out.println("pageNum =>" + pageNum);
 				int c_idx;
 				if(c_idx_s == null || c_idx_s == "") {
@@ -33,8 +34,9 @@ public class CSWriteFormAction implements CommandProcess {
 				if(pageNum == null || pageNum == "") pageNum = "1";
 				System.out.println("pageNum =>" + pageNum);
 				
+				System.out.println("ref 1 =>" + ref);
 				//댓글
-				if(request.getParameter("num") != null) {
+				if(request.getParameter("c_idx") != null) {
 					c_idx = Integer.parseInt(request.getParameter("c_idx"));
 					CSDao cd = CSDao.getInstance();
 					CSDto cs = cd.select(c_idx);
@@ -43,7 +45,8 @@ public class CSWriteFormAction implements CommandProcess {
 					re_step = cs.getRe_step();
 				}
 				
-				
+				System.out.println("ref 2 =>" + ref);
+			
 				request.setAttribute("pageNum", pageNum);
 				request.setAttribute("c_idx", c_idx);
 				request.setAttribute("writer", writer);

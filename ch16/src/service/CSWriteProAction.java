@@ -18,6 +18,14 @@ public class CSWriteProAction implements CommandProcess {
 			System.out.println("pageNum ->" + request.getParameter("pageNum"));
 			request.setCharacterEncoding("utf-8");
 			String pageNum = request.getParameter("pageNum");
+			String c_idx_s = request.getParameter("c_idx");
+			int c_idx;
+			if(c_idx_s == null || c_idx_s == "") {
+				c_idx = 0;
+			}else {
+				c_idx = Integer.parseInt(request.getParameter("c_idx"));
+			}
+			if(pageNum == null || pageNum == "") pageNum = "1";
 			System.out.println("c_idx ->" + Integer.parseInt(request.getParameter("c_idx")));
 			System.out.println("subject ->" +request.getParameter("subject"));
 			System.out.println("writer ->" +request.getParameter("writer"));
@@ -27,6 +35,7 @@ public class CSWriteProAction implements CommandProcess {
 			cs.setSubject(request.getParameter("subject"));
 			cs.setWriter(request.getParameter("writer"));
 			cs.setContent(request.getParameter("content"));
+			System.out.println("ref=>" + cs.getRef());
 			cs.setRef(Integer.parseInt(request.getParameter("ref")));
 			cs.setRe_step(Integer.parseInt(request.getParameter("re_step")));
 			cs.setRe_level(Integer.parseInt(request.getParameter("re_level")));
