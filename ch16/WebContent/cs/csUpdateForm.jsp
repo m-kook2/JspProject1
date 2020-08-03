@@ -13,26 +13,26 @@
 	<%@ include file="/inc/header.jsp"%>
 	<div class="col-sm text-center" style="padding: 30px">
 	<form action="csUpdatePro.do" method="post">
-	<input type="hidden" name="num" value="${cs.num}"> 
+	<input type="hidden" name="c_idx" value="${cs.c_idx}"> 
 		<input type="hidden" name="pageNum" value="${pageNum}">
 		<table class="table">
 			<tr>
 
 				<h2>글 수정</h2>
 			
-				<td>글번호 ${cs.num}</td>
+				<td>글번호 ${cs.c_idx}</td>
 				<td>작성자 ${cs.id}</td>
 				<td>작성일 ${cs.reg_date}</td>
 			</tr>
 			<tr>
 				<td>제목</td>
-				<td><input type="text" name="p_title" required="required"
+				<td><input type="text" name="subject" required="required"
 					value="${cs.subject}"></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><pre><textarea rows="10" cols="40" name="p_content" required="required">
+				<td><pre><textarea rows="10" cols="40" name="content" required="required">
 				${cs.content}</textarea>
 				</pre></td>
 				<td></td>

@@ -15,12 +15,12 @@ public class CSViewAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			int num = Integer.parseInt(request.getParameter("num"));
+			int c_idx = Integer.parseInt(request.getParameter("c_idx"));
 			String pageNum = request.getParameter("pageNum");
 			CSDao cd = CSDao.getInstance();
-			CSDto cs = cd.select(num);
+			CSDto cs = cd.select(c_idx);
 			
-			request.setAttribute("num", num);
+			request.setAttribute("c_idx", c_idx);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("cs", cs);
 	} catch (Exception e) {

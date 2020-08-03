@@ -6,12 +6,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.BoardDao;
 import dao.CSDao;
-import dao.CSDto;
 import dao.ReviewDao;
-import dao.ReviewDto;
 
-public class CSUpdateFormAction implements CommandProcess {
+public class CSDeleteProAction implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
@@ -20,13 +19,14 @@ public class CSUpdateFormAction implements CommandProcess {
 			int c_idx = Integer.parseInt(request.getParameter("c_idx"));
 			String pageNum = request.getParameter("pageNum");
 			CSDao cd = CSDao.getInstance();
-			CSDto cs = cd.select(c_idx);
-			
-			request.setAttribute("c_idx", c_idx);
+			int result = cd.delete(c_idx);
+			request.setAttribute("result", result);
 			request.setAttribute("pageNum", pageNum);
-			request.setAttribute("cs", cs);
-		} catch(Exception e) { System.out.println(e.getMessage()); }
-		return "cs/csUpdateForm.jsp";
+			request.setAttribute("c_idx", c_idx);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return "cs/csDeletePro.jsp";
 	}
 
 }

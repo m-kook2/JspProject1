@@ -12,7 +12,7 @@
 <div style="margin-top:30px"></div>
 <div class="col-sm text-center">
 <form action="csWritePro.do?pageNum=${pageNum }" method="post">
-<input type="hidden" name="num" value="${num }">
+<input type="hidden" name="c_idx" value="${c_idx }">
 <table align="center">
 	<h2>관리자에게 의견 보내기</h2>
 	<tr><td>제목</td><td><input type="text" name="subject" required="required"></td></tr>

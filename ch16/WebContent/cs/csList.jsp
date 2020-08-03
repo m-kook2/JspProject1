@@ -25,7 +25,7 @@
 			<c:forEach var="cs" items="${list }">
 				<tr>
 						<td>${startNum }</td>
-						<td><a href='csView.do?num=${cs.num }&pageNum=${currentPage}'> ${cs.subject}</a></td>
+						<td><a href='csView.do?c_idx=${cs.c_idx }&pageNum=${currentPage}'> ${cs.subject}</a></td>
 						<td>${cs.writer }</td>
 						<td>${cs.reg_date }</td>
 				</tr>
