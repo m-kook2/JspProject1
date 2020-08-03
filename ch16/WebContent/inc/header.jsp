@@ -29,7 +29,7 @@ $(document).ready(function() {
 	});
 });
 </script>
-<nav class="navbar navbar-expand-sm fixed-top font-weight-bold" style="background-color: black;">
+<nav class="navbar navbar-expand-sm font-weight-bold" style="background-color: black;">
 	<a class="navbar-brand" href="main.do"><img alt="POPcorn Review" src="/images/main/logo.png" width="60" height="60"> </a>
   	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 	    <ul class="navbar-nav">

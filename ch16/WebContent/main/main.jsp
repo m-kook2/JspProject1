@@ -7,7 +7,7 @@
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-<div class="text-center" style="background-color: black; margin-top: 30px;">
+<div class="text-center" style="background-color: black;">
   <h1>""</h1>
 
 	<div class="container">
