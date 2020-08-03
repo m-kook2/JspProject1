@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>로그인</title>
 <%@ include file="/inc/top.jsp"%>
 <script type="text/javascript">
 	function reg() {
@@ -40,11 +41,6 @@
 			</div><br/>
 			<button type="button" class="btn btn-success" onclick="reg();">로그인</button>
 			<br/><br/><br/>
-			<!-- <div class="form-check mb-2 mr-sm-2">
-				<label class="form-check-label"> <input
-					class="form-check-input" type="checkbox"> id저장
-				</label>
-			</div> -->
 		</form>
 	</div>
 	<%@ include file="/inc/footer.jsp"%>
