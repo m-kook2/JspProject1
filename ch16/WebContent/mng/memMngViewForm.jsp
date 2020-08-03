@@ -3,6 +3,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style> 
+input[type=text], select, textarea {
+  width: 60%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+</style>
 <%@ include file="/inc/top.jsp" %>
 <script type="text/javascript">
 function reg() {
@@ -28,17 +37,26 @@ function reg() {
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-<div class="container">
+<div class="container text-center">
+	<div class="row justify-content-center">
+	<div>
 		<h2>회원정보수정</h2>
+		<br>
+		<img alt="" src="./images/member/img/${result.pic}" class="rounded"><p><br/>
+				<input type="hidden" name="pic" value="${result.pic}"/>
+				<input type="file" name="file1"> 
 		<form action="memMngUpdatePro.do" name="frm" method="post">
 				<div class="form-group">
 					<label for="id">아이디:</label> 
-					<input type="text" class="form-control" id="id" name="id" value="${result.id }"> 
+					<input type="text" id="id" name="id" value="${result.id }"> 
+				</div>
+				<div class="form-group">
 					<label for="nickname">닉네임:</label> 
-					<input type="text" class="form-control" id="nickname" name="nickname" value="${result.nickname }">
+					<input type="text" id="nickname" name="nickname" value="${result.nickname }">
+				</div>
+				<div class="form-group">
 					<label for="nickname">이메일:</label> 
-					<input type="text" class="form-control" id="email" name="email" value="${result.email }">
-					<label for="nickname">회원상태확인:</label> 
+					<input type="text" id="email" name="email" value="${result.email }">
 				</div>
 				<div class="form-group">
 					<div class="form-check-inline">
@@ -83,7 +101,9 @@ function reg() {
 				</div>
 				<button type="button" class="btn btn-primary" onclick="reg();">회원정보수정</button>
 		</form>
+		</div>
 	</div>
+</div>
 <%@ include file="/inc/footer.jsp"%>
 </body>
 
