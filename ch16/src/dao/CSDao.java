@@ -57,7 +57,7 @@ public class CSDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "SELECT * FROM ( select rownum rn, a.* "
-				+ "from (select * from cs order by c_idx desc) a ) "
+				+ "from (select * from cs order by ref desc,re_step) a ) "
 				+ "WHERE rn between ? and ?";
 		try {
 			conn = getConnection();
@@ -72,6 +72,9 @@ public class CSDao {
 					cs.setWriter(rs.getString("writer"));
 					cs.setSubject(rs.getString("subject"));
 					cs.setReg_date(rs.getDate("reg_date"));
+					cs.setRef(rs.getInt("ref"));
+					cs.setRe_step(rs.getInt("re_step"));
+					cs.setRe_level(rs.getInt("re_level"));
 					list.add(cs);
 			}
 	} catch (Exception e) {
@@ -100,6 +103,9 @@ public class CSDao {
 				cs.setSubject(rs.getString("subject"));
 				cs.setContent(rs.getString("content"));
 				cs.setReg_date(rs.getDate("reg_date"));
+				cs.setRef(rs.getInt("ref"));
+				cs.setRe_step(rs.getInt("re_step"));
+				cs.setRe_level(rs.getInt("re_level"));
 			}	
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -117,23 +123,47 @@ public class CSDao {
 		int result = 0;
 		ResultSet rs = null;
 		String sql1 = "select nvl(max(c_idx),0) from cs";
-		String sql = "insert into cs values(?,?,?,?,?,sysdate)";
+		String sql = "insert into cs values(?,?,?,?,sysdate,?,?,?)";
+		String sql2 = "update cs set re_step = re_step+1 where ref=? and re_step > ?";
 		try {
 			conn = getConnection();
-			
+			//댓글
+			if(c_idx != 0) {
+				pstmt = conn.prepareStatement(sql2);
+				pstmt.setInt(1, cs.getRef());
+				pstmt.setInt(2, cs.getRe_step());
+				System.out.println("업데이트쿼리문실행");
+				pstmt.executeUpdate();
+				pstmt.close();
+				cs.setRe_step(cs.getRe_step()+1);
+				cs.setRe_level(cs.getRe_level()+1);
+			}
 			pstmt = conn.prepareStatement(sql1);
+			System.out.println("select쿼리문실행");
 			rs = pstmt.executeQuery();
 			rs.next();
 			//num값을 setting
 			int number = rs.getInt(1)+1;
 			rs.close();
 			pstmt.close();
+			System.out.println("insert 쿼리문 준비=>" + sql);
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, number);
+			System.out.println("number=>" + number);
 			pstmt.setString(2, cs.getWriter());
-			pstmt.setString(3, cs.getSubject());
-			pstmt.setString(4, cs.getContent());
-			pstmt.setString(5, cs.getPasswd());
+			System.out.println("getSubject=>" + cs.getSubject());
+			pstmt.setString(3, "test 제목");
+			// pstmt.setString(3, cs.getSubject());
+			System.out.println("getContent=>" + cs.getContent());
+			pstmt.setString(4, "테스트 내용");
+			// pstmt.setString(4, cs.getContent());
+			System.out.println("getRef=>" + cs.getRef());
+			pstmt.setInt(5, cs.getRef());
+			System.out.println("getRe_step=>" + cs.getRe_step());
+			pstmt.setInt(6, cs.getRe_step());
+			System.out.println("getRe_level=>" + cs.getRe_level());
+			pstmt.setInt(7, cs.getRe_level());
+			System.out.println("insert 쿼리문실행");
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
