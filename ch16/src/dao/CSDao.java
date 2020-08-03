@@ -57,7 +57,7 @@ public class CSDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "SELECT * FROM ( select rownum rn, a.* "
-				+ "from (select * from cs order by ref desc,re_step) a ) "
+				+ "from (select * from cs order by c_idx desc) a ) "
 				+ "WHERE rn between ? and ?";
 		try {
 			conn = getConnection();
@@ -152,10 +152,10 @@ public class CSDao {
 			System.out.println("number=>" + number);
 			pstmt.setString(2, cs.getWriter());
 			System.out.println("getSubject=>" + cs.getSubject());
-			pstmt.setString(3, "test 제목");
+			pstmt.setString(3, cs.getSubject());
 			// pstmt.setString(3, cs.getSubject());
 			System.out.println("getContent=>" + cs.getContent());
-			pstmt.setString(4, "테스트 내용");
+			pstmt.setString(4, cs.getContent());
 			// pstmt.setString(4, cs.getContent());
 			System.out.println("getRef=>" + cs.getRef());
 			pstmt.setInt(5, cs.getRef());
