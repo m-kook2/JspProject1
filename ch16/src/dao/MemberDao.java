@@ -44,7 +44,7 @@ public class MemberDao {
 		ResultSet rs = null;
 		int number = 0;
 		String sql1 = "select nvl(max(idx),0) from member";
-		String sql = "insert into member values(?,?,?,?,?,?,sysdate,'N','0',?)";
+		String sql = "insert into member values(?,?,?,?,?,?,sysdate,'N','1',?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql1);
@@ -341,7 +341,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update member set status = 3 where id = ? and password=?";
+		String sql = "update member set del_yn = 'Y'  where id = ? and password=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
