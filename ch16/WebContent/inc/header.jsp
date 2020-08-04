@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<link href='https://fonts.googleapis.com/css?family=Wendy One' rel='stylesheet'>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 $(document).ready(function() {
@@ -45,6 +45,12 @@ $(document).ready(function() {
 	      </li>    
 	    </ul>
 	</div>  
+	<div class="flex-grow-1">
+	<div class="row">
+	<h2 style="font-family: 'Wendy One';font-size: 60px;
+	color: orange;">popcorn review</h2>
+	</div>
+	</div>
   	<form class="form-inline" action="movieList.do">
     	<input class="form-control mr-sm-2" type="text" id="testText" name="testText" placeholder="작품제목, 감독, 장르">
     	<button class="btn btn-outline-warning" type="submit" >Search</button>
@@ -68,16 +74,16 @@ $(document).ready(function() {
 		       	 <a class="nav-link text-white" href="logout.do">로그아웃</a>
 		      	</li>
 		      	<c:if test="${sessionScope.status eq '2'}">
-			      	<li class="nav-item dropdown" id="mem5">
-				      <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">관리자</a>
-				      <div class="dropdown-menu">
+			      	<li class="nav-item" id="mem5">
+				      <a class="nav-link text-white" href="adminPageForm.do">관리자</a>
+				      <!-- <div class="dropdown-menu">
 				        <a class="dropdown-item" href="memMng.do">회원 관리</a>
 				        <a class="dropdown-item" href="r_list.do">영화 리뷰 관리</a>
 				        <a class="dropdown-item" href="movieList.do">영화게시판 관리</a>
 				        <a class="dropdown-item" href="surveyList.do">설문조사 관리</a>
 				        <a class="dropdown-item" href="commMngList.do">댓글 관리</a>
 				        <a class="dropdown-item" href="csList.do">의견 관리</a>
-				      </div>
+				      </div> -->
 				    </li>
 			    </c:if>
 			</c:when>
