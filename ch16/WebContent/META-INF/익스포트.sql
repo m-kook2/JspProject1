@@ -97,24 +97,28 @@ DROP TABLE "J20200701"."S_COMM" cascade constraints;
    COMMENT ON COLUMN "J20200701"."MEMBER"."STATUS" IS '회원상태';
    COMMENT ON TABLE "J20200701"."MEMBER"  IS '회원 ';
 --------------------------------------------------------
+--  파일이 생성됨 - 화요일-8월-04-2020   
+--------------------------------------------------------
+DROP TABLE "J20200701"."MOVIE_INFO";
+--------------------------------------------------------
 --  DDL for Table MOVIE_INFO
 --------------------------------------------------------
 
   CREATE TABLE "J20200701"."MOVIE_INFO" 
    (	"M_IDX" NUMBER, 
 	"M_NAME" VARCHAR2(50 BYTE), 
-	"M_GENRE" VARCHAR2(200 BYTE), 
+	"M_GENRE" VARCHAR2(20 BYTE), 
 	"M_DATE" DATE, 
 	"M_NATION" VARCHAR2(20 BYTE), 
 	"M_TIME" NUMBER(3,0), 
 	"M_RATE" VARCHAR2(20 BYTE), 
 	"M_STORY" VARCHAR2(4000 BYTE), 
-	"M_CAST" VARCHAR2(2000 BYTE), 
+	"M_CAST" VARCHAR2(20 BYTE), 
 	"M_DIRECTOR" VARCHAR2(20 BYTE), 
 	"M_PHOTO" VARCHAR2(2000 BYTE), 
 	"M_VIDEO" VARCHAR2(2000 BYTE), 
 	"M_POSTER" VARCHAR2(2000 BYTE), 
-	"ID" VARCHAR2(30 BYTE)
+	"ID" VARCHAR2(30 BYTE), 
 	"DEL_YN" VARCHAR2(10 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
@@ -138,6 +142,60 @@ DROP TABLE "J20200701"."S_COMM" cascade constraints;
    COMMENT ON COLUMN "J20200701"."MOVIE_INFO"."ID" IS '관리자아이디';
    COMMENT ON COLUMN "J20200701"."MOVIE_INFO"."DEL_YN" IS '삭제여부';
    COMMENT ON TABLE "J20200701"."MOVIE_INFO"  IS '영화정보';
+REM INSERTING into J20200701.MOVIE_INFO
+SET DEFINE OFF;
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (7,'주전장','호러',to_date('20/07/24','RR/MM/DD'),'영국',82,'12','test','나홍인,고민국','연상호','photo1.jpg','https://www.youtube.com/watch?v=KrM3vS5sy8w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (8,'당갈','호러',to_date('20/07/24','RR/MM/DD'),'스페인',84,'19','test','나홍인, 고민국','피터 패럴리','photo2.jpg','https://www.youtube.com/watch?v=KrM3vS5sy9w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (10,'터미네이터 2:오리지널','액션',to_date('20/07/24','RR/MM/DD'),'독일',88,'0','test','나홍인, 고민국','나딘 라바키','photo4.jpg','https://www.youtube.com/watch?v=KrM3vS5sy11w&feature=youtu.be','Poster_Aladdin.jpg','admin','Y');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (11,'보헤미안 랩소디','호러',to_date('20/07/24','RR/MM/DD'),'기타',90,'12','test','나홍인, 고민국','댄 스캔론','photo5.jpg','https://www.youtube.com/watch?v=KrM3vS5sy12w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (12,'덕구','드라마',to_date('20/07/24','RR/MM/DD'),'한국',92,'12','test','나홍인, 고민국','피터 패럴리','photo6.jpg','https://www.youtube.com/watch?v=KrM3vS5sy13w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (13,'월-E','스릴러',to_date('20/07/24','RR/MM/DD'),'프랑스',94,'19','test','나홍인, 고민국','제임스 맨골드','photo7.jpg','https://www.youtube.com/watch?v=KrM3vS5sy14w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (14,'나 홀로 집에','로맨스',to_date('20/07/24','RR/MM/DD'),'중국',96,'12','test','나홍인, 고민국','로칸 피네건','photo8.jpg','https://www.youtube.com/watch?v=KrM3vS5sy15w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (15,'라이언 일병 구하기','로맨스',to_date('20/07/24','RR/MM/DD'),'일본',98,'12','test','나홍인, 고민국','피터 패럴리','photo9.jpg','https://www.youtube.com/watch?v=KrM3vS5sy16w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (16,'아이즈 온 미 : 더 무비','로맨스',to_date('20/07/24','RR/MM/DD'),'인도',100,'12','test','나홍인, 고민국','연상호','photo10.jpg','https://www.youtube.com/watch?v=KrM3vS5sy17w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (17,'살인의 추억','스릴러',to_date('20/07/24','RR/MM/DD'),'이탈리아',102,'12','test','나홍인, 고민국','댄 스캔론','photo11.jpg','https://www.youtube.com/watch?v=KrM3vS5sy18w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (18,'빽 투 더 퓨쳐','스릴러',to_date('20/07/24','RR/MM/DD'),'영국',104,'12','test','나홍인, 고민국','강태광','photo12.jpg','https://www.youtube.com/watch?v=KrM3vS5sy19w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (19,'사운드 오브 뮤직','드라마',to_date('20/07/24','RR/MM/DD'),'스페인',106,'12','test','나홍인, 고민국','구수환','photo13.jpg','https://www.youtube.com/watch?v=KrM3vS5sy20w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (20,'매트릭스','액션',to_date('20/07/24','RR/MM/DD'),'미국',108,'12','test','나홍인, 고민국','제임스 맨골드','photo14.jpg','https://www.youtube.com/watch?v=KrM3vS5sy21w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (21,'인생은 아름다워','로맨스',to_date('20/07/24','RR/MM/DD'),'독일',110,'12','test','나홍인, 고민국','로칸 피네건','photo15.jpg','https://www.youtube.com/watch?v=KrM3vS5sy22w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (22,'헬프','다큐',to_date('20/07/24','RR/MM/DD'),'기타',112,'0','test','나홍인, 고민국','피터 패럴리','photo16.jpg','https://www.youtube.com/watch?v=KrM3vS5sy23w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (23,'포레스트 검프','드라마',to_date('20/07/24','RR/MM/DD'),'한국',114,'15','test','나홍인, 고민국','증국상','photo17.jpg','https://www.youtube.com/watch?v=KrM3vS5sy24w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (24,'위대한 쇼맨','액션',to_date('20/07/24','RR/MM/DD'),'프랑스',116,'15','test','나홍인, 고민국','구수환','photo18.jpg','https://www.youtube.com/watch?v=KrM3vS5sy25w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (25,'클래식','호러',to_date('20/07/24','RR/MM/DD'),'중국',118,'15','test','나홍인, 고민국','브라이언 싱어','photo19.jpg','https://www.youtube.com/watch?v=KrM3vS5sy26w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (26,'글래디에이터','드라마',to_date('20/07/24','RR/MM/DD'),'일본',120,'15','test','나홍인, 고민국','연상호','photo20.jpg','https://www.youtube.com/watch?v=KrM3vS5sy27w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (27,'센과 치히로의 행방불명','호러',to_date('20/07/24','RR/MM/DD'),'인도',122,'15','test','나홍인, 고민국','브라이언 싱어','photo21.jpg','https://www.youtube.com/watch?v=KrM3vS5sy28w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (28,'토이 스토리 3','액션',to_date('20/07/24','RR/MM/DD'),'이탈리아',124,'19','test','나홍인, 고민국','연상호','photo22.jpg','https://www.youtube.com/watch?v=KrM3vS5sy29w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (29,'타이타닉','드라마',to_date('20/07/24','RR/MM/DD'),'영국',126,'19','test','나홍인, 고민국','증국상','photo23.jpg','https://www.youtube.com/watch?v=KrM3vS5sy30w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (30,'알라딘','호러',to_date('20/07/24','RR/MM/DD'),'스페인',128,'19','test','나홍인, 고민국','브라이언 싱어','photo24.jpg','https://www.youtube.com/watch?v=KrM3vS5sy31w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (1,'그린북','드라마',to_date('20/07/24','RR/MM/DD'),'한국',70,'0','test','나홍인, 고민국','댄 스캔론','photo25.jpg','https://www.youtube.com/watch?v=KrM3vS5sy2w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (2,'가버나움','액션',to_date('20/07/24','RR/MM/DD'),'프랑스',72,'12','test','나홍인, 고민국','피터 패럴리','photo26.jpg','https://www.youtube.com/watch?v=KrM3vS5sy3w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (3,'베일리 어게인','액션',to_date('20/07/24','RR/MM/DD'),'중국',74,'0','test','나홍인, 고민국','증국상','photo27.jpg','https://www.youtube.com/watch?v=KrM3vS5sy4w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (4,'원더','드라마',to_date('20/07/24','RR/MM/DD'),'일본',76,'0','test','나홍인, 고민국','구수환','photo28.jpg','https://www.youtube.com/watch?v=KrM3vS5sy5w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (5,'포드 V 페라리','스릴러',to_date('20/07/24','RR/MM/DD'),'인도',78,'0','test','나홍인, 고민국','나딘 라바키','photo29.jpg','https://www.youtube.com/watch?v=KrM3vS5sy6w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (6,'아일라','액션',to_date('20/07/24','RR/MM/DD'),'이탈리아',80,'0','test','나홍인, 고민국','댄 스캔론','photo30.jpg','https://www.youtube.com/watch?v=KrM3vS5sy7w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
+--------------------------------------------------------
+--  DDL for Index PK_MOVIE_INFO
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "J20200701"."PK_MOVIE_INFO" ON "J20200701"."MOVIE_INFO" ("M_IDX") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  Constraints for Table MOVIE_INFO
+--------------------------------------------------------
+
+  ALTER TABLE "J20200701"."MOVIE_INFO" ADD CONSTRAINT "PK_MOVIE_INFO" PRIMARY KEY ("M_IDX")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "J20200701"."MOVIE_INFO" MODIFY ("M_POSTER" NOT NULL ENABLE);
+  ALTER TABLE "J20200701"."MOVIE_INFO" MODIFY ("M_TIME" NOT NULL ENABLE);
+  ALTER TABLE "J20200701"."MOVIE_INFO" MODIFY ("M_NAME" NOT NULL ENABLE);
+  ALTER TABLE "J20200701"."MOVIE_INFO" MODIFY ("M_IDX" NOT NULL ENABLE);
+
 --------------------------------------------------------
 --  DDL for Table REVIEW
 --------------------------------------------------------
@@ -442,38 +500,6 @@ Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL
 Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil9',9,'2468','email@5gmail.com','nickname54','여자','2023/07/01','N','3','');
 Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil10',10,'2468','email75@gmail.com','nickname43','여자','2020/07/01','N','1','');
 Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil11',11,'2468','email@43gmail.com','nickname78','남자','2020/07/01','N','1','');
-REM INSERTING into J20200701.MOVIE_INFO
-SET DEFINE OFF;
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (7,'주전장','호러',to_date('20/07/24','RR/MM/DD'),'영국',82,'12','test','출연진 일동','연상호','photo1.jpg','https://www.youtube.com/watch?v=KrM3vS5sy8w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (8,'당갈','호러',to_date('20/07/24','RR/MM/DD'),'스페인',84,'19','test','출연진 일동','피터 패럴리','photo2.jpg','https://www.youtube.com/watch?v=KrM3vS5sy9w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (9,'쇼생크 탈출','스릴러',to_date('20/07/24','RR/MM/DD'),'미국',86,'0','test','출연진 일동','구수환','photo3.jpg','https://www.youtube.com/watch?v=KrM3vS5sy10w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (10,'터미네이터 2:오리지널','액션',to_date('20/07/24','RR/MM/DD'),'독일',88,'0','test','출연진 일동','나딘 라바키','photo4.jpg','https://www.youtube.com/watch?v=KrM3vS5sy11w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (11,'보헤미안 랩소디','호러',to_date('20/07/24','RR/MM/DD'),'기타',90,'12','test','출연진 일동','댄 스캔론','photo5.jpg','https://www.youtube.com/watch?v=KrM3vS5sy12w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (12,'덕구','드라마',to_date('20/07/24','RR/MM/DD'),'한국',92,'12','test','출연진 일동','피터 패럴리','photo6.jpg','https://www.youtube.com/watch?v=KrM3vS5sy13w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (13,'월-E','스릴러',to_date('20/07/24','RR/MM/DD'),'프랑스',94,'19','test','출연진 일동','제임스 맨골드','photo7.jpg','https://www.youtube.com/watch?v=KrM3vS5sy14w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (14,'나 홀로 집에','로맨스',to_date('20/07/24','RR/MM/DD'),'중국',96,'12','test','출연진 일동','로칸 피네건','photo8.jpg','https://www.youtube.com/watch?v=KrM3vS5sy15w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (15,'라이언 일병 구하기','로맨스',to_date('20/07/24','RR/MM/DD'),'일본',98,'12','test','출연진 일동','피터 패럴리','photo9.jpg','https://www.youtube.com/watch?v=KrM3vS5sy16w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (16,'아이즈 온 미 : 더 무비','로맨스',to_date('20/07/24','RR/MM/DD'),'인도',100,'12','test','출연진 일동','연상호','photo10.jpg','https://www.youtube.com/watch?v=KrM3vS5sy17w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (17,'살인의 추억','스릴러',to_date('20/07/24','RR/MM/DD'),'이탈리아',102,'12','test','출연진 일동','댄 스캔론','photo11.jpg','https://www.youtube.com/watch?v=KrM3vS5sy18w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (18,'빽 투 더 퓨쳐','스릴러',to_date('20/07/24','RR/MM/DD'),'영국',104,'12','test','출연진 일동','강태광','photo12.jpg','https://www.youtube.com/watch?v=KrM3vS5sy19w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (19,'사운드 오브 뮤직','드라마',to_date('20/07/24','RR/MM/DD'),'스페인',106,'12','test','출연진 일동','구수환','photo13.jpg','https://www.youtube.com/watch?v=KrM3vS5sy20w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (20,'매트릭스','액션',to_date('20/07/24','RR/MM/DD'),'미국',108,'12','test','출연진 일동','제임스 맨골드','photo14.jpg','https://www.youtube.com/watch?v=KrM3vS5sy21w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (21,'인생은 아름다워','로맨스',to_date('20/07/24','RR/MM/DD'),'독일',110,'12','test','출연진 일동','로칸 피네건','photo15.jpg','https://www.youtube.com/watch?v=KrM3vS5sy22w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (22,'헬프','다큐',to_date('20/07/24','RR/MM/DD'),'기타',112,'0','test','출연진 일동','피터 패럴리','photo16.jpg','https://www.youtube.com/watch?v=KrM3vS5sy23w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (23,'포레스트 검프','드라마',to_date('20/07/24','RR/MM/DD'),'한국',114,'15','test','출연진 일동','증국상','photo17.jpg','https://www.youtube.com/watch?v=KrM3vS5sy24w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (24,'위대한 쇼맨','액션',to_date('20/07/24','RR/MM/DD'),'프랑스',116,'15','test','출연진 일동','구수환','photo18.jpg','https://www.youtube.com/watch?v=KrM3vS5sy25w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (25,'클래식','호러',to_date('20/07/24','RR/MM/DD'),'중국',118,'15','test','출연진 일동','브라이언 싱어','photo19.jpg','https://www.youtube.com/watch?v=KrM3vS5sy26w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (26,'글래디에이터','드라마',to_date('20/07/24','RR/MM/DD'),'일본',120,'15','test','출연진 일동','연상호','photo20.jpg','https://www.youtube.com/watch?v=KrM3vS5sy27w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (27,'센과 치히로의 행방불명','호러',to_date('20/07/24','RR/MM/DD'),'인도',122,'15','test','출연진 일동','브라이언 싱어','photo21.jpg','https://www.youtube.com/watch?v=KrM3vS5sy28w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (28,'토이 스토리 3','액션',to_date('20/07/24','RR/MM/DD'),'이탈리아',124,'19','test','출연진 일동','연상호','photo22.jpg','https://www.youtube.com/watch?v=KrM3vS5sy29w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (29,'타이타닉','드라마',to_date('20/07/24','RR/MM/DD'),'영국',126,'19','test','출연진 일동','증국상','photo23.jpg','https://www.youtube.com/watch?v=KrM3vS5sy30w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (30,'알라딘','호러',to_date('20/07/24','RR/MM/DD'),'스페인',128,'19','test','출연진 일동','브라이언 싱어','photo24.jpg','https://www.youtube.com/watch?v=KrM3vS5sy31w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (1,'그린북','드라마',to_date('20/07/24','RR/MM/DD'),'한국',70,'0','test','출연진 일동','댄 스캔론','photo25.jpg','https://www.youtube.com/watch?v=KrM3vS5sy2w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (2,'가버나움','액션',to_date('20/07/24','RR/MM/DD'),'프랑스',72,'12','test','출연진 일동','피터 패럴리','photo26.jpg','https://www.youtube.com/watch?v=KrM3vS5sy3w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (3,'베일리 어게인','액션',to_date('20/07/24','RR/MM/DD'),'중국',74,'0','test','출연진 일동','증국상','photo27.jpg','https://www.youtube.com/watch?v=KrM3vS5sy4w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (4,'원더','드라마',to_date('20/07/24','RR/MM/DD'),'일본',76,'0','test','출연진 일동','구수환','photo28.jpg','https://www.youtube.com/watch?v=KrM3vS5sy5w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (5,'포드 V 페라리','스릴러',to_date('20/07/24','RR/MM/DD'),'인도',78,'0','test','출연진 일동','나딘 라바키','photo29.jpg','https://www.youtube.com/watch?v=KrM3vS5sy6w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
-Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID) values (6,'아일라','액션',to_date('20/07/24','RR/MM/DD'),'이탈리아',80,'0','test','출연진 일동','댄 스캔론','photo30.jpg','https://www.youtube.com/watch?v=KrM3vS5sy7w&feature=youtu.be','Poster_Aladdin.jpg','admin','N');
 REM INSERTING into J20200701.REVIEW
 SET DEFINE OFF;
 Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (1,'그린 북','비고 모텐슨, 마허샬라 알리 주연의 영화 #그린북 은 우리나라에서 2019년1월에 개봉한 웰메이드 드라마영화이다. 이 영화는 2019 아카데미 시상식에서 작품상을 수상하며 그 작품성을 인정받은 영화이다.',to_date('20/07/28','RR/MM/DD'),'admin',1);
@@ -539,15 +565,7 @@ Insert into J20200701.S_COMM (S_IDX,ID,R_IDX,R_OP,R_CONTENT,R_REGDATE) values (6
 Insert into J20200701.S_COMM (S_IDX,ID,R_IDX,R_OP,R_CONTENT,R_REGDATE) values (5,'hongil4',8,'1','잘못 눌렀어요',to_date('20/07/25','RR/MM/DD'));
 Insert into J20200701.S_COMM (S_IDX,ID,R_IDX,R_OP,R_CONTENT,R_REGDATE) values (8,'hongil7',9,'2','댓글 기능 테스트입니다',to_date('20/07/25','RR/MM/DD'));
 Insert into J20200701.S_COMM (S_IDX,ID,R_IDX,R_OP,R_CONTENT,R_REGDATE) values (10,'hongil11',10,'3','가을이죠 당연하',to_date('20/07/25','RR/MM/DD'));
---------------------------------------------------------
---  DDL for Index PK_MOVIE_INFO
---------------------------------------------------------
 
-  CREATE UNIQUE INDEX "J20200701"."PK_MOVIE_INFO" ON "J20200701"."MOVIE_INFO" ("M_IDX") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-  TABLESPACE "SYSTEM" ;
 --------------------------------------------------------
 --  DDL for Index PK_MEMBER
 --------------------------------------------------------
@@ -624,19 +642,7 @@ Insert into J20200701.S_COMM (S_IDX,ID,R_IDX,R_OP,R_CONTENT,R_REGDATE) values (1
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "SYSTEM"  ENABLE;
---------------------------------------------------------
---  Constraints for Table MOVIE_INFO
---------------------------------------------------------
 
-  ALTER TABLE "J20200701"."MOVIE_INFO" MODIFY ("M_IDX" NOT NULL ENABLE);
-  ALTER TABLE "J20200701"."MOVIE_INFO" MODIFY ("M_NAME" NOT NULL ENABLE);
-  ALTER TABLE "J20200701"."MOVIE_INFO" MODIFY ("M_TIME" NOT NULL ENABLE);
-  ALTER TABLE "J20200701"."MOVIE_INFO" MODIFY ("M_POSTER" NOT NULL ENABLE);
-  ALTER TABLE "J20200701"."MOVIE_INFO" ADD CONSTRAINT "PK_MOVIE_INFO" PRIMARY KEY ("M_IDX")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-  TABLESPACE "SYSTEM"  ENABLE;
 --------------------------------------------------------
 --  Constraints for Table REVIEW
 --------------------------------------------------------
