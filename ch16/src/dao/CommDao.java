@@ -334,5 +334,41 @@ public class CommDao {
 		return cd;
 	}
 
-
+	public List<CommDto> commMngExcelDown() throws SQLException {
+		List<CommDto> list = new ArrayList<CommDto>();
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		String sql = "select * from comm";
+		try {
+			conn = getConnection();
+			pstm = conn.prepareStatement(sql);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				CommDto dto = new CommDto();
+				dto.setC_idx(rs.getInt("c_idx"));
+				dto.setId(rs.getString("id"));
+				dto.setC_content(rs.getString("c_content"));
+				dto.setC_sympathy(rs.getInt("c_sympathy"));
+				dto.setC_unsympathy(rs.getInt("c_unsympathy"));
+				dto.setC_grade(rs.getInt("c_grade"));
+				dto.setDate(rs.getString("c_date"));
+				dto.setDel_yn(rs.getString("del_yn"));
+				dto.setM_idx(rs.getInt("m_idx"));
+				dto.setStep(rs.getInt("step"));
+				dto.setDep(rs.getInt("dep"));
+				list.add(dto);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstm != null)
+				pstm.close();
+			if (conn != null)
+				conn.close();
+		}
+		return list;
+	}
 }
