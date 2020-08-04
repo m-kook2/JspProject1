@@ -19,13 +19,13 @@ public class CSViewAction implements CommandProcess {
 			String pageNum = request.getParameter("pageNum");
 			CSDao cd = CSDao.getInstance();
 			CSDto cs = cd.select(c_idx);
-			
+
 			request.setAttribute("c_idx", c_idx);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("cs", cs);
-	} catch (Exception e) {
-		System.out.println(e.getMessage());
-	}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		return "cs/csView.jsp";
-}
+	}
 }

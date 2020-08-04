@@ -10,65 +10,67 @@ import javax.sql.DataSource;
 
 public class BookmarkDao {
 	private static BookmarkDao instance;
-	
+
 	private BookmarkDao() {
 	}
-	
+
 	public static BookmarkDao getInstance() {
-		if(instance == null) { instance = new BookmarkDao();  }
+		if (instance == null) {
+			instance = new BookmarkDao();
+		}
 		return instance;
 	}
+
 	private Connection getConnection() {
 		Connection conn = null;
 		try {
 			Context ctx = new InitialContext();
-			DataSource ds = (DataSource)
-				ctx.lookup("java:comp/env/jdbc/OracleDB");
+			DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/OracleDB");
 			conn = ds.getConnection();
-		}catch(Exception e) { System.out.println(e.getMessage());	}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		return conn;
 	}
-	
+
 	public List<BookmarkDto> list(int startRow, int endRow, String id, String str) throws SQLException {
-		//arraylist란 list 인터페이스를 상속받은 클래스로 크기가 가변적으로 변하는 선형리스트이다
-		//일반적인 배열과 같은 순차리스트이며 인덱스로 내부의 객체를 관리한다는점등이 유사하지만 한번 생성되면 크기가 변하지 않는 배열과는 달리
-		//arraylist는 객체들이 추가되어 저장용량을 초과한다면 자동으로 부족한 크기만큼 저장 용량이 늘어난다는 특징을 가지고 있다
+		// arraylist란 list 인터페이스를 상속받은 클래스로 크기가 가변적으로 변하는 선형리스트이다
+		// 일반적인 배열과 같은 순차리스트이며 인덱스로 내부의 객체를 관리한다는점등이 유사하지만 한번 생성되면 크기가 변하지 않는 배열과는 달리
+		// arraylist는 객체들이 추가되어 저장용량을 초과한다면 자동으로 부족한 크기만큼 저장 용량이 늘어난다는 특징을 가지고 있다
 		List<BookmarkDto> list = new ArrayList<BookmarkDto>();
-		Connection conn = null;	PreparedStatement pstmt= null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
-		//rownum은 의사 컬럼으로 참조만 될 뿐 데이터베이스에 저장되지 않는다
-		//select절에 추출되는 데이터(row)에 붙는 순번이다
-		//다시 말해 where절까지 만족시킨 자료에 1부터 붙는 순번이다
-		 String sql = "select * from (select *" + 
-		 		"		 from (select rownum rn, a.*" + 
-		 		"		       from (select bk.id, bk.m_idx, bk.idx, bk.reg_date, mi.m_name, mi.m_photo, mi.m_genre, mi.m_date" + 
-		 		"		             from book_mind bk, movie_info mi" + 
-		 		"		             where bk.m_idx = mi.m_idx" + 
-		 		"		             AND bk.id = ?) a )" + 
-		 		"		 where rn between ? and ?) where 1=1 ";
-		 
-		 //where 1=1은 참을 의미하고 where 1=2는 거짓을 의미한다
-		 //where 1=1을 붙이지 않으면 조건이 성립되지않는다고 오류가 뜰 수 있기 때문에 일반적으로 붙여준다
-		 //string 클래스의 인스턴스는 한 번 생성되면 그 값을 읽기만 할 수 있고 변경할 수는 없다
-		 //하지만 StringBuffer 클래스의 인스턴스는 그 값을 변경할 수도 있고 추가할 수도 있다
-		 StringBuffer buf=new StringBuffer();
-		 System.out.println("sql : "+sql);
-		 //append는 선택된 요소의 마지막에 새로운 요소나 콘텐츠를 추가할 수 있다
-		 buf.append(sql);
-		 if(str!=null && !str.equals("")) {
-			 if(str.equals("1")) {
-				 buf.append("	order by m_date");	 
-			 }else if(str.equals("2")) {
-				 buf.append("	order by m_genre");
-			 }else if(str.equals("3")) {
+
+		// rownum은 의사 컬럼으로 참조만 될 뿐 데이터베이스에 저장되지 않는다
+		// select절에 추출되는 데이터(row)에 붙는 순번이다
+		// 다시 말해 where절까지 만족시킨 자료에 1부터 붙는 순번이다
+		String sql = "select * from (select *" + "		 from (select rownum rn, a.*"
+				+ "		       from (select bk.id, bk.m_idx, bk.idx, bk.reg_date, mi.m_name, mi.m_photo, mi.m_genre, mi.m_date"
+				+ "		             from book_mind bk, movie_info mi" + "		             where bk.m_idx = mi.m_idx"
+				+ "		             AND bk.id = ?) a )" + "		 where rn between ? and ?) where 1=1 ";
+
+		// where 1=1은 참을 의미하고 where 1=2는 거짓을 의미한다
+		// where 1=1을 붙이지 않으면 조건이 성립되지않는다고 오류가 뜰 수 있기 때문에 일반적으로 붙여준다
+		// string 클래스의 인스턴스는 한 번 생성되면 그 값을 읽기만 할 수 있고 변경할 수는 없다
+		// 하지만 StringBuffer 클래스의 인스턴스는 그 값을 변경할 수도 있고 추가할 수도 있다
+		StringBuffer buf = new StringBuffer();
+		System.out.println("sql : " + sql);
+		// append는 선택된 요소의 마지막에 새로운 요소나 콘텐츠를 추가할 수 있다
+		buf.append(sql);
+		if (str != null && !str.equals("")) {
+			if (str.equals("1")) {
+				buf.append("	order by m_date");
+			} else if (str.equals("2")) {
+				buf.append("	order by m_genre");
+			} else if (str.equals("3")) {
 				buf.append("    order by idx");
-			 }
-			 
-		 }
+			}
+
+		}
 		try {
 			conn = getConnection();
-			//buf.append가 쿼리문 뒤에 붙어서 가기 때문에 그것을 연결해주기 위해서 buf.tostring을 써준다
+			// buf.append가 쿼리문 뒤에 붙어서 가기 때문에 그것을 연결해주기 위해서 buf.tostring을 써준다
 			pstmt = conn.prepareStatement(buf.toString());
 			pstmt.setString(1, id);
 			pstmt.setInt(2, startRow);
@@ -84,41 +86,52 @@ public class BookmarkDao {
 				book.setM_photo(rs.getString("m_photo"));
 				book.setM_date(rs.getDate("m_date"));
 				book.setReg_date(rs.getDate("reg_date"));
-			
+
 				list.add(book);
 			}
-			
-		} catch(Exception e) {	System.out.println(e.getMessage()); 
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		} finally {
-			if (rs !=null) rs.close();
-			if (pstmt != null) pstmt.close();
-			if (conn !=null) conn.close();
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
 		}
 		return list;
 	}
-	
+
 	public int getTotalCnt() throws SQLException {
-		Connection conn = null;	Statement stmt= null; 
-		ResultSet rs = null;    int tot = 0;
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		int tot = 0;
 		String sql = "select count(*) from book_mind";
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
-			if (rs.next()) tot = rs.getInt(1);
-		} catch(Exception e) {	System.out.println(e.getMessage()); 
+			if (rs.next())
+				tot = rs.getInt(1);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		} finally {
-			if (rs !=null) rs.close();
-			if (stmt != null) stmt.close();
-			if (conn !=null) conn.close();
+			if (rs != null)
+				rs.close();
+			if (stmt != null)
+				stmt.close();
+			if (conn != null)
+				conn.close();
 		}
 		return tot;
 	}
 
 	public int getIdCnt(String id) throws SQLException {
-		Connection conn = null;	
-		PreparedStatement pstmt= null; 
-		ResultSet rs = null;    
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		int tot = 0;
 		String sql = "select count(*) from book_mind where id=?";
 		try {
@@ -126,21 +139,25 @@ public class BookmarkDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
-			if (rs.next()) tot = rs.getInt(1);
-		} catch(Exception e) {	System.out.println(e.getMessage()); 
+			if (rs.next())
+				tot = rs.getInt(1);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		} finally {
-			if (rs !=null) rs.close();
-			if (pstmt != null) pstmt.close();
-			if (conn !=null) conn.close();
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
 		}
 		return tot;
 	}
 
-	
 	public int delete(String id, int m_idx) throws SQLException {
-		Connection conn = null;	
-		PreparedStatement pstmt= null; 
-	    int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
 		String sql = "delete from book_mind where id=? and m_idx=?";
 		try {
 			conn = getConnection();
@@ -153,8 +170,10 @@ public class BookmarkDao {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
-			if(conn != null) conn.close();
-			if(pstmt != null) pstmt.close();
+			if (conn != null)
+				conn.close();
+			if (pstmt != null)
+				pstmt.close();
 		}
 		return result;
 	}

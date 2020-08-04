@@ -12,39 +12,41 @@
 <body>
 	<%@ include file="/inc/header.jsp"%>
 	<div class="col-sm text-center" style="padding: 30px">
-	<form action="csUpdatePro.do" method="post">
-	<input type="hidden" name="c_idx" value="${cs.c_idx}"> 
-		<input type="hidden" name="pageNum" value="${pageNum}">
-		<table class="table">
-			<tr>
+		<form action="csUpdatePro.do" method="post">
+			<input type="hidden" name="c_idx" value="${cs.c_idx}"> <input
+				type="hidden" name="pageNum" value="${pageNum}">
+			<table class="table">
+				<tr>
 
-				<h2>글 수정</h2>
-			
-				<td>글번호 ${cs.c_idx}</td>
-				<td>작성자 ${cs.writer}</td>
-				<td>작성일 ${cs.reg_date}</td>
-			</tr>
-			<tr>
-				<td>제목</td>
-				<td><input type="text" name="subject" required="required"
-					value="${cs.subject}"></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>내용</td>
-				<td><pre><textarea rows="5" cols="30" name="content" style="text-align: left;" required="required">
+					<h2>글 수정</h2>
+
+					<td>글번호 ${cs.c_idx}</td>
+					<td>작성자 ${cs.writer}</td>
+					<td>작성일 ${cs.reg_date}</td>
+				</tr>
+				<tr>
+					<td>제목</td>
+					<td><input type="text" name="subject" required="required"
+						value="${cs.subject}"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td><pre>
+							<textarea rows="5" cols="30" name="content"
+								style="text-align: left;" required="required">
 				${cs.content}</textarea>
 				</pre></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td colspan="2" class="btn m-2 btn-primary mx-auto">
-				<input type="submit" value="수정"></td>
-				<td colspan="2"><input type="submit" value="취소"></td>
-			</tr>
-		</table>
-	
-	</form>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="btn m-2 btn-primary mx-auto"><input
+						type="submit" value="수정"></td>
+					<td colspan="2"><input type="submit" value="취소"></td>
+				</tr>
+			</table>
+
+		</form>
 	</div>
 
 	<%@ include file="/inc/footer.jsp"%>
