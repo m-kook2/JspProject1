@@ -40,7 +40,7 @@ input[type=submit], input[type=reset] {
 				<div class="form-group">
 							<h2><strong>글 수정</strong></h2>
 							<br />
-							<img alt="csUpdatePhoto" src="./images/cs/hh.jpg" width="500">
+							<img alt="csUpdatePhoto" src="./images/cs/jj.jpg" width="500">
 							<p>
 							
 					<!-- hidden으로  c_idx, pageNum정보를 csUpdatePro.do 보내줌 -->
