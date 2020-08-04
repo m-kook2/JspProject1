@@ -4,6 +4,22 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp" %>
+<style>
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  color: white;
+  background: black;
+  background: rgba(0,0,0,0.5);
+  padding: 10px;
+  width:75%;
+  height: 75%;
+  text-align: center;
+}
+</style>
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
@@ -28,7 +44,15 @@
                     </ul>
 
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
+							<div class="row centered">
+								<div class="m-auto">
+									<h1>팝콘 리뷰</h1>
+									<p>모두를 위한 영화 리뷰 사이트</p>
+									<p>지금 바로 회원가입하기</p>
+									<button class="btn btn-warning">회원가입</button>
+								</div>
+							</div>
+							<div class="carousel-item active">
                         <img src="images/main/photo/1.jpg" alt="0" width="800" height="450"></div>
                         <div class="carousel-item">
                         <img src="images/main/photo/2.jpg" alt="2" width="800" height="450"></div>
@@ -59,7 +83,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid" style="background-color: black;z-index:-99999;">
+<div class="<container-fluid></container-fluid>" style="background-color: black;z-index:-99999;">
 	<div class="container text-center">
 	    <div class="row">
 	  		<c:forEach var="result" items="${list}" varStatus="i">

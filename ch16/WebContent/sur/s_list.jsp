@@ -12,7 +12,6 @@
 			<div class="col"></div>
 			<div class="col-sm text-center">
 				<h2 class="text">설문 조사</h2>
-				<p>등록된 설문조사의 수 : ${totCnt }</p>
 			</div>
 			<div class="col-sm"></div>
 		</div>
@@ -68,9 +67,12 @@
 			</div>
 		<c:if test="${sessionScope.status == 2 }">
 			<div class="row admin">
-			<form action="surveyWrite.do">
-				<button class="btn m-2 btn-primary mx-auto">설문조사 작성</button>
-			</form>
+				<div class="mx-auto">
+					<form action="surveyWrite.do">
+						<button class="btn m-2 btn-primary">설문조사 작성</button>
+					</form>
+									<p>등록된 설문조사의 수 : ${totCnt }</p>
+				</div>
 			</div>
 		</c:if>
 	</div>

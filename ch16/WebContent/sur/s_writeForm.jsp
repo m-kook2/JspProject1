@@ -31,13 +31,11 @@
 				<dt>
 					<label for="date_start">설문조사 시작/종료일</label>
 				</dt>
-				<dd>
+				<dd class="form-inline">
 					<input class="form-control" type="date" name="s_sdate"
-						required="required" />
-				</dd>
-				<dd>
+						required="required" style="width: 50%"/>
 					<input class="form-control" type="date" name="s_edate"
-						required="required" />
+						required="required" style="width: 50%"/>
 				</dd>
 			</dl>
 			<dl>
@@ -106,7 +104,7 @@
 	
 	<script>
 	
-	var inp_length = 2;
+	var inp_length = 1;
 	hideForm();
 	document.getElementById("del1").addEventListener("click", del1handler);
 	document.getElementById("del2").addEventListener("click", del2handler);
