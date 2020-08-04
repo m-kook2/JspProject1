@@ -165,15 +165,15 @@
 
 
 		</div>
-		<div class="row text-center">
+		<div class="row text-center m-3">
 			<div class="mx-auto">
 				<a href="surveyList.do?pageNum=${pageNum }"><button
-						class="btn btn-primary m-2">목록으로</button></a>
+						class="btn btn-primary">목록으로</button></a>
 				<c:if test="${sessionScope.status == 2 }">
-						<form action="surveyDelete.do">
+						<form action="surveyDelete.do" style="display: inline;">
 							<input type="hidden" name="s_idx" value=${survey.s_idx } /> <input
 								type="hidden" name="pageNum" value=${pageNum } /> <input
-								type=submit class="btn m-2 btn-danger" value="설문조사 삭제">
+								type=submit class="btn btn-danger" value="설문조사 삭제">
 						</form>
 				</c:if>
 			</div>
@@ -182,7 +182,7 @@
 
 
 		<div class="row">
-			<table class="table">
+			<table class="table m-3">
 				<tr>
 					<th>작성자</th>
 					<th colspan="2">코멘트</th>

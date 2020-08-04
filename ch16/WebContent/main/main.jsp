@@ -49,9 +49,10 @@
 								<div class="m-auto">
 									<h1>팝콘 리뷰</h1>
 									<p>모두를 위한 영화 리뷰 사이트</p>
-									<p>지금 바로 회원가입하기</p>
-									<p>${sessionScope.id }</p>
-									<button class="btn btn-warning">회원가입</button>
+									<p>지금 바로 가입하세요!</p>
+						
+									<a href="memWriteForm.do"><button class="btn btn-warning m-2">회원가입</button></a>
+									<a href="loginForm.do"><button class="btn btn-outline-warning m-2">로그인</button></a>
 								</div>
 							</div>
                     	</c:if>
@@ -86,7 +87,7 @@
         </div>
     </div>
 </div>
-<div class="<container-fluid></container-fluid>" style="background-color: black;z-index:-99999;">
+<div class="container-fluid" style="background-color: black;z-index:-99999;">
 	<div class="container text-center">
 	    <div class="row">
 	  		<c:forEach var="result" items="${list}" varStatus="i">
