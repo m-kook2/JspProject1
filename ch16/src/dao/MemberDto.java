@@ -10,7 +10,16 @@ public class MemberDto {
 	private String reg_date;
 	private String del_yn;
 	private String status;
+	private String pic;
 	
+	public String getPic() {
+		return pic;
+	}
+
+	public void setPic(String pic) {
+		this.pic = pic;
+	}
+
 	public String getDel_yn() {
 		return del_yn;
 	}

@@ -4,16 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>회원 정보 수정</title>
 <link rel="stylesheet" href="style.css" type="text/css">
 <style type="text/css">
-body{
-	background-image : url("../images/color.jpg");
-	background-repeat: repeat;
+#id2{
+	width: 140px;
+	float: left;
+	
 }
-.form-control {
-	width: 280px;
-	margin-left: 415px;
+
+.form-control{
+	width: 150px;
+	float: light;
+	
 }
 </style>
 <script type="text/javascript">
@@ -50,57 +53,52 @@ body{
 </head>
 <body>
 	<%@ include file="/inc/header.jsp"%>
-	<!-- <div class="text-auto"> -->
 	<div class="container text-center">
-		<form action="memUpdatePro.do" name="f" method="post">
-			<div class="form-group">
-				<h2>회원정보 수정</h2>
-				<br /> <label for="id">아이디 </label> <input type="text" style="width: 250px;"
-					class="form-control" id="id" name="id" value="${sessionScope.id }" disabled="disabled">
-				<p>
-				<br/>
-
-					<label for="password">비밀번호 </label> <input type="password" style="width: 250px;"
-						class="form-control" id="password" name="psssword"
-						value="${sessionScope.password }" disabled="disabled">
-				<p>
-				<br/>
-
-					<label for="chkpassword">비밀번호 확인</label> <input type="password" style="width: 250px;"
-						class="form-control" id="chkpassword" name="chkpassword">
-				<p>
-				<br/>
-
-					<label for="email">이메일 </label> <input type="text" style="width: 250px;"
-						class="form-control" id="email" name="email"
-						value="${sessionScope.email }">
-				<p>
-				<br/>
-
-					<label for="nickname">닉네임  </label> <input type="text" style="width: 250px;"
-						class="form-control" id="nickname" name="nickname"
-						value="${sessionScope.nickname }">
-				<p>
-				<br/>
-					<label for="gender">성별 </label>
-				<div class="form-check-inline">
-					<label class="form-check-label" for="gender"> <input
-						type="radio" class="form-check-input" id="gender" name="gender"
-						value="M" disabled="disabled" checked>남
-					</label>
+		<div class="row justify-content-center">
+			<form action="memUpdatePro.do" name="f" method="post" enctype="multipart/form-data">
+				<div class="form-group">
+					<h2><strong>회원정보 수정</strong></h2>
+					<br /> <img id="pm" alt="profilPhoto" src="./images/member/img/${sessionScope.pic}">
+					<p>
+						<br /> <input type="hidden" name="pic" value="${sessionScope.pic}" />
+						
+						<input type="file" name="file1"><p> <br /> 
+						
+						<label id="id2" for="id2"><strong>아이디</strong></label>
+						<input type="text" style="text-align: center;" class="form-control" id="id" name="id" value="${sessionScope.id }" disabled="disabled">
+					<p>
+						<br /> 
+						<label id="id2" for="password"><strong>비밀번호 </strong></label> 
+						<input type="password" style="text-align: center;" class="form-control" id="password" name="psssword" value="${sessionScope.password }" disabled="disabled">
+					<p>
+						<br /> 
+						<label id="id2" for="chkpassword"><strong>비밀번호 확인</strong></label> 
+						<input type="password" style="text-align: center;" class="form-control" id="chkpassword" name="chkpassword">
+					<p>
+						<br /> 
+						<label id="id2" for="email"><strong>이메일 </strong></label> 
+						<input type="text" style="text-align: center;" class="form-control" id="email" name="email" value="${sessionScope.email }">
+					<p>
+						<br /> <label id="id2" for="nickname"><strong>닉네임</strong> </label> 
+						<input type="text" style="text-align: center;" class="form-control" id="nickname" name="nickname" value="${sessionScope.nickname }">
+					<p>
+						<br /> <label for="gender"><strong>성별</strong> </label>
+					<div class="form-check-inline">
+						<label class="form-check-label" for="gender"> 남</label>
+						<input type="radio"  class="form-check-input" id="gender" name="gender" value="M" disabled="disabled" checked>
+					</div>
+					<div class="form-check-inline">
+						<label class="form-check-label" for="gender"> 여</label>
+						<input type="radio" class="form-check-input" id="gender" name="gender" value="W" disabled="disabled" checked>
+					</div>
 				</div>
-				<div class="form-check-inline">
-					<label class="form-check-label" for="gender"> <input type="radio"
-						class="form-check-input" id="gender" name="gender" value="W"
-						disabled="disabled" checked>여
-					</label>
-				</div>
-			</div>
-			<br />
-			<!-- <button type="button" class="btn btn-primary" onclick="return memUpdate()">정보수정</button> -->
-			<!-- <input type="button" name="f" onsubmit="return memUpdate();" value="정보수정"> -->
-			<button type="button" class="btn btn-info" onclick="javascript:mut();">정보수정</button>
-		</form>
+				<br />
+				<button type="button" class="btn btn-info" onclick="javascript:mut();">정보수정</button>
+				<p>
+				<br/>
+				<br/>
+			</form>
+		</div>
 	</div>
 	<%@ include file="/inc/footer.jsp"%>
 </body>

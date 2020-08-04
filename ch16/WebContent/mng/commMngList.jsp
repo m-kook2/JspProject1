@@ -4,13 +4,26 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp" %>
+<script type="text/javascript">
+	function excelDown2() {
+		document.frm.action="/commExcelDown.do";
+		document.frm.method="post";
+		document.frm.submit();
+	}
+	function mnglist() {
+		document.frm.action="/commMngList.do";
+		document.frm.method="post";
+		document.frm.submit();
+	}
+</script>
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-<div class="container text-center" style="margin-top: 10px ">
-<form name="frm" action="commMngList.do" method="post">
+<div class="container text-center">
+<form name="frm" method="post">
 	<h2>댓글 관리 게시판<img src="https://img.icons8.com/plasticine/60/000000/delete-chat--v2.png"/></h2>
-	<input type="submit" value="확인" style="float: right;"/>
+	<input type="button" value="회원 댓글 엑셀" onclick="excelDown2();" style="float: right;">
+	<input type="button" value="확인" onclick="mnglist();" style="float: right; margin-right: 5px;"/>
 	<br>
 	<br>
 	<table class="table table-bordered">

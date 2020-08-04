@@ -44,7 +44,7 @@ public class MemberDao {
 		ResultSet rs = null;
 		int number = 0;
 		String sql1 = "select nvl(max(idx),0) from member";
-		String sql = "insert into member values(?,?,?,?,?,?,sysdate,'N','0')";
+		String sql = "insert into member values(?,?,?,?,?,?,sysdate,'N','1',?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql1);
@@ -67,10 +67,10 @@ public class MemberDao {
 				pstmt.setString(4, memberVO.getEmail());
 				pstmt.setString(5, memberVO.getNickname());
 				pstmt.setString(6, memberVO.getGender());
+				pstmt.setString(7, memberVO.getPic());
 				result = pstmt.executeUpdate();
 				pstmt.close();
 			}
-
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -140,6 +140,7 @@ public class MemberDao {
 				vo.setReg_date(rs.getString("REG_DATE"));
 				vo.setDel_yn(rs.getString("DEL_YN"));
 				vo.setStatus(rs.getString("STATUS"));
+				vo.setPic(rs.getString("PIC"));
 				list.add(vo);
 			}
 			rs.close();
@@ -157,19 +158,42 @@ public class MemberDao {
 
 		return list;
 	}
+	
+	public int memUpdatePic(String id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = "update member set pic='' where id=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
 
+		return result;
+	}
+	
 	public int memUpdateForm(MemberDto memberDto) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update member set email=?, nickname=?, gender=? where id=?";
+		String sql = "update member set email=?, nickname=?, gender=?, pic=? where id=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memberDto.getEmail());
 			pstmt.setString(2, memberDto.getNickname());
 			pstmt.setString(3, memberDto.getGender());
-			pstmt.setString(4, memberDto.getId());
+			pstmt.setString(4, memberDto.getPic());
+			pstmt.setString(5, memberDto.getId());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -271,6 +295,7 @@ public class MemberDao {
 				dto.setReg_date(rs.getString("REG_DATE"));
 				dto.setDel_yn(rs.getString("DEL_YN"));
 				dto.setStatus(rs.getString("STATUS"));
+				dto.setPic(rs.getString("PIC")); 
 			}
 
 		} catch (Exception e) {
@@ -317,7 +342,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update member set status = 3 where id = ? and password=?";
+		String sql = "update member set del_yn = 'Y'  where id = ? and password=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -330,5 +355,41 @@ public class MemberDao {
 			System.out.println(e.getMessage());
 		}
 		return result;
+	}
+	
+	public List<MemberDto> memMngExcelDown() throws SQLException {
+		List<MemberDto> list = new ArrayList<MemberDto>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from member";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				MemberDto dto = new MemberDto();
+				dto.setId(rs.getString("ID"));
+				dto.setIdx(rs.getInt("IDX"));
+				dto.setPassword(rs.getString("PASSWORD"));
+				dto.setEmail(rs.getString("EMAIL"));
+				dto.setNickname(rs.getString("NICKNAME"));
+				dto.setGender(rs.getString("GENDER"));
+				dto.setReg_date(rs.getString("REG_DATE"));
+				dto.setDel_yn(rs.getString("DEL_YN"));
+				dto.setStatus(rs.getString("STATUS"));
+				list.add(dto);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return list;
 	}
 }

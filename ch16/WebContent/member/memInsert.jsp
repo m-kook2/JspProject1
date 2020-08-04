@@ -4,7 +4,7 @@
 <html>
 <head>
 <script type="text/javascript">
-	alert("가압되었습니다.");
+	alert("가입되었습니다.");
 	location.href="main.do";
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
