@@ -47,7 +47,7 @@
 				<td colspan="5">등록된 설문조사가 없습니다.</td>
 			</tr>
 		</c:if>
-			<div class="text-center">
+			<div class="text-center m-3">
 				<c:if test="${startPage > blockSize }">
 					<a href='surveyList.do?pageNum=${startPage - blockSize }'>[이전]</a>
 				</c:if>
@@ -62,7 +62,7 @@
 			<div class="row admin">
 				<div class="mx-auto">
 					<form action="surveyWrite.do">
-						<button class="btn m-2 btn-primary">설문조사 작성</button>
+						<button class="btn m-3 btn-primary">설문조사 작성</button>
 					</form>
 									<p>등록된 설문조사의 수 : ${totCnt }</p>
 				</div>
