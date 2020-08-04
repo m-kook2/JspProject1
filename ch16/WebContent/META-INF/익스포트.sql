@@ -96,6 +96,7 @@ DROP TABLE "J20200701"."S_COMM" cascade constraints;
    COMMENT ON COLUMN "J20200701"."MEMBER"."DEL_YN" IS '탈퇴여부';
    COMMENT ON COLUMN "J20200701"."MEMBER"."STATUS" IS '회원상태';
    COMMENT ON TABLE "J20200701"."MEMBER"  IS '회원 ';
+
 --------------------------------------------------------
 --  파일이 생성됨 - 화요일-8월-04-2020   
 --------------------------------------------------------
