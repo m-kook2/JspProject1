@@ -86,7 +86,7 @@ $(document).ready(function() {
 				      </div> -->
 				    </li>
 			    </c:if>
-			</c:when>
+			</c:when> 
 			<c:otherwise>
 				<li class="nav-item" id="mem1">
 		        	<a class="nav-link text-warning" href="loginForm.do">로그인</a>
