@@ -11,10 +11,7 @@
 	<%@ include file="/inc/header.jsp"%>
 	<div style="margin-top: 30px"></div>
 	<div class="col-sm text-center">
-		<h2 class="text">
-			<img alt="icon" src="images/main/star.png" width="50" height="40" />
-			즐겨찾기<img alt="icon" src="images/main/star.png" width="50" height="40" />
-		</h2>
+		<h2 class="text">즐겨찾기</h2>
 
 		<div class="bk_array" style="float: right">
 			<button type="button"
