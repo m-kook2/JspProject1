@@ -136,7 +136,7 @@ public class CommDao {
 		ResultSet rs = null;
 		String sql1 = "select nvl(max(c_idx),0) from comm";
 
-		String sql = "Insert into comm values (?,?,?,0,0,?,sysdate,'n',?,0,0)";
+		String sql = "Insert into comm values (?,?,?,0,0,?,sysdate,'N',?,0,0)";
 		System.out.println("test insert" + sql);
 		try {
 			conn = getConnection();
@@ -171,7 +171,51 @@ public class CommDao {
 		}
 		return result;
 	}
+	
+	public int insert2(CommDto comm) throws SQLException {
+		int c_idx = comm.getC_idx();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		ResultSet rs = null;
+		String sql1 = "select nvl(max(c_idx),0) from comm";
 
+		String sql = "Insert into comm values (?,?,?,0,0,0,sysdate,'N',?,?,1)";
+		System.out.println("test insert" + sql);
+		try {
+			conn = getConnection();
+
+			pstmt = conn.prepareStatement(sql1);
+			rs = pstmt.executeQuery();
+			rs.next();
+			// key인 num 1씩 증가, mysql auto_increment 또는 oracle sequence
+			// sequence를 사용 : values(시퀀스명(board_seq).nextval,?,?...)
+			int number = rs.getInt(1) + 1;
+			rs.close();
+			pstmt.close();
+			System.out.println("number" + number);
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, number);
+			pstmt.setString(2, comm.getId());
+			pstmt.setString(3, comm.getC_content());
+			pstmt.setInt(4, comm.getM_idx());
+			pstmt.setInt(5, comm.getStep());
+			result = pstmt.executeUpdate();
+			System.out.println("result=" + result);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return result;
+	}
+	
 	public List<CommDto> list(int startRow, int endRow, String m_idx, String str) throws SQLException {
 		List<CommDto> list = new ArrayList<CommDto>();
 
@@ -185,6 +229,79 @@ public class CommDao {
 		String sql = "select * from (select * from (select rownum rn ,a.* from "
 				+ " (select * from comm where m_idx = ?) a )"
 				+ " where rn between ? and ?) where 1=1";
+		
+		/*String sql2="select m_idx ,avg(c_grade) m_grade "
+				+ "from comm  "
+				+ "where m_idx = ? "
+				+ "group by m_idx";*/
+		
+		StringBuffer buf=new StringBuffer();
+		 System.out.println("sql : "+sql);
+		 buf.append(sql);
+		 if(str!=null && !str.equals("")) {
+			 if(str.equals("1")) {
+				 buf.append("	order by c_date desc");	 
+			 }else if(str.equals("2")) {
+				 buf.append("	order by c_sympathy desc");
+			 }
+			 else if(str.equals("3")) {
+				 buf.append("	order by c_unsympathy desc");
+			 }
+			 
+		 }
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(buf.toString());
+			/*pstmt2 = conn.prepareStatement(sql2);*/
+			pstmt.setString(1, m_idx);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			/*pstmt2.setString(1, m_idx);*/
+			rs = pstmt.executeQuery();
+			/*rs2= pstmt.executeQuery();*/
+			while (rs.next()) {
+				CommDto comm = new CommDto();
+				comm.setC_idx(rs.getInt("c_idx"));
+				comm.setId(rs.getString("id"));
+				comm.setC_content(rs.getString("c_content"));
+				comm.setC_sympathy(rs.getInt("c_sympathy"));
+				comm.setC_unsympathy(rs.getInt("c_unsympathy"));
+				comm.setC_grade(rs.getInt("c_grade"));
+				comm.setC_date(rs.getDate("c_date"));
+				comm.setDel_yn(rs.getString("del_yn"));
+				comm.setM_idx(rs.getInt("m_idx"));
+				comm.setStep(rs.getInt("step"));
+				comm.setDep(rs.getInt("dep"));
+				/*comm.setM_grade(rs2.getInt("m_grade"));*/
+				list.add(comm);
+
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return list;
+	}
+	
+	public List<CommDto> list2(int startRow, int endRow, String m_idx, String str) throws SQLException {
+		List<CommDto> list = new ArrayList<CommDto>();
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		/*PreparedStatement pstmt2 = null;*/
+		ResultSet rs = null;
+		/*ResultSet rs2 = null;*/
+		// String sql = "select * from board order by num desc";
+		// mysql select * from board order by num desc limit startPage-1,10;
+		String sql = "select * from (select * from (select rownum rn ,a.* from "
+				+ " (select * from comm where m_idx = ?) a )"
+				+ " where rn between ? and ?) where 1=1 and dep=1";
 		
 		/*String sql2="select m_idx ,avg(c_grade) m_grade "
 				+ "from comm  "
