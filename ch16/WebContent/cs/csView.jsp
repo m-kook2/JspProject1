@@ -18,8 +18,9 @@
 	float: light;
 	
 }
+
 input[type=button] {
- background-color: 	#fc863b;
+  background-color: #fc863b;
   border: none;
   color: black;
   padding: 8px 10px;
@@ -67,19 +68,16 @@ input[type=button] {
 				<!-- (2=관리자)    관리자이거나 작성자와 id가 일치할경우 수정과 삭제 버튼이 보인다 -->
 		<c:if
 			test="${sessionScope.status eq '2' || sessionScope.id eq cs.writer}">
-			<input type="button" value="수정"
-				onclick="location.href='csUpdateForm.do?c_idx=${cs.c_idx}&pageNum=${pageNum}'">
-			<input type="button" value="삭제"
-				onclick="location.href='csDeleteForm.do?c_idx=${cs.c_idx}&pageNum=${pageNum}'">
-		</c:if>
+			<button type="button" class="btn btn-warning" onclick="location.href='csUpdateForm.do?c_idx=${cs.c_idx}&pageNum=${pageNum}'">수정</button>
+			<button type="button" class="btn btn-warning" onclick="location.href='csDeleteForm.do?c_idx=${cs.c_idx}&pageNum=${pageNum}'">삭제</button>
+			</c:if>
 				<!-- (2=관리자)    관리자면 답변작성이 보인다 -->
 		<c:if test="${sessionScope.status eq '2'}">
-			<input type="button" value="답변작성"
-				onclick="location.href='csWriteForm.do?ref=${cs.ref }&c_idx=${cs.c_idx}&pageNum=${pageNum }'">
-		</c:if>
+		<button type="button" class="btn btn-warning" onclick="location.href='csWriteForm.do?ref=${cs.ref }&c_idx=${cs.c_idx}&pageNum=${pageNum }'">답변작성</button>
+			</c:if>
 		<p>
-		<input type="button" value="목록"
-			onclick="location.href='csList.do?pageNum=${pageNum }'">
+		<p>
+		<button type="button" class="btn btn-outline-dark" onclick="location.href='csList.do?pageNum=${pageNum }'">목록</button>
 	</div>
 
 

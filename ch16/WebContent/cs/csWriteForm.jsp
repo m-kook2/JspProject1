@@ -67,10 +67,14 @@ input[type=submit], input[type=reset] {
 					<input type="text" style="text-align: center;" class="form-control" id="content" name="content" required="required">
 				</div>
 			<br />				
-					<input type="submit" value="전송">
-					<input type="reset" value="다시작성">
-			<p>
+					<button type="submit" class="btn btn-warning">전송</button>
+					<button type="reset" class="btn btn-warning">다시작성</button>
+				<p>
+				<p>
+					<button type="button" class="btn btn-outline-dark" onclick="location.href='csList.do?pageNum=${pageNum }'">목록</button>
 			<br />
+				<p>
+	</div>
 			<br />
 		</form>
 	</div>

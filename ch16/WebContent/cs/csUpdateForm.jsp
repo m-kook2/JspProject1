@@ -73,8 +73,12 @@ input[type=submit], input[type=reset] {
 									value="${cs.content}" required="required">
 							</div>
 							<br />
-							<input type="submit" value="수정">
-							<input type="reset" value="취소">
+							<button type="submit" class="btn btn-warning">수정</button>
+					<button type="reset" class="btn btn-warning">취소</button>
+				<p>
+				<p>
+						<button type="button" class="btn btn-outline-dark" onclick="location.href='csList.do?pageNum=${pageNum }'">목록</button>
+			
 						<p>
 					<br /> <br />
 				</form>
