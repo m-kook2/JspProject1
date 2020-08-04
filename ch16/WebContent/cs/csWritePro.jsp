@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+		<!-- CSWriteProAction에서 c_idx, result, pageNum의 정보를 받아온다 -->
 	<c:if test="${result >0 }">
 		<script type="text/javascript">
 		alert("전송완료");

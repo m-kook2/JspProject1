@@ -8,14 +8,17 @@
 <%@ include file="/inc/top.jsp"%>
 </head>
 <body>
+
 	<%@ include file="/inc/header.jsp"%>
 	<div style="margin-top: 30px"></div>
 	<div class="col-sm text-center">
 
 		<h2 style="margin-bottom: 50px">의견 상세내역</h2>
+		
+		<!-- CSViewAction에서 c_idx,pageNum, cs의 모든 정보를 받아옴 -->
 		<table class="table">
 			<tr>
-				<td>번호${cs.c_idx }</td>
+				<td>번호</td>
 				<td>${cs.c_idx }</td>
 				<td></td>
 				<td></td>
@@ -51,6 +54,7 @@
 				<td></td>
 			</tr>
 		</table>
+				<!-- (2=관리자)    관리자이거나 작성자와 id가 일치할경우 수정과 삭제 버튼이 보인다 -->
 		<c:if
 			test="${sessionScope.status eq '2' || sessionScope.id eq cs.writer}">
 			<input class="btn m-2 btn-primary mx-auto" type="button" value="수정"
@@ -58,7 +62,7 @@
 			<input class="btn m-2 btn-primary mx-auto" type="button" value="삭제"
 				onclick="location.href='csDeleteForm.do?c_idx=${cs.c_idx}&pageNum=${pageNum}'">
 		</c:if>
-
+				<!-- (2=관리자)    관리자면 답변작성이 보인다 -->
 		<c:if test="${sessionScope.status eq '2'}">
 			<input class="btn m-2 btn-primary mx-auto" type="button" value="답변작성"
 				onclick="location.href='csWriteForm.do?ref=${cs.ref }&c_idx=${cs.c_idx}&pageNum=${pageNum }'">

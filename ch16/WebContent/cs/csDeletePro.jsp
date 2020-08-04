@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<!-- CSDeleteProAction에서 c_idx, pageNum, result의 정보를 받아옴 -->
 	<c:if test="${result > 0 }">
 		<script type="text/javascript">
 		alert("삭제 완료 ! ");

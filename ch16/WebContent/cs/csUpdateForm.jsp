@@ -12,7 +12,10 @@
 <body>
 	<%@ include file="/inc/header.jsp"%>
 	<div class="col-sm text-center" style="padding: 30px">
+	
+			<!-- csView에서 c_idx, pageNum, cs의  모든 정보를 받아옴 -->
 		<form action="csUpdatePro.do" method="post">
+		<!-- hidden으로  c_idx, pageNum정보를 csUpdatePro.do 보내줌 -->
 			<input type="hidden" name="c_idx" value="${cs.c_idx}"> <input
 				type="hidden" name="pageNum" value="${pageNum}">
 			<table class="table">

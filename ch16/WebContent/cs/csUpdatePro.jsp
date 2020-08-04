@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+		<!-- CSUpdateProAction에서 result, c_idx, pageNum의 정보를 받아옴 -->
 	<c:if test="${result > 0 }">
 		<script type="text/javascript">
 			alert("수정 완료");

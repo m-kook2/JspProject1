@@ -6,6 +6,8 @@
 
 <script type="text/javascript">
 
+//CSDeleteFormAction에서 c_idx, pageNum, cs의 모든 정보를 받아옴
+
 var retVal = confirm("정말 삭제하시나요 ?");
 
 if( retVal == true ){

@@ -11,12 +11,16 @@
 	<%@ include file="/inc/header.jsp"%>
 	<div style="margin-top: 30px"></div>
 	<div class="col-sm text-center">
+	
+		<!-- CSWriteFormAction에서 c_idx,pageNum, writer, ref, re_level, re_step 정보를 받아옴 -->
 		<form action="csWritePro.do" method="get">
+		<!-- hidden으로  c_idx,pageNum, writer, ref, re_level, re_step 정보를 csWritePro.do에 보내줌 -->
 			<input type="hidden" name="c_idx" value="${c_idx }"> <input
 				type="hidden" name="pageNum" value="${pageNum }"> <input
 				type="hidden" name="ref" value="${ref }"> <input
 				type="hidden" name="re_level" value="${re_level }"> <input
 				type="hidden" name="re_step" value="${re_step }">
+				
 			<table align="center">
 				<h2>관리자에게 의견 보내기</h2>
 				<tr>
@@ -25,6 +29,7 @@
 				</tr>
 				<tr>
 					<td></td>
+					<!-- 로그인 해서 저장되어있는 id를 writer로 넘겨줌 -->
 					<td><input type="hidden" name="writer" value="${id }"
 						required="required"></td>
 				</tr>
