@@ -49,11 +49,13 @@ public class MovieInfoAction implements CommandProcess {
 				endPage = pageCnt;
 			CommDao cd2 = CommDao.getInstance();
 			CommDto comm2 = cd2.select(m_idx);
+			List<CommDto> slist = cd2.list2(startRow, endRow, m_idx, str);
 			request.setAttribute("totCnt", totCnt);
 			request.setAttribute("pageNum2", pageNum2);
 			request.setAttribute("currentPage", currentPage);
 			request.setAttribute("startNum", startNum);
 			request.setAttribute("list", list);
+			request.setAttribute("slist", slist);
 			request.setAttribute("blockSize", blockSize);
 			request.setAttribute("pageCnt", pageCnt);
 			request.setAttribute("startPage", startPage);
