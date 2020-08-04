@@ -67,15 +67,15 @@ $(document).ready(function() {
 			      </div>
 			    </li> -->
 			    <li class="nav-item" id="mem0">
-		        	<a class="nav-link text-white" href="memPageForm.do">마이페이지</a>
+		        	<a class="nav-link text-warning" href="memPageForm.do">마이페이지</a>
 		      	</li>
 			    
 		      	<li class="nav-item" id="mem4">
-		       	 <a class="nav-link text-white" href="logout.do">로그아웃</a>
+		       	 <a class="nav-link text-warning" href="logout.do">로그아웃</a>
 		      	</li>
 		      	<c:if test="${sessionScope.status eq '2'}">
 			      	<li class="nav-item" id="mem5">
-				      <a class="nav-link text-white" href="adminPageForm.do">관리자</a>
+				      <a class="nav-link text-warning" href="adminPageForm.do">관리자</a>
 				      <!-- <div class="dropdown-menu">
 				        <a class="dropdown-item" href="memMng.do">회원 관리</a>
 				        <a class="dropdown-item" href="r_list.do">영화 리뷰 관리</a>
