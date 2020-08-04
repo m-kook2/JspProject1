@@ -15,7 +15,16 @@ public class MovieDto {
 	String m_video;
 	String m_poster;
 	String id;
+	String del_yn;
 	
+	public String getDel_yn() {
+		return del_yn;
+	}
+
+	public void setDel_yn(String del_yn) {
+		this.del_yn = del_yn;
+	}
+
 	public String getM_genre() {
 		return m_genre;
 	}

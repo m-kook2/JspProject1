@@ -5,48 +5,81 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-</head>
-<body>
-	<%@ include file="/inc/top.jsp"%>
+<link rel="stylesheet" href="style.css" type="text/css">
+<style type="text/css">
+#cs4 {
+	width: 140px;
+	float: left;
+}
+
+.form-control {
+	width: 150px;
+	float: light;
+}
+
+input[type=submit], input[type=reset] {
+	background-color: #17a2b8;
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+</style>
+<%@ include file="/inc/top.jsp"%>
 </head>
 <body>
 	<%@ include file="/inc/header.jsp"%>
-	<div class="col-sm text-center" style="padding: 30px">
-	<form action="csUpdatePro.do" method="post">
-	<input type="hidden" name="c_idx" value="${cs.c_idx}"> 
-		<input type="hidden" name="pageNum" value="${pageNum}">
-		<table class="table">
-			<tr>
 
-				<h2>글 수정</h2>
-			
-				<td>글번호 ${cs.c_idx}</td>
-				<td>작성자 ${cs.writer}</td>
-				<td>작성일 ${cs.reg_date}</td>
-			</tr>
-			<tr>
-				<td>제목</td>
-				<td><input type="text" name="subject" required="required"
-					value="${cs.subject}"></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>내용</td>
-				<td><pre><textarea rows="5" cols="30" name="content" style="text-align: left;" required="required">
-				${cs.content}</textarea>
-				</pre></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td colspan="2" class="btn m-2 btn-primary mx-auto">
-				<input type="submit" value="수정"></td>
-				<td colspan="2"><input type="submit" value="취소"></td>
-			</tr>
-		</table>
-	
-	</form>
-	</div>
+	<div class="container text-center">
+		<div class="row justify-content-center">
 
-	<%@ include file="/inc/footer.jsp"%>
+			<!-- csView에서 c_idx, pageNum, cs의  모든 정보를 받아옴 -->
+			<form action="csUpdatePro.do" method="post">
+				<div class="form-group">
+							<h2><strong>글 수정</strong></h2>
+							<br />
+							<img alt="csUpdatePhoto" src="./images/cs/hh.jpg" width="500">
+							<p>
+							
+					<!-- hidden으로  c_idx, pageNum정보를 csUpdatePro.do 보내줌 -->
+					<input type="hidden" name="c_idx" value="${cs.c_idx}">
+					 <input	type="hidden" name="pageNum" value="${pageNum}">
+
+								<label id="cs4" for="c_idx"><strong>글번호</strong></label>
+								<input type="text" style="text-align: center;"
+									class="form-control" id="c_idx" name="c_idx"
+									value="${cs.c_idx}" disabled="disabled">
+							<p>
+								<br /> <label id="cs4" for="writer"><strong>작성자</strong></label>
+								<input type="text" style="text-align: center;"
+									class="form-control" id="writer" name="writer"
+									value="${cs.writer}" disabled="disabled">
+							<p>
+								<br /> <label id="cs4" for="reg_date"><strong>작성일</strong></label>
+								<input type="text" style="text-align: center;"
+									class="form-control" id="reg_date" name="reg_date"
+									value="${cs.reg_date}" disabled="disabled">
+							<p>
+								<br /> <label id="cs4" for="subject"><strong>제목</strong></label>
+								<input type="text" style="text-align: center;"
+									class="form-control" id="subject" name="subject"
+									value="${cs.subject}" required="required">
+							<p>
+								<br /> <label id="cs4" for="content"><strong>내용</strong></label>
+								<input type="text" style="text-align: center;"
+									class="form-control" id="content" name="content"
+									value="${cs.content}" required="required">
+							</div>
+							<br />
+							<input type="submit" value="수정">
+							<input type="reset" value="취소">
+						<p>
+					<br /> <br />
+				</form>
+				</div>
+				</div>
+		<%@ include file="/inc/footer.jsp"%>
 </body>
 </html>

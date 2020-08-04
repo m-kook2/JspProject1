@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,9 +25,9 @@
 <%@ include file="/inc/header.jsp" %>
 
 <div class="container text-center">
-<form name="frm">
 <h2><img src="https://img.icons8.com/doodle/48/000000/hand-right.png"/> 회원관리</h2>
 <p><input type="button" value="엑셀 다운로드" onclick="excelDown();" style="float: right; margin-bottom: 10px;" /></p>
+<form name="frm">
 	<table class="table table-bordered">
 		<thead>
 	      <tr>
