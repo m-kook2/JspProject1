@@ -52,6 +52,8 @@
 
 </div>
 
+<%@ include file="/movie/m_comm.jsp" %>
+<%@ include file="/inc/footer.jsp"%>
 
 </body>
 </html>
