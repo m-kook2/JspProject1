@@ -9,11 +9,9 @@
 	<%@ include file="/inc/header.jsp"%>
 	<div class="container">
 		<div class="row">
-			<div class="col"></div>
-			<div class="col-sm text-center">
+			<div class="col-sm mx-auto text-center p-3">
 				<h2 class="text">설문 조사</h2>
 			</div>
-			<div class="col-sm"></div>
 		</div>
 		<table class="table">
 			<tr>

@@ -9,51 +9,54 @@
 </head>
 <body>
 	<%@ include file="/inc/header.jsp"%>
-	<div class="col-sm text-center" style="padding: 30px">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm text-center" style="padding: 30px">
 
-		<h2 class="text">영화 게시판</h2>
-		<table class="table">
-			<tr>
-				<th>영화 목록</th>
-			</tr>
-			<c:if test="${totCnt > 0 }">
-				<c:forEach var="mt" items="${list }">
+				<h2 class="text">영화 게시판</h2>
+				<table class="table">
 					<tr>
-						<td>
-							<a href="movieInfo.do?m_idx=${mt.m_idx }&pageNum=${currentPage}">
-								<img src="./images/main/photo/${mt.m_photo}"/>
-							</a>
-						</td>
+						<th>영화 목록</th>
 					</tr>
-					<c:set var="startNum" value="${startNum-1 }"></c:set>
-				</c:forEach>
-			</c:if>
-			<c:if test="${totCnt ==0 }">
-				<tr>
-					<td colspan="2">데이터가 없네</td>
-				</tr>
+					<c:if test="${totCnt > 0 }">
+						<c:forEach var="mt" items="${list }">
+							<tr>
+								<td><a
+									href="movieInfo.do?m_idx=${mt.m_idx }&pageNum=${currentPage}">
+										<img src="./images/main/photo/${mt.m_photo}" />
+								</a></td>
+							</tr>
+							<c:set var="startNum" value="${startNum-1 }"></c:set>
+						</c:forEach>
+					</c:if>
+					<c:if test="${totCnt ==0 }">
+						<tr>
+							<td colspan="2">데이터가 없네</td>
+						</tr>
 
-			</c:if>
-		</table>
-		<div class="text-center">
-			<c:if test="${startPage > blockSize }">
-				<a href='movieList.do?pageNum=${startPage-blockSize}'>[이전]</a>
-			</c:if>
-			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<a href='movieList.do?pageNum=${i }'>[${i}]</a>
-			</c:forEach>
-			<c:if test="${endPage > pageCnt }">
-				<a href='movieList.do?pageNum=${startPage+blockSize }'>[다음]</a>
-			</c:if>
+					</c:if>
+				</table>
+				<div class="text-center">
+					<c:if test="${startPage > blockSize }">
+						<a href='movieList.do?pageNum=${startPage-blockSize}'>[이전]</a>
+					</c:if>
+					<c:forEach var="i" begin="${startPage}" end="${endPage}">
+						<a href='movieList.do?pageNum=${i }'>[${i}]</a>
+					</c:forEach>
+					<c:if test="${endPage > pageCnt }">
+						<a href='movieList.do?pageNum=${startPage+blockSize }'>[다음]</a>
+					</c:if>
 
+				</div>
+				<c:if test="${sessionScope.status eq '2'}">
+					<div class="row" style="float: right">
+						<form action="movieInsertForm.do">
+							<button class="btn m-2 btn-primary mx-auto">영화 추가</button>
+						</form>
+					</div>
+				</c:if>
+			</div>
 		</div>
-		<c:if test="${sessionScope.status eq '2'}">
-		<div class="row" style="float: right">
-			<form action="movieInsertForm.do">
-			<button class="btn m-2 btn-primary mx-auto">영화 추가</button>
-			</form>
-		</div>
-		</c:if>
 	</div>
 
 
