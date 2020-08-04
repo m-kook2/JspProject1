@@ -28,7 +28,7 @@ public class MovieDeleteFormAction implements CommandProcess {
 			System.out.println(e.getMessage());
 		}
 		
-		return "Movie/MovieDeleteForm.jsp";
+		return "movie/movieDeleteForm.jsp";
 	}
 
 }

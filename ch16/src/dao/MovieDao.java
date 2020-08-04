@@ -187,11 +187,11 @@ public class MovieDao {
 		Connection conn = null;	
 		PreparedStatement pstmt= null; 
 		int result = 0;
-		String sql="update movie_info set m_name=?,m_genre=?,m_date=?,"+
-		                	"m_nation=?,m_time=?,m_rate=?,"+
+		String sql="update movie_info set m_name=?,m_genre=?,m_date=to_date(?),m_nation=?,m_time=?,m_rate=?,"+
 				"m_story=?,m_cast=?,m_director=?," + "m_photo=?,m_video=?,m_poster=?,"
 				+ "id=? where m_idx=?";
-		System.out.println("update sql : " + sql);
+		
+		System.out.println("update movie_info set m_name="+movieDto.getM_name()+",m_genre="+movieDto.getM_genre()+",m_date=to_date("+movieDto.getM_date()+",m_nation="+movieDto.getM_nation()+",m_time="+movieDto.getM_time()+",m_rate="+movieDto.getM_rate()+",m_story="+movieDto.getM_story()+",m_cast="+movieDto.getM_cast()+",m_director="+movieDto.getM_director()+",m_photo="+movieDto.getM_photo()+",m_video="+movieDto.getM_video()+",m_poster="+movieDto.getM_poster()+", id="+movieDto.getId()+" where m_idx="+movieDto.getM_idx());
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

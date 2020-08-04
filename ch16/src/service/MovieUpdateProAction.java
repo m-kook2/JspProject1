@@ -25,7 +25,7 @@ public class MovieUpdateProAction implements CommandProcess {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 	 	HttpSession session = request.getSession();
-	 	String saveDirectory="C:/Users/user/git/jspProject/ch16/WebContent/images/main/photo/"; 
+	 	String saveDirectory="C:/개발프로그랜util/egovframework/3.7/eGovFrameDev-3.7.0-64bit/workspace/jspProject/ch16/WebContent/images/main/photo/"; 
 
 	 	MultipartRequest mp = new MultipartRequest(request, saveDirectory);
 	 	System.out.println("MovieUpdateProAction mp : "+ mp);
@@ -78,6 +78,16 @@ public class MovieUpdateProAction implements CommandProcess {
 		System.out.println("MovieUpdateProAction id : "+ id);
 		FileUtil fu = new FileUtil();
 		System.out.println("MovieUpdateProAction fu : "+ fu);
+		MovieDto mt = new MovieDto();
+		m_photo = new String(mp.getParameter("m_photo").getBytes("iso-8859-1"), "utf-8");
+		if(m_photo !=null && !m_photo.equals("")){
+			mt.setM_photo(m_photo);
+		}
+		m_poster = new String(mp.getParameter("m_poster").getBytes("iso-8859-1"), "utf-8");
+		if(m_poster !=null && !m_poster.equals("")){
+			mt.setM_poster(m_poster);
+		}
+		
 		fu.filUpload(request, saveDirectory);	 	
 		int result = 0;
 		Enumeration en = mp.getFileNames();
@@ -85,12 +95,14 @@ public class MovieUpdateProAction implements CommandProcess {
 			String filename1 = (String)en.nextElement(); 
 			if(filename1.equals("m_photo")) {
 				m_photo=mp.getFilesystemName(filename1);
+				mt.setM_photo(new String(m_photo.getBytes("iso-8859-1"), "utf-8"));
 			}
 			if(filename1.equals("m_poster")) {
 				m_poster= mp.getFilesystemName(filename1);
+				mt.setM_poster(new String(m_poster.getBytes("iso-8859-1"), "utf-8"));
 			}
 		}
-		MovieDto mt = new MovieDto();
+		
 		mt.setM_name(m_name);
 		mt.setM_genre(new String(genre.getBytes("iso-8859-1"), "utf-8"));
 		mt.setM_date(m_date);
@@ -100,11 +112,10 @@ public class MovieUpdateProAction implements CommandProcess {
 		mt.setM_story(m_story);
 		mt.setM_cast(new String(cast.getBytes("iso-8859-1"), "utf-8"));
 		mt.setM_director(m_director);
-		mt.setM_photo(new String(m_photo.getBytes("iso-8859-1"), "utf-8"));
 		mt.setM_video(m_video);
-		mt.setM_poster(new String(m_poster.getBytes("iso-8859-1"), "utf-8"));
 		mt.setId((String)session.getAttribute("id"));
-		
+		mt.setM_idx(m_idx);
+		System.out.println((String)session.getAttribute("id"));
 		MovieDao ma = MovieDao.getInstance();
 		try {
 			result = ma.update(mt);
