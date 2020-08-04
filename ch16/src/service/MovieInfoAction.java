@@ -55,12 +55,12 @@ public class MovieInfoAction implements CommandProcess {
 			request.setAttribute("currentPage", currentPage);
 			request.setAttribute("startNum", startNum);
 			request.setAttribute("list", list);
-			request.setAttribute("slist", slist);
+			request.setAttribute("comm2", comm2);
 			request.setAttribute("blockSize", blockSize);
 			request.setAttribute("pageCnt", pageCnt);
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
-			request.setAttribute("comm2", comm2);
+			request.setAttribute("slist", slist);
 			System.out.println("-----------------------------------------------"); // /ch16/list.do
 			System.out.println("startNum-->" + startNum); // /ch16/list.do
 			System.out.println("totCnt-->" + totCnt); // /ch16/list.do
