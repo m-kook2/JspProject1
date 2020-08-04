@@ -14,7 +14,7 @@
 </head>
 <body>
 	<%@ include file="/inc/header.jsp"%>
-	<h2 class="container text-center" style="padding-bottom: 50px; margin-top: 50px;"><strong>Admin Page<img src="https://img.icons8.com/dusk/64/000000/administrative-tools.png" width="40" height="40"/></strong></h2>
+	<h2 class="container text-center" style="padding-bottom: 50px; margin-top: 50px;"><strong>Admin Page</strong></h2>
 	<div class="container text-center">
 		<div class="row">
 			<img class="mx-auto" src="images/main/1.png" usemap="#map" style="margin-bottom: 100px;"/>
