@@ -31,7 +31,7 @@ public class MovieDao {
 			ResultSet rs = null;
 			// String sql = "select * from movie_info order by num desc";
 			// mysql select * from movie_info order by num desc limit startPage-1,10;
-			String sql = "select * from (select rownum rn ,a.* from (select * from movie_info) a )  where 1=1";
+			String sql = "select * from (select rownum rn ,a.* from (select * from movie_info) a )  where 1=1 and del_yn='N'";
 			StringBuffer strBuffer=new StringBuffer();
 			strBuffer.append(sql);
 			if(str != null && !str.equals("")){
@@ -62,6 +62,7 @@ public class MovieDao {
 					movieDto.setM_video(rs.getString("m_video"));
 					movieDto.setM_poster(rs.getString("m_poster"));
 					movieDto.setId(rs.getString("id"));
+					movieDto.setDel_yn(rs.getString("del_yn"));
 					list.add(movieDto);
 				}
 			} catch(Exception e) {	System.out.println(e.getMessage()); 
@@ -76,7 +77,7 @@ public class MovieDao {
 		public int getTotalCnt(String str) throws SQLException {
 			Connection conn = null;	Statement stmt= null; 
 			ResultSet rs = null;    int tot = 0;
-			String sql = "select count(*) from movie_info where 1=1";
+			String sql = "select count(*) from movie_info where 1=1 and del_yn='N'";
 			StringBuffer strBuffer=new StringBuffer();
 			strBuffer.append(sql);
 			if(str != null && !str.equals("")){
@@ -122,6 +123,7 @@ public class MovieDao {
 				mt.setM_director(rs.getString("m_director"));
 				mt.setM_video(rs.getString("m_video"));
 				mt.setM_poster(rs.getString("m_poster"));
+				mt.setDel_yn(rs.getString("del_yn"));
 			}	
 		} catch(Exception e) {	System.out.println(e.getMessage()); 
 		} finally {
@@ -139,7 +141,7 @@ public class MovieDao {
 		int number = 0;
 		int result = 0;			
 		String sql1 = "select nvl(max(m_idx),0) from movie_info";
-		String sql= "insert into movie_info values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql= "insert into movie_info values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,'N')";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql1);
@@ -231,7 +233,7 @@ public class MovieDao {
 	public int delete(String m_idx) throws SQLException {
 		Connection conn = null;	PreparedStatement pstmt= null; 
 		int result = 0;		    
-		String sql="delete from movie_info where m_idx=?";
+		String sql="UPDATE MOVIE_INFO SET DEL_YN='Y' WHERE M_IDX=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
