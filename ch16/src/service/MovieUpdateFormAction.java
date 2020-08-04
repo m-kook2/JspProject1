@@ -29,7 +29,7 @@ public class MovieUpdateFormAction implements CommandProcess {
 			request.setAttribute("mt", mt);
 		} catch(Exception e) { System.out.println(e.getMessage()); }
 		
-		return "movie/movieupdateForm.jsp";
+		return "movie/movieUpdateForm.jsp";
 	}
 
 }
