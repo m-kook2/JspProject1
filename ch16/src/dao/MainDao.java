@@ -29,7 +29,7 @@ public class MainDao {
 		List<MovieDto> list = new ArrayList<MovieDto>();
 		Connection conn = null;	PreparedStatement pstmt= null;
 		ResultSet rs = null;
-		 String sql = "select * from movie_info";
+		 String sql = "select * from movie_info where del_yn='N'";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
