@@ -108,7 +108,7 @@ public class MovieDao {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			System.out.println("rs.sql->" + sql);
-			if (rs.next()) {				
+			if (rs.next()) {
 				mt.setM_idx(rs.getString("m_idx"));
 				mt.setM_name(rs.getString("m_name"));
 				mt.setM_genre(rs.getString("m_genre"));
@@ -118,8 +118,10 @@ public class MovieDao {
 				mt.setM_rate(rs.getString("m_rate"));
 				mt.setM_story(rs.getString("m_story"));
 				mt.setM_cast(rs.getString("m_cast"));
-				mt.setM_director(rs.getString("m_director"));
 				mt.setM_photo(rs.getString("m_photo"));
+				mt.setM_director(rs.getString("m_director"));
+				mt.setM_video(rs.getString("m_video"));
+				mt.setM_poster(rs.getString("m_poster"));
 			}	
 		} catch(Exception e) {	System.out.println(e.getMessage()); 
 		} finally {
@@ -129,49 +131,51 @@ public class MovieDao {
 		}
 		return mt;
 	}
-	
-	/*	
+
 	public int insert(MovieDto movieDto) throws SQLException {
-		int num = movieDto.getM_idx();		
-		Connection conn = null;	PreparedStatement pstmt= null; 
-		int result = 0;			ResultSet rs = null;
-		String sql1 = "select nvl(max(num),0) from movieDto";
-		String sql="insert into movieDto values(?,?,?,?,?,?,?,?,?,?,?,sysdate)";
-		String sql2="update movieDto set re_step = re_step+1 where " +
-			" ref=? and re_step > ?";
-		try {			
+		Connection conn = null;	
+		PreparedStatement pstmt = null; 
+		ResultSet rs = null;
+		int number = 0;
+		int result = 0;			
+		String sql1 = "select nvl(max(m_idx),0) from movie_info";
+		String sql= "insert into movie_info values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		try {
 			conn = getConnection();
-			if (num != 0) {
-				pstmt = conn.prepareStatement(sql2);
-				pstmt.setInt(1, movieDto.getRef());
-				pstmt.setInt(2, movieDto.getRe_step());
-				pstmt.executeUpdate();
-				pstmt.close();
-				movieDto.setRe_step(movieDto.getRe_step()+1);
-				movieDto.setRe_level(movieDto.getRe_level()+1);
-			}
 			pstmt = conn.prepareStatement(sql1);
 			rs = pstmt.executeQuery();
-			rs.next();
-			// key인 num 1씩 증가, mysql auto_increment 또는 oracle sequence
-			// sequence를 사용 : values(시퀀스명(board_seq).nextval,?,?...)
-			int number = rs.getInt(1) + 1;  
-			rs.close();   pstmt.close();
-			if (num == 0) movieDto.setRef(number);
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, number);
-			pstmt.setString(2, movieDto.getWriter());
-			pstmt.setString(3, movieDto.getSubject());
-			pstmt.setString(4, movieDto.getContent());
-			pstmt.setString(5, movieDto.getEmail());
-			pstmt.setInt(6, movieDto.getReadcount());
-			pstmt.setString(7, movieDto.getPasswd());
-			pstmt.setInt(8, movieDto.getRef());
-			pstmt.setInt(9, movieDto.getRe_step());
-			pstmt.setInt(10, movieDto.getRe_level());
-			pstmt.setString(11, movieDto.getIp());
-			result = pstmt.executeUpdate(); 
-		} catch(Exception e) {	System.out.println(e.getMessage()); 
+			if (rs.next()) {
+				number = rs.getInt(1) + 1;			
+			} else {
+				if (number == 0) {
+					number = 1;
+				}
+			}
+			rs.close();
+			pstmt.close();
+			
+			if (number != 0) {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, number);
+				pstmt.setString(2, movieDto.getM_name());
+				pstmt.setString(3, movieDto.getM_genre());
+				pstmt.setString(4, movieDto.getM_date());
+				pstmt.setString(5, movieDto.getM_nation());
+				pstmt.setString(6, movieDto.getM_time());
+				pstmt.setString(7, movieDto.getM_rate());
+				pstmt.setString(8, movieDto.getM_story());
+				pstmt.setString(9, movieDto.getM_cast());
+				pstmt.setString(10, movieDto.getM_director());
+				pstmt.setString(11, movieDto.getM_photo());
+				pstmt.setString(12, movieDto.getM_video());
+				pstmt.setString(13, movieDto.getM_poster());
+				pstmt.setString(14, movieDto.getId());
+				result=pstmt.executeUpdate();
+				pstmt.close();
+
+			}
+
+			} catch(Exception e) {System.out.println(e.getMessage()); 
 		} finally {
 			if (rs !=null) rs.close();
 			if (pstmt != null) pstmt.close();
@@ -179,72 +183,70 @@ public class MovieDao {
 		}
 		return result;
 	}
-	public void readCount(int num) throws SQLException {
-		Connection conn = null;	PreparedStatement pstmt= null; 
-		String sql="update movieDto set readcount=readcount+1 where num=?";
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, num);			
-			pstmt.executeUpdate();
-		} catch(Exception e) {	System.out.println(e.getMessage()); 
-		} finally {
-			if (pstmt != null) pstmt.close();
-			if (conn !=null) conn.close();
-		}
-	}
 	public int update(MovieDto movieDto) throws SQLException {
-		Connection conn = null;	PreparedStatement pstmt= null; 
-		int result = 0;			
-		String sql="update movieDto set subject=?,writer=?,email=?,"+
-		                	"passwd=?,content=?,ip=? where num=?";
+		Connection conn = null;	
+		PreparedStatement pstmt= null; 
+		int result = 0;
+		String sql="update movie_info set m_name=?,m_genre=?,m_date=?,"+
+		                	"m_nation=?,m_time=?,m_rate=?,"+
+				"m_story=?,m_cast=?,m_director=?," + "m_photo=?,m_video=?,m_poster=?,"
+				+ "id=? where m_idx=?";
+		System.out.println("update sql : " + sql);
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, movieDto.getSubject());
-			pstmt.setString(2, movieDto.getWriter());
-			pstmt.setString(3, movieDto.getEmail());
-			pstmt.setString(4, movieDto.getPasswd());
-			pstmt.setString(5, movieDto.getContent());
-			pstmt.setString(6, movieDto.getIp());
-			pstmt.setInt(7, movieDto.getNum());
-			
+			pstmt.setString(1, movieDto.getM_name());
+			pstmt.setString(2, movieDto.getM_genre());
+			pstmt.setString(3, movieDto.getM_date());
+			pstmt.setString(4, movieDto.getM_nation());
+			pstmt.setString(5, movieDto.getM_time());
+			pstmt.setString(6, movieDto.getM_rate());
+			pstmt.setString(7, movieDto.getM_story());
+			pstmt.setString(8, movieDto.getM_cast());
+			pstmt.setString(9, movieDto.getM_director());
+			pstmt.setString(10, movieDto.getM_photo());
+			pstmt.setString(11, movieDto.getM_video());
+			pstmt.setString(12, movieDto.getM_poster());
+			pstmt.setString(13, movieDto.getId());
+			pstmt.setString(14, movieDto.getM_idx());
 			result = pstmt.executeUpdate();
-		} catch(Exception e) {	System.out.println(e.getMessage()); 
+			System.out.println(movieDto.getId());
+			System.out.println(movieDto.getM_nation());
+			System.out.println(movieDto.getM_photo());
+			System.out.println(movieDto.getM_nation());
+			System.out.println(movieDto.getM_poster());
+			System.out.println("update result : " + result);
+		} catch (Exception e) {
+			System.out.println("MovieDao update ERROR!!");
+			System.out.println(e.getMessage());
 		} finally {
 			if (pstmt != null) pstmt.close();
 			if (conn !=null) conn.close();
 		}
 		return result;
 	}
-	public int delete(int num, String passwd) throws SQLException {
+
+	
+	
+	public int delete(String m_idx) throws SQLException {
 		Connection conn = null;	PreparedStatement pstmt= null; 
-		int result = 0;		    ResultSet rs = null;
-		String sql1 = "select passwd from movieDto where num=?";
-		String sql="delete from movieDto where num=?";
+		int result = 0;		    
+		String sql="delete from movie_info where m_idx=?";
 		try {
-			String dbPasswd = "";
 			conn = getConnection();
-			pstmt = conn.prepareStatement(sql1);
-			pstmt.setInt(1, num);
-			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				dbPasswd = rs.getString(1); 
-				if (dbPasswd.equals(passwd)) {
-					rs.close();  pstmt.close();
-					pstmt = conn.prepareStatement(sql);
-					pstmt.setInt(1, num);
-					result = pstmt.executeUpdate();
-				} else result = 0;
-			} else result = -1;
-		} catch(Exception e) {	System.out.println(e.getMessage()); 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m_idx);
+			result = pstmt.executeUpdate();
+		
+		} catch(Exception e) {
+			System.out.println(e.getMessage()); 
 		} finally {
 			if (pstmt != null) pstmt.close();
 			if (conn !=null) conn.close();
 		}
 		return result;
 	}
-*/	
+
 
 	
 }

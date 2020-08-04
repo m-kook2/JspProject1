@@ -1,10 +1,16 @@
 package service;
 import java.io.IOException;
+import java.util.Enumeration;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.oreilly.servlet.MultipartRequest;
+
 import dao.Board;
 import dao.BoardDao;
+import util.FileUtil;
 public class WriteProAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
