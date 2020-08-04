@@ -228,7 +228,7 @@ public class CommDao {
 		// mysql select * from board order by num desc limit startPage-1,10;
 		String sql = "select * from (select * from (select rownum rn ,a.* from "
 				+ " (select * from comm where m_idx = ?) a )"
-				+ " where rn between ? and ?) where 1=1";
+				+ " where rn between ? and ?) where 1=1 and dep=0";
 		
 		/*String sql2="select m_idx ,avg(c_grade) m_grade "
 				+ "from comm  "

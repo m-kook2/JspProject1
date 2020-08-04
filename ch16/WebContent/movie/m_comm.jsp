@@ -37,7 +37,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 .star-output>.input>input:focus+label,
 .star-output>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('images/grade_img.png')no-repeat;}
 </style>
-<script src="js/star.js"></script>
+<script src="/js/star.js"></script>
 <script type="text/javascript">
  function chek() {
 		var write = document.write;
@@ -45,6 +45,8 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		for(var i=0; i < 11; i++){
 			var p="p"+i;
 			if(document.getElementById(p).checked){
+				document.getElementById("start").value=document.getElementById(p).value;
+				alert(document.getElementById("start").value);
 				starChk=true;
 			}
 		}
@@ -70,9 +72,9 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		}/* else{
 			
 		} */
-		
 		/* document.write.submit(); */
-		write.action="scommWritePro.do";
+		write.action="commWritePro.do";
+		write.submit();
 		
 }
 </script>
@@ -157,13 +159,15 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 	
 <!-- 댓글 부분 -->
 <div id="comment" >
+
 	<form name="write" method="post">
 		<input type="hidden" name="m_idx" id="m_idx" value="${m_idx }"/> 
 		<input type="hidden" name="id" id="id" value="${id }"/>
+		<input type="hidden" name="start" id="start" value=""/>
 		<table class="table" border="1" bordercolor="lightgray">
 		<!-- 로그인 했을 경우만 댓글 작성가능 -->
 		<c:if test="${sessionScope.id !=null}">
-			<tr bgcolor="#F5F5F5">
+			<tr>
 				<!-- 아이디-->
 				<td>
 					<div>${id}</div>
@@ -193,7 +197,8 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		 						<input type="radio" name="star-input" value="10" id="p10">
 		 						<label for="p10">10</label>
 							</span>
-							<output for="star-input" name="star-input" id="grade"><b>0</b>점	</output>		
+							<span id="msg">0</span>점
+ 							<!-- <output for="star-input" name="star-input"><b></b>점</output> -->
 						</span>
 					</div>
 				</td>
@@ -209,7 +214,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							<input type="hidden" name="s_m_idx" id="s_m_idx" value=""/>
 							<input type="hidden" name="c_grade" id="c_grade" value=""/>
 							<input type="hidden" name="c_content" id="c_content" value=""/>
-						<button class="btn btn-primary" onclick="chek();">작성</button>
+						<input type="button" onclick="chek();" value="작성">
 					</div>
 				</td>
 			</tr>
@@ -277,10 +282,10 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 				<!-- 본문내용 -->
 				<td colspan="2">
 					<div class="text_wrapper">
-						<c:if test="${comm.del_yn == 'y'}">
+						<c:if test="${comm.del_yn == 'Y'}">
 							삭제된글
 						</c:if>
-						<c:if test="${comm.del_yn == 'n'}">
+						<c:if test="${comm.del_yn == 'N'}">
 							${comm.c_content}<br/>
 							<a href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${comm.id }">공감</a>
 							${comm.c_sympathy}
@@ -378,7 +383,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		</c:forEach>
 		</table>
 							
-		<c:if test="${sessionScope.id !=null}">			
+		<%-- <c:if test="${sessionScope.id !=null}">			
 			<form action="commwritePro.do" name="write">
 				<input type="hidden" name="m_idx" value="${m_idx }"/> 
 				<input type="hidden" name="id" value="${id }"/>
@@ -403,7 +408,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					</tr>
 				</table>
 			</form>
-		</c:if>
+		</c:if> --%>
 	</div>						
 </div>
 				<!-- 버튼 -->

@@ -25,7 +25,7 @@
 출연진 : ${mt.m_cast}<p>
 영화감독 : ${mt.m_director}<p>
 포토 : <img src="./images/main/photo/${mt.m_photo}"/></a><p>
-동영상 : <iframe width="420" height="315" src="${mt.m_video}"></iframe><p>
+동영상 : <%-- <iframe width="420" height="315" src="${mt.m_video}"></iframe><p> --%>
 포스터 : <img src="./images/main/photo/${mt.m_photo}"/></a><p>
 
 
