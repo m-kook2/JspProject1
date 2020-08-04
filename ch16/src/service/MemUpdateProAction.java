@@ -26,9 +26,9 @@ public class MemUpdateProAction implements CommandProcess {
 		String saveDirectory = "C:/Users/user/git/jspProject/ch16/WebContent/images/member/img/";
 		MultipartRequest mp = new MultipartRequest(request, saveDirectory);
 		String id = (String) session.getAttribute("id");
-		String password = mp.getParameter("chkpassword");
-		String email = mp.getParameter("email");
-		String nickname = mp.getParameter("nickname");
+		String password = StringUtil.NullToEmpty(mp.getParameter("chkpassword"));
+		String email = StringUtil.NullToEmpty(mp.getParameter("email"));
+		String nickname = StringUtil.NullToEmpty(mp.getParameter("nickname"));
 		String gender = StringUtil.NullToEmpty(mp.getParameter("gender"));
 		String pic = StringUtil.NullToEmpty(mp.getParameter("pic"));
 		FileUtil fu = new FileUtil();

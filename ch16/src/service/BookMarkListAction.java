@@ -19,18 +19,25 @@ public class BookMarkListAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		//httpsession은 복수 page에 걸쳐 request에 의해 web사이트에 접속한 user를 식별해 그 user에 대한 정보를 제어할 수 있는 법을 제공
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		
+		//service에서 직접 객체생성해 변수에 저장하지 않고, 싱글톤 패턴에 따라 의존관계가 있는 클래스의 메소드를 호출해 인스턴스를 가져오기만 하면 된다
+		//생성횟수를 1회로 한정시킨 것
 		BookmarkDao bd = BookmarkDao.getInstance();
+		
 		try {
-			//int totCnt = bd.getTotalCnt();
 			int totIdCnt = bd.getIdCnt(id);
+			
+			//정보를 받아오기 위한 것
 			String pageNum = request.getParameter("pageNum");
 			if (pageNum == null || pageNum.equals("")) {
 				pageNum = "1";
 			}
+			//정렬 
 			String str=request.getParameter("str")==null?"":request.getParameter("str");
+			
 			int currentPage = Integer.parseInt(pageNum);
 			int pageSize = 10, blockSize = 10;
 			int startRow = (currentPage - 1) * pageSize + 1;
@@ -43,6 +50,7 @@ public class BookMarkListAction implements CommandProcess {
 			if (endPage > pageCnt)
 				endPage = pageCnt;
 
+			//다른 곳으로 정보를 넘겨주기 위한 것
 			request.setAttribute("totIdCnt", totIdCnt);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("currentPage", currentPage);

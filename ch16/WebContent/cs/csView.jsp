@@ -34,7 +34,7 @@
 	<tr>
 		<td>내용</td>
 		<td ><input type="text" disabled value="${cs.content }" 
-		style="text-align:center; width:700px; height:300px;"></td><td></td><td></td><td></td>
+		style="text-align:left; width:500px; height:100px;"></td><td></td><td></td><td></td>
 	</tr>
 </table>
 	<c:if test="${sessionScope.status eq '2' || sessionScope.id eq cs.writer}">

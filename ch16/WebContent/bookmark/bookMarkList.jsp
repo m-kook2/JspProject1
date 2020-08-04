@@ -20,6 +20,7 @@
 <div class="dropdown-menu">
 <a class="dropdown-item" href="bookMarkList.do?str=1">개봉일</a>
 <a class="dropdown-item" href="bookMarkList.do?str=2">장르</a>
+<a class="dropdown-item" href="bookMarkList.do?str=3">등록순번</a>
 </div>
 </div>
 
