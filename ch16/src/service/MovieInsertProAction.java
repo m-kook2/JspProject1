@@ -23,7 +23,7 @@ public class MovieInsertProAction implements CommandProcess {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 	 	HttpSession session = request.getSession();
-	 	String saveDirectory="C:/Users/user/git/jspProject/ch16/WebContent/images/main/photo/"; 
+	 	String saveDirectory ="C:/Users/user/git/jspProject/ch16/WebContent/images/main/photo/"; 
 	 	MultipartRequest mp = new MultipartRequest(request, saveDirectory);
 		String m_name = new String(mp.getParameter("m_name").getBytes("iso-8859-1"), "utf-8");
 		String[] m_genre = mp.getParameterValues("m_genre");

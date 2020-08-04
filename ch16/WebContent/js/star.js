@@ -13,25 +13,29 @@ var $star = $(".star-input"),
    	.on("focusout", ".star-input>.input", function(){
     	var $this = $(this);
     	setTimeout(function(){
-      		if($this.find(":focus").length === 0){
+      		if($this.find(":focus").length == 0){
        			$this.removeClass("focus");
      	 	}
    		}, 100);
  	 })
   
     .on("change", ".star-input :radio", function(){
-    	$result.text($(this).next().text());
+    	//$result.text($(this).next().text());
+    	$("#msg").text($(this).next().text());
   	})
     .on("mouseover", ".star-input label", function(){
-    	$result.text($(this).text());
+    	//$result.text($(this).text());
+    	//$("#msg").text($(this).text());
     })
     .on("mouseleave", ".star-input>.input", function(){
     	var $checked = $star.find(":checked");
-    		if($checked.length === 0){
-     	 		$result.text("0");
-   		 	} else {
-     	 		$result.text($checked.next().text());
-    		}
+    		//if($checked.length == 0){
+     	 		//$result.text("0");
+    		//	$("#msg").text("0");
+   		 	//} else {
+     	 		//$result.text($checked.next().text());
+   		 		$("#msg").text($(this).next().text());
+    		//}
   	});
 };
 

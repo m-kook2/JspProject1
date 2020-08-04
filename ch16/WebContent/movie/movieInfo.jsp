@@ -24,8 +24,17 @@
 출연진 : ${mt.m_cast}<p>
 영화감독 : ${mt.m_director}<p>
 포토 : <img src="./images/main/photo/${mt.m_photo}"/></a><p>
+<<<<<<< HEAD
 동영상 : <iframe width="560" height="315" src="${mt.m_video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>
 포스터 : <img src="./images/main/photo/${mt.m_poster}"/></a><p>
+=======
+동영상 : <%-- <iframe width="420" height="315" src="${mt.m_video}"></iframe><p> --%>
+포스터 : <img src="./images/main/photo/${mt.m_photo}"/></a><p>
+
+
+
+
+>>>>>>> branch 'master' of https://github.com/pjc1991/jspProject.git
 
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="즐겨찾기 추가"
 			    onclick="location.href='BookList.do'">

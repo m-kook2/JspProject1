@@ -93,7 +93,7 @@
 	  		<c:forEach var="result" items="${list}" varStatus="i">
 			<div class="col-3" style="margin-top:30px;z-index:1;">
 				<a href="movieInfo.do?m_idx=${result.m_idx }">
-					<img src="./images/main/photo/${result.m_photo}" width="270" height="385"/>
+					<img src="./images/main/photo/${result.m_poster}" width="270" height="385"/>
 				</a>
 				<p class="font-weight-bold text-white">${result.m_name}
 					<br/><span class="small text-white">국적: ${result.m_nation}</span>

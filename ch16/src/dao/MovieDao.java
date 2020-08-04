@@ -124,6 +124,7 @@ public class MovieDao {
 				mt.setM_video(rs.getString("m_video"));
 				mt.setM_poster(rs.getString("m_poster"));
 				mt.setDel_yn(rs.getString("del_yn"));
+				rs.close();
 			}	
 		} catch(Exception e) {	System.out.println(e.getMessage()); 
 		} finally {

@@ -25,7 +25,7 @@ public class CommWriteProAction implements CommandProcess{
 	        String c_content= request.getParameter("c_content");
 	        int m_idx = Integer.parseInt(request.getParameter("m_idx"));
 	       
-	        int c_grade =Integer.parseInt(request.getParameter("star-input"));
+	        int c_grade =Integer.parseInt(request.getParameter("start"));
 	        /*if(c_grade == null) {
 	        	c_grade=0;
 	        };*/

@@ -21,12 +21,12 @@
 <%@ include file="/inc/header.jsp" %>
 <div class="container text-center">
 <form name="frm" method="post">
-	<h2>댓글 관리 게시판<img src="https://img.icons8.com/plasticine/60/000000/delete-chat--v2.png"/></h2>
+	<h2 style="padding-bottom: 50px; margin-top: 50px;">댓글 관리 게시판<img src="https://img.icons8.com/plasticine/60/000000/delete-chat--v2.png"/></h2>
 	<input type="button" value="회원 댓글 엑셀" onclick="excelDown2();" style="float: right;">
 	<input type="button" value="확인" onclick="mnglist();" style="float: right; margin-right: 5px;"/>
 	<br>
 	<br>
-	<table class="table table-bordered">
+	<table class="table table-hover">
 		<thead>
 	      <tr>
 	      	<th>구분</th>
