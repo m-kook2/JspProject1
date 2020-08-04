@@ -44,14 +44,17 @@
                     </ul>
 
                     <div class="carousel-inner">
+                    	<c:if test="${sessionScope.id == null || sessionScope.id eq '' }">
 							<div class="row centered">
 								<div class="m-auto">
 									<h1>팝콘 리뷰</h1>
 									<p>모두를 위한 영화 리뷰 사이트</p>
 									<p>지금 바로 회원가입하기</p>
+									<p>${sessionScope.id }</p>
 									<button class="btn btn-warning">회원가입</button>
 								</div>
 							</div>
+                    	</c:if>
 							<div class="carousel-item active">
                         <img src="images/main/photo/1.jpg" alt="0" width="800" height="450"></div>
                         <div class="carousel-item">

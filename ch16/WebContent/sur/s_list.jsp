@@ -27,23 +27,18 @@
 				<c:forEach var="sur" items="${list }">
 					<tr>
 						<td>${startNum }</td>
-						<td><a href="surveyContent.do?s_idx=${sur.s_idx }&pageNum=${pageNum }">${sur.s_sub }</a></td>
-						<td>${sur.s_sdate }~${sur.s_edate }</td>
+						<td><a
+							href="surveyContent.do?s_idx=${sur.s_idx }&pageNum=${pageNum }">${sur.s_sub }</a></td>
+						<td>${sur.s_sdate } ~ ${sur.s_edate }</td>
 						<td>${sur.commCnt }명</td>
-						<td>
-						<c:choose>
-						<c:when test="${sur.votable }">
-						<span style="color: green">
-						참여가 가능합니다.						
-						</span>
-						</c:when>
-						<c:when test="${!sur.votable }">
-						<span style="color: red">
-						참여가 불가능합니다.
-						</span>
-						</c:when>
-						</c:choose>
-						</td>
+						<td><c:choose>
+								<c:when test="${sur.votable }">
+									<span style="color: green"> 참여가 가능합니다. </span>
+								</c:when>
+								<c:when test="${!sur.votable }">
+									<span style="color: red"> 참여가 불가능합니다. </span>
+								</c:when>
+							</c:choose></td>
 					</tr>
 					<c:set var="startNum" value="${startNum -1 }"></c:set>
 				</c:forEach>
