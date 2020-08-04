@@ -19,10 +19,10 @@ if( retVal == true ){
    location.href="movieInfo.do?m_idx=${mt.m_idx }";
 }
 
-
+</script>
 </head>
 <body>
 
-</script>
+
 </body>
 </html>
