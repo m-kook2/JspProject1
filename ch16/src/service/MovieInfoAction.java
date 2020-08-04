@@ -30,24 +30,25 @@ public class MovieInfoAction implements CommandProcess {
 			request.setAttribute("m_idx", m_idx);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("mt", mt);
-			// 댓글 리스트
 			int totCnt = cd.getTotalCnt();
 			String pageNum2 = request.getParameter("pageNum2");
 			if (pageNum2 == null || pageNum2.equals("")) {
 				pageNum2 = "1";
 			}
+			String str = request.getParameter("str") == null ? "" : request.getParameter("str");
 			int currentPage = Integer.parseInt(pageNum2);
 			int pageSize = 10, blockSize = 10;
 			int startRow = (currentPage - 1) * pageSize + 1;
 			int endRow = startRow + pageSize - 1;
 			int startNum = totCnt - startRow + 1;
-			List<CommDto> list = cd.list(startRow, endRow, m_idx);
+			List<CommDto> list = cd.list(startRow, endRow, m_idx, str);
 			int pageCnt = (int) Math.ceil((double) totCnt / pageSize);
 			int startPage = (int) (currentPage - 1) / blockSize * blockSize + 1;
 			int endPage = startPage + blockSize - 1;
 			if (endPage > pageCnt)
 				endPage = pageCnt;
-
+			CommDao cd2 = CommDao.getInstance();
+			CommDto comm2 = cd2.select(m_idx);
 			request.setAttribute("totCnt", totCnt);
 			request.setAttribute("pageNum2", pageNum2);
 			request.setAttribute("currentPage", currentPage);
@@ -57,7 +58,7 @@ public class MovieInfoAction implements CommandProcess {
 			request.setAttribute("pageCnt", pageCnt);
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
-
+			request.setAttribute("comm2", comm2);
 			System.out.println("-----------------------------------------------"); // /ch16/list.do
 			System.out.println("startNum-->" + startNum); // /ch16/list.do
 			System.out.println("totCnt-->" + totCnt); // /ch16/list.do

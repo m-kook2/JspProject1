@@ -14,7 +14,23 @@ public class CommDto {
 	private int m_idx;
 	private int step;
 	private int dep;
+	private Date c_date;
+	private int m_grade;
 	
+	
+	
+	public Date getC_date() {
+		return c_date;
+	}
+	public void setC_date(Date c_date) {
+		this.c_date = c_date;
+	}
+	public int getM_grade() {
+		return m_grade;
+	}
+	public void setM_grade(int m_grade) {
+		this.m_grade = m_grade;
+	}
 	public int getC_idx() {
 		return c_idx;
 	}

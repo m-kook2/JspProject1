@@ -20,11 +20,12 @@ public class CSListAction implements CommandProcess {
 
 		CSDao cs = CSDao.getInstance();
 		try {
-			//int totCnt = bd.getTotalCnt();
+			// int totCnt = bd.getTotalCnt();
 			int totCnt = cs.getTotalCnt();
 			String pageNum = request.getParameter("pageNum");
 			if (pageNum == null || pageNum.equals("")) {
-				pageNum = "1";			}
+				pageNum = "1";
+			}
 			int currentPage = Integer.parseInt(pageNum);
 			int pageSize = 10, blockSize = 10;
 			int startRow = (currentPage - 1) * pageSize + 1;

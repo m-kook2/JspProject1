@@ -24,10 +24,15 @@ public class CommWriteProAction implements CommandProcess{
 	        String id =request.getParameter("id");
 	        String c_content= request.getParameter("c_content");
 	        int m_idx = Integer.parseInt(request.getParameter("m_idx"));
-	        /*int c_grade =Integer.parseInt(request.getParameter("c_grade"));*/
+	       
+	        int c_grade =Integer.parseInt(request.getParameter("star-input"));
+	        /*if(c_grade == null) {
+	        	c_grade=0;
+	        };*/
 	        System.out.println("id="+id);
 	        System.out.println("c_content="+c_content);
 	        System.out.println("m_idx="+m_idx);
+	        System.out.println("c_grade="+c_grade);
 	        
 	        
 	        CommDto comm = new CommDto();
@@ -35,7 +40,7 @@ public class CommWriteProAction implements CommandProcess{
 	        comm.setId(id);
 	        comm.setC_content(c_content);
 	        comm.setM_idx(m_idx);
-	        /*comm.setC_grade(c_grade);*/
+	        comm.setC_grade(c_grade);
 	
 	        
 	        
@@ -50,6 +55,7 @@ public class CommWriteProAction implements CommandProcess{
 	        request.setAttribute("result", result);
 	        request.setAttribute("pageNum", pageNum);
 	        request.setAttribute("m_idx", m_idx);
+	        request.setAttribute("c_grade", c_grade);
 	        
 		} catch(Exception e) { 
 			System.out.println(e.getMessage()); 

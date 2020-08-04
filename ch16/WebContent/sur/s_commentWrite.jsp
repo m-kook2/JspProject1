@@ -32,9 +32,13 @@
 	</c:if>
 	<c:if test="${result == 0 }">
 		<script>
-			alert("비정상적인 접근입니다..");
+			alert("투표에 실패하였습니다.(DB ERROR)");
 			window.history.back();
 		</script>
 	</c:if>
+		<script>
+			alert("비정상적인 접근입니다. (RESULT NULL?)");
+			window.history.back();
+		</script>
 </body>
 </html>

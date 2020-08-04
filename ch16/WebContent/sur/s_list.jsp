@@ -9,12 +9,9 @@
 	<%@ include file="/inc/header.jsp"%>
 	<div class="container">
 		<div class="row">
-			<div class="col"></div>
-			<div class="col-sm text-center">
+			<div class="col-sm mx-auto text-center p-3">
 				<h2 class="text">설문 조사</h2>
-				<p>등록된 설문조사의 수 : ${totCnt }</p>
 			</div>
-			<div class="col-sm"></div>
 		</div>
 		<table class="table">
 			<tr>
@@ -28,23 +25,18 @@
 				<c:forEach var="sur" items="${list }">
 					<tr>
 						<td>${startNum }</td>
-						<td><a href="surveyContent.do?s_idx=${sur.s_idx }&pageNum=${pageNum }">${sur.s_sub }</a></td>
-						<td>${sur.s_sdate }~${sur.s_edate }</td>
+						<td><a
+							href="surveyContent.do?s_idx=${sur.s_idx }&pageNum=${pageNum }">${sur.s_sub }</a></td>
+						<td>${sur.s_sdate } ~ ${sur.s_edate }</td>
 						<td>${sur.commCnt }명</td>
-						<td>
-						<c:choose>
-						<c:when test="${sur.votable }">
-						<span style="color: green">
-						참여가 가능합니다.						
-						</span>
-						</c:when>
-						<c:when test="${!sur.votable }">
-						<span style="color: red">
-						참여가 불가능합니다.
-						</span>
-						</c:when>
-						</c:choose>
-						</td>
+						<td><c:choose>
+								<c:when test="${sur.votable }">
+									<span style="color: green"> 참여가 가능합니다. </span>
+								</c:when>
+								<c:when test="${!sur.votable }">
+									<span style="color: red"> 참여가 불가능합니다. </span>
+								</c:when>
+							</c:choose></td>
 					</tr>
 					<c:set var="startNum" value="${startNum -1 }"></c:set>
 				</c:forEach>
@@ -68,9 +60,12 @@
 			</div>
 		<c:if test="${sessionScope.status == 2 }">
 			<div class="row admin">
-			<form action="surveyWrite.do">
-				<button class="btn m-2 btn-primary mx-auto">설문조사 작성</button>
-			</form>
+				<div class="mx-auto">
+					<form action="surveyWrite.do">
+						<button class="btn m-2 btn-primary">설문조사 작성</button>
+					</form>
+									<p>등록된 설문조사의 수 : ${totCnt }</p>
+				</div>
 			</div>
 		</c:if>
 	</div>
