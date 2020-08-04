@@ -19,10 +19,10 @@
 	
 }
 input[type=button] {
- background-color: #17a2b8;
+ background-color: 	#fc863b;
   border: none;
-  color: white;
-  padding: 16px 32px;
+  color: black;
+  padding: 8px 10px;
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
@@ -38,7 +38,7 @@ input[type=button] {
 	<div class="container text-center">
 	<div class="row justify-content-center">
 <div class="form-group">
-		<h2><strong>의견 상세내역</strong></h2>
+		<h2 style="padding-bottom: 50px; margin-top: 50px;"><strong>의견 상세내역</strong></h2>
 		
 		<!-- CSViewAction에서 c_idx,pageNum, cs의 모든 정보를 받아옴 -->
 		<br/><img alt="csViewPhoto" src="./images/cs/hh.jpg" width="500">
@@ -77,7 +77,7 @@ input[type=button] {
 			<input type="button" value="답변작성"
 				onclick="location.href='csWriteForm.do?ref=${cs.ref }&c_idx=${cs.c_idx}&pageNum=${pageNum }'">
 		</c:if>
-
+		<p>
 		<input type="button" value="목록"
 			onclick="location.href='csList.do?pageNum=${pageNum }'">
 	</div>

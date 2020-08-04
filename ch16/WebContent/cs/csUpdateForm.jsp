@@ -18,10 +18,10 @@
 }
 
 input[type=submit], input[type=reset] {
-	background-color: #17a2b8;
+	background-color: #fc863b;
 	border: none;
-	color: white;
-	padding: 16px 32px;
+	color: black;
+	padding: 8px 10px;
 	text-decoration: none;
 	margin: 4px 2px;
 	cursor: pointer;
@@ -38,7 +38,7 @@ input[type=submit], input[type=reset] {
 			<!-- csView에서 c_idx, pageNum, cs의  모든 정보를 받아옴 -->
 			<form action="csUpdatePro.do" method="post">
 				<div class="form-group">
-							<h2><strong>글 수정</strong></h2>
+							<h2 style="padding-bottom: 50px; margin-top: 50px;"><strong>글 수정</strong></h2>
 							<br />
 							<img alt="csUpdatePhoto" src="./images/cs/jj.jpg" width="500">
 							<p>

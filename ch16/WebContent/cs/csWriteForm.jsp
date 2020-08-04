@@ -19,10 +19,10 @@
 	
 }
 input[type=submit], input[type=reset] {
- background-color: #17a2b8;
+ background-color: #fc863b;
   border: none;
-  color: white;
-  padding: 16px 32px;
+  color: black;
+  padding: 8px 10px;
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
@@ -41,7 +41,7 @@ input[type=submit], input[type=reset] {
 		<form action="csWritePro.do" method="get">
 		<!-- hidden으로  c_idx,pageNum, writer, ref, re_level, re_step 정보를 csWritePro.do에 보내줌 -->
 			<div class="form-group">
-				<h2><strong>관리자에게 의견 보내기</strong></h2>
+				<h2 style="padding-bottom: 50px; margin-top: 50px;"><strong>관리자에게 의견 보내기</strong></h2>
 				<br/><img alt="csWritePhoto" src="./images/cs/cs.jpg" width="500">
 				<p>
 
