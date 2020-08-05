@@ -7,8 +7,8 @@
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-<div class="container">
-	<h2>중앙정보처리학원</h2>
+<div class="container" style="margin-top: 50px;">
+	<h2 class="text-center">중앙정보처리학원</h2>
 	<div id="daumRoughmapContainer1596587706991" class="root_daum_roughmap root_daum_roughmap_landing"></div>
 	<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
 	

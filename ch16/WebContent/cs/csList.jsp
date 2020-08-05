@@ -6,12 +6,24 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp"%>
+<script>
+	function excelDown(){
+		document.frm.action="/csExcelDown.do";
+		document.frm.method="post";
+		document.frm.submit();
+	}
+</script>
 </head>
 <body>
 	<%@ include file="/inc/header.jsp"%>
 	<div style="margin-top: 30px"></div>
 	<div class="col-sm text-center">
 		<h2 class="text">고객 의견함</h2>
+		<c:if test="${sessionScope.status eq '2'}">
+		<form action="" name="frm">
+		<p><input type="button" value="엑셀 다운로드" onclick="excelDown();" style="float: right; margin-bottom: 10px;" /></p>
+		</form>
+		</c:if>
 		<table class="table">
 			<tr>
 				<td>번호</td>

@@ -260,4 +260,39 @@ public class CSDao {
 		}
 		return result;
 	}
+	
+	public List<CSDto> cslistExcelDown() throws SQLException {
+		List<CSDto> list = new ArrayList<CSDto>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from cs";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				CSDto cd = new CSDto();
+				cd.setC_idx(rs.getInt("c_idx"));
+				cd.setWriter(rs.getString("writer"));
+				cd.setSubject(rs.getString("subject"));
+				cd.setContent(rs.getString("content"));
+				cd.setReg_date(rs.getDate("reg_date"));
+				cd.setRef(rs.getInt("ref"));
+				cd.setRe_step(rs.getInt("re_step"));
+				cd.setRe_level(rs.getInt("re_level"));
+				list.add(cd);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return list;
+	}
 }
