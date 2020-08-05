@@ -18,15 +18,7 @@
 	float: light;
 	
 }
-input[type=submit], input[type=reset] {
- background-color: #fc863b;
-  border: none;
-  color: black;
-  padding: 8px 10px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-}
+
 </style>
 <%@ include file="/inc/top.jsp"%>
 </head>
