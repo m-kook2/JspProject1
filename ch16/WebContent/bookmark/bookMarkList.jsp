@@ -20,12 +20,12 @@
 	<div class="col-sm text-center">
 		<h2 class="text">즐겨찾기</h2>
 		<form action="" name="frm">
-		<p><input type="button" value="엑셀 다운로드" onclick="bookDown();" style="float: right; ; margin-bottom: 10px;" /></p>
+		<p><input type="button" value="엑셀 다운로드" onclick="bookDown();" style="float:left; margin-bottom: 10px;" /></p>
 		</form>
 		
 		<div class="bk_array" style="float: right">
 			<button type="button"
-				class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle"
+				class="btn btn-outline-primary btn-sm dropdown-toggle dropdown-toggle"
 				data-toggle="dropdown">정렬</button>
 			<div class="dropdown-menu">
 				<a class="dropdown-item" href="bookMarkList.do?str=1">개봉일</a> <a
