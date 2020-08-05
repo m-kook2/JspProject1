@@ -494,17 +494,17 @@ Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C
 Insert into J20200701.COMM (C_IDX,ID,C_CONTENT,C_SYMPATHY,C_UNSYMPATHY,C_GRADE,C_DATE,DEL_YN,M_IDX,STEP,DEP) values (10,'hongil3','여섯번째 게시물 댓글',100,20,8,to_date('20/07/28','RR/MM/DD'),'N',6,0,0);
 REM INSERTING into J20200701.MEMBER
 SET DEFINE OFF;
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('admin',1,'2468','email1@gmail.com','nickname2','남자','2020/07/01','N','2','who.jpg');
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil2',2,'2468','email2@gmail.com','nickname3','여자','2010/07/01','N','1','mangu.jpg');
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil3',3,'2468','email4@3gmail.com','nickname4','남자','2030/07/01','N','1','chulsu.jpg');
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil4',4,'2468','email5@gmail.com','nickname6','남자','2019/07/01','N','1','');
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil5',5,'2468','email6@gmail.com','nickname7','여자','2018/07/01','N','1','');
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil6',6,'2468','email6@gmail.com','nickname9','남자','2021/07/01','N','3','');
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil7',7,'2468','email8@gmail.com','nickname5','여자','2019/07/01','N','3','');
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil8',8,'2468','email9@gmail.com','nickname54','남자','2018/07/01','N','1','');
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil9',9,'2468','email@5gmail.com','nickname54','여자','2023/07/01','N','3','');
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil10',10,'2468','email75@gmail.com','nickname43','여자','2020/07/01','N','1','');
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil11',11,'2468','email@43gmail.com','nickname78','남자','2020/07/01','N','1','');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('admin',1,'2468','email1@gmail.com','nickname2','남자','2020/07/01','N','2','who.jpg','','');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil2',2,'2468','email2@gmail.com','nickname3','여자','2010/07/01','N','1','mangu.jpg','','');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil3',3,'2468','email4@3gmail.com','nickname4','남자','2030/07/01','N','1','chulsu.jpg','','');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil4',4,'2468','email5@gmail.com','nickname6','남자','2019/07/01','N','1','','','');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil5',5,'2468','email6@gmail.com','nickname7','여자','2018/07/01','N','1','','','');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil6',6,'2468','email6@gmail.com','nickname9','남자','2021/07/01','N','3','','','');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil7',7,'2468','email8@gmail.com','nickname5','여자','2019/07/01','N','3','','','');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil8',8,'2468','email9@gmail.com','nickname54','남자','2018/07/01','N','1','','','');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil9',9,'2468','email@5gmail.com','nickname54','여자','2023/07/01','N','3','','','');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil10',10,'2468','email75@gmail.com','nickname43','여자','2020/07/01','N','1','','','');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC) values ('hongil11',11,'2468','email@43gmail.com','nickname78','남자','2020/07/01','N','1','','','');
 REM INSERTING into J20200701.REVIEW
 SET DEFINE OFF;
 Insert into J20200701.REVIEW (P_IDX,P_TITLE,P_CONTENT,P_DATE,ID,M_IDX) values (1,'그린 북','비고 모텐슨, 마허샬라 알리 주연의 영화 #그린북 은 우리나라에서 2019년1월에 개봉한 웰메이드 드라마영화이다. 이 영화는 2019 아카데미 시상식에서 작품상을 수상하며 그 작품성을 인정받은 영화이다.',to_date('20/07/28','RR/MM/DD'),'admin',1);
