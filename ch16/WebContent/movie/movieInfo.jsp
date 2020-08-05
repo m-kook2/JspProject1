@@ -13,6 +13,56 @@
 <tr>
 영화번호 : ${mt.m_idx}<p><p>
 영화이름 : ${mt.m_name}<p>
+
+평점
+<div id="grade">
+	<div>
+		<c:if test="${comm2.m_grade  == 0 }">
+			<img alt="" src="images/grade/grade00_img.png" >
+			<b>0점</b>
+		</c:if>
+		<c:if test="${comm2.m_grade  == 1 }">
+			<img alt="" src="images/grade/grade01_img.png" >
+			<b>1점</b>
+		</c:if>
+		<c:if test="${comm2.m_grade  == 2 }">
+			<img alt="" src="images/grade/grade02_img.png" >
+			<b>2점</b>
+		</c:if>
+		<c:if test="${comm2.m_grade  == 3 }">
+			<img alt="" src="images/grade/grade03_img.png" >
+			<b>3점</b>
+		</c:if>
+		<c:if test="${comm2.m_grade  == 4 }">
+			<img alt="" src="images/grade/grade04_img.png">
+			<b>4점</b>
+		</c:if>
+		<c:if test="${comm2.m_grade  == 5 }">
+			<img alt="" src="images/grade/grade05_img.png">
+			<b>5점</b>
+		</c:if>
+		<c:if test="${comm2.m_grade  == 6 }">
+			<img alt="" src="images/grade/grade06_img.png">
+			<b>6점</b>
+		</c:if>
+		<c:if test="${comm2.m_grade  == 7 }">
+			<img alt="" src="images/grade/grade07_img.png">
+			<b>7점</b>
+		</c:if>
+		<c:if test="${comm2.m_grade  == 8 }">
+			<img alt="" src="images/grade/grade08_img.png">
+			<b>8점</b>
+		</c:if>
+		<c:if test="${comm2.m_grade  == 9 }">
+			<img alt="" src="images/grade/grade09_img.png">
+			<b>9점</b>
+		</c:if>
+		<c:if test="${comm2.m_grade  == 10 }">
+			<img alt="" src="images/grade/grade10_img.png">
+			<b>10점</b>
+		</c:if>
+	</div>
+
 영화장르 : ${mt.m_genre}<p>
 <fmt:parseDate value="${mt.m_date }" var="m_date_date" pattern="yyyy-MM-dd" />
 <fmt:formatDate value="${m_date_date}" var="m_date_string" pattern="yyyy-MM-dd"/>
