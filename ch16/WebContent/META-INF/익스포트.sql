@@ -9,6 +9,7 @@ DROP TABLE "J20200701"."MOVIE_INFO" cascade constraints;
 DROP TABLE "J20200701"."REVIEW" cascade constraints;
 DROP TABLE "J20200701"."SUR" cascade constraints;
 DROP TABLE "J20200701"."S_COMM" cascade constraints;
+DROP TABLE "J20200701"."CS" cascade constraints;
 --------------------------------------------------------
 --  DDL for Table BOARD
 --------------------------------------------------------
