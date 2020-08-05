@@ -136,6 +136,8 @@ public class MemberDao {
 				vo.setId(rs.getString("ID"));
 				vo.setIdx(rs.getInt("IDX"));
 				vo.setPassword(rs.getString("PASSWORD"));
+				vo.setZip(rs.getString("ZIP"));
+				vo.setAddr(rs.getString("ADDR"));
 				vo.setEmail(rs.getString("EMAIL"));
 				vo.setNickname(rs.getString("NICKNAME"));
 				vo.setGender(rs.getString("GENDER"));
@@ -187,7 +189,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update member set email=?, nickname=?, gender=?, pic=? where id=?, where zip=?, where addr=?";
+		String sql = "update member set email=?, nickname=?, gender=?, pic=?, zip=?, addr=? where id=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -195,9 +197,9 @@ public class MemberDao {
 			pstmt.setString(2, memberDto.getNickname());
 			pstmt.setString(3, memberDto.getGender());
 			pstmt.setString(4, memberDto.getPic());
-			pstmt.setString(5, memberDto.getId());
-			pstmt.setString(6, memberDto.getZip());
-			pstmt.setString(7, memberDto.getAddr());
+			pstmt.setString(5, memberDto.getZip());
+			pstmt.setString(6, memberDto.getAddr());
+			pstmt.setString(7, memberDto.getId());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

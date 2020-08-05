@@ -54,6 +54,7 @@
 		<div class="row justify-content-center">
 			<form action="memUpdatePro.do" name="f" method="post" enctype="multipart/form-data">
 				<div class="form-group">
+				<br/>
 					<h2><strong>회원정보 수정</strong></h2>
 					<br /> <img id="pm" alt="profilPhoto" src="./images/member/img/${sessionScope.pic}">
 					<p>
@@ -72,6 +73,11 @@
 						<label id="id2" for="chkpassword"><strong>비밀번호 확인</strong></label> 
 						<input type="password" style="text-align: center;" class="form-control" id="chkpassword" name="chkpassword">
 					<p>
+						<br /> 
+						<label id="id2" for="zip"><strong>주소</strong></label> 
+						<input type="text" style="text-align: center;" class="form-control" id="zip" name="zip" value="${sessionScope.zip }">
+						<input type="text" style="text-align: center;" class="form-control" id="addr" name="addr" value="${sessionScope.addr }">
+						<p>
 						<br /> 
 						<label id="id2" for="email"><strong>이메일 </strong></label> 
 						<input type="text" style="text-align: center;" class="form-control" id="email" name="email" value="${sessionScope.email }">
