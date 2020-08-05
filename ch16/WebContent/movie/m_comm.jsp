@@ -304,47 +304,52 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 			</tr>
 			<!-- 답글 부분 -->
 			<tr>
-				<td colspan="6">
+				<td colspan="5">
 					<div id="reply${comm.c_idx }" style="display:none;">
 						<c:forEach var="result" items="${slist }">
 							<c:if test="${comm.c_idx eq result.step}">
 								<table class="table">
-									<tr>	
-										<td colspan="1">
+									<tr>
+										<td width="100px">
+											
+										</td>	
+				
+										<td width="140px">
 											<img src='images/next.png'>
 										</td>	
-										<td colspan="1" style="padding-left: 5px">
+										<td width="100px" align="center" style="padding-top:50px ">
 											${sessionScope.id }
 										</td>	
-										<td colspan="1">
+										<td width="450px" align="center" style="padding-top:50px ">
 											${result.c_content}
 										</td>
-										<td colspan="1">
+										<td style="padding-top:50px ">
 											${result.c_date}
 										</td>
-										<td colspan="1">
+										<td style="padding-top:50px ">
 											<button class="btn m-2 btn-primary mx-auto"
-								onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'">삭제</button>
+								onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'">삭제</button>
 										</td>
-										<td colspan="1">
-											<!-- 공백 -->
+										<td width="80px">
+											
 										</td>
 									</tr>
 								</table>
 							</c:if>
 						</c:forEach>
-							<table class = table>
+							<!-- 답글 작성란  -->
+							<table class = table style="margin-top:10;" >
 							<tr>
-								<td>
+								<td colspan="2">
 									<img src='images/next.png'>
 								</td>
-								<td>
+								<td colspan="3">
 									${sessionScope.id }
 								</td>
 								<td>
 									<textarea id='content${comm.c_idx}' name='content${comm.c_idx}' rows='4' cols='50'></textarea>
 								</td>
-								<td>
+								<td colspan="1">
 									<input type="button" onclick="replySubmit('${comm.id}','${comm.m_idx }','${comm.c_idx}');" value="답글"/>
 								</td>
 							</tr>

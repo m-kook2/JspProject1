@@ -366,11 +366,12 @@ public class CommDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "delete from comm where c_idx=?";
+		String sql = "delete from comm where c_idx=? or step=? ";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, c_idx);
+			pstmt.setInt(2, c_idx);
 			result = pstmt.executeUpdate();
 
 		} catch (Exception e) {
