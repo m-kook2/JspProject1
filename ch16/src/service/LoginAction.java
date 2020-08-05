@@ -25,6 +25,8 @@ public class LoginAction implements CommandProcess {
 					session.setAttribute("id", list.get(i).getId());
 					session.setAttribute("idx", list.get(i).getIdx());
 					session.setAttribute("password", list.get(i).getPassword());
+					session.setAttribute("zip", list.get(i).getZip());
+					session.setAttribute("addr", list.get(i).getAddr());
 					session.setAttribute("email", list.get(i).getEmail());
 					session.setAttribute("nickname", list.get(i).getNickname());
 					session.setAttribute("gender", list.get(i).getGender());

@@ -20,17 +20,18 @@ public class MovieInfoAction implements CommandProcess {
 		try {
 			System.out.println("MovieInfoAction 시작");
 			String m_idx = request.getParameter("m_idx");
-			String pageNum = request.getParameter("pageNum");
+//			String pageNum = request.getParameter("pageNum");
 			MovieDao md = MovieDao.getInstance();
 			MovieDto mt = md.select(m_idx);
-			System.out.println(pageNum);
+//			System.out.println(pageNum);
 			System.out.println(m_idx);
 			System.out.println(mt);
 
 			request.setAttribute("m_idx", m_idx);
-			request.setAttribute("pageNum", pageNum);
+//			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("mt", mt);
-			int totCnt = cd.getTotalCnt();
+			int totCnt = cd.getTotalCnt2(m_idx);
+			int totCnt2 = cd.getTotalCnt3(m_idx);
 			String pageNum2 = request.getParameter("pageNum2");
 			if (pageNum2 == null || pageNum2.equals("")) {
 				pageNum2 = "1";
@@ -49,7 +50,19 @@ public class MovieInfoAction implements CommandProcess {
 				endPage = pageCnt;
 			CommDao cd2 = CommDao.getInstance();
 			CommDto comm2 = cd2.select(m_idx);
-			List<CommDto> slist = cd2.list2(startRow, endRow, m_idx, str);
+			
+			int currentPage2 = Integer.parseInt(pageNum2);
+			int pageSize2 = 10, blockSize2 = 10;
+			int startRow2 = (currentPage2 - 1) * pageSize2 + 1;
+			int endRow2 = startRow2 + pageSize2 - 1;
+			int startNum2 = totCnt2 - startRow2 + 1;
+			List<CommDto> slist = cd2.list2(startRow2, endRow2, m_idx, str);
+			int pageCnt2 = (int) Math.ceil((double) totCnt2 / pageSize2);
+			int startPage2 = (int) (currentPage2 - 1) / blockSize2 * blockSize2 + 1;
+			int endPage2 = startPage + blockSize2 - 1;
+			if (endPage2 > pageCnt2)
+				endPage2 = pageCnt2;
+			
 			request.setAttribute("totCnt", totCnt);
 			request.setAttribute("pageNum2", pageNum2);
 			request.setAttribute("currentPage", currentPage);
@@ -61,6 +74,17 @@ public class MovieInfoAction implements CommandProcess {
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
 			request.setAttribute("slist", slist);
+
+
+			request.setAttribute("totCnt2", totCnt2);
+			request.setAttribute("currentPage2", currentPage2);
+			request.setAttribute("startNum2", startNum2);
+			request.setAttribute("blockSize2", blockSize2);
+			request.setAttribute("pageCnt2", pageCnt2);
+			request.setAttribute("startPage2", startPage2);
+			request.setAttribute("endPage2", endPage2);
+
+			
 			System.out.println("-----------------------------------------------"); // /ch16/list.do
 			System.out.println("startNum-->" + startNum); // /ch16/list.do
 			System.out.println("totCnt-->" + totCnt); // /ch16/list.do
@@ -70,6 +94,17 @@ public class MovieInfoAction implements CommandProcess {
 			System.out.println("pageCnt-->" + pageCnt); // /ch16/list.do
 			System.out.println("startPage-->" + startPage); // /ch16/list.do
 			System.out.println("endPage-->" + endPage); // /ch16/list.do
+			
+			
+			
+			System.out.println("startNum2-->" + startNum); // /ch16/list.do
+			System.out.println("totCnt2-->" + totCnt); // /ch16/list.do
+			System.out.println("currentPage2-->" + currentPage); // /ch16/list.do
+			System.out.println("blockSize2-->" + blockSize); // /ch16/list.do
+			System.out.println("pageSize2-->" + pageSize); // /ch16/list.do
+			System.out.println("pageCnt2-->" + pageCnt); // /ch16/list.do
+			System.out.println("startPage2-->" + startPage); // /ch16/list.do
+			System.out.println("endPage2-->" + endPage); // /ch16/list.do
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

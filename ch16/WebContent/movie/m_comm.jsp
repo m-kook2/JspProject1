@@ -46,7 +46,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 			var p="p"+i;
 			if(document.getElementById(p).checked){
 				document.getElementById("start").value=document.getElementById(p).value;
-				alert(document.getElementById("start").value);
+				/* alert(document.getElementById("start").value); */
 				starChk=true;
 			}
 		}
@@ -158,18 +158,18 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 </div>
 	
 <!-- 댓글 부분 -->
-<div id="comment" >
+<div class="container">
 
 	<form name="write" method="post">
 		<input type="hidden" name="m_idx" id="m_idx" value="${m_idx }"/> 
 		<input type="hidden" name="id" id="id" value="${id }"/>
 		<input type="hidden" name="start" id="start" value=""/>
-		<table class="table" border="1" bordercolor="lightgray">
+		<table class="table" border="1" bordercolor="lightgray" >
 		<!-- 로그인 했을 경우만 댓글 작성가능 -->
 		<c:if test="${sessionScope.id !=null}">
 			<tr>
 				<!-- 아이디-->
-				<td>
+				<td colspan="1">
 					<div>${id}</div>
 					<div>
 						<span class="star-input">
@@ -203,18 +203,18 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					</div>
 				</td>
 				<!-- 본문 작성-->
-				<td>
+				<td colspan="3">
 					<div>
-						<textarea id="c_content" name="c_content" rows="4" cols="150"></textarea>
+						<textarea id="c_content" name="c_content" rows="4" cols="100"></textarea>
 					</div>
 				</td>
 				<!-- 댓글 등록 버튼 -->
-				<td>
+				<td colspan="1">
 					<div id="btn" style="text-align: center;">
 							<input type="hidden" name="s_m_idx" id="s_m_idx" value=""/>
 							<input type="hidden" name="c_grade" id="c_grade" value=""/>
 							<input type="hidden" name="c_content" id="c_content" value=""/>
-						<input type="button" onclick="chek();" value="작성">
+						<input type="button" class="btn m-2 btn-primary mx-auto" onclick="chek();" value="작성">
 					</div>
 				</td>
 			</tr>
@@ -224,7 +224,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		<c:forEach var="comm" items="${list }">
 			<tr>
 				<!-- 아이디, 작성날짜 -->
-				<td>
+				<td colspan="1">
 					<div>
 						${comm.id}<br>
 					</div>
@@ -280,7 +280,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					</div>
 				</td>
 				<!-- 본문내용 -->
-				<td colspan="2">
+				<td colspan="3">
 					<div class="text_wrapper">
 						<c:if test="${comm.del_yn == 'Y'}">
 							삭제된글
@@ -297,21 +297,67 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 						</c:if>
 					</div>
 				</td>
+				<td colspan="1">
+					<button class="btn m-2 btn-primary mx-auto"
+								onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'">삭제</button>
+				</td>
 			</tr>
+			<!-- 답글 부분 -->
 			<tr>
-				<td colspan="3">
+				<td colspan="5">
 					<div id="reply${comm.c_idx }" style="display:none;">
 						<c:forEach var="result" items="${slist }">
 							<c:if test="${comm.c_idx eq result.step}">
-								${result.c_content}<br/>
+								<table class="table">
+									<tr>
+										<td width="100px">
+											
+										</td>	
+				
+										<td width="140px">
+											<img src='images/next.png'>
+										</td>	
+										<td width="100px" align="center" style="padding-top:50px ">
+											${sessionScope.id }
+										</td>	
+										<td width="450px" align="center" style="padding-top:50px ">
+											${result.c_content}
+										</td>
+										<td style="padding-top:50px ">
+											${result.c_date}
+										</td>
+										<td style="padding-top:50px ">
+											<button class="btn m-2 btn-primary mx-auto"
+								onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'">삭제</button>
+										</td>
+										<td width="80px">
+											
+										</td>
+									</tr>
+								</table>
 							</c:if>
 						</c:forEach>
-						<textarea id='content${comm.c_idx}' name='content${comm.c_idx}' rows='4' cols='100'></textarea>
-						<input type="button" onclick="replySubmit('${comm.id}','${comm.m_idx }','${comm.c_idx}');" value="답글"/>
+							<!-- 답글 작성란  -->
+							<table class = table style="margin-top:10;" >
+							<tr>
+								<td colspan="2">
+									<img src='images/next.png'>
+								</td>
+								<td colspan="3">
+									${sessionScope.id }
+								</td>
+								<td>
+									<textarea id='content${comm.c_idx}' name='content${comm.c_idx}' rows='4' cols='50'></textarea>
+								</td>
+								<td colspan="1">
+									<input type="button" onclick="replySubmit('${comm.id}','${comm.m_idx }','${comm.c_idx}');" value="답글"/>
+								</td>
+							</tr>
+						</table>
 					</div>
 				</td>
 			</tr>
-		</c:forEach>
+			</c:forEach>
 		</table>
 	</form>	
 	<form name="sfrm" method="post">
@@ -319,9 +365,10 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		<input type="hidden" name="s_m_idx" id="s_m_idx" value=""/>
 		<input type="hidden" name="s_step" id="s_step" value=""/>
 		<input type="hidden" name="s_content" id="s_content" value=""/>
+		<input type="hidden" name="id" id="id" value="${sessionScope.id }"/>
 	</form>	
 	<div id="s_comm" style="display:none;">
-		<!-- 댓글 목록 -->
+		<%-- <!-- 댓글 목록 -->
 		<table>
 		<c:forEach var="comm" items="${list }">
 			<tr>
@@ -329,8 +376,8 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 				<td>
 					<div>
 						${comm.id}<br>
-						<%-- ${comm.c_date} --%>
-						<%-- <font size="2" color="lightgray">${comment.comment_date}</font> --%>
+						${comm.c_date}
+						<font size="2" color="lightgray">${comment.comment_date}</font>
 					</div>
 						<div>
 						${comm.c_date }
@@ -371,9 +418,8 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 						</c:if>
 						<!-- 댓글 작성자만 수정, 삭제 가능하도록 -->
 						<c:if test="${sessionScope.id == comm.id}">
-							<%-- <c:if test="${comment.comment_id == sessionScope.sessionID}"> --%>
-							<button class="btn m-2 btn-primary mx-auto"
-								onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'">삭제</button>
+							<c:if test="${comment.comment_id == sessionScope.sessionID}">
+							
 							<br>
 						</c:if>
 					</div>
@@ -381,7 +427,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 			</tr>
 
 		</c:forEach>
-		</table>
+		</table> --%>
 							
 		<%-- <c:if test="${sessionScope.id !=null}">			
 			<form action="commwritePro.do" name="write">
@@ -433,5 +479,17 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					</div>
 				</td> --%>
 		<%-- </c:if>  --%>
+		<div class="text-center">
+					<c:if test="${startPage > blockSize }">
+						<a href='movieInfo.do?pageNum2=${startPage-blockSize}&m_idx=${m_idx}'>[이전]</a>
+					</c:if>
+					<c:forEach var="i" begin="${startPage}" end="${endPage}">
+						<a href='movieInfo.do?pageNum2=${i }&m_idx=${m_idx}'>[${i}]</a>
+					</c:forEach>
+					<c:if test="${endPage > pageCnt }">
+						<a href='movieInfo.do?pageNum2=${startPage+blockSize }&m_idx=${m_idx}'>[다음]</a>
+					</c:if>
+
+		</div>		
 </body>
 </html>

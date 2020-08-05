@@ -19,11 +19,11 @@ public class ScommWriteProAction implements CommandProcess{
 		 	request.setCharacterEncoding("utf-8"); 
 	        /*String pageNum = request.getParameter("pageNum");
 	        System.out.println("pageNum"+pageNum);*/
-	        String id =request.getParameter("s_id");
+	        /*String id =request.getParameter("s_id");*/
 	        String c_content= request.getParameter("s_content");
 	        int step = Integer.parseInt(request.getParameter("s_step"));
 	        int m_idx = Integer.parseInt(request.getParameter("s_m_idx"));
-	       
+	        String id = request.getParameter("id");
 	        
 	        
 	        

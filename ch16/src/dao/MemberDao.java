@@ -44,7 +44,7 @@ public class MemberDao {
 		ResultSet rs = null;
 		int number = 0;
 		String sql1 = "select nvl(max(idx),0) from member";
-		String sql = "insert into member values(?,?,?,?,?,?,sysdate,'N','1',?)";
+		String sql = "insert into member values(?,?,?,?,?,?,sysdate,'N','1',?,?,?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql1);
@@ -68,6 +68,8 @@ public class MemberDao {
 				pstmt.setString(5, memberVO.getNickname());
 				pstmt.setString(6, memberVO.getGender());
 				pstmt.setString(7, memberVO.getPic());
+				pstmt.setString(8, memberVO.getZip());
+				pstmt.setString(9, memberVO.getAddr());
 				result = pstmt.executeUpdate();
 				pstmt.close();
 			}
@@ -134,6 +136,8 @@ public class MemberDao {
 				vo.setId(rs.getString("ID"));
 				vo.setIdx(rs.getInt("IDX"));
 				vo.setPassword(rs.getString("PASSWORD"));
+				vo.setZip(rs.getString("ZIP"));
+				vo.setAddr(rs.getString("ADDR"));
 				vo.setEmail(rs.getString("EMAIL"));
 				vo.setNickname(rs.getString("NICKNAME"));
 				vo.setGender(rs.getString("GENDER"));
@@ -185,7 +189,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update member set email=?, nickname=?, gender=?, pic=? where id=?";
+		String sql = "update member set email=?, nickname=?, gender=?, pic=?, zip=?, addr=? where id=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -193,7 +197,9 @@ public class MemberDao {
 			pstmt.setString(2, memberDto.getNickname());
 			pstmt.setString(3, memberDto.getGender());
 			pstmt.setString(4, memberDto.getPic());
-			pstmt.setString(5, memberDto.getId());
+			pstmt.setString(5, memberDto.getZip());
+			pstmt.setString(6, memberDto.getAddr());
+			pstmt.setString(7, memberDto.getId());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

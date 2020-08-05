@@ -180,7 +180,7 @@ public class CommDao {
 		ResultSet rs = null;
 		String sql1 = "select nvl(max(c_idx),0) from comm";
 
-		String sql = "Insert into comm values (?,?,?,0,0,0,sysdate,'N',?,?,1)";
+		String sql = "Insert into comm values (?,?,?,0,0,null,sysdate,'N',?,?,1)";
 		System.out.println("test insert" + sql);
 		try {
 			conn = getConnection();
@@ -301,7 +301,7 @@ public class CommDao {
 		// mysql select * from board order by num desc limit startPage-1,10;
 		String sql = "select * from (select * from (select rownum rn ,a.* from "
 				+ " (select * from comm where m_idx = ?) a )"
-				+ " where rn between ? and ?) where 1=1 and dep=1";
+				+ " ) where 1=1 and dep=1";
 		
 		/*String sql2="select m_idx ,avg(c_grade) m_grade "
 				+ "from comm  "
@@ -327,8 +327,8 @@ public class CommDao {
 			pstmt = conn.prepareStatement(buf.toString());
 			/*pstmt2 = conn.prepareStatement(sql2);*/
 			pstmt.setString(1, m_idx);
-			pstmt.setInt(2, startRow);
-			pstmt.setInt(3, endRow);
+			//pstmt.setInt(2, startRow);
+			//pstmt.setInt(3, endRow);
 			/*pstmt2.setString(1, m_idx);*/
 			rs = pstmt.executeQuery();
 			/*rs2= pstmt.executeQuery();*/
@@ -366,11 +366,12 @@ public class CommDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "delete from comm where c_idx=?";
+		String sql = "delete from comm where c_idx=? or step=? ";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, c_idx);
+			pstmt.setInt(2, c_idx);
 			result = pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -488,4 +489,57 @@ public class CommDao {
 		}
 		return list;
 	}
+	
+	// 영화댓글 전체카운트
+		public int getTotalCnt2(String m_idx) throws SQLException {
+			Connection conn = null;
+			Statement stmt = null;
+			ResultSet rs = null;
+			int tot = 0;
+			String sql = "select count(*) from comm where m_idx="+m_idx+ "and dep = 0";
+			try {
+				conn = getConnection();
+				stmt = conn.createStatement();
+				rs = stmt.executeQuery(sql);
+				if (rs.next()) {
+					tot = rs.getInt(1);
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			} finally {
+				if (rs != null)
+					rs.close();
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
+			}
+			return tot;
+		}
+		// 영화답글 전체카운트
+		public int getTotalCnt3(String m_idx) throws SQLException {
+			Connection conn = null;
+			Statement stmt = null;
+			ResultSet rs = null;
+			int tot = 0;
+			String sql = "select count(*) from comm where m_idx="+m_idx+ "and dep = 1";
+			try {
+				conn = getConnection();
+				stmt = conn.createStatement();
+				rs = stmt.executeQuery(sql);
+				if (rs.next()) {
+					tot = rs.getInt(1);
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			} finally {
+				if (rs != null)
+					rs.close();
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
+			}
+			return tot;
+		}
 }
