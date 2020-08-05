@@ -189,17 +189,16 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update member set email=?, nickname=?, gender=?, pic=?, zip=?, addr=? where id=?";
+		String sql = "update member set email=?, nickname=?, pic=?, zip=?, addr=? where id=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memberDto.getEmail());
 			pstmt.setString(2, memberDto.getNickname());
-			pstmt.setString(3, memberDto.getGender());
-			pstmt.setString(4, memberDto.getPic());
-			pstmt.setString(5, memberDto.getZip());
-			pstmt.setString(6, memberDto.getAddr());
-			pstmt.setString(7, memberDto.getId());
+			pstmt.setString(3, memberDto.getPic());
+			pstmt.setString(4, memberDto.getZip());
+			pstmt.setString(5, memberDto.getAddr());
+			pstmt.setString(6, memberDto.getId());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -260,6 +259,8 @@ public class MemberDao {
 				dto.setPassword(rs.getString("PASSWORD"));
 				dto.setEmail(rs.getString("EMAIL"));
 				dto.setNickname(rs.getString("NICKNAME"));
+				dto.setZip(rs.getString("ZIP"));
+				dto.setAddr(rs.getString("ADDR"));
 				dto.setGender(rs.getString("GENDER"));
 				dto.setReg_date(rs.getString("REG_DATE"));
 				dto.setDel_yn(rs.getString("DEL_YN"));
@@ -297,6 +298,8 @@ public class MemberDao {
 				dto.setPassword(rs.getString("PASSWORD"));
 				dto.setEmail(rs.getString("EMAIL"));
 				dto.setNickname(rs.getString("NICKNAME"));
+				dto.setZip(rs.getString("ZIP"));
+				dto.setAddr(rs.getString("ADDR"));
 				dto.setGender(rs.getString("GENDER"));
 				dto.setReg_date(rs.getString("REG_DATE"));
 				dto.setDel_yn(rs.getString("DEL_YN"));
@@ -321,7 +324,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update member set email=?, nickname=?, gender=?, status=?, del_yn=? where id=?";
+		String sql = "update member set email=?, nickname=?, gender=?, status=?, del_yn=?, pic=?, zip=?, addr=? where id=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -330,7 +333,10 @@ public class MemberDao {
 			pstmt.setString(3, memberDto.getGender());
 			pstmt.setString(4, memberDto.getStatus());
 			pstmt.setString(5, memberDto.getDel_yn());
-			pstmt.setString(6, memberDto.getId());
+			pstmt.setString(6, memberDto.getPic());
+			pstmt.setString(7, memberDto.getZip());
+			pstmt.setString(8, memberDto.getAddr());
+			pstmt.setString(9, memberDto.getId());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

@@ -74,8 +74,11 @@
 						<input type="password" style="text-align: center;" class="form-control" id="chkpassword" name="chkpassword">
 					<p>
 						<br /> 
-						<label id="id2" for="zip"><strong>주소</strong></label> 
+						<label id="id2" for="zip"><strong>우편번호</strong></label> 
 						<input type="text" style="text-align: center;" class="form-control" id="zip" name="zip" value="${sessionScope.zip }">
+						<p>
+						<br /> 
+						<label id="id2" for="addr"><strong>주소</strong></label> 
 						<input type="text" style="text-align: center;" class="form-control" id="addr" name="addr" value="${sessionScope.addr }">
 						<p>
 						<br /> 
@@ -88,11 +91,9 @@
 						<br /> <label for="gender"><strong>성별</strong> </label>
 					<div class="form-check-inline">
 						<label class="form-check-label" for="gender"> 남</label>
-						<input type="radio"  class="form-check-input" id="gender" name="gender" value="M" disabled="disabled" checked>
-					</div>
-					<div class="form-check-inline">
+						<input type="radio"  class="form-check-input" id="gender" name="gender" value="남자" ${sessionScope.gender eq '남자'?"checked='checked'":'' } disabled="disabled" >
 						<label class="form-check-label" for="gender"> 여</label>
-						<input type="radio" class="form-check-input" id="gender" name="gender" value="W" disabled="disabled" checked>
+						<input type="radio" class="form-check-input" id="gender" name="gender" value="여자" ${sessionScope.gender eq '여자'?"checked='checked'":'' } disabled="disabled" >
 					</div>
 				</div>
 				<br />

@@ -66,7 +66,7 @@ public class MemUpdateProAction implements CommandProcess {
 		vo.setEmail(email);
 		vo.setNickname(nickname);
 		vo.setGender(gender);
-		vo.setPic(new String(filename.getBytes("iso-8859-1"), "utf-8"));
+		vo.setPic(filename);
 
 		
 		try {

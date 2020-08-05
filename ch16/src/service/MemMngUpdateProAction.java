@@ -20,6 +20,8 @@ public class MemMngUpdateProAction implements CommandProcess {
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		String nickname = request.getParameter("nickname");
+		String zip = request.getParameter("zip");
+		String addr = request.getParameter("addr");
 		String gender = request.getParameter("gender");
 		String status = request.getParameter("status");
 		String del_yn = request.getParameter("del_yn");
@@ -30,6 +32,8 @@ public class MemMngUpdateProAction implements CommandProcess {
 		dto.setPassword(password);
 		dto.setEmail(email);
 		dto.setNickname(nickname);
+		dto.setZip(zip);
+		dto.setAddr(addr);
 		dto.setGender(gender);
 		dto.setStatus(status);
 		dto.setDel_yn(del_yn);

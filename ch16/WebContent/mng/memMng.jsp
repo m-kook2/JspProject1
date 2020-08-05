@@ -25,7 +25,9 @@
 	      	<th>번호</th> 
 			<th>아이디</th>
 			<th>이메일</th>
-			<th>닉네임</th>	
+			<th>닉네임</th>
+			<th>우편번호</th>
+			<th>주소</th>	
 			<th>성별</th>
 			<th>가입날짜</th>
 			<th>회원상태</th>
@@ -41,6 +43,8 @@
 					</td>
 					<td>${mng.email }</td>
 					<td>${mng.nickname }</td>
+					<td>${mng.zip }</td>
+					<td>${mng.addr }</td>
 					<td>${mng.gender }</td>
 					<td>${mng.reg_date }</td>
 					<td>${mng.status }</td>

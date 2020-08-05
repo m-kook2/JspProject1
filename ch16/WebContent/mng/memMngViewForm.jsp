@@ -106,6 +106,22 @@ function reg() {
 	</div>
 	<div class="row">
 		<div class="col-25">
+	      <label for="zip">우편번호:</label>
+	    </div>
+	    <div class="col-75">
+	      <input type="text" id="zip" name="zip" value="${result.zip }">
+	    </div>
+	</div>
+	<div class="row">
+		<div class="col-25">
+	      <label for="addr">주소:</label>
+	    </div>
+	    <div class="col-75">
+	      <input type="text" id="addr" name="addr" value="${result.addr }">
+	    </div>
+	</div>
+	<div class="row">
+		<div class="col-25">
 	      <label for="nickname">이메일:</label>
 	    </div>
 	    <div class="col-75">
