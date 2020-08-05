@@ -1,5 +1,4 @@
 package service;
-import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Enumeration;
@@ -16,13 +15,17 @@ import util.FileUtil;
 public class MemInsertAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request,
 		HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8"); 
+		response.setCharacterEncoding("utf-8");
 		String saveDirectory ="C:/Users/user/git/jspProject/ch16/WebContent/images/member/img/";
 		MultipartRequest mp = new MultipartRequest(request, saveDirectory);
-		String id = mp.getParameter("id");
-		String password = mp.getParameter("password");
-		String email = mp.getParameter("email");
-		String nickname = mp.getParameter("nickname");
-		String gender = mp.getParameter("gender");
+		String id = new String(mp.getParameter("id").getBytes("iso-8859-1"), "utf-8");
+		String password = new String(mp.getParameter("password").getBytes("iso-8859-1"), "utf-8");
+		String postcode = new String(mp.getParameter("postcode").getBytes("iso-8859-1"), "utf-8");
+		String roadAddress = new String(mp.getParameter("roadAddress").getBytes("iso-8859-1"), "utf-8");
+		String email = new String(mp.getParameter("email").getBytes("iso-8859-1"), "utf-8");
+		String nickname = new String(mp.getParameter("nickname").getBytes("iso-8859-1"), "utf-8");
+		String gender = new String(mp.getParameter("gender").getBytes("iso-8859-1"), "utf-8");
 		
 		FileUtil fu = new FileUtil();
 		fu.filUpload(request, saveDirectory);
@@ -44,10 +47,12 @@ public class MemInsertAction implements CommandProcess {
 		MemberDto vo = new MemberDto();
 		vo.setId(id);
 		vo.setPassword(password);
+		vo.setZip(postcode);
+		vo.setAddr(roadAddress);
 		vo.setEmail(email);
 		vo.setNickname(nickname);
 		vo.setGender(gender);
-		vo.setPic(filename);
+		vo.setPic(new String(filename.getBytes("iso-8859-1"), "utf-8"));
 		//vo.setFileName(filename);
 		MemberDao mem = MemberDao.getInstance();
 		

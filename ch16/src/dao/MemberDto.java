@@ -11,7 +11,25 @@ public class MemberDto {
 	private String del_yn;
 	private String status;
 	private String pic;
+	private String zip;
+	private String addr;
 	
+	public String getZip() {
+		return zip;
+	}
+
+	public void setZip(String zip) {
+		this.zip = zip;
+	}
+
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+
 	public String getPic() {
 		return pic;
 	}

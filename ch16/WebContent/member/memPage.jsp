@@ -269,7 +269,10 @@ p {
 		<br/>
 	<br/><p>
 	<br/><p>
-	<h2><strong><span style="color: red;">사</span><span style="color: orange;">용</span><span style="color: #FFC81E;">할</span> <span style="color: green;">메</span><span style="color: blue;">뉴</span><span style="color: Indigo;">를</span> <span style="color: violet;">눌</span><span style="color: red;">러</span><span style="color: orange;">주</span><span style="color: #FFC81E;">세</span>요.</strong></h2>
+	<h2><strong><span style="color: red;">사</span><span style="color: orange;">용</span><span style="color: #FFC81E;">할</span> 
+	<span style="color: green;">메</span><span style="color: blue;">뉴</span><span style="color: Indigo;">를</span> 
+	<span style="color: violet;">눌</span><span style="color: red;">러</span>
+	<span style="color: orange;">주</span><span style="color: #FFC81E;">세</span>요.</strong></h2>
 	<br/><p>
 		<br/>
 		<br/>
@@ -303,18 +306,7 @@ p {
             <table id='snakeTable'>
             </table>
         </div>
-        <div class='center'>
-            <table id='controller'>
-                <tr>
-                    <td></td><td id='up_btn' class='btn' data-key='up'>△</td><td></td>
-                </tr>
-                <tr>
-                    <td id='left_btn' class='btn' data-key='left'>◁</td><td></td><td id='right_btn' class='btn' data-key='right'>▷</td>
-                </tr>
-                <tr>
-                    <td></td><td id='down_btn' class='btn' data-key='down'>▽</td><td></td>
-                </tr>
-            </table>
+       
 	 <br/><br/>
 	<br/><br/>
 	<br/><br/>

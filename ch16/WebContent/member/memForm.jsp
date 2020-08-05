@@ -14,9 +14,10 @@
 	}
 	#chk{
 		width: 35%;
-		float: left;
+		float: right;
 		text-align: reft;
 	}
+	
 </style>
 <script>
 function daumPost(){
@@ -161,10 +162,11 @@ function daumPost(){
 			<br/>
 					<h2>회원가입 </h2>
 					<div class="form-group">
-						<!-- <label for="id">아이디</label> -->
-						<input type="text" id="id" class="form-control" name="id" placeholder="아이디"> 
-						<input type="button" class="btn btn-secondary" id="chk" value="중복확인" />
-						<span id="msg"></span>
+							<!-- <label for="id">아이디</label> --><div>
+							<input type="text" id="id" class="form-control" name="id" placeholder="아이디"> 
+							<input type="button" class="btn btn-secondary" id="chk" value="중복확인" />
+							<b id="msg" style=" position: absolute; left: 1150px;"></b>
+						</div>
 					</div>
 					<p>
 					<br/>
@@ -179,9 +181,9 @@ function daumPost(){
 					<p>
 					<div class="form-group">
 						<!-- <label for="id">우편번호</label> -->
-						<input type="text" id="postcode" placeholder="우편번호">
-						<input type="button" onclick="daumPost();" value="우편번호 찾기">
-						<input type="text" id="roadAddress" placeholder="도로명주소">
+						<input type="text" id="postcode" name="postcode" placeholder="우편번호">
+						<input type="button" onclick="daumPost();" value="우편번호 찾기"><br/>
+						<input type="text" id="roadAddress" name="roadAddress" placeholder="도로명주소">
 					</div>
 					<div class="form-group">
 						<!-- <label for="email">이메일</label>  -->
