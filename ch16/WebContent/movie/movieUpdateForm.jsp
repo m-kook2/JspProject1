@@ -84,7 +84,7 @@
 			포스터<br>
 			<c:choose>
 				<c:when test="${not empty mt.m_poster}">
-					${mt.m_poster}<a href="movieDelete.do?m_poster=${mt.m_poster}">삭제하기</a><hr>
+					${mt.m_poster}<a href="MovieDeleteForm.do?m_poster=${mt.m_poster}">삭제하기</a><hr>
 					<input class="form-control" type="hidden" id="m_poster" name="m_poster" value="${mt.m_poster}" accept="image/*" required="required"><hr>
 				</c:when>
 				<c:otherwise>
