@@ -42,7 +42,10 @@ $(document).ready(function() {
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link text-warning" href="surveyList.do">설문조사</a>
-	      </li>    
+	      </li>  
+	      <li class="nav-item">
+	        <a class="nav-link text-warning" href="location.do">오시는길</a>
+	      </li>   
 	    </ul>
 	</div>  
 	<div class="flex-grow-1">

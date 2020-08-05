@@ -21,7 +21,7 @@
 				<c:forEach var="mt" items="${list }">
 					<div class="col-3 mt-1">
 						<a href="movieInfo.do?m_idx=${mt.m_idx }&pageNum=${currentPage}">
-							<img src="./images/main/photo/${mt.m_photo}" />
+							<img src="./images/main/photo/${mt.m_poster}" />
 						</a>
 					</div>
 					<c:set var="startNum" value="${startNum-1 }"></c:set>
