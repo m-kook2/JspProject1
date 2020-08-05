@@ -47,8 +47,8 @@ public class BookmarkDao {
 		// 다시 말해 where절까지 만족시킨 자료에 1부터 붙는 순번이다
 		String sql = "select * from (select *" + "		 from (select rownum rn, a.*"
 				+ "		       from (select bk.id, bk.m_idx, bk.idx, bk.reg_date, mi.m_name, mi.m_photo, mi.m_genre, mi.m_date"
-				+ "		             from book_mind bk, movie_info mi" + "		             where bk.m_idx = mi.m_idx"
-				+ "		             AND bk.id = ?) a )" + "		 where rn between ? and ?) where 1=1 ";
+				+ "		             from book_mind bk, movie_info mi where bk.m_idx = mi.m_idx"
+				+ "		             AND bk.id = ?) a ) where rn between ? and ?) where 1=1 ";
 
 		// where 1=1은 참을 의미하고 where 1=2는 거짓을 의미한다
 		// where 1=1을 붙이지 않으면 조건이 성립되지않는다고 오류가 뜰 수 있기 때문에 일반적으로 붙여준다
@@ -177,4 +177,37 @@ public class BookmarkDao {
 		}
 		return result;
 	}
+	
+	public List<BookmarkDto> bdExcelDown(String id) throws SQLException {
+		List<BookmarkDto> list = new ArrayList<BookmarkDto>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "select bm.id, mi.m_name, mi.m_genre, mi.m_date from book_mind bm, movie_info mi where bm.m_idx = mi.m_idx and bm.id=?";
+		ResultSet rs = null;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				BookmarkDto bd = new BookmarkDto();
+				bd.setId(rs.getString("id"));
+				bd.setM_name(rs.getString("m_name"));
+				bd.setM_genre(rs.getString("m_genre"));
+				bd.setM_date(rs.getDate("m_date"));
+				list.add(bd);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return list;
+	}
+	
 }

@@ -6,12 +6,22 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp"%>
+<script>
+	function bookDown() {
+		document.frm.action="/bookExcelDown.do";
+		document.frm.method="post";
+		document.frm.submit();
+	}
+</script>
 </head>
 <body>
 	<%@ include file="/inc/header.jsp"%>
 	<div style="margin-top: 30px"></div>
 	<div class="col-sm text-center">
 		<h2 class="text">즐겨찾기</h2>
+		<form action="" name="frm">
+		<p><input type="button" value="엑셀 다운로드" onclick="bookDown();" style="float: right; margin-bottom: 10px;" /></p>
+		</form>
 
 		<div class="bk_array" style="float: right">
 			<button type="button"
