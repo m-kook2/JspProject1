@@ -10,13 +10,10 @@
 #id2{
 	width: 140px;
 	float: left;
-	
 }
-
 .form-control{
 	width: 150px;
 	float: light;
-	
 }
 </style>
 <script type="text/javascript">
