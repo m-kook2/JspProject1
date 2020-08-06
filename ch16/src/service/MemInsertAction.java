@@ -17,7 +17,8 @@ public class MemInsertAction implements CommandProcess {
 		HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8"); 
 		response.setCharacterEncoding("utf-8");
-		String saveDirectory ="C:/개발프로그랜util/egovframework/3.7/eGovFrameDev-3.7.0-64bit/workspace/jspProject/ch16/WebContent/images/member/img/";
+		String saveDirectory =request.getServletContext().getRealPath("/images/member/img/");
+		//String saveDirectory ="C:/개발프로그랜util/egovframework/3.7/eGovFrameDev-3.7.0-64bit/workspace/jspProject/ch16/WebContent/images/member/img/";
 		MultipartRequest mp = new MultipartRequest(request, saveDirectory);
 		String id = new String(mp.getParameter("id").getBytes("iso-8859-1"), "utf-8");
 		String password = new String(mp.getParameter("password").getBytes("iso-8859-1"), "utf-8");
