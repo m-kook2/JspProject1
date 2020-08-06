@@ -79,7 +79,7 @@
 
 
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="즐겨찾기 추가"
-			    onclick="location.href='BookList.do'">
+			    onclick="location.href='bookMarkInsert.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
 <!-- 	<input class="btn m-2 btn-primary mx-auto" type="button" value="평점 및 댓글 추가"
 			    onclick="location.href='r_list.do'"> -->
 

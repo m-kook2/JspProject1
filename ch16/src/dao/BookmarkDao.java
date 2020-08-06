@@ -210,4 +210,37 @@ public class BookmarkDao {
 		return list;
 	}
 	
+	public int insert(int m_idx, String id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		ResultSet rs = null;
+		String sql1 = "select max(idx) from book_mind";
+		String sql = "insert into book_mind values(?,?,?,sysdate)";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql1);
+			rs = pstmt.executeQuery();
+			rs.next();
+			int number = rs.getInt(1) + 1;
+			rs.close();
+			pstmt.close();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, m_idx);
+			pstmt.setInt(3, number);
+			result = pstmt.executeUpdate();
+					
+	}	catch (Exception e) {
+		System.out.println(e.getMessage());
+	} finally {
+		if (conn != null)
+			conn.close();
+		if (pstmt != null)
+			pstmt.close();
+		if (rs != null)
+			rs.close();
+	}
+	return result;
+	}	
 }
