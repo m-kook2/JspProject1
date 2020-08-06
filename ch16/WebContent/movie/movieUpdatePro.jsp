@@ -11,7 +11,7 @@
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
 		alert("수정 완료");
-		location.href="movieList.do";
+		location.href="movieInfo.do?m_idx=${m_idx }";
 	</script>
 </c:if>	
 <c:if test="${result == 0 }">
