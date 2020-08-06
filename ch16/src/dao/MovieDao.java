@@ -213,12 +213,12 @@ public class MovieDao {
 			pstmt.setString(13, movieDto.getId());
 			pstmt.setString(14, movieDto.getM_idx());
 			result = pstmt.executeUpdate();
-			System.out.println(movieDto.getId());
-			System.out.println(movieDto.getM_nation());
-			System.out.println(movieDto.getM_photo());
-			System.out.println(movieDto.getM_nation());
-			System.out.println(movieDto.getM_poster());
-			System.out.println("update result : " + result);
+			//System.out.println(movieDto.getId());
+			//System.out.println(movieDto.getM_nation());
+			//System.out.println(movieDto.getM_photo());
+			//System.out.println(movieDto.getM_nation());
+			//System.out.println(movieDto.getM_poster());
+			//System.out.println("update result : " + result);
 		} catch (Exception e) {
 			System.out.println("MovieDao update ERROR!!");
 			System.out.println(e.getMessage());
