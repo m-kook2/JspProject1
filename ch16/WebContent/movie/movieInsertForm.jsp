@@ -68,7 +68,7 @@
 			에고편<br>
 			<input class="form-control" type="text" name="m_video" id="m_video" placeholder="URL 주소(Youtube)를 복사하여 입력하세요." ><hr>
 			포스터<br>
-			<input class="form-control" type="file" name="m_poster" id="m_poster" accept="image/*" required="required"><hr>
+			<input class="form-control" type="file" name="m_poster" id="m_poster" accept="image/*"><hr>
 			<input type="reset" class="btn btn-danger" value="작성 취소">
 			<input class="btn btn-success" type="submit" value="작성 완료">
 	</form>
