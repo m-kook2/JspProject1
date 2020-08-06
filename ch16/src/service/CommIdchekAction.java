@@ -19,7 +19,7 @@ public class CommIdchekAction implements CommandProcess {
 	        String pageNum = request.getParameter("pageNum");
 	        int c_idx = Integer.parseInt(request.getParameter("c_idx"));
 	        int m_idx = Integer.parseInt(request.getParameter("m_idx"));
-	        String id = request.getParameter("id");
+	        String id = "/"+request.getParameter("id")+"/";
 	        int result =0;
 	    	CommDao cd = CommDao.getInstance();
 	        

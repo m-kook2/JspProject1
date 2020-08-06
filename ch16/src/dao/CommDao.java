@@ -410,12 +410,12 @@ public class CommDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update comm set c_unsympathy=c_unsympathy+1, overlap = concat(overlap,?,' ') where c_idx=?";
+		String sql = "update comm set c_unsympathy=c_unsympathy+1, overlap = concat(overlap,?) where c_idx=?";
 		System.out.println(sql);
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,id+"t");
+			pstmt.setString(1,id);
 			pstmt.setInt(2, c_idx);
 			result = pstmt.executeUpdate();
 			pstmt.close();
