@@ -116,6 +116,7 @@ public class MovieUpdateProAction implements CommandProcess {
 		}
 		request.setAttribute("result", result);
 		request.setAttribute("m_idx", m_idx);
+
 		
 		return "movie/movieUpdatePro.jsp";
 	}
