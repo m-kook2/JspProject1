@@ -82,7 +82,7 @@ public class MovieUpdateProAction implements CommandProcess {
 			String filename1 = (String)en.nextElement(); 
 			System.out.println("filename1 : "+filename1);
 			if(filename1.equals("m_photo")) {
-				m_photo=StringUtil.NullToEmpty(mp.getFilesystemName(filename1));
+				m_photo=StringUtil.NullToEmpty(new String(mp.getFilesystemName(filename1).getBytes("iso-8859-1"), "utf-8"));
 				if(!m_photo.equals("")){
 					mt.setM_photo(m_photo);
 					FileUtil fu = new FileUtil();
@@ -95,7 +95,7 @@ public class MovieUpdateProAction implements CommandProcess {
 				}
 			}
 			if(filename1.equals("m_poster")) {
-				m_poster= StringUtil.NullToEmpty(mp.getFilesystemName(filename1));
+				m_poster= StringUtil.NullToEmpty(new String(mp.getFilesystemName(filename1).getBytes("iso-8859-1"), "utf-8"));
 				if(!m_poster.equals("")){
 					mt.setM_poster(m_poster);
 					FileUtil fu = new FileUtil();
