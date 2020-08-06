@@ -4,10 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>스네이크게임</title>
 <%@ include file="/inc/top.jsp"%>
-<title>Insert title here</title>
 </head>
 <body>
+
+<%@ include file="/inc/header.jsp"%>
 	<div class="container text-center">
 		<br />
 		<br />
@@ -16,6 +19,14 @@
 		<br />
 		<br />
 		<h1>환영한다.</h1>
+		<br />
+		<br />
+		<br />
+		<h1>게임을 시작하지.</h1>
+		<br />
+		<br />
+		<br />
+		<br />
 		<div class="container">
 			<!-- <label>Hard Mode</label> -->
 			<!-- <form action="miniHard.do" name="frm" class="btn btn-danger" value="하드모드"> -->
@@ -29,6 +40,10 @@
 			</form>
 		</div>
 	</div>
+	<br />
+		<br />
+		<br />
+		<br />
 	<%@ include file="/inc/footer.jsp"%>>
 </body>
 </html>

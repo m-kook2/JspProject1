@@ -285,6 +285,5 @@
             </table>
         </div>
 	</div>
-<%@ include file="/inc/footer.jsp"%>>
 </body>
 </html>
