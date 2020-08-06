@@ -11,6 +11,16 @@ public class BookmarkDto {
 	private String m_name;
 	private String m_genre;
 	private Date m_date;
+	private String m_poster;
+
+
+	public String getM_poster() {
+		return m_poster;
+	}
+
+	public void setM_poster(String m_poster) {
+		this.m_poster = m_poster;
+	}
 
 	public String getM_photo() {
 		return m_photo;

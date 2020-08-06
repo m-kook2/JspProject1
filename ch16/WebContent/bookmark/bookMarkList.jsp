@@ -16,16 +16,17 @@
 </head>
 <body>
 	<%@ include file="/inc/header.jsp"%>
-	<div style="margin-top: 30px"></div>
+	<div class="container">
+	<div style="margin-top: 30px;"></div>
 	<div class="col-sm text-center">
 		<h2 class="text">즐겨찾기</h2>
 		<form action="" name="frm">
-		<p><input type="button" value="엑셀 다운로드" onclick="bookDown();" style="float:left; margin-bottom: 10px;" /></p>
+		<p><input type="button" value="엑셀 다운로드" onclick="bookDown();" style="float:left;" class="btn btn-secondary m-1 btn-sm"/></p>
 		</form>
 		
 		<div class="bk_array" style="float: right">
 			<button type="button"
-				class="btn btn-outline-primary btn-sm dropdown-toggle dropdown-toggle"
+				class="btn btn-outline-primary btn-sm dropdown-toggle dropdown-toggle m-1"
 				data-toggle="dropdown">정렬</button>
 			<div class="dropdown-menu">
 				<a class="dropdown-item" href="bookMarkList.do?str=1">개봉일</a> <a
@@ -33,9 +34,8 @@
 					class="dropdown-item" href="bookMarkList.do?str=3">등록순번</a>
 			</div>
 		</div>
-
 		<div class="bk_href" style="float: right">
-			<button type="button" class="btn btn-primary btn-sm"
+			<button type="button" class="btn btn-primary btn-sm m-1"
 				onclick="location.href='movieList.do'">즐겨찾기 추가</button>
 		</div>
 		<table class="table">
@@ -57,9 +57,8 @@
 					<tr>
 						<%-- <td>${startNum }</td> --%>
 						<td>${bookmark.idx }</td>
-						<td><a href="movieInfo.do?m_idx=${bookmark.m_idx }"> <img
-								src="./images/main/photo/${bookmark.m_photo}" width="65"
-								height="93" /></a></td>
+						<td><a href="movieInfo.do?m_idx=${bookmark.m_idx }"> 
+						<img src="./images/main/photo/${bookmark.m_poster}" width="70" height="93" style="border: 8px solid black"/></a></td>
 						<td>${bookmark.m_genre}</td>
 						<td>${bookmark.m_name}</td>
 						<td>${bookmark.m_date }</td>
@@ -90,7 +89,7 @@
 			<a href='bookMarkList.do?pageNum=${startPage+blockSize }'>[다음]</a>
 		</c:if>
 	</div>
-
+</div>
 	<%@ include file="/inc/footer.jsp"%>
 </body>
 </html>

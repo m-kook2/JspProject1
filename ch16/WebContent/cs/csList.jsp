@@ -16,12 +16,14 @@
 </head>
 <body>
 	<%@ include file="/inc/header.jsp"%>
+	
+	<div class="container">
 	<div style="margin-top: 30px"></div>
 	<div class="col-sm text-center">
 		<h2 class="text">고객 의견함</h2>
 		<c:if test="${sessionScope.status eq '2'}">
 		<form action="" name="frm">
-		<p><input type="button" value="엑셀 다운로드" onclick="excelDown();" style="float: right; margin-bottom: 10px;" /></p>
+		<p><input type="button" value="엑셀 다운로드" onclick="excelDown();" style="float: left;" class="btn btn-secondary m-1 btn-sm" /></p>
 		</form>
 		</c:if>
 		<table class="table">
@@ -73,7 +75,7 @@
 			<a href='csList.do?pageNum=${startPage+blockSize }'>[다음]</a>
 		</c:if>
 	</div>
-
+</div>
 	<%@ include file="/inc/footer.jsp"%>
 </body>
 </html>

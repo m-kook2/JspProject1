@@ -44,9 +44,9 @@ public class FileUtil extends HttpServlet {
 				//전송된 파일속성이 file인 태그의 name 속성값을 이용해 파일객체생성 
 				File file = multi.getFile(filename1); 
 				//폴더 없음 생성
-				if (!file.exists()) {
+				/*if (!file.exists()) {
 					file.mkdirs();
-				}
+				}*/
 			}
 		} catch (IOException e) {
 			System.out.println(e.getMessage());

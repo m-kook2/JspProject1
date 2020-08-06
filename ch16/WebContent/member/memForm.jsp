@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -128,7 +129,11 @@ function daumPost(){
 			frm.id.focus();
 			return false;
 		}
-
+	if (fime1 == "") {
+		alert("사진을 넣어주세요.");
+		 frm.fime1.focus();
+		 return false;
+	}
 		document.frm.submit();
 	}
 	$(function() {
@@ -198,7 +203,7 @@ function daumPost(){
 					<p>
 					
 					<div class="form-group">
-						<input type="file" name="fime1" class="form-control-file border">
+								<input type="file" name="fime1" id="fime1" value="fime1" class="form-control-file border">
 					</div>
 					<div class="form-check-inline">
 						<label class="form-check-label" for="gender"> 

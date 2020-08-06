@@ -11,13 +11,17 @@ import com.oreilly.servlet.MultipartRequest;
 
 import dao.MemberDao;
 import dao.MemberDto;
+import dao.MovieDto;
 import util.FileUtil;
+import util.StringUtil;
 public class MemInsertAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request,
 		HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("---------------MemInsertAction----------------------");
 		request.setCharacterEncoding("utf-8"); 
 		response.setCharacterEncoding("utf-8");
-		String saveDirectory ="C:/개발프로그랜util/egovframework/3.7/eGovFrameDev-3.7.0-64bit/workspace/jspProject/ch16/WebContent/images/member/img/";
+		String saveDirectory =request.getServletContext().getRealPath("/images/member/img/");
+		//String saveDirectory ="C:/개발프로그랜util/egovframework/3.7/eGovFrameDev-3.7.0-64bit/workspace/jspProject/ch16/WebContent/images/member/img/";
 		MultipartRequest mp = new MultipartRequest(request, saveDirectory);
 		String id = new String(mp.getParameter("id").getBytes("iso-8859-1"), "utf-8");
 		String password = new String(mp.getParameter("password").getBytes("iso-8859-1"), "utf-8");
@@ -38,12 +42,22 @@ public class MemInsertAction implements CommandProcess {
 		
 		int result = 0;
 		String filename ="";
+		String pic ="";
+		//vo.setFileName(filename);
 		Enumeration en = mp.getFileNames();
+/*			String filename1 = (String)en.nextElement(); 
+			filename = StringUtil.NullToEmpty(new String(mp.getFilesystemName(filename1).getBytes("iso-8859-1"), "utf-8"));
+			if(!filename.equals(null)) {
+			System.out.println("filename ==>" + filename);
+			}else{
+				vo.setPic(pic);
+			}
+			}*/
 		while(en.hasMoreElements()) {
 			String filename1 = (String)en.nextElement(); 
-			filename = mp.getFilesystemName(filename1); 
+			pic=mp.getFilesystemName(filename1);
 			}
-		System.out.println("filename : "+filename+" , "+gender);
+		
 		MemberDto vo = new MemberDto();
 		vo.setId(id);
 		vo.setPassword(password);
@@ -52,10 +66,9 @@ public class MemInsertAction implements CommandProcess {
 		vo.setEmail(email);
 		vo.setNickname(nickname);
 		vo.setGender(gender);
-		vo.setPic(new String(filename.getBytes("iso-8859-1"), "utf-8"));
-		//vo.setFileName(filename);
+		vo.setPic(new String(pic.getBytes("iso-8859-1"), "utf-8"));
+		System.out.println("filename : "+filename+" , "+gender);
 		MemberDao mem = MemberDao.getInstance();
-		
 		try {
 			result=mem.insert(vo);
 		} catch (SQLException e) {

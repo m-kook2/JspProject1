@@ -46,7 +46,7 @@ public class BookmarkDao {
 		// select절에 추출되는 데이터(row)에 붙는 순번이다
 		// 다시 말해 where절까지 만족시킨 자료에 1부터 붙는 순번이다
 		String sql = "select * from (select *" + "		 from (select rownum rn, a.*"
-				+ "		       from (select bk.id, bk.m_idx, bk.idx, bk.reg_date, mi.m_name, mi.m_photo, mi.m_genre, mi.m_date"
+				+ "		       from (select bk.id, bk.m_idx, bk.idx, bk.reg_date, mi.m_name, mi.m_poster, mi.m_genre, mi.m_date"
 				+ "		             from book_mind bk, movie_info mi where bk.m_idx = mi.m_idx"
 				+ "		             AND bk.id = ?) a ) where rn between ? and ?) where 1=1 ";
 
@@ -83,7 +83,7 @@ public class BookmarkDao {
 				book.setIdx(rs.getInt("idx"));
 				book.setM_genre(rs.getString("m_genre"));
 				book.setM_name(rs.getString("m_name"));
-				book.setM_photo(rs.getString("m_photo"));
+				book.setM_poster(rs.getString("m_poster"));
 				book.setM_date(rs.getDate("m_date"));
 				book.setReg_date(rs.getDate("reg_date"));
 
@@ -210,4 +210,37 @@ public class BookmarkDao {
 		return list;
 	}
 	
+	public int insert(int m_idx, String id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		ResultSet rs = null;
+		String sql1 = "select max(idx) from book_mind";
+		String sql = "insert into book_mind values(?,?,?,sysdate)";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql1);
+			rs = pstmt.executeQuery();
+			rs.next();
+			int number = rs.getInt(1) + 1;
+			rs.close();
+			pstmt.close();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, m_idx);
+			pstmt.setInt(3, number);
+			result = pstmt.executeUpdate();
+					
+	}	catch (Exception e) {
+		System.out.println(e.getMessage());
+	} finally {
+		if (conn != null)
+			conn.close();
+		if (pstmt != null)
+			pstmt.close();
+		if (rs != null)
+			rs.close();
+	}
+	return result;
+	}	
 }

@@ -136,7 +136,7 @@ public class CommDao {
 		ResultSet rs = null;
 		String sql1 = "select nvl(max(c_idx),0) from comm";
 
-		String sql = "Insert into comm values (?,?,?,0,0,?,sysdate,'N',?,0,0)";
+		String sql = "Insert into comm values (?,?,?,0,0,?,sysdate,'N',?,0,0,null)";
 		System.out.println("test insert" + sql);
 		try {
 			conn = getConnection();
@@ -180,7 +180,7 @@ public class CommDao {
 		ResultSet rs = null;
 		String sql1 = "select nvl(max(c_idx),0) from comm";
 
-		String sql = "Insert into comm values (?,?,?,0,0,null,sysdate,'N',?,?,1)";
+		String sql = "Insert into comm values (?,?,?,0,0,null,sysdate,'N',?,?,1,null)";
 		System.out.println("test insert" + sql);
 		try {
 			conn = getConnection();
@@ -227,7 +227,7 @@ public class CommDao {
 		// String sql = "select * from board order by num desc";
 		// mysql select * from board order by num desc limit startPage-1,10;
 		String sql = "select * from (select * from (select rownum rn ,a.* from "
-				+ " (select * from comm where m_idx = ?) a )"
+				+ " (select * from comm where m_idx = ? order by c_date desc) a )"
 				+ " where rn between ? and ?) where 1=1 and dep=0";
 		
 		/*String sql2="select m_idx ,avg(c_grade) m_grade "
@@ -300,7 +300,7 @@ public class CommDao {
 		// String sql = "select * from board order by num desc";
 		// mysql select * from board order by num desc limit startPage-1,10;
 		String sql = "select * from (select * from (select rownum rn ,a.* from "
-				+ " (select * from comm where m_idx = ? order by c_idx asc) a )"
+				+ " (select * from comm where m_idx = ? order by c_idx desc) a )"
 				+ " ) where 1=1 and dep=1";
 		
 		/*String sql2="select m_idx ,avg(c_grade) m_grade "
@@ -385,35 +385,38 @@ public class CommDao {
 		return result;
 	}
 
-	public int supdate(int c_idx) throws SQLException {
+	public int supdate(int c_idx,String id) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update comm set c_sympathy=c_sympathy+1 where c_idx=?";
+		String sql = "update comm set c_sympathy=c_sympathy+1, overlap = concat(overlap,?) where c_idx=?";
 
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, c_idx);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, c_idx);
 			result = pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
+			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		return result;
 	}
 
-	public int uupdate(int c_idx) throws SQLException {
+	public int uupdate(int c_idx, String id) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update comm set c_unsympathy=c_unsympathy+1 where c_idx=?";
-
+		String sql = "update comm set c_unsympathy=c_unsympathy+1, overlap = concat(overlap,?,' ') where c_idx=?";
+		System.out.println(sql);
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, c_idx);
+			pstmt.setString(1,id+"t");
+			pstmt.setInt(2, c_idx);
 			result = pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
@@ -560,6 +563,35 @@ public class CommDao {
 					pstmt.close();
 				if (conn != null)
 					conn.close();
+			}
+			return result;
+		}
+		
+		public int chek(String id, int c_idx) throws SQLException {
+			System.out.println("test 왔나?");
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs=null;
+			int result=0;
+			String sql = "select count(c_idx) as count from comm where c_idx = ? and overlap like ?";
+			System.out.println(sql);
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, c_idx);
+				pstmt.setString(2,"%"+id+"%");
+				rs=pstmt.executeQuery();
+				if(rs.next()) {
+					result=rs.getInt(1);
+					System.out.println(result);
+				}
+			
+				System.out.println(result);
+				pstmt.close();
+				conn.close();
+				rs.close();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
 			}
 			return result;
 		}
