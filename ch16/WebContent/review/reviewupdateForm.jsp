@@ -38,9 +38,10 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td colspan="2" class="btn m-2 btn-primary mx-auto">
-				<input type="submit" value="수정"></td>
-				<td colspan="2"><input type="submit" value="취소"></td>
+				<td colspan="2">
+				<input class="btn m-2 btn-primary mx-auto" type="submit" value="수정"></td>
+				<td colspan="2">
+				<input class="btn m-2 btn-primary mx-auto" type="reset" value="취소"></td>
 			</tr>
 		</table>
 	

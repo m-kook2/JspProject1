@@ -54,25 +54,11 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 			alert("평점");
 			return false;
 		}
-		/* alert(write.star-input.length);
-		if(write.star-input.checked==false){
-			alert("평점");
-			return false;
-		} */
-		
-		/*  if (write.star-input.value==null) {
-			alert("평점");
-			frm.star-input.focus();
-			return false;
-		} */
 		if (document.getElementById('c_content').value=="") {
 			alert("글을 쓰시오");
 			document.getElementById('c_content').focus();
 			return false;
-		}/* else{
-			
-		} */
-		/* document.write.submit(); */
+		}
 		write.action="commWritePro.do";
 		write.submit();
 		
@@ -101,65 +87,16 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 </script>
 </head>
 <body>
-
-<div style="float: right">
-	<div>
-		<c:if test="${comm2.m_grade  == 0 }">
-			<img alt="" src="images/grade/grade00_img.png" >
-			<b>0점</b>
-		</c:if>
-		<c:if test="${comm2.m_grade  == 1 }">
-			<img alt="" src="images/grade/grade01_img.png" >
-			<b>1점</b>
-		</c:if>
-		<c:if test="${comm2.m_grade  == 2 }">
-			<img alt="" src="images/grade/grade02_img.png" >
-			<b>2점</b>
-		</c:if>
-		<c:if test="${comm2.m_grade  == 3 }">
-			<img alt="" src="images/grade/grade03_img.png" >
-			<b>3점</b>
-		</c:if>
-		<c:if test="${comm2.m_grade  == 4 }">
-			<img alt="" src="images/grade/grade04_img.png">
-			<b>4점</b>
-		</c:if>
-		<c:if test="${comm2.m_grade  == 5 }">
-			<img alt="" src="images/grade/grade05_img.png">
-			<b>5점</b>
-		</c:if>
-		<c:if test="${comm2.m_grade  == 6 }">
-			<img alt="" src="images/grade/grade06_img.png">
-			<b>6점</b>
-		</c:if>
-		<c:if test="${comm2.m_grade  == 7 }">
-			<img alt="" src="images/grade/grade07_img.png">
-			<b>7점</b>
-		</c:if>
-		<c:if test="${comm2.m_grade  == 8 }">
-			<img alt="" src="images/grade/grade08_img.png">
-			<b>8점</b>
-		</c:if>
-		<c:if test="${comm2.m_grade  == 9 }">
-			<img alt="" src="images/grade/grade09_img.png">
-			<b>9점</b>
-		</c:if>
-		<c:if test="${comm2.m_grade  == 10 }">
-			<img alt="" src="images/grade/grade10_img.png">
-			<b>10점</b>
-		</c:if>
-	</div>
-	<button type="button" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle" data-toggle="dropdown" >정렬</button>
-	<div class="dropdown-menu">
-		<a class="dropdown-item" href="movieInfo.do?str=1&m_idx=${m_idx }&pageNum=${pageNum }">최신순</a>
-		<a class="dropdown-item" href="movieInfo.do?str=2&m_idx=${m_idx }&pageNum=${pageNum }">공감순</a>
-		<a class="dropdown-item" href="movieInfo.do?str=3&m_idx=${m_idx }&pageNum=${pageNum }">비공감순</a>
-	</div>
-</div>
-	
 <!-- 댓글 부분 -->
 <div class="container">
-
+	<div style="float: left">	
+	<button type="button" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle" data-toggle="dropdown" >정렬</button>
+		<div class="dropdown-menu">
+			<a class="dropdown-item" href="movieInfo.do?str=1&m_idx=${m_idx }&pageNum=${pageNum }">최신순</a>
+			<a class="dropdown-item" href="movieInfo.do?str=2&m_idx=${m_idx }&pageNum=${pageNum }">공감순</a>
+			<a class="dropdown-item" href="movieInfo.do?str=3&m_idx=${m_idx }&pageNum=${pageNum }">비공감순</a>
+		</div>
+	</div>
 	<form name="write" method="post">
 		<input type="hidden" name="m_idx" id="m_idx" value="${m_idx }"/> 
 		<input type="hidden" name="id" id="id" value="${id }"/>
@@ -169,7 +106,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		<c:if test="${sessionScope.id !=null}">
 			<tr>
 				<!-- 아이디-->
-				<td colspan="1">
+				<td width="250">
 					<div>${id}</div>
 					<div>
 						<span class="star-input">
@@ -203,13 +140,13 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					</div>
 				</td>
 				<!-- 본문 작성-->
-				<td colspan="3">
+				<td width="450">
 					<div>
 						<textarea id="c_content" name="c_content" rows="4" cols="100"></textarea>
 					</div>
 				</td>
 				<!-- 댓글 등록 버튼 -->
-				<td colspan="1">
+				<td width="100">
 					<div id="btn" style="text-align: center;">
 							<input type="hidden" name="s_m_idx" id="s_m_idx" value=""/>
 							<input type="hidden" name="c_grade" id="c_grade" value=""/>
@@ -224,7 +161,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		<c:forEach var="comm" items="${list }">
 			<tr>
 				<!-- 아이디, 작성날짜 -->
-				<td colspan="1">
+				<td width="250px">
 					<div>
 						${comm.id}<br>
 					</div>
@@ -280,24 +217,23 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					</div>
 				</td>
 				<!-- 본문내용 -->
-				<td colspan="3">
+				<td width="800px">
 					<div class="text_wrapper">
 						<c:if test="${comm.del_yn == 'Y'}">
 							삭제된글
 						</c:if>
 						<c:if test="${comm.del_yn == 'N'}">
 							${comm.c_content}<br/>
-							<a href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${comm.id }">공감</a>
-							${comm.c_sympathy}
-							<a href="commidchekunsym.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${comm.id }">비공감</a>
-							${comm.c_unsympathy}
+							<a style="margin-right: 5px" href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${comm.id }">공감</a>
+							<a  style="margin-right: 5px">${comm.c_sympathy}</a>
+							<a  style="margin-right: 5px" href="commidchekunsym.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${comm.id }">비공감</a>
+							<a style="margin-right: 100px">${comm.c_unsympathy}</a>
 							<br/>
-							<%-- <button class="btn m-2 btn-primary mx-auto" onclick="location.href='movieInfo.do?&m_idx=${m_idx }&c_idx=${comm.c_idx }'">답글</button> --%>
 							<input type="button" onclick="reply('${comm.c_idx }');" value="답글"/>
 						</c:if>
 					</div>
 				</td>
-				<td colspan="1">
+				<td width="300px">
 					<button class="btn m-2 btn-primary mx-auto"
 								onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'">삭제</button>
 				</td>
@@ -328,7 +264,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 										</td>
 										<td style="padding-top:50px ">
 											<button class="btn m-2 btn-primary mx-auto"
-								onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'">삭제</button>
+								onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${result.m_idx}&c_idx=${result.c_idx}'">삭제</button>
 										</td>
 										<td width="80px">
 											
@@ -368,117 +304,10 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		<input type="hidden" name="id" id="id" value="${sessionScope.id }"/>
 	</form>	
 	<div id="s_comm" style="display:none;">
-		<%-- <!-- 댓글 목록 -->
-		<table>
-		<c:forEach var="comm" items="${list }">
-			<tr>
-				<!-- 아이디, 작성날짜 -->
-				<td>
-					<div>
-						${comm.id}<br>
-						${comm.c_date}
-						<font size="2" color="lightgray">${comment.comment_date}</font>
-					</div>
-						<div>
-						${comm.c_date }
-						</div>
-				</td>
-				<!-- 본문내용 -->
-				<td>
-					<div class="text_wrapper">
-						<c:if test="${comm.del_yn == 'y'}">
-							삭제된글
-						</c:if>
-						<c:if test="${comm.del_yn == 'n'}">
-							${comm.c_content}
-						</c:if>
-					<div>
-						<a href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${comm.id }">공감</a>111
-						${comm.c_sympathy}
-						<a href="commidchekunsym.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${comm.id }">비공감</a>
-						${comm.c_unsympathy}
-						<br>
-						<button class="btn m-2 btn-primary mx-auto">
-						답글
-						</button>
-					</div>
-					
-					</div>
-				</td>
-				<!-- 버튼 -->
-				<td>
-					<div id="btn" style="text-align: center;">
-						<c:if test="${sessionScope.status eq '2'}">
-							<a href="#">[답변]</a>
-							<br>
-						</c:if>
-						<c:if test="${sessionScope.status eq '1'}">
-							<a href="#">[답변]</a>
-							<br>
-						</c:if>
-						<!-- 댓글 작성자만 수정, 삭제 가능하도록 -->
-						<c:if test="${sessionScope.id == comm.id}">
-							<c:if test="${comment.comment_id == sessionScope.sessionID}">
-							
-							<br>
-						</c:if>
-					</div>
-				</td>
-			</tr>
-
-		</c:forEach>
-		</table> --%>
-							
-		<%-- <c:if test="${sessionScope.id !=null}">			
-			<form action="commwritePro.do" name="write">
-				<input type="hidden" name="m_idx" value="${m_idx }"/> 
-				<input type="hidden" name="id" value="${id }"/>
-				<table>
-					<tr>
-						<!-- 아이디-->
-						<td>
-							<div>${id}</div>
-						</td>
-						<!-- 본문 작성-->
-						<td>
-							<div>
-								<textarea id="content" name="c_content" rows="4" cols="150"></textarea>
-							</div>
-						</td>
-						<!-- 댓글 등록 버튼 -->
-						<td>
-							<div id="btn" style="text-align: center;">
-								<button class="btn btn-primary" onclick="chek();">작성</button>
-							</div>
-						</td>
-					</tr>
-				</table>
-			</form>
-		</c:if> --%>
+		
 	</div>						
 </div>
-				<!-- 버튼 -->
-				<%-- <td>
-					<div id="btn" style="text-align: center;">
-						<c:if test="${sessionScope.status eq '2'}">
-							<a href="#">[답변]</a>
-							<br>
-						</c:if>
-						<c:if test="${sessionScope.status eq '1'}">
-							<a href="#">[답변]</a>
-							<br>
-						</c:if>
-						<!-- 댓글 작성자만 수정, 삭제 가능하도록 -->
-						<c:if test="${sessionScope.id == comm.id}">
-							<c:if test="${comment.comment_id == sessionScope.sessionID}">
-							<button class="btn m-2 btn-primary mx-auto"
-								onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'">삭제</button>
-							<br>
-						</c:if>
-						</c:if>
-					</div>
-				</td> --%>
-		<%-- </c:if>  --%>
+				
 		<div class="text-center">
 					<c:if test="${startPage > blockSize }">
 						<a href='movieInfo.do?pageNum2=${startPage-blockSize}&m_idx=${m_idx}'>[이전]</a>
