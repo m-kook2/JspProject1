@@ -224,9 +224,11 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 						</c:if>
 						<c:if test="${comm.del_yn == 'N'}">
 							${comm.c_content}<br/>
-							<a style="margin-right: 5px" href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${comm.id }">공감</a>
+							<a style="margin-right: 5px" href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${comm.id }">
+							<img alt="" src="images/UpDown/Up.png" width="30"></a>
 							<a  style="margin-right: 5px">${comm.c_sympathy}</a>
-							<a  style="margin-right: 5px" href="commidchekunsym.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${comm.id }">비공감</a>
+							<a  style="margin-right: 5px" href="commidchekunsym.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${comm.id }">
+							<img alt="" src="images/UpDown/Down.png" width="30"></a>
 							<a style="margin-right: 100px">${comm.c_unsympathy}</a>
 							<br/>
 							<input type="button" onclick="reply('${comm.c_idx }');" value="답글"/>
@@ -234,8 +236,10 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					</div>
 				</td>
 				<td width="300px">
-					<button class="btn m-2 btn-primary mx-auto"
+					<c:if test="${sessionScope.status eq '2' }">
+								<button class="btn m-2 btn-primary mx-auto"
 								onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'">삭제</button>
+					</c:if>			
 				</td>
 			</tr>
 			<!-- 답글 부분 -->
@@ -263,8 +267,10 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 											${result.c_date}
 										</td>
 										<td style="padding-top:50px ">
+											<c:if test="${sessionScope.status eq '2' }">
 											<button class="btn m-2 btn-primary mx-auto"
 								onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${result.m_idx}&c_idx=${result.c_idx}'">삭제</button>
+											</c:if>
 										</td>
 										<td width="80px">
 											
