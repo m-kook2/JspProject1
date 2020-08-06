@@ -23,20 +23,27 @@ public class SurveyCommentWriteAction implements CommandProcess {
       String id = (String) session.getAttribute("id");
       String s_idx = request.getParameter("s_idx");
       String pageNum = request.getParameter("pageNum");
+      
+      // 페이지 널처리
       if (pageNum == null)
         pageNum = "1";
 
       // 로그인 체크
       System.out.println("login check");
       if (id == null || id.equals("")) {
+        result= -1;
+        System.out.println("login chk Failed");
+        System.out.println("Result=> " + result);
         return "inc/memberChk.jsp";
       }
 
       System.out.println("vote null chk");
       // 투표 null 체크
       if (request.getParameter("r_op") == null || request.getParameter("r_op").equals("")) {
+      
+        // result를 경우의 수를 나눠 어떤 문제인지를 전달하려 한다.
         result = -3;
-        System.out.println("SurveyCommentWriteAction : ");
+        System.out.println("SurveyCommentWriteAction : Null R_OP");
         System.out.println("s_idx=> " + s_idx);
         System.out.println("result=> " + result);
         System.out.println("pageNum=> " + pageNum);
@@ -54,6 +61,10 @@ public class SurveyCommentWriteAction implements CommandProcess {
       survey = sd.select(Integer.parseInt(s_idx));
       if (!survey.isVotable()) {
         result = -2;
+        System.out.println("Votable chk Failed");
+        System.out.println("Result=> " +result);
+        // 투표 기간이 지났을 경우에는 insert를 진행시키지 않음. 
+        
       } else {
 
         // Insert 시작

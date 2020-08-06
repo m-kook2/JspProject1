@@ -38,6 +38,7 @@ public class SurveyContentAction implements CommandProcess {
       if (commPageNum == null || commPageNum.equals("")) {
         commPageNum = "1";
       }
+      //commPageNum은 투표에 달린 코멘트의 페이징을 위해 사용된다.
       int currentPage = Integer.parseInt(commPageNum);
       int pageSize = 4, blockSize = 3;
       int startRow = (currentPage - 1) * pageSize + 1;
@@ -49,9 +50,14 @@ public class SurveyContentAction implements CommandProcess {
 
       HttpSession session = request.getSession();
       String userid = (String) session.getAttribute("id");
+      // 로그인 된 아이디를 받아온다.
       Boolean isVoted = false;
       for (SCommDto comment : list) {
         switch (comment.getR_op()) {
+          //SUR 테이블에 있는 S_OP#는 투표 항목(글) 인 반면
+          //S_COMM 테이블에 있는 R_OP는 몇번째 투표항목인지만을 #(번호)로 갖고 있다.
+          //각각 코멘트가 어떤 투표 항목에 투표했는지를 글로 보여주기 위해
+          // R_OP를 S_OP#으로 바꿔주는 작업을 스위치문으로 해주었다.
           case "1":
             comment.setR_op(survey.getS_op1());
             break;
@@ -75,6 +81,11 @@ public class SurveyContentAction implements CommandProcess {
         if (comment.getId() != null && !comment.getId().equals("")
             && comment.getId().equals(userid)) {
           isVoted = true;
+          
+          //FOR문을 통해 모든 코멘트를 검사하면서
+          //로그인된 아이디와 동일한 아이디가 작성한 코멘트를 발견할 경우
+          //이미 투표되었음을 선언해준다.
+          
         }
       }
       request.setAttribute("isVoted", isVoted);
