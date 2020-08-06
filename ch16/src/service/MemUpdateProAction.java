@@ -27,8 +27,8 @@ public class MemUpdateProAction implements CommandProcess {
 		MultipartRequest mp = new MultipartRequest(request, saveDirectory);
 		String id = (String) session.getAttribute("id");
 		String password = StringUtil.NullToEmpty(mp.getParameter("chkpassword"));
-		String zip = new String(mp.getParameter("zip").getBytes("iso-8859-1"), "utf-8");
-		String addr = new String(mp.getParameter("addr").getBytes("iso-8859-1"), "utf-8");
+		String zip = mp.getParameter("zip");
+		String addr = mp.getParameter("addr");
 		String email = StringUtil.NullToEmpty(mp.getParameter("email"));
 		String nickname = StringUtil.NullToEmpty(mp.getParameter("nickname"));
 		String gender = StringUtil.NullToEmpty(mp.getParameter("gender"));
@@ -62,7 +62,7 @@ public class MemUpdateProAction implements CommandProcess {
 		vo.setId(id);
 		vo.setPassword(password);
 		vo.setZip(zip);
-		vo.setAddr(new String(addr.getBytes("iso-8859-1"), "utf-8"));
+		vo.setAddr(addr);
 		vo.setEmail(email);
 		vo.setNickname(nickname);
 		vo.setGender(gender);
