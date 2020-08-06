@@ -33,8 +33,17 @@ public class SurveyCommentWriteAction implements CommandProcess {
       if (id == null || id.equals("")) {
         result= -1;
         System.out.println("login chk Failed");
-        System.out.println("Result=> " + result);
-        return "inc/memberChk.jsp";
+        
+      request.setAttribute("s_idx", s_idx);
+      request.setAttribute("result", result);
+      request.setAttribute("pageNum", pageNum);
+      System.out.println("SurveyCommentWriteAction : loginchkFailed");
+      System.out.println("s_idx=> " + s_idx);
+      System.out.println("result=> " + result);
+      System.out.println("pageNum=> " + pageNum);
+
+        
+        return "sur/s_commentWrite.jsp";
       }
 
       System.out.println("vote null chk");
