@@ -25,7 +25,8 @@ public class MovieDeleteAction implements CommandProcess {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 	 	FileUtil fu=new FileUtil();
-	 	String saveDirectory ="C:/개발프로그랜util/egovframework/3.7/eGovFrameDev-3.7.0-64bit/workspace/jspProject/ch16/WebContent/images/main/photo/"; 
+	 	String saveDirectory =request.getServletContext().getRealPath("/images/main/photo/");
+	 	//String saveDirectory ="C:/개발프로그랜util/egovframework/3.7/eGovFrameDev-3.7.0-64bit/workspace/jspProject/ch16/WebContent/images/main/photo/"; 
 	 	String gubun=StringUtil.NullToEmpty(request.getParameter("gubun"));
 	 	String m_photo=StringUtil.NullToEmpty(request.getParameter("m_photo"));
 	 	String m_poster=StringUtil.NullToEmpty(request.getParameter("m_poster"));

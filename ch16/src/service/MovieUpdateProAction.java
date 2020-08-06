@@ -26,9 +26,13 @@ public class MovieUpdateProAction implements CommandProcess {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 	 	HttpSession session = request.getSession();
-	 	String saveDirectory ="C:/Users/user/git/jspProject/ch16/WebContent/images/main/photo/";
-	 	
-	 	MultipartRequest mp = new MultipartRequest(request, saveDirectory);
+	 	String saveDirectory =request.getServletContext().getRealPath("/images/main/photo/");
+	 	FileUtil fu = new FileUtil();
+		MovieDto mt = new MovieDto();
+		
+		fu.filUpload(request, saveDirectory);	 
+		System.out.println("aa : "+request.getParameter("m_idx"));
+	 	/*MultipartRequest mp = new MultipartRequest(request, saveDirectory);
 	 	System.out.println("MovieUpdateProAction mp : "+ mp);
 	 	String m_idx = new String(mp.getParameter("m_idx").getBytes("iso-8859-1"), "utf-8");
 	 	System.out.println("MovieUpdateProAction m_idx : "+ m_idx);
@@ -74,11 +78,7 @@ public class MovieUpdateProAction implements CommandProcess {
 		System.out.println("MovieUpdateProAction m_video : "+ m_video);
 		String m_poster = "";
 		System.out.println("MovieUpdateProAction m_poster : "+ m_poster);
-		FileUtil fu = new FileUtil();
-		System.out.println("MovieUpdateProAction fu : "+ fu);
-		MovieDto mt = new MovieDto();
-		
-		fu.filUpload(request, saveDirectory);	 	
+			
 		int result = 0;
 		Enumeration en = mp.getFileNames();
 		while(en.hasMoreElements()) {
@@ -115,9 +115,9 @@ public class MovieUpdateProAction implements CommandProcess {
 			e.printStackTrace();
 		}
 		request.setAttribute("result", result);
-		request.setAttribute("m_idx", m_idx);
+		request.setAttribute("m_idx", m_idx);*/
 
 		
 		return "movie/movieUpdatePro.jsp";
 	}
-	}
+}

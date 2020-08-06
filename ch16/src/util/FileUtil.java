@@ -22,8 +22,8 @@ public class FileUtil extends HttpServlet {
 			request.setCharacterEncoding("utf-8");
 			int maxSize = 5 * 1024 * 1024;  // 5 * 1K * 1K = 5M
 			String fileSave = path; //ex:) c:/images/main/photo/
-			//String realPath = request.getServletContext().getRealPath(fileSave);//운영용
-			String realPath = fileSave;//테스트용
+			//String realPath = request.getServletContext().getRealPath(fileSave);
+			String realPath = fileSave;
 			System.out.println("realPath->"+realPath);
 			MultipartRequest multi;
 			multi = new MultipartRequest(request,realPath,	maxSize,"utf-8", new DefaultFileRenamePolicy());
@@ -44,9 +44,9 @@ public class FileUtil extends HttpServlet {
 				//전송된 파일속성이 file인 태그의 name 속성값을 이용해 파일객체생성 
 				File file = multi.getFile(filename1); 
 				//폴더 없음 생성
-				if (!file.exists()) {
+				/*if (!file.exists()) {
 					file.mkdirs();
-				}
+				}*/
 			}
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
