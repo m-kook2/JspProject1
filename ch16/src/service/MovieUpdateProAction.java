@@ -16,6 +16,7 @@ import dao.MemberDto;
 import dao.MovieDao;
 import dao.MovieDto;
 import util.FileUtil;
+import util.StringUtil;
 
 public class MovieUpdateProAction implements CommandProcess {
 
@@ -25,8 +26,8 @@ public class MovieUpdateProAction implements CommandProcess {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 	 	HttpSession session = request.getSession();
-	 	String saveDirectory ="C:/Users/user/git/jspProject/ch16/WebContent/images/main/photo/"; 
-
+	 	String saveDirectory ="C:/Users/user/git/jspProject/ch16/WebContent/images/main/photo/";
+	 	
 	 	MultipartRequest mp = new MultipartRequest(request, saveDirectory);
 	 	System.out.println("MovieUpdateProAction mp : "+ mp);
 	 	String m_idx = new String(mp.getParameter("m_idx").getBytes("iso-8859-1"), "utf-8");
@@ -69,24 +70,13 @@ public class MovieUpdateProAction implements CommandProcess {
 		System.out.println("MovieUpdateProAction m_director :" +  m_director);
 	 	
 		String m_photo = "";
-		System.out.println("MovieUpdateProAction m_photo : "+ m_photo);
 		String m_video = new String(mp.getParameter("m_video").getBytes("iso-8859-1"), "utf-8");
 		System.out.println("MovieUpdateProAction m_video : "+ m_video);
 		String m_poster = "";
 		System.out.println("MovieUpdateProAction m_poster : "+ m_poster);
-		String id = mp.getParameter("id");
-		System.out.println("MovieUpdateProAction id : "+ id);
 		FileUtil fu = new FileUtil();
 		System.out.println("MovieUpdateProAction fu : "+ fu);
 		MovieDto mt = new MovieDto();
-		m_photo = new String(mp.getParameter("m_photo").getBytes("iso-8859-1"), "utf-8");
-		if(m_photo !=null && !m_photo.equals("")){
-			mt.setM_photo(m_photo);
-		}
-		m_poster = new String(mp.getParameter("m_poster").getBytes("iso-8859-1"), "utf-8");
-		if(m_poster !=null && !m_poster.equals("")){
-			mt.setM_poster(m_poster);
-		}
 		
 		fu.filUpload(request, saveDirectory);	 	
 		int result = 0;
@@ -94,11 +84,11 @@ public class MovieUpdateProAction implements CommandProcess {
 		while(en.hasMoreElements()) {
 			String filename1 = (String)en.nextElement(); 
 			if(filename1.equals("m_photo")) {
-				m_photo=mp.getFilesystemName(filename1);
+				m_photo=StringUtil.NullToEmpty(mp.getFilesystemName(filename1));
 				mt.setM_photo(new String(m_photo.getBytes("iso-8859-1"), "utf-8"));
 			}
 			if(filename1.equals("m_poster")) {
-				m_poster= mp.getFilesystemName(filename1);
+				m_poster= StringUtil.NullToEmpty(mp.getFilesystemName(filename1));
 				mt.setM_poster(new String(m_poster.getBytes("iso-8859-1"), "utf-8"));
 			}
 		}
@@ -125,6 +115,8 @@ public class MovieUpdateProAction implements CommandProcess {
 			e.printStackTrace();
 		}
 		request.setAttribute("result", result);
+		request.setAttribute("m_idx", m_idx);
+
 		
 		return "movie/movieUpdatePro.jsp";
 	}

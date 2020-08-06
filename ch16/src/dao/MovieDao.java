@@ -251,5 +251,28 @@ public class MovieDao {
 	}
 
 
-	
+	public int imgUpdate(MovieDto movieDto) throws SQLException {
+		Connection conn = null;	
+		PreparedStatement pstmt= null; 
+		int result = 0;
+		String sql="update movie_info set m_photo=?, m_poster=? where m_idx=?";
+		System.out.println("update movie_info set m_photo="+movieDto.getM_photo()+", m_poster="+movieDto.getM_poster()+" where m_idx="+movieDto.getM_idx());
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, movieDto.getM_photo());
+			pstmt.setString(2, movieDto.getM_poster());
+			pstmt.setString(3, movieDto.getM_idx());
+			result = pstmt.executeUpdate();
+			pstmt.close();
+			System.out.println("update result : " + result);
+		} catch (Exception e) {
+			System.out.println("MovieDao update ERROR!!");
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return result;
+	}
 }

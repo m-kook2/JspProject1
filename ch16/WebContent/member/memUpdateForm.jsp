@@ -147,9 +147,10 @@ function daumPost(){
 					<p>
 						<br /> <label for="gender"><strong>성별</strong> </label>
 					<div class="form-check-inline">
-						<label class="form-check-label" for="gender"> 남</label>
+						<label class="form-check-label" for="gender"> 남</label>&nbsp;
 						<input type="radio"  class="form-check-input" id="gender" name="gender" value="남자" ${sessionScope.gender eq '남자'?"checked='checked'":'' } disabled="disabled" >
-						<label class="form-check-label" for="gender"> 여</label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<label class="form-check-label" for="gender"> 여</label>&nbsp;
 						<input type="radio" class="form-check-input" id="gender" name="gender" value="여자" ${sessionScope.gender eq '여자'?"checked='checked'":'' } disabled="disabled" >
 					</div>
 				</div>

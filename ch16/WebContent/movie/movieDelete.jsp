@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,19 +10,15 @@
 <body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("수정 완료");
-<<<<<<< HEAD
-		location.href="movieInfo.do?m_idx=${m_idx }";
-=======
+		alert("삭제 완료 ! ");
 		location.href="movieUpdateForm.do?m_idx=${m_idx }";
->>>>>>> branch 'master' of https://github.com/pjc1991/jspProject.git
 	</script>
 </c:if>	
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("수정 실패");
-		window.history.back();
+		alert("실패");
+		location.href="movieUpdateForm.do?m_idx=${m_idx }";
 	</script>
-	</c:if>
+</c:if>	
 </body>
 </html>

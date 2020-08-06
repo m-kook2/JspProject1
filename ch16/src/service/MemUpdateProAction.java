@@ -23,7 +23,7 @@ public class MemUpdateProAction implements CommandProcess {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		MemberDao mem = MemberDao.getInstance();
-		String saveDirectory = "C:/Users/user/git/jspProject/ch16/WebContent/images/member/img/";
+		String saveDirectory = "C:/개발프로그랜util/egovframework/3.7/eGovFrameDev-3.7.0-64bit/workspace/jspProject/ch16/WebContent/images/member/img/";
 		MultipartRequest mp = new MultipartRequest(request, saveDirectory);
 		String id = (String) session.getAttribute("id");
 		String password = StringUtil.NullToEmpty(mp.getParameter("chkpassword"));

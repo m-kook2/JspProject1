@@ -10,17 +10,13 @@
 <body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("수정 완료");
-<<<<<<< HEAD
-		location.href="movieInfo.do?m_idx=${m_idx }";
-=======
-		location.href="movieUpdateForm.do?m_idx=${m_idx }";
->>>>>>> branch 'master' of https://github.com/pjc1991/jspProject.git
+		alert("추가 완료");
+		location.href="bookMarkList.do";
 	</script>
 </c:if>	
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("수정 실패");
+		alert("추가실패");
 		window.history.back();
 	</script>
 	</c:if>

@@ -52,6 +52,9 @@ nav, .title {
 	      </li>  
 	      <li class="nav-item">
 	        <a class="nav-link text-warning" href="location.do">오시는길</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link text-warning" href="miniGame.do">미니게임</a>
 	      </li>   
 	    </ul>
 	</div>  
