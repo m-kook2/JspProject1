@@ -12,9 +12,30 @@
 	float: left;
 }
 .form-control{
-	width: 150px;
-	float: light;
+	width: 50px; 
+	/* float: light; */
 }
+.form-group .label_container,
+.form-group .input_container{
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.form-group .label,
+ .form-group .input_container input{
+width: 33%;
+}
+
+.form-group .input_content_container{
+width: 100%;
+}
+.form-group .input_content{
+width : 100%;
+height : 100px;
+background-color: #e9ecef;
+border : 1px solid #ced4da;
+border-radius : .25rem;
 </style>
 <script type="text/javascript">
 	function mut() {
@@ -118,24 +139,31 @@ function daumPost(){
 						<br /> <input type="hidden" name="pic" value="${sessionScope.pic}" />
 						
 						<input type="file" name="file1"><p> <br /> 
-						
+						<div>
 						<label id="id2" for="id2"><strong>아이디</strong></label>
 						<input type="text" style="text-align: center;" class="form-control" id="id" name="id" value="${sessionScope.id }" disabled="disabled">
+						</div>
 					<p>
 						<br /> 
+						<div class="label_container">
 						<label id="id2" for="password"><strong>비밀번호 </strong></label> 
-						<input type="password" style="text-align: center;" class="form-control" id="password" name="psssword" value="${sessionScope.password }" disabled="disabled">
+						<label id="id2" for="chkpassword"><strong>비밀번호 확인</strong></label> 
+						</div>
+						<div class="input_container">
+						<input type="password" style="text-align: center; width: 50%;" class="form-control" id="password" name="psssword" value="${sessionScope.password }" disabled="disabled">
+						<input type="password" style="text-align: center; width: 50%;" class="form-control" id="chkpassword" name="chkpassword">
+						</div>
 					<p>
 						<br /> 
-						<label id="id2" for="chkpassword"><strong>비밀번호 확인</strong></label> 
-						<input type="password" style="text-align: center;" class="form-control" id="chkpassword" name="chkpassword">
 					<p>
 					<div class="form-group">
 						<label for="addr" id="id2"><strong>주소</strong></label>					
 					<br/>
+					<div class="input_container">
 						<input type="text" id="zip" name="zip" placeholder="우편번호" value="${sessionScope.zip }">
-						<input type="button" onclick="daumPost();" value="우편번호 찾기"><br/>
-						<input type="text" id="addr" name="addr" style="position: relative; right: 65px;" placeholder="도로명주소" value="${sessionScope.addr }">
+						<input type="text" id="addr" name="addr" placeholder="도로명주소" value="${sessionScope.addr }">
+						<input type="button" onclick="daumPost();" value="우편번호 찾기">
+						</div>
 					</div>
 						<p>
 						<br /> 

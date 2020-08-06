@@ -11,10 +11,13 @@ import com.oreilly.servlet.MultipartRequest;
 
 import dao.MemberDao;
 import dao.MemberDto;
+import dao.MovieDto;
 import util.FileUtil;
+import util.StringUtil;
 public class MemInsertAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request,
 		HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("---------------MemInsertAction----------------------");
 		request.setCharacterEncoding("utf-8"); 
 		response.setCharacterEncoding("utf-8");
 		String saveDirectory =request.getServletContext().getRealPath("/images/member/img/");
@@ -39,12 +42,22 @@ public class MemInsertAction implements CommandProcess {
 		
 		int result = 0;
 		String filename ="";
+		String pic ="";
+		//vo.setFileName(filename);
 		Enumeration en = mp.getFileNames();
+/*			String filename1 = (String)en.nextElement(); 
+			filename = StringUtil.NullToEmpty(new String(mp.getFilesystemName(filename1).getBytes("iso-8859-1"), "utf-8"));
+			if(!filename.equals(null)) {
+			System.out.println("filename ==>" + filename);
+			}else{
+				vo.setPic(pic);
+			}
+			}*/
 		while(en.hasMoreElements()) {
 			String filename1 = (String)en.nextElement(); 
-			filename = mp.getFilesystemName(filename1); 
+			pic=mp.getFilesystemName(filename1);
 			}
-		System.out.println("filename : "+filename+" , "+gender);
+		
 		MemberDto vo = new MemberDto();
 		vo.setId(id);
 		vo.setPassword(password);
@@ -53,10 +66,9 @@ public class MemInsertAction implements CommandProcess {
 		vo.setEmail(email);
 		vo.setNickname(nickname);
 		vo.setGender(gender);
-		vo.setPic(new String(filename.getBytes("iso-8859-1"), "utf-8"));
-		//vo.setFileName(filename);
+		vo.setPic(new String(pic.getBytes("iso-8859-1"), "utf-8"));
+		System.out.println("filename : "+filename+" , "+gender);
 		MemberDao mem = MemberDao.getInstance();
-		
 		try {
 			result=mem.insert(vo);
 		} catch (SQLException e) {
