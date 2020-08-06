@@ -227,7 +227,7 @@ public class CommDao {
 		// String sql = "select * from board order by num desc";
 		// mysql select * from board order by num desc limit startPage-1,10;
 		String sql = "select * from (select * from (select rownum rn ,a.* from "
-				+ " (select * from comm where m_idx = ?) a )"
+				+ " (select * from comm where m_idx = ? order by c_date desc) a )"
 				+ " where rn between ? and ?) where 1=1 and dep=0";
 		
 		/*String sql2="select m_idx ,avg(c_grade) m_grade "
@@ -300,7 +300,7 @@ public class CommDao {
 		// String sql = "select * from board order by num desc";
 		// mysql select * from board order by num desc limit startPage-1,10;
 		String sql = "select * from (select * from (select rownum rn ,a.* from "
-				+ " (select * from comm where m_idx = ? order by c_idx asc) a )"
+				+ " (select * from comm where m_idx = ? order by c_idx desc) a )"
 				+ " ) where 1=1 and dep=1";
 		
 		/*String sql2="select m_idx ,avg(c_grade) m_grade "
@@ -410,12 +410,12 @@ public class CommDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "update comm set c_unsympathy=c_unsympathy+1, overlap = concat(overlap,?) where c_idx=?";
+		String sql = "update comm set c_unsympathy=c_unsympathy+1, overlap = concat(overlap,?,' ') where c_idx=?";
 		System.out.println(sql);
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setString(1,id+"t");
 			pstmt.setInt(2, c_idx);
 			result = pstmt.executeUpdate();
 			pstmt.close();
