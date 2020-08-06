@@ -300,7 +300,7 @@ public class CommDao {
 		// String sql = "select * from board order by num desc";
 		// mysql select * from board order by num desc limit startPage-1,10;
 		String sql = "select * from (select * from (select rownum rn ,a.* from "
-				+ " (select * from comm where m_idx = ?) a )"
+				+ " (select * from comm where m_idx = ? order by c_idx asc) a )"
 				+ " ) where 1=1 and dep=1";
 		
 		/*String sql2="select m_idx ,avg(c_grade) m_grade "
@@ -541,5 +541,26 @@ public class CommDao {
 					conn.close();
 			}
 			return tot;
+		}
+		public int sdelete(int c_idx) throws SQLException {
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			int result = 0;
+			String sql = "delete from comm where c_idx=?";
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, c_idx);
+				result = pstmt.executeUpdate();
+
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			} finally {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			}
+			return result;
 		}
 }

@@ -44,7 +44,9 @@ public class SurveyDao {
     PreparedStatement pstmt = null;
     ResultSet rs = null;
     Date today = new Date();
+    // Java.util.date를 사용, 오늘 날짜를 받아온다.
     SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+    //SimpleDateFormat을 이용해 date와 함께 사용할 수 있도록 SQL 내의 date와 호환성을 맞춘다.
     String sql = "SELECT rowSC.* " + "FROM (SELECT rownum r, surComm.* "
         + "      FROM (SELECT  s.s_idx, " + "                    s.s_sub, "
         + "                    to_char(s_sdate,'yyyy/mm/dd') as s_sdate, "
@@ -57,6 +59,7 @@ public class SurveyDao {
         + "                          FROM s_comm " + "                          GROUP BY s_idx) sc "
         + "            WHERE s.s_idx = sc.s_idx(+) "
         + "            ORDER by s.s_idx desc) surComm) rowSC " + "WHERE r between ? and ?";
+    // SQL문을 통해 date를 String으로 받고, 코멘트 카운트를 위해 그룹 함수도 사용한다. 
     System.out.println(sql);
     System.out.println("SQL 문 출력 완료");
     try {
@@ -71,6 +74,7 @@ public class SurveyDao {
         SurveyDto surveyDto = new SurveyDto();
         surveyDto.setS_idx(rs.getInt(2));
         surveyDto.setS_sub(rs.getString(3));
+        // StringUtil을 이용해 널 처리
         System.out.println(StringUtil.NullToEmpty(rs.getString(4)));
         System.out.println(StringUtil.NullToEmpty(rs.getString(5)));
         surveyDto.setS_sdate(StringUtil.NullToEmpty(rs.getString(4)));
@@ -83,17 +87,21 @@ public class SurveyDao {
         surveyDto.setS_op5(rs.getString(11));
         surveyDto.setId(rs.getString(12));
         surveyDto.setCommCnt(rs.getInt(13));
+        // Votable Boolean은 if문을 통해 직접 넣어준다.
         if (StringUtil.NullToEmpty(rs.getString(4)).equals("")
             || StringUtil.NullToEmpty(rs.getString(5)).equals("")) {
           surveyDto.setVotable(true);
         } else {
+          // string으로 받아온 투표기간을 simpledateformat으로 파싱해
+          // 다시 java util date로 변환. 그 뒤 date의 메소드를 이용해
+          // 값을 비교해 시작 날짜 이후이며 종료날짜 이전임을 체크한다.
           surveyDto.setVotable(!format.parse(rs.getString(4)).after(today)
               && !format.parse(rs.getString(5)).before(today));
         }
         list.add(surveyDto);
       }
     } catch (Exception e) {
-      System.out.println("ERROR!!");
+      System.out.println("SurveyDAO list ERROR!!");
       System.out.println(e.getMessage());
     } finally {
       if (rs != null)
@@ -191,6 +199,11 @@ public class SurveyDao {
     String sqlCount = "SELECT COUNT(*) FROM S_COMM WHERE S_IDX = ?";
     String sqlOpCount =
         "SELECT count(id), r_op " + "FROM S_COMM " + "WHERE s_idx = ? " + "GROUP BY r_op ";
+    
+    // list와 유사하나 이번엔 sql 문을 3개 실행할 필요가 있다.
+    // sql은 설문조사 하나의 데이터를 읽어오기 위한 sql
+    // sqlCount는 설문조사 댓글의 수를 얻기 위한 sql 문
+    // sqlOpCount는 특정 항목에 투표한 참여자수의 수를 얻기 위한 sql 문
     try {
       conn = getConnection();
       pstmt = conn.prepareStatement(sql);
@@ -211,6 +224,7 @@ public class SurveyDao {
         if (StringUtil.NullToEmpty(rs.getString(3)).equals("")
             || StringUtil.NullToEmpty(rs.getString(4)).equals("")) {
           surveyDto.setVotable(true);
+          //널값/공백이 포함된 경우에는 무조건 통과처리
         } else {
           System.out.println("투표 참여 가능 여부 체크");
           System.out.println("----------------------");
@@ -237,14 +251,14 @@ public class SurveyDao {
       pstmt.close();
       pstmt = conn.prepareStatement(sqlOpCount);
       pstmt.setInt(1, s_idx);
-      rs = pstmt.executeQuery();
+      rs = pstmt.executeQuery(); // 참여자 수, R_OP의 형태의 ResultSet을 받아온다.
       while (rs.next()) {
-        switch (rs.getString(2)) { // R_OP
+        switch (rs.getString(2)) { // R_OP는 "1", "2" ... "5"
           case "1":
             surveyDto.setOp1Cnt(rs.getInt(1)); // Count(id) Group By R_OP
             break;
           case "2":
-            surveyDto.setOp2Cnt(rs.getInt(1));
+            surveyDto.setOp2Cnt(rs.getInt(1)); 
             break;
           case "3":
             surveyDto.setOp3Cnt(rs.getInt(1));
@@ -258,6 +272,7 @@ public class SurveyDao {
           default :
             System.out.println("비정상적인 투표 감지");
         }
+        
         
 
       }

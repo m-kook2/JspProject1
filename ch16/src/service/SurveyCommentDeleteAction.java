@@ -30,6 +30,7 @@ public class SurveyCommentDeleteAction implements CommandProcess {
       System.out.println("loginId=>" + loginId);
       System.out.println("status=>" + status);
       
+      // 회원 아이디 로그인 여부 확인 및 관리자 여부 확인
       if (!id.equals(loginId) && status != 2) {
         System.out.println("SurveyCommentDeleteAction : ID Chk failed");
         result = -1;

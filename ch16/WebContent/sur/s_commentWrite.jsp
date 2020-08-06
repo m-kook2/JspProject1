@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${result }
-	${pageNum }
-	${s_idx }
+	테스트 코드 : ${result }
+	페이지 넘버 : ${pageNum }
+	설문조사 등록번호 : ${s_idx }
 	<c:if test="${result > 0 }">
 		<script>
 			alert("투표에 참여해주셔서 감사합니다.");
@@ -30,15 +30,19 @@
 			window.history.back();
 		</script>
 	</c:if>
+		<c:if test="${result == -1 }">
+		<script>
+			alert("로그인 후 진행해주세요.");
+			window.history.back();
+		</script>
+	</c:if>
 	<c:if test="${result == 0 }">
 		<script>
 			alert("투표에 실패하였습니다.(DB ERROR)");
 			window.history.back();
 		</script>
 	</c:if>
-		<script>
-			alert("비정상적인 접근입니다. (RESULT NULL?)");
-			window.history.back();
-		</script>
+	
+
 </body>
 </html>

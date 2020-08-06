@@ -30,9 +30,9 @@
 									href="reivewForm.do?p_idx=${review.p_idx }&pageNum=${currentPage}">${review.p_title }</a>
 								</td>
 								<td><c:if test="${fn:length(review.p_content) >= 50}">
-						${fn:substring(review.p_content,0,50) }....</c:if> <c:if
+										${fn:substring(review.p_content,0,50) }....</c:if> <c:if
 										test="${fn:length(review.p_content) < 50}">
-						${review.p_content}</c:if></td>
+										${review.p_content}</c:if></td>
 								<td>${review.id }</td>
 								<td>${review.p_date }</td>
 							</tr>

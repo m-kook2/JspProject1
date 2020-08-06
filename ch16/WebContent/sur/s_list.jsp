@@ -7,6 +7,18 @@
 </head>
 <body>
 	<%@ include file="/inc/header.jsp"%>
+	
+	<!-- 
+	
+	설문조사 리스트 s_list.jsp
+	2020 08 06
+	작성자 박종찬
+	
+	설문조사 게시글을 페이징하는 리스트 뷰
+	bootstrap과 table로 구성했다.
+	
+	 -->
+	 
 	<div class="container">
 		<div class="row">
 			<div class="col-sm mx-auto text-center p-3">
@@ -21,6 +33,14 @@
 				<th>참여한 인원</th>
 				<th>참여 가능</th>
 			</tr>
+			
+			<!-- 
+			
+				foreach 구문을 이용해서 각 게시글을 불러온다.
+			    참여자의 수와 참여 가능기간, 참여 가능 여부를 불러오는 것이 특징.
+
+			 -->
+			
 			<c:if test="${totCnt > 0 }">
 				<c:forEach var="sur" items="${list }">
 					<tr>
@@ -58,6 +78,14 @@
 					<a href='surveyList.do?pageNum=${startPage + blockSize }'>[다음]</a>
 				</c:if>
 			</div>
+			
+			<!-- 
+				관리자 전용 메뉴를 노출하기 위해
+				세션에서 관리자 여부를 status로 가져온다.
+				status == 2 라면 관리자
+			
+			 -->
+			
 		<c:if test="${sessionScope.status == 2 }">
 			<div class="row admin">
 				<div class="mx-auto">

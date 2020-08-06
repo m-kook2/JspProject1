@@ -15,7 +15,7 @@ public class CommDeleteProAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			System.out.println("왔나?");
+			System.out.println("댓글 삭제");
 			int c_idx = Integer.parseInt(request.getParameter("c_idx"));
 			int m_idx = Integer.parseInt(request.getParameter("m_idx"));
 			System.out.println(c_idx);
