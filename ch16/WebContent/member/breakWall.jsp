@@ -9,9 +9,11 @@
     * { padding: 0; margin: 0; }
     canvas { background: #eee; display: block; margin: 0 auto; }
   </style>
+  <%@ include file="/inc/top.jsp"%>
 </head>
 <body>
-<br/><br/><br/><br/><br/><br/>
+<%@ include file="/inc/header.jsp"%>
+<br/><br/><br/><br/>
 <canvas id="myCanvas" width="480" height="320"></canvas>
   <script>
     var canvas = document.getElementById("myCanvas");

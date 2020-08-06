@@ -129,12 +129,6 @@ function daumPost(){
 			frm.id.focus();
 			return false;
 		}
-	if (fime1 == "") {
-		alert("사진을 넣어주세요.");
-		 frm.fime1.focus();
-		 return false;
-	}
-		document.frm.submit();
 	}
 	$(function() {
 		$('#chk').click(function() {

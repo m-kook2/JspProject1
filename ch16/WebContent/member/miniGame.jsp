@@ -13,7 +13,7 @@
 	<%@ include file="/inc/header.jsp"%>
 	<div class="container text-center">
 		<br /> <br />
-		<h1>환영한다.</h1>
+		<h1>환영합니다</h1>
 		<br /> <br /> <br /> <br />
 		<h3>스네이크 게임</h3>
 		<br />
