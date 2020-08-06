@@ -22,8 +22,8 @@ public class FileUtil extends HttpServlet {
 			request.setCharacterEncoding("utf-8");
 			int maxSize = 5 * 1024 * 1024;  // 5 * 1K * 1K = 5M
 			String fileSave = path; //ex:) c:/images/main/photo/
-			//String realPath = request.getServletContext().getRealPath(fileSave);
-			String realPath = fileSave;
+			//String realPath = request.getServletContext().getRealPath(fileSave);//운영용
+			String realPath = fileSave;//테스트용
 			System.out.println("realPath->"+realPath);
 			MultipartRequest multi;
 			multi = new MultipartRequest(request,realPath,	maxSize,"utf-8", new DefaultFileRenamePolicy());
