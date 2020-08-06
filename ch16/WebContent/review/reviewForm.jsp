@@ -27,7 +27,7 @@
 	</tr>
 	<tr>
 		<td>내용</td>
-		<td> <textarea rows="100" cols="100">${review.p_content}</textarea></td>
+		<td> <textarea rows="30" cols="100">${review.p_content}</textarea></td>
 		<td></td>
 	</tr>
 	

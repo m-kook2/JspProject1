@@ -24,7 +24,7 @@
 				</dt>
 				<dd>
 					<input class="form-control" type="text" name="s_sub"
-						required="required" />
+						value="${s_sub }" required="required" />
 				</dd>
 			</dl>
 			<dl>
@@ -33,21 +33,17 @@
 				</dt>
 				<dd class="form-inline">
 					<input class="form-control" type="date" name="s_sdate"
-						required="required" style="width: 50%"/>&nbsp;
+						required="required" value="${s_sdate }" style="width: 50%"/>
 					<input class="form-control" type="date" name="s_edate"
-						required="required" style="width: 50%"/>
+						required="required" value="${s_edate }" style="width: 50%"/>
 				</dd>
-				<!-- 
-					날짜 입력폼을 한 줄에 2개 넣기 위한 구현을 함 
-					
-				 -->
 			</dl>
 			<dl>
 				<dt>
 					<label for="content">소개글</label>
 				</dt>
 				<dd>
-					<textarea name="s_content" id="" cols="30" rows="10" class="form-control"></textarea>
+					<textarea name="s_content" id="" cols="30" rows="10" class="form-control">${s_content }</textarea>
 				</dd>
 			</dl>
 				<dl>
@@ -56,7 +52,7 @@
 				</dt>
 				<dd>
 					<div class="input-group" id="ig1">
-						<input type="text" class="form-control" name="s_op1" id="s_op1"/>
+						<input type="text" class="form-control" name="s_op1" id="s_op1" value="${s_op1 }"/>
 						<div class="input-group-append">
 							<input type="button" class="btn btn-danger" id="del1" value="DEL" />
 						</div>
@@ -64,7 +60,7 @@
 				</dd>
 				<dd>
 					<div class="input-group" id="ig2">
-						<input type="text" class="form-control" name="s_op2" id="s_op2"/>
+						<input type="text" class="form-control" name="s_op2" id="s_op2" value="${s_op2 }"/>
 						<div class="input-group-append">
 							<input type="button" class="btn btn-danger" id="del2" value="DEL" />
 						</div>
@@ -72,7 +68,7 @@
 				</dd>
 				<dd>
 					<div class="input-group" id="ig3">
-						<input type="text" class="form-control" name="s_op3" id="s_op3"/>
+						<input type="text" class="form-control" name="s_op3" id="s_op3" value="${s_op3 }"/>
 						<div class="input-group-append">
 							<input type="button" class="btn btn-danger" id="del3" value="DEL" />
 						</div>
@@ -80,7 +76,7 @@
 				</dd>
 				<dd>
 					<div class="input-group" id="ig4" >
-						<input type="text" class="form-control" name="s_op4" id="s_op4"/>
+						<input type="text" class="form-control" name="s_op4" id="s_op4" value="${s_op4 }"/>
 						<div class="input-group-append">
 							<input type="button" class="btn btn-danger" id="del4" value="DEL" />
 						</div>
@@ -88,7 +84,7 @@
 				</dd>
 				<dd>
 					<div class="input-group" id="ig5">
-						<input type="text" class="form-control" name="s_op5" id="s_op5"/>
+						<input type="text" class="form-control" name="s_op5" id="s_op5" value="${s_op5 }"/>
 						<div class="input-group-append">
 							<input type="button" class="btn btn-danger" id="del5" value="DEL" />
 						</div>
@@ -108,10 +104,8 @@
 	
 	<script>
 	
-	// 항목 추가 삭제를 위한 자바스크립트 문
-	
-	var inp_length = 1; // 최초 투표 항목의 길이
-	hideForm(); // inp_length에 맞춰 숫자보다 많은 투표 입력폼을 감춰준다.
+	var inp_length = 1;
+	hideForm();
 	document.getElementById("del1").addEventListener("click", del1handler);
 	document.getElementById("del2").addEventListener("click", del2handler);
 	document.getElementById("del3").addEventListener("click", del3handler);
@@ -119,9 +113,7 @@
 	document.getElementById("del5").addEventListener("click", del5handler);
 	document.getElementById("add").addEventListener("click", addHandler);
 	
-	//삭제 버튼과 추가 버튼에 메소드 할당 
-	
-	function hideForm() { // inp_length가 감소했을 때 이에 맞춰서 인풋 폼을 감춰주는 메소드
+	function hideForm() {
 		console.log(inp_length);
 		if (inp_length <= 4){
 			document.getElementById("ig5").style.display = "none";
@@ -136,10 +128,8 @@
 			document.getElementById("ig2").style.display = "none";
 		}
 		return;
-		
-
 	}
-	function revealForm() { // inp_length가 증가했을 때 그에 맞춰 인풋 폼을 늘려주는 메소드
+	function revealForm() {
 		console.log(inp_length);
 		if (inp_length >= 2){
 			document.getElementById("ig2").style.display = "flex";
@@ -155,23 +145,12 @@
 		}
 		return;
 	}
-	
-	function addHandler() { // 항목 추가 버튼을 눌렀을 때 inp_length를 늘리고 revealform을 호출한다
+	function addHandler() {
 		if (inp_length < 5){
 		inp_length++;
 		}
 		revealForm();
 	}
-	
-	
-	// 항목 삭제를 했을 때 메커니즘은
-	// 삭제된 칼럼 밑에 있는 내용을 한 칸씩 위로 올려 받아오고
-	// 맨 밑의 칼럼 내용을 비운 뒤
-	// inp_length를 1 낮춰 hideform을 호출하는 것이다.
-	// 이를 위해 del#handler에는 자신의 밑에 있는 인풋 폼의 값을 받아오고
-	// 그 다음 del#+1handler를 연쇄적으로 호출하도록 해두었다.
-	// 가장 마지막 del#handler에서는 inp_length를 1 낮추고, hideform을 호출. 
-	// 
 	
 	
 	function del1handler() {
@@ -204,35 +183,6 @@
 		hideForm();
 		return;
 	}
-	
-	/* 
-		이 del1handler와 del2handler 는 위에 적힌 함수와 정확히 같은 일을 한다.
-		
-		function del1handler() {
-			document.getElementById("s_op1").value = document.getElementById("s_op2").value;
-			document.getElementById("s_op2").value = document.getElementById("s_op3").value;
-			document.getElementById("s_op3").value = document.getElementById("s_op4").value;
-			document.getElementById("s_op4").value = document.getElementById("s_op5").value;
-			document.getElementById("s_op5").value = "";
-			if(inp_length >= 2){
-				inp_length--;
-			}
-			hideForm();
-			return;
-		
-		function del2handler() {
-			document.getElementById("s_op2").value = document.getElementById("s_op3").value;
-			document.getElementById("s_op3").value = document.getElementById("s_op4").value;
-			document.getElementById("s_op4").value = document.getElementById("s_op5").value;
-			document.getElementById("s_op5").value = "";
-			if(inp_length >= 2){
-				inp_length--;
-			}
-			hideForm();
-			return;
-		
-	} */
-	
 	</script>
 </body>
 </html>

@@ -68,6 +68,9 @@ public class SCommDao {
     Connection conn = null;
     PreparedStatement pstmt = null;
     ResultSet rs = null;
+    
+    // SQL의 date를 String으로 받아오기 위해 SimpleDateFormat을 사용한다.
+    
     SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
     String sql = "SELECT a.*  " + "FROM (     SELECT rownum rn, sc.* "
         + "           FROM (  SELECT sc.*, m.nickname "
@@ -93,6 +96,7 @@ public class SCommDao {
         comment.setR_content(rs.getString(6));
         String dateString = format.format(rs.getDate(7));
         comment.setR_regdate(StringUtil.NullToEmpty(dateString));
+        // StringUtill은 널처리를 위해서 사용
         comment.setNickname(rs.getString(8));
         list.add(comment);
       }
