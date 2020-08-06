@@ -16,7 +16,7 @@ import dao.MovieDto;
 import util.FileUtil;
 
 public class MovieInsertProAction implements CommandProcess {
-
+ 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
