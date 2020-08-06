@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>스네이크게임</title>
+<title>게임</title>
 <%@ include file="/inc/top.jsp"%>
 </head>
 <body>
