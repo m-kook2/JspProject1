@@ -248,7 +248,7 @@
             }
  
             function start(){
-                gameInterval = setInterval(move, 95);
+                gameInterval = setInterval(move, 80);
             }
  
             function end() {
