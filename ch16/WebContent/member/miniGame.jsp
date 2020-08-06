@@ -29,7 +29,7 @@
 			<!-- 	<input type="button"> -->
 			<br /> <br />
 			<h3>벽돌깨기 게임</h3>
-			<br /> <br />
+			<br /> 
 			<a href='breakWall.do'>[벽돌깨기]</a>
 			</form>
 		</div>
