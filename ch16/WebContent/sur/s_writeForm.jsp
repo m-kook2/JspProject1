@@ -33,7 +33,7 @@
 				</dt>
 				<dd class="form-inline">
 					<input class="form-control" type="date" name="s_sdate"
-						required="required" style="width: 50%"/>
+						required="required" style="width: 50%"/>&nbsp;
 					<input class="form-control" type="date" name="s_edate"
 						required="required" style="width: 50%"/>
 				</dd>
