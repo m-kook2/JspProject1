@@ -224,10 +224,10 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 						</c:if>
 						<c:if test="${comm.del_yn == 'N'}">
 							${comm.c_content}<br/>
-							<a style="margin-right: 5px" href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${comm.id }">
+							<a style="margin-right: 5px" href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
 							<img alt="" src="images/UpDown/Up.png" width="30"></a>
 							<a  style="margin-right: 5px">${comm.c_sympathy}</a>
-							<a  style="margin-right: 5px" href="commidchekunsym.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${comm.id }">
+							<a  style="margin-right: 5px" href="commidchekunsym.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
 							<img alt="" src="images/UpDown/Down.png" width="30"></a>
 							<a style="margin-right: 100px">${comm.c_unsympathy}</a>
 							<br/>

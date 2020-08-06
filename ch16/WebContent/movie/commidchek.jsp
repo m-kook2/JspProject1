@@ -18,9 +18,17 @@
 		</script>
 	</c:if>
 	<c:if test="${sessionScope.id != null}">
+		<c:if test="${result==0 }">
 		<script type="text/javascript">
-			location.href = "symparthyPro.do?&pageNum=${pageNum}&c_idx=${c_idx}&m_idx=${m_idx}";
+			location.href = "symparthyPro.do?&pageNum=${pageNum}&c_idx=${c_idx}&m_idx=${m_idx}&id=${sessionScope.id }";
 		</script>
+		</c:if>
+		<c:if test="${result != 0 }">
+		<script type="text/javascript">
+			alert("중복입니다.");
+			location.href = "movieInfo.do?pageNum=${pageNum}&m_idx=${m_idx}";
+		</script>
+		</c:if>
 	</c:if>
 </body>
 </html>
