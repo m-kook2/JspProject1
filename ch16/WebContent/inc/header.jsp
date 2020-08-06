@@ -29,6 +29,13 @@ $(document).ready(function() {
 	});
 });
 </script>
+<style>
+nav, .title {
+				-webkit-user-select: none; /* Safari */
+  				-ms-user-select: none; /* IE 10+ and Edge */
+  				user-select: none; /* Standard syntax */
+}
+</style>
 <nav class="navbar navbar-expand-sm font-weight-bold" style="background-color: black;">
 	<a class="navbar-brand" href="main.do"> 
 	<img alt="POPcorn Review" src="images/main/pl.png" width="40" height="40"/></a>
@@ -50,8 +57,14 @@ $(document).ready(function() {
 	</div>  
 	<div class="flex-grow-1">
 	<div class="row">
-	<h2 style="font-family: 'Wendy One';font-size: 60px;
-	color: orange;">popcorn review</h2>
+	<h2 class="title" style="	font-family: 'Wendy One';
+								font-size: 60px;
+								color: orange;
+								"
+				>
+				popcorn review
+	</h2>
+				
 	</div>
 	</div>
   	<form class="form-inline" action="movieList.do">
