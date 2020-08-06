@@ -46,7 +46,7 @@ public class BookmarkDao {
 		// select절에 추출되는 데이터(row)에 붙는 순번이다
 		// 다시 말해 where절까지 만족시킨 자료에 1부터 붙는 순번이다
 		String sql = "select * from (select *" + "		 from (select rownum rn, a.*"
-				+ "		       from (select bk.id, bk.m_idx, bk.idx, bk.reg_date, mi.m_name, mi.m_photo, mi.m_genre, mi.m_date"
+				+ "		       from (select bk.id, bk.m_idx, bk.idx, bk.reg_date, mi.m_name, mi.m_poster, mi.m_genre, mi.m_date"
 				+ "		             from book_mind bk, movie_info mi where bk.m_idx = mi.m_idx"
 				+ "		             AND bk.id = ?) a ) where rn between ? and ?) where 1=1 ";
 
@@ -83,7 +83,7 @@ public class BookmarkDao {
 				book.setIdx(rs.getInt("idx"));
 				book.setM_genre(rs.getString("m_genre"));
 				book.setM_name(rs.getString("m_name"));
-				book.setM_photo(rs.getString("m_photo"));
+				book.setM_poster(rs.getString("m_poster"));
 				book.setM_date(rs.getDate("m_date"));
 				book.setReg_date(rs.getDate("reg_date"));
 

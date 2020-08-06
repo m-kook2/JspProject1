@@ -17,6 +17,30 @@
 	float: light;
 }
 
+.form-group .label_container,
+.form-group .input_container{
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.form-group .label,
+ .form-group .input_container input{
+width: 33%;
+}
+
+.form-group .input_content_container{
+width: 100%;
+}
+.form-group .input_content{
+width : 100%;
+height : 100px;
+background-color: #e9ecef;
+border : 1px solid #ced4da;
+border-radius : .25rem;
+
+}
+
 </style>
 <%@ include file="/inc/top.jsp"%>
 </head>
@@ -38,30 +62,33 @@
 					<input type="hidden" name="c_idx" value="${cs.c_idx}">
 					 <input	type="hidden" name="pageNum" value="${pageNum}">
 
+								<div class="label_container">
 								<label id="cs4" for="c_idx"><strong>글번호</strong></label>
-								<input type="text" style="text-align: center;"
-									class="form-control" id="c_idx" name="c_idx"
+								<label id="cs4" for="writer"><strong>작성자</strong></label>
+								<label id="cs4" for="reg_date"><strong>작성일</strong></label>
+								</div>
+
+								<div class="input_container">
+								<input type="text" style="text-align: center;" class="form-control" id="c_idx" name="c_idx"
 									value="${cs.c_idx}" disabled="disabled">
-							<p>
-								<br /> <label id="cs4" for="writer"><strong>작성자</strong></label>
-								<input type="text" style="text-align: center;"
-									class="form-control" id="writer" name="writer"
+								<input type="text" style="text-align: center;" class="form-control" id="writer" name="writer"
 									value="${cs.writer}" disabled="disabled">
-							<p>
-								<br /> <label id="cs4" for="reg_date"><strong>작성일</strong></label>
-								<input type="text" style="text-align: center;"
-									class="form-control" id="reg_date" name="reg_date"
+								<input type="text" style="text-align: center;" class="form-control" id="reg_date" name="reg_date"
 									value="${cs.reg_date}" disabled="disabled">
-							<p>
-								<br /> <label id="cs4" for="subject"><strong>제목</strong></label>
+									</div>
+							<p>	<p>
+								<br /> 
+								<label id="cs4" for="subject"><strong>제목</strong></label>
 								<input type="text" style="text-align: center;"
 									class="form-control" id="subject" name="subject"
 									value="${cs.subject}" required="required">
 							<p>
-								<br /> <label id="cs4" for="content"><strong>내용</strong></label>
-								<input type="text" style="text-align: center;"
-									class="form-control" id="content" name="content"
+								<br /> 
+								<label id="cs4" for="content"><strong>내용</strong></label>
+								<div class="input_content_container">
+								<input type="text" style="text-align: center;" class="form-control" id="content" name="content"
 									value="${cs.content}" required="required">
+									</div>
 							</div>
 							<br />
 							<button type="submit" class="btn btn-warning">수정</button>

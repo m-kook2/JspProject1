@@ -47,16 +47,14 @@
 				<br/>
 					<label id="cs2" for="subject"><strong>제목</strong></label>
 					<input type="text" style="text-align: center;" class="form-control" id="subject" name="subject" required="required">
-			<p>
-				<br/>
-				
+
 					<!-- 로그인 해서 저장되어있는 id를 writer로 넘겨줌 -->
-					<input type="hidden" name="writer" value="${id }"
-						required="required">
+					<input type="hidden" name="writer" value="${id }" required="required">
 			<p>
 				<br/>
 					<label id="cs2" for="content"><strong>내용</strong></label>
-					<input type="text" style="text-align: center;" class="form-control" id="content" name="content" required="required">
+					<textarea rows="3" cols="10" style="text-align: center;" class="form-control" id="content" name="content" required="required"></textarea>
+					<!-- <input type="text" style="text-align: center;" class="form-control" id="content" name="content" required="required"> -->
 				</div>
 			<br />				
 					<button type="submit" class="btn btn-warning">전송</button>
