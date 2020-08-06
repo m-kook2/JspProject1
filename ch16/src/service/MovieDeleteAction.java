@@ -30,13 +30,31 @@ public class MovieDeleteAction implements CommandProcess {
 	 	String m_photo=StringUtil.NullToEmpty(request.getParameter("m_photo"));
 	 	String m_poster=StringUtil.NullToEmpty(request.getParameter("m_poster"));
 	 	String m_idx=StringUtil.NullToEmpty(request.getParameter("m_idx"));
+	 	MovieDto dto=new MovieDto();
 	 	if(gubun.equals("photo")){
 	 		fu.fileDelete(saveDirectory, m_photo);
+	 		m_photo="";
+	 		dto.setM_photo(m_photo);
+	 		dto.setM_poster(m_poster);
+	 		System.out.println("1 : "+m_photo+", "+m_poster);
 	 	}
 	 	if(gubun.equals("poster")){
 	 		fu.fileDelete(saveDirectory, m_poster);
+	 		m_poster="";
+	 		dto.setM_photo(m_photo);
+	 		dto.setM_poster(m_poster);
+	 		System.out.println("2 : "+m_photo+", "+m_poster);
 	 	}
+	 	dto.setM_idx(m_idx);
+	 	MovieDao dao=MovieDao.getInstance();
+	 	int result=0;
+	 	try {
+	 		result=dao.imgUpdate(dto);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	 	request.setAttribute("m_idx", m_idx);
-		return "movie/movieUpdateForm.jsp";
+	 	request.setAttribute("result", result);
+		return "movie/movieDelete.jsp";
 	}
 }
