@@ -11,7 +11,7 @@
 <h2>영화 정보 입력</h2>
 
 <div class="container" >
- 	<form action="movieUpdatePro.do"  name="ff" method="post" enctype="multipart/form-data">
+ 	<form action="movieInsertPro.do"  name="ff" method="post" enctype="multipart/form-data">
 			영화제목<br>
 				<input  class="form-control" type="text" name="m_name" id="m_name" placeholder="영화제목을 입력하세요." required="required"><hr>
 			영화장르<br>
