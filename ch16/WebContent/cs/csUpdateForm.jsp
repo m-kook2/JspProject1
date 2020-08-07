@@ -35,7 +35,6 @@ width: 100%;
 .form-group .input_content{
 width : 100%;
 height : 100px;
-background-color: #e9ecef;
 border : 1px solid #ced4da;
 border-radius : .25rem;
 
@@ -86,7 +85,7 @@ border-radius : .25rem;
 								<br /> 
 								<label id="cs4" for="content"><strong>내용</strong></label>
 								<div class="input_content_container">
-								<input type="text" style="text-align: center;" class="form-control" id="content" name="content"
+								<input type="text" style="text-align: center;" class="form-control input_content" id="content" name="content"
 									value="${cs.content}" required="required">
 									</div>
 							</div>
