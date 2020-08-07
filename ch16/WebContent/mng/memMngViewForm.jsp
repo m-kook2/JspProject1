@@ -74,7 +74,7 @@ function reg() {
 <%@ include file="/inc/header.jsp" %>
 
 <div class="container">
-	<h2>회원정보수정</h2>
+	<h2 style="margin-top: 50px; text-align: center;">회원정보수정</h2>
 	<form action="memMngUpdatePro.do" name="frm" method="post">
 		<input type="hidden" name="pic" value="${result.pic}"/>
 	<div class="row">
@@ -157,7 +157,7 @@ function reg() {
 	    </div>
 	</div>
 	<div class="row">
-		<button type="button" class="btn btn-dark mx-auto" onclick="reg();">회원정보수정</button>
+		<button type="button" class="btn btn-dark mx-auto" onclick="reg();" style="margin-bottom: 50px;">회원정보수정</button>
 	</div>
 </form>
 </div>

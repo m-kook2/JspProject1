@@ -16,7 +16,7 @@
 <%@ include file="/inc/header.jsp" %>
 
 <div class="container text-center">
-<h2><img src="https://img.icons8.com/doodle/48/000000/hand-right.png"/> 회원관리</h2>
+<h2 style="margin-top: 50px;"><img src="https://img.icons8.com/doodle/48/000000/hand-right.png"/> 회원관리</h2>
 <p><input type="button" value="엑셀 다운로드" onclick="excelDown();" style="float: right; margin-bottom: 10px;" /></p>
 <form name="frm">
 	<table class="table table-hover">
@@ -59,7 +59,7 @@
 		</c:if>
 	</table>
 </form>	
-	<div style="text-align: center;">
+	<div style="text-align: center; margin-bottom: 50px;">
 		<c:if test="${startPage > blockSize }">
 			<a href='memMng.do?pageNum=${startPage-blockSize}'>[이전]</a>
 		</c:if>

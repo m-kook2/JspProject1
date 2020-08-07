@@ -67,7 +67,7 @@
 		</c:if>
 	</table>
 </form>
-	<div style="text-align: center;">
+	<div style="text-align: center; margin-bottom: 50px;">
 		<c:if test="${startPage > blockSize }">
 			<a href='commMngList.do?pageNum=${startPage-blockSize}'>[이전]</a>
 		</c:if>
