@@ -32,8 +32,7 @@
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><pre><textarea rows="10" cols="40" name="p_content" required="required">
-				${review.p_content}</textarea>
+				<td><pre><textarea rows="10" cols="40" name="p_content" required="required">${review.p_content}</textarea>
 				</pre></td>
 				<td></td>
 			</tr>
@@ -41,7 +40,9 @@
 				<td colspan="2">
 				<input class="btn m-2 btn-primary mx-auto" type="submit" value="수정"></td>
 				<td colspan="2">
-				<input class="btn m-2 btn-primary mx-auto" type="reset" value="취소"></td>
+				<input class="btn m-2 btn-primary mx-auto" type="button" value="취소" onclick="location.href='r_list.do?&pageNum=${pageNum}'">
+				<!-- <input class="btn m-2 btn-primary mx-auto" type="button" value="취소"></td> -->
+				</td>
 			</tr>
 		</table>
 	

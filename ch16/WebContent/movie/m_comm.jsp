@@ -236,7 +236,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					</div>
 				</td>
 				<td width="300px">
-					<c:if test="${sessionScope.status eq '2' }">
+					<c:if test="${sessionScope.status eq '2' or sessionScope.id eq comm.id}">
 								<button class="btn m-2 btn-primary mx-auto"
 								onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'">삭제</button>
 					</c:if>			
@@ -258,7 +258,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 											<img src='images/next.png'>
 										</td>	
 										<td width="100px" align="center" style="padding-top:50px ">
-											${sessionScope.id }
+											${result.id }
 										</td>	
 										<td width="450px" align="center" style="padding-top:50px ">
 											${result.c_content}
@@ -267,7 +267,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 											${result.c_date}
 										</td>
 										<td style="padding-top:50px ">
-											<c:if test="${sessionScope.status eq '2' }">
+											<c:if test="${sessionScope.status eq '2' or sessionScope.id eq comm.id  }">
 											<button class="btn m-2 btn-primary mx-auto"
 								onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${result.m_idx}&c_idx=${result.c_idx}'">삭제</button>
 											</c:if>
