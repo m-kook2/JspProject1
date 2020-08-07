@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="style.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
 #cs4 {
 	width: 140px;
@@ -90,12 +91,11 @@ border-radius : .25rem;
 									</div>
 							</div>
 							<br />
-							<button type="submit" class="btn btn-warning">수정</button>
-					<button type="reset" class="btn btn-warning">취소</button>
+							<button type="submit" class="btn btn-dark">수정</button>
+					<button type="reset" class="btn btn-dark">취소</button>
 				<p>
 				<p>
-						<button type="button" class="btn btn-outline-dark" onclick="location.href='csList.do?pageNum=${pageNum }'">목록</button>
-			
+						<button type="button" class="btn btn-dark" onclick="location.href='csList.do?pageNum=${pageNum }'"><i class="fa fa-bars"></i></button>
 						<p>
 					<br /> <br />
 				</form>

@@ -6,6 +6,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
 #cs2{
 	width: 140px;
@@ -57,11 +58,11 @@
 					<!-- <input type="text" style="text-align: center;" class="form-control" id="content" name="content" required="required"> -->
 				</div>
 			<br />				
-					<button type="submit" class="btn btn-warning">전송</button>
-					<button type="reset" class="btn btn-warning">다시작성</button>
+					<button type="submit" class="btn btn-dark">전송</button>
+					<button type="reset" class="btn btn-dark">다시작성</button>
 				<p>
 				<p>
-					<button type="button" class="btn btn-outline-dark" onclick="location.href='csList.do?pageNum=${pageNum }'">목록</button>
+					<button type="button" class="btn btn-dark" onclick="location.href='csList.do?pageNum=${pageNum }'"><i class="fa fa-bars"></i></button>
 			<br />
 				<p>
 	</div>

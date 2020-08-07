@@ -6,6 +6,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
 #cs3{
 	width: 140px;
@@ -85,16 +86,16 @@ border-radius : .25rem;
 				<!-- (2=관리자)    관리자이거나 작성자와 id가 일치할경우 수정과 삭제 버튼이 보인다 -->
 		<c:if
 			test="${sessionScope.status eq '2' || sessionScope.id eq cs.writer}">
-			<button type="button" class="btn btn-warning" onclick="location.href='csUpdateForm.do?c_idx=${cs.c_idx}&pageNum=${pageNum}'">수정</button>
-			<button type="button" class="btn btn-warning" onclick="location.href='csDeleteForm.do?c_idx=${cs.c_idx}&pageNum=${pageNum}'">삭제</button>
+			<button type="button" class="btn btn-dark" onclick="location.href='csUpdateForm.do?c_idx=${cs.c_idx}&pageNum=${pageNum}'">수정</button>
+			<button type="button" class="btn btn-dark" onclick="location.href='csDeleteForm.do?c_idx=${cs.c_idx}&pageNum=${pageNum}'">삭제</button>
 			</c:if>
 				<!-- (2=관리자)    관리자면 답변작성이 보인다 -->
 		<c:if test="${sessionScope.status eq '2'}">
-		<button type="button" class="btn btn-warning" onclick="location.href='csWriteForm.do?ref=${cs.ref }&c_idx=${cs.c_idx}&pageNum=${pageNum }'">답변작성</button>
+		<button type="button" class="btn btn-dark" onclick="location.href='csWriteForm.do?ref=${cs.ref }&c_idx=${cs.c_idx}&pageNum=${pageNum }'">답변작성</button>
 			</c:if>
 		<p>
 		<p>
-		<button type="button" class="btn btn-outline-dark" onclick="location.href='csList.do?pageNum=${pageNum }'">목록</button>
+		<button type="button" class="btn btn-dark" onclick="location.href='csList.do?pageNum=${pageNum }'"><i class="fa fa-bars"></i></button>
 	</div>
 
 

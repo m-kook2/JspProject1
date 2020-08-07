@@ -253,7 +253,7 @@ public class MemberDao {
 		// String sql = "select * from board order by num desc";
 		// mysql select * from board order by num desc limit startPage-1,10;
 		String sql = "select * from (select rownum rn ,a.* from " + " (select * from member ) a ) where 1=1 "
-				+ " and rn between ? and ? ";
+				+ " and rn between ? and ?  ";
 		StringBuffer bur=new StringBuffer();
 		
 		bur.append(sql);
@@ -263,7 +263,7 @@ public class MemberDao {
 			String pro="{call mem_order_by(?,?)}";
 			conn = getConnection();
 			cstmt = conn.prepareCall(pro);
-			cstmt.setString(1, "rn");//정렬할 컬럼명
+			cstmt.setString(1, "id");//정렬할 컬럼명
 			cstmt.registerOutParameter(2, OracleTypes.VARCHAR);//프로시저 OUT으로 값을 받는다.
 			cstmt.execute();
 			sqlId=cstmt.getString(2);
