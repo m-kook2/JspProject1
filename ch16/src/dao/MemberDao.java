@@ -1,5 +1,7 @@
 package dao;
 
+import java.nio.Buffer;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +13,9 @@ import java.util.List;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import oracle.jdbc.internal.OracleTypes;
+import oracle.jdbc.oracore.OracleType;
 
 public class MemberDao {
 	private static MemberDao instance;
@@ -241,14 +246,28 @@ public class MemberDao {
 		List<MemberDto> list = new ArrayList<MemberDto>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		CallableStatement cstmt = null;
+		String sqlId="";
 		ResultSet rs = null;
+		String pro="{call mem_order_by(?,?)}";
+		conn = getConnection();
+		cstmt = conn.prepareCall(pro);
+		cstmt.setString(1, "id");
+		cstmt.registerOutParameter(2, OracleTypes.VARCHAR);
+		cstmt.execute();
+		sqlId=cstmt.getString(2);
+		cstmt.close();
 		// String sql = "select * from board order by num desc";
 		// mysql select * from board order by num desc limit startPage-1,10;
 		String sql = "select * from (select rownum rn ,a.* from " + " (select * from member) a ) "
 				+ " where rn between ? and ?";
+		StringBuffer bur=new StringBuffer();
+		bur.append(sql);
+		bur.append(sqlId);
+		
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(bur.toString());
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, endRow);
 			rs = pstmt.executeQuery();
