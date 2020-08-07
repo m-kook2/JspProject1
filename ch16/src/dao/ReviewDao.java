@@ -105,7 +105,7 @@ public class ReviewDao {
 		Statement stmt = null;
 		ResultSet rs = null;
 		/* String sql = "select * from review where p_idx="+p_idx; */
-		String sql = "select r.p_idx p_idx,r.P_TITLE p_title,r.P_CONTENT p_content,r.P_DATE p_date,r.ID id,m.M_PHOTO m_photo from review r , MOVIE_INFO m where m.m_idx=r.m_idx and r.p_idx ="
+		String sql = "select r.p_idx p_idx,r.P_TITLE p_title,r.P_CONTENT p_content,r.P_DATE p_date,r.ID id,m.M_PHOTO m_photo,m.m_video m_video from review r , MOVIE_INFO m where m.m_idx=r.m_idx and r.p_idx ="
 				+ p_idx;
 		System.out.println("test select");
 		ReviewDto review = new ReviewDto();
@@ -122,6 +122,7 @@ public class ReviewDao {
 				review.setP_date(rs.getDate("p_date"));
 				review.setId(rs.getString("id"));
 				review.setM_photo(rs.getString("m_photo"));
+				review.setM_video(rs.getString("m_video"));
 
 			}
 		} catch (Exception e) {

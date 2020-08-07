@@ -10,7 +10,15 @@ public class ReviewDto {
 	private String id;
 	private int m_idx;
 	private String m_photo;
+	private String m_video;
 	
+	
+	public String getM_video() {
+		return m_video;
+	}
+	public void setM_video(String m_video) {
+		this.m_video = m_video;
+	}
 	public String getM_photo() {
 		return m_photo;
 	}

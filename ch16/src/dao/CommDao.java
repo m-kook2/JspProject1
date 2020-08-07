@@ -272,6 +272,7 @@ public class CommDao {
 				comm.setM_idx(rs.getInt("m_idx"));
 				comm.setStep(rs.getInt("step"));
 				comm.setDep(rs.getInt("dep"));
+				comm.setOverlap(rs.getString("overlap"));
 				/*comm.setM_grade(rs2.getInt("m_grade"));*/
 				list.add(comm);
 
@@ -567,19 +568,20 @@ public class CommDao {
 			return result;
 		}
 		
-		public int chek(String id, int c_idx) throws SQLException {
+		/*public int chek(String id) throws SQLException {
 			System.out.println("test 왔나?");
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs=null;
 			int result=0;
-			String sql = "select count(c_idx) as count from comm where c_idx = ? and overlap like ?";
+			String sql = "select count(c_idx) as count from comm where c_idx = ?";
+//			and overlap like ?
 			System.out.println(sql);
 			try {
 				conn = getConnection();
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, c_idx);
-				pstmt.setString(2,"%"+id+"%");
+				pstmt.setString(1,id);
 				rs=pstmt.executeQuery();
 				if(rs.next()) {
 					result=rs.getInt(1);
@@ -594,5 +596,5 @@ public class CommDao {
 				System.out.println(e.getMessage());
 			}
 			return result;
-		}
+		}*/
 }

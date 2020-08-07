@@ -16,9 +16,16 @@ public class CommDto {
 	private int dep;
 	private Date c_date;
 	private int m_grade;
+	private String overlap;
 	
 	
 	
+	public String getOverlap() {
+		return overlap;
+	}
+	public void setOverlap(String overlap) {
+		this.overlap = overlap;
+	}
 	public Date getC_date() {
 		return c_date;
 	}

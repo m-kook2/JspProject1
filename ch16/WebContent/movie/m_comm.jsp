@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -224,12 +225,25 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 						</c:if>
 						<c:if test="${comm.del_yn == 'N'}">
 							${comm.c_content}<br/>
-							<a style="margin-right: 5px" href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
-							<img alt="" src="images/UpDown/Up.png" width="30"></a>
-							<a  style="margin-right: 5px">${comm.c_sympathy}</a>
-							<a  style="margin-right: 5px" href="commidchekunsym.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
-							<img alt="" src="images/UpDown/Down.png" width="30"></a>
-							<a style="margin-right: 100px">${comm.c_unsympathy}</a>
+							<c:choose>
+								<c:when test="${!fn:contains(comm.overlap, sessionScope.id) }">
+									<a style="margin-right: 5px" href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
+										<img alt="" src="images/UpDown/Up.png" width="30"></a>
+									<a  style="margin-right: 5px">${comm.c_sympathy}</a>
+									<a  style="margin-right: 5px" href="commidchekunsym.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
+										<img alt="" src="images/UpDown/Down.png" width="30"></a>
+									<a style="margin-right: 100px">${comm.c_unsympathy}</a>
+								</c:when>
+								<c:otherwise>
+									<a style="margin-right: 5px" href="javascript:alert('중복');">
+										<img alt="" src="images/UpDown/Up.png" width="30"></a>
+									<a  style="margin-right: 5px">${comm.c_sympathy}</a>
+									<a  style="margin-right: 5px" href="javascript:alert('중복');">
+										<img alt="" src="images/UpDown/Down.png" width="30"></a>
+									<a style="margin-right: 100px">${comm.c_unsympathy}</a>
+								</c:otherwise>
+							</c:choose>
+							
 							<br/>
 							<input type="button" onclick="reply('${comm.c_idx }');" value="답글"/>
 						</c:if>
