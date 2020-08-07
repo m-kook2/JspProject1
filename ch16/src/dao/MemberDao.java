@@ -424,4 +424,63 @@ public class MemberDao {
 		}
 		return list;
 	}
+	public String findId(String email) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String id = "";
+		String sql = "select id from member where email = ?";
+		System.out.println(email);
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				id=rs.getString("id");
+			}
+			System.out.println("id-----"+id);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return id;
+	}
+	public String findPw(String id, String email) throws SQLException{
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		String DBpw = "";
+		/*select password from member where id = 'hongil2' and email ='email2@gmail.com';*/
+		String sql = "select password from member where id = ? and email = ? ";
+		System.out.println("MemberDao findPw sql->"+ sql);
+		System.out.println("MemberDao findPw id->"+ id);
+		System.out.println("MemberDao findPw email->"+ email);
+		try {
+				conn = getConnection();
+				System.out.println(sql);
+				pstm = conn.prepareStatement(sql);
+				pstm.setString(1, id);
+				pstm.setString(2, email);
+				rs = pstm.executeQuery();
+				while(rs.next()) {
+					DBpw=rs.getString("password");
+					System.out.println("MemberDao findPw DBpw->"+ DBpw);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}finally {
+			if(rs != null) rs.close();
+			if(pstm  != null)rs.close();
+			if(conn != null)rs.close();
+		}
+		return DBpw;
+	}
+	
 }
