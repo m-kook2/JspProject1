@@ -157,7 +157,7 @@ function reg() {
 	    </div>
 	</div>
 	<div class="row">
-		<button type="button" class="btn btn-outline-primary mx-auto" onclick="reg();">회원정보수정</button>
+		<button type="button" class="btn btn-dark mx-auto" onclick="reg();">회원정보수정</button>
 	</div>
 </form>
 </div>
