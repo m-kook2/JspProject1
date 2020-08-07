@@ -35,6 +35,12 @@ nav, .title {
   				-ms-user-select: none; /* IE 10+ and Edge */
   				user-select: none; /* Standard syntax */
 }
+
+.btn-dark {background-color : black;
+color:#ffc107 !important;
+font-weight:bold;
+
+} 
 </style>
 <nav class="navbar navbar-expand-sm font-weight-bold" style="background-color: black;">
 	<a class="navbar-brand" href="main.do"> 

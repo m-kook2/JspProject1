@@ -10,4 +10,4 @@
 <link rel="stylesheet" type="text/css" href="/css/main.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>영화리뷰</title>
+<title>모두를 위한 영화 사이트-POPCORN REVIEW</title>
