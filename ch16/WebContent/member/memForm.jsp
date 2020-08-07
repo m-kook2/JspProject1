@@ -164,7 +164,7 @@ function daumPost(){
 							<!-- <label for="id">아이디</label> --><div>
 							<input type="text" id="id" class="form-control" name="id" placeholder="아이디"> 
 							<input type="button" class="btn btn-secondary" id="chk" value="중복확인" />
-							<b id="msg" style=" position: absolute; left: 1150px;"></b>
+							<b id="msg" style=" position: absolute; top: 20.5%; left: 60%; "></b>
 						</div>
 					</div>
 					<p>
@@ -215,7 +215,7 @@ function daumPost(){
 			</form>
 		</div>
 	</div>
-	<p><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<p><br/><br/><br/>
 	<%@ include file="/inc/footer.jsp"%>
 </body>
 </html>
