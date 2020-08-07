@@ -101,8 +101,8 @@
 				</dd>
 			</dl>
 			<div class="d-flex justify-content-end">
-			<input class="btn btn-success" type="submit" value="작성 완료" /> <input type="reset" class="btn btn-danger" 
-				value="작성 취소" />
+			<input 	class="btn btn-success" type="submit" value="작성 완료" /> <input type="button" class="btn btn-danger" 
+					value="수정 취소" 		onclick="location.href = 'surveyContent.do?pageNum=${pageNum}&s_idx=${s_idx}'"/>
 			</div>
 		</form>
 	</div>
