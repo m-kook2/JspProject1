@@ -73,7 +73,9 @@ font-weight:bold;
 								color: orange;
 								"
 				>
-				popcorn review
+				<a href="main.do" style="font-family: 'Wendy One';
+								font-size: 60px;
+								color: orange;">popcorn review</a>
 	</h2>
 				
 	</div>
