@@ -225,7 +225,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 						</c:if>
 						<c:if test="${comm.del_yn == 'N'}">
 						<c:set var="sp" value="N"/>
-						<c:forEach var="rs" items="${fn:split(comm.overlap,'|')}" varStatus="i">
+						<c:forEach var="rs" items="${fn:split(comm.overlap,'|')}" >
 							<c:if test="${rs eq sessionScope.id}">
 								<c:set var="sp" value="Y"/>
 							</c:if>
