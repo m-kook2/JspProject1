@@ -109,105 +109,88 @@
 	<%@ include file="/inc/footer.jsp"%>
 	
 	<script>
-	
-	var inp_length = 5;
-	hideForm();
-	document.getElementById("del1").addEventListener("click", del1handler);
-	document.getElementById("del2").addEventListener("click", del2handler);
-	document.getElementById("del3").addEventListener("click", del3handler);
-	document.getElementById("del4").addEventListener("click", del4handler);
-	document.getElementById("del5").addEventListener("click", del5handler);
-	document.getElementById("add").addEventListener("click", addHandler);
-	ERA();
-	
-	function hideForm() {
-		console.log("hideForm=>" + inp_length);
-		if (inp_length <= 4){
-			document.getElementById("ig5").style.display = "none";
-		}
-		if (inp_length <= 3){
-			document.getElementById("ig4").style.display = "none";
-		}
-		if (inp_length <= 2){
-			document.getElementById("ig3").style.display = "none";
-		}
-		if (inp_length <= 1){
-			document.getElementById("ig2").style.display = "none";
-		}
-		return;
-	}
-	function revealForm() {
-		console.log("revealForm=>" + inp_length);
-		if (inp_length >= 2){
-			document.getElementById("ig2").style.display = "flex";
-		}
-		if (inp_length >= 3){
-			document.getElementById("ig3").style.display = "flex";
-		}
-		if (inp_length >= 4){
-			document.getElementById("ig4").style.display = "flex";
-		}
-		if (inp_length >= 5){
-			document.getElementById("ig5").style.display = "flex";
-		}
-		return;
-	}
-	function addHandler() {
-		if (inp_length < 5){
-		inp_length++;
-		}
-		revealForm();
-	}
-	
-	
-	function del1handler() {
-		document.getElementById("s_op1").value = document.getElementById("s_op2").value;
-		del2handler();
-		return;
-	}
-		
-	function del2handler() {
-		document.getElementById("s_op2").value = document.getElementById("s_op3").value;
-		del3handler();
-		return;
-	}
-
-	function del3handler() {
-		document.getElementById("s_op3").value = document.getElementById("s_op4").value;
-		del4handler();
-		return;
-	}
-	function del4handler() {
-		document.getElementById("s_op4").value = document.getElementById("s_op5").value;
-		del5handler();
-		return;
-	}
-	function del5handler() {
-		document.getElementById("s_op5").value = "";
-		if(inp_length >= 2){
-			inp_length--;
-		}
+		var inp_length = 5;
 		hideForm();
-		return;
-	}
-	
+		document.getElementById("del1").addEventListener("click", function() {
+			delXhandler(1)
+		});
+		document.getElementById("del2").addEventListener("click", function() {
+			delXhandler(2)
+		});
+		document.getElementById("del3").addEventListener("click", function() {
+			delXhandler(3)
+		});
+		document.getElementById("del4").addEventListener("click", function() {
+			delXhandler(4)
+		});
+		document.getElementById("del5").addEventListener("click", function() {
+			delXhandler(5)
+		});
+		
+		document.getElementById("add").addEventListener("click", addHandler);
+		ERA();
+
+		function hideForm() {
+			console.log("hideForm=>" + inp_length);
+			if (inp_length <= 4) {
+				document.getElementById("ig5").style.display = "none";
+			}
+			if (inp_length <= 3) {
+				document.getElementById("ig4").style.display = "none";
+			}
+			if (inp_length <= 2) {
+				document.getElementById("ig3").style.display = "none";
+			}
+			if (inp_length <= 1) {
+				document.getElementById("ig2").style.display = "none";
+			}
+			if (inp_length <= 0) {
+				document.getElementById("ig1").style.display = "none";
+			}
+			return;
+		}
+		
+		function revealForm() {
+			console.log("revealForm=>" + inp_length);
+			if (inp_length >= 1) {
+				document.getElementById("ig1").style.display = "flex";
+			}
+			if (inp_length >= 2) {
+				document.getElementById("ig2").style.display = "flex";
+			}
+			if (inp_length >= 3) {
+				document.getElementById("ig3").style.display = "flex";
+			}
+			if (inp_length >= 4) {
+				document.getElementById("ig4").style.display = "flex";
+			}
+			if (inp_length >= 5) {
+				document.getElementById("ig5").style.display = "flex";
+			}
+			return;
+		}
+		
+		function addHandler() {
+			if (inp_length < 5) {
+				inp_length++;
+			}
+			revealForm();
+		}
 
 		function delXhandler(x) {
-			console.log("del" + x +"handler")
+			console.log("del" + x + "handler")
 			if (x < 5) {
 				document.getElementById("s_op" + x).value = 
 				document.getElementById("s_op" + (x + 1)).value;
 				delXhandler(x + 1);
+				
 			} else {
-				document.getElementById("s_op" + x).value =  "";
-				if (inp_length >= 2) {
-					inp_length--;
-				}
+				document.getElementById("s_op" + x).value = "";
+				if (inp_length >= 1) {inp_length--;}
 				hideForm();
 			}
 			return;
 		}
-
 
 		function ERA() {
 			emptyRemover(1);
@@ -219,11 +202,18 @@
 		}
 		function emptyRemover(a) {
 			console.log("EmptyRemover " + a)
-			var isEmpty = (document.getElementById("s_op" + a).value == null || document
-					.getElementById("s_op" + a).value == "") && (a <= inp_length);
+			
+			var isEmpty = 
+					(document.getElementById("s_op" + a).value == null ||
+					document.getElementById("s_op" + a).value == "") &&
+					(a <= inp_length);
+			
 			console.log("isEmpty=>" + isEmpty);
-			while ((document.getElementById("s_op" + a).value == null || document
-					.getElementById("s_op" + a).value == "") && (a <= inp_length)) {
+			
+			while ((document.getElementById("s_op" + a).value == null ||
+					document.getElementById("s_op" + a).value == "") && 
+					(a <= inp_length)) 
+			{
 				console.log("is Empty!");
 				delXhandler(a);
 			}
