@@ -9,7 +9,7 @@
 <body>
 <div class="container">
 <div class="container text-center">
-	<h1>아이디 찾기</h1>
+	<h1>비밀벊호 찾기</h1>
 	</div>
 </div>
 </body>
