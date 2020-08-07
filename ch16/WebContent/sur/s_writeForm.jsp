@@ -31,11 +31,11 @@
 				<dt>
 					<label for="date_start">설문조사 시작/종료일</label>
 				</dt>
-				<dd class="form-inline">
-					<input class="form-control" type="date" name="s_sdate"
-						required="required" style="width: 50%"/>&nbsp;
-					<input class="form-control" type="date" name="s_edate"
-						required="required" style="width: 50%"/>
+				<dd class="form-inline mx-auto">
+					<input class="form-control m-2 mx-auto" type="date" name="s_sdate"
+						required="required" style="width: 49%"/>
+					<input class="form-control m-2 mx-auto" type="date" name="s_edate"
+						required="required" style="width: 49%"/>
 				</dd>
 				<!-- 
 					날짜 입력폼을 한 줄에 2개 넣기 위한 구현을 함 

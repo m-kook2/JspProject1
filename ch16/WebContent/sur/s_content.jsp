@@ -30,7 +30,7 @@
 
 	<div class="container">
 		<div class="row">
-			<table class="table table-hover table-condensed mx-auto">
+			<table class="table table-hover table-condensed mx-auto m-1">
 				<tr>
 					<th style="width: 200px">제목</th>
 					<th colspan="2">${survey.s_sub }</th>
@@ -169,7 +169,7 @@
 								<p><input type="radio" name="r_op" value="4" form="comment" />${survey.s_op4 }</p>
 							</c:if>
 							<c:if test="${survey.s_op5 != null && !survey.s_op5.equals('') }">
-								<p><input type="radio" name="r_op" value="5" form="comment" />${survey.s_op15 }</p>
+								<p><input type="radio" name="r_op" value="5" form="comment" />${survey.s_op5 }</p>
 							</c:if>
 						</c:if></td>
 				</tr>
@@ -221,6 +221,11 @@
 					<button class="btn btn-primary">목록으로</button>
 				</a>
 				<c:if test="${sessionScope.status == 2 }">
+					<form action="surveyModify.do" style="display: inline;">
+						<input type="hidden" name="s_idx" value=${survey.s_idx } /> 
+						<input type="hidden" name="pageNum" value=${pageNum } /> 
+						<input type=submit class="btn btn-danger" value="설문조사 수정">
+					</form>
 					<form action="surveyDelete.do" style="display: inline;">
 						<input type="hidden" name="s_idx" value=${survey.s_idx } /> 
 						<input type="hidden" name="pageNum" value=${pageNum } /> 

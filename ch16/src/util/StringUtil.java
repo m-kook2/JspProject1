@@ -1,5 +1,9 @@
 package util;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class StringUtil {
   
   public static String NullToEmpty (String string) {
@@ -18,5 +22,23 @@ public class StringUtil {
     }
     result = Integer.parseInt(string);
     return result;
+  }
+  
+  public static Date StringToDate (String string, String pattern) { 
+    
+    // pattern ex) "yyyy-MM-dd" 
+    // string ex) "2018-07-19" 
+    // => java.sql.date
+
+    SimpleDateFormat format = new SimpleDateFormat(pattern);
+    Date date = null;
+    try {
+      date = new java.sql.Date(format.parse(string).getTime());
+    } catch (ParseException e) {
+      System.out.println("StringToDate ERROR! PARSE EXCEPTION!");
+      System.out.println("String =>" + string);
+      e.printStackTrace();
+    }
+    return date;
   }
 }

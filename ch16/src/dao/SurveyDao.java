@@ -333,4 +333,45 @@ public class SurveyDao {
     return result2;
   }
 
+  public int update(SurveyDto survey) throws SQLException {
+    int result = 0;
+    String sql = "  update sur set  s_sub       = ?,"
+        + "                         s_sdate     = ?,"
+        + "                         s_edate     = ?,"
+        + "                         s_content   = ?,"
+        + "                         s_op1       = ?, "
+        + "                         s_op2       = ?, "
+        + "                         s_op3       = ?, "
+        + "                         s_op4       = ?, "
+        + "                         s_op5       = ?, "
+        + "                         id          = ? "
+        + "         where s_idx = ?";
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    try {
+      conn = getConnection();
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setString(1, survey.getS_sub());
+      pstmt.setDate(2,StringUtil.StringToDate(survey.getS_sdate(),"yyyy-MM-dd"));
+      pstmt.setDate(3,StringUtil.StringToDate(survey.getS_edate(),"yyyy-MM-dd"));
+      pstmt.setString(4, survey.getS_content());
+      pstmt.setString(5, survey.getS_op1());
+      pstmt.setString(6, survey.getS_op2());
+      pstmt.setString(7, survey.getS_op3());
+      pstmt.setString(8, survey.getS_op4());
+      pstmt.setString(9, survey.getS_op5());
+      pstmt.setString(10, survey.getId());
+      pstmt.setInt(11, survey.getS_idx());
+      result = pstmt.executeUpdate();
+      
+    } catch (Exception e) {
+      System.out.println("SurveyDao Update ERROR!!");
+      System.out.println(e.getMessage());
+    } finally {
+      if(pstmt != null) pstmt.close();
+      if(conn != null) conn.close();
+    }
+    return result;
+  }
+
 }
