@@ -252,12 +252,12 @@ public class MemberDao {
 		
 		// String sql = "select * from board order by num desc";
 		// mysql select * from board order by num desc limit startPage-1,10;
-		String sql = "select * from (select rownum rn ,a.* from " + " (select * from member ) a) where 1=1 "
+		String sql = "select * from (select rownum rn ,a.* from " + " (select * from member ) a "+sqlId+" ) where 1=1 "
 				+ " and rn between ? and ? ";
 		StringBuffer bur=new StringBuffer();
 		
 		bur.append(sql);
-		bur.append(sqlId);
+		//bur.append(sqlId);
 		System.out.println(bur.toString());
 		try {
 			String pro="{call mem_order_by(?,?)}";
