@@ -395,7 +395,7 @@ public class CommDao {
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setString(1, "|"+id);
 			pstmt.setInt(2, c_idx);
 			result = pstmt.executeUpdate();
 			pstmt.close();

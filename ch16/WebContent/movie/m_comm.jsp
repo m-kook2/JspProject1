@@ -224,25 +224,32 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							삭제된글
 						</c:if>
 						<c:if test="${comm.del_yn == 'N'}">
+						<c:set var="sp" value="N"/>
+						<c:forEach var="rs" items="${fn:split(comm.overlap,'|')}" varStatus="i">
+							<c:if test="${rs eq sessionScope.id}">
+								<c:set var="sp" value="Y"/>
+							</c:if>
+						</c:forEach>
 							${comm.c_content}<br/>
-							<c:choose>
-								<c:when test="${!fn:contains(comm.overlap, sessionScope.id) }">
-									<a style="margin-right: 5px" href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
-										<img alt="" src="images/UpDown/Up.png" width="30"></a>
-									<a  style="margin-right: 5px">${comm.c_sympathy}</a>
-									<a  style="margin-right: 5px" href="commidchekunsym.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
-										<img alt="" src="images/UpDown/Down.png" width="30"></a>
-									<a style="margin-right: 100px">${comm.c_unsympathy}</a>
-								</c:when>
-								<c:otherwise>
-									<a style="margin-right: 5px" href="javascript:alert('중복');">
-										<img alt="" src="images/UpDown/Up.png" width="30"></a>
-									<a  style="margin-right: 5px">${comm.c_sympathy}</a>
-									<a  style="margin-right: 5px" href="javascript:alert('중복');">
-										<img alt="" src="images/UpDown/Down.png" width="30"></a>
-									<a style="margin-right: 100px">${comm.c_unsympathy}</a>
-								</c:otherwise>
-							</c:choose>
+								<c:choose>
+									<c:when test="${sp eq 'N'}">
+										<a style="margin-right: 5px" href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
+											<img alt="" src="images/UpDown/Up.png" width="30"></a>
+										<a  style="margin-right: 5px">${comm.c_sympathy}</a>
+										<a  style="margin-right: 5px" href="commidchekunsym.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
+											<img alt="" src="images/UpDown/Down.png" width="30"></a>
+										<a style="margin-right: 100px">${comm.c_unsympathy}</a>
+									</c:when>
+									<c:otherwise>
+										<a style="margin-right: 5px" href="javascript:alert('중복');">
+											<img alt="" src="images/UpDown/Up.png" width="30"></a>
+										<a  style="margin-right: 5px">${comm.c_sympathy}</a>
+										<a  style="margin-right: 5px" href="javascript:alert('중복');">
+											<img alt="" src="images/UpDown/Down.png" width="30"></a>
+										<a style="margin-right: 100px">${comm.c_unsympathy}</a>
+									</c:otherwise>
+								</c:choose>
+							
 							
 							<br/>
 							<input type="button" onclick="reply('${comm.c_idx }');" value="답글"/>
