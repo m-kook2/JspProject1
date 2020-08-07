@@ -41,15 +41,13 @@ public class BookmarkDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-
 		// rownum은 의사 컬럼으로 참조만 될 뿐 데이터베이스에 저장되지 않는다
 		// select절에 추출되는 데이터(row)에 붙는 순번이다
 		// 다시 말해 where절까지 만족시킨 자료에 1부터 붙는 순번이다
-		String sql = "select * from (select *" + "		 from (select rownum rn, a.*"
+		String sql = "select * from (select rownum rn, a.*"
 				+ "		       from (select bk.id, bk.m_idx, bk.idx, bk.reg_date, mi.m_name, mi.m_poster, mi.m_genre, mi.m_date"
 				+ "		             from book_mind bk, movie_info mi where bk.m_idx = mi.m_idx"
-				+ "		             AND bk.id = ?) a ) where rn between ? and ?) where 1=1 ";
-
+				+ "		             AND bk.id = ? ";
 		// where 1=1은 참을 의미하고 where 1=2는 거짓을 의미한다
 		// where 1=1을 붙이지 않으면 조건이 성립되지않는다고 오류가 뜰 수 있기 때문에 일반적으로 붙여준다
 		// string 클래스의 인스턴스는 한 번 생성되면 그 값을 읽기만 할 수 있고 변경할 수는 없다
@@ -60,17 +58,18 @@ public class BookmarkDao {
 		buf.append(sql);
 		if (str != null && !str.equals("")) {
 			if (str.equals("1")) {
-				buf.append("	order by m_date");
+				buf.append("	order by m_date) a ) where rn between ? and ?");
 			} else if (str.equals("2")) {
-				buf.append("	order by m_genre");
+				buf.append("	order by m_genre) a ) where rn between ? and ?");
 			} else if (str.equals("3")) {
-				buf.append("    order by idx");
+				buf.append("    order by idx) a ) where rn between ? and ?");
 			} else if (str.equals("4")) {
-				buf.append("    order by idx desc");
+				buf.append("    order by idx desc) a ) where rn between ? and ?");
 			} 
 		} else {
-			buf.append("    order by idx desc");
+			buf.append("    order by idx desc) a ) where rn between ? and ?");
 		}
+		System.out.println("SQL=>" + buf.toString());
 		try {
 			conn = getConnection();
 			// buf.append가 쿼리문 뒤에 붙어서 가기 때문에 그것을 연결해주기 위해서 buf.tostring을 써준다
