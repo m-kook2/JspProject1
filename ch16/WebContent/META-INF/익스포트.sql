@@ -674,3 +674,13 @@ Insert into J20200701.S_COMM (S_IDX,ID,R_IDX,R_OP,R_CONTENT,R_REGDATE) values (1
 	  REFERENCES "J20200701"."MEMBER" ("ID") ENABLE;
   ALTER TABLE "J20200701"."S_COMM" ADD CONSTRAINT "FK_SUR_TO_S_COMM" FOREIGN KEY ("S_IDX")
 	  REFERENCES "J20200701"."SUR" ("S_IDX") ENABLE;
+
+CREATE or replace PROCEDURE mem_order_by( id_desc IN VARCHAR2 ,  m_result OUT VARCHAR2)
+IS 
+BEGIN
+   DBMS_OUTPUT.ENABLE;
+   select 'order by ' ||id_desc ||' desc' 
+   into   m_result 
+   from  dual;
+   DBMS_OUTPUT.PUT_LINE('m_result : '|| m_result);
+END;
