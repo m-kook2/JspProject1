@@ -4,7 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<style type="text/css">
+body{
+	background-image: url("./images/member/img/minigame222.jpg");
+}
+</style>
 <title>게임</title>
 <%@ include file="/inc/top.jsp"%>
 </head>

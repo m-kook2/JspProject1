@@ -52,12 +52,12 @@
 				<label for="password"></label>  
 				<input type="password" style="margin-left: 190px;" class="form-control" id="password" name="password" placeholder="Enter password" required>
 				<div class="valid-feedback">&nbsp;비밀번호 값이 들어왔습니다.</div>
-   				<div class="invalid-feedback">비밀번호를 적어주세요.</div> 
-			</div>
+   				<div class="invalid-feedback">비밀번호를 적어주세요.</div>  
+			</div>   
 		</form> 
 	</div>
-			<button type="button" style="position: absolute; top: 50%; left: 75%;/* top:0; bottom: 0; right: 0; left: 0; */" class="btn btn-success" onclick="reg();">로그인</button>
-			<p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+			<button type="button" style="position: absolute; top: 47%; left: 70%;/* top:0; bottom: 0; right: 0; left: 0; */" class="btn btn-success" onclick="reg();">로그인</button>
+			<p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	<%@ include file="/inc/footer.jsp"%>
 </body>
 </html>
