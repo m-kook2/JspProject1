@@ -129,6 +129,7 @@ function daumPost(){
 			frm.id.focus();
 			return false;
 		}
+		frm.submit();
 	}
 	$(function() {
 		$('#chk').click(function() {
@@ -212,6 +213,7 @@ function daumPost(){
 						<br />
 				</div>
 						<button type="button" style="margin-left: 95px;" class="btn btn-primary" onclick="reg();">회원가입</button><br/><br/>
+						
 			</form>
 		</div>
 	</div>
