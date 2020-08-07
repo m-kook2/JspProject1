@@ -65,8 +65,11 @@ public class BookmarkDao {
 				buf.append("	order by m_genre");
 			} else if (str.equals("3")) {
 				buf.append("    order by idx");
-			}
-
+			} else if (str.equals("4")) {
+				buf.append("    order by idx desc");
+			} 
+		} else {
+			buf.append("    order by idx desc");
 		}
 		try {
 			conn = getConnection();

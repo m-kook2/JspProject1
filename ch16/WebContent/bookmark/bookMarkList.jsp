@@ -29,9 +29,10 @@
 				class="btn btn-outline-primary btn-sm dropdown-toggle dropdown-toggle m-1"
 				data-toggle="dropdown">정렬</button>
 			<div class="dropdown-menu">
-				<a class="dropdown-item" href="bookMarkList.do?str=1">개봉일</a> <a
-					class="dropdown-item" href="bookMarkList.do?str=2">장르</a> <a
-					class="dropdown-item" href="bookMarkList.do?str=3">등록순번</a>
+				<a class="dropdown-item" href="bookMarkList.do?str=1&pageNum=${pageNum}">개봉일</a> 
+				<a class="dropdown-item" href="bookMarkList.do?str=2&pageNum=${pageNum}">장르</a>
+				<a class="dropdown-item" href="bookMarkList.do?str=3&pageNum=${pageNum}">등록순번 과거순</a>
+				<a class="dropdown-item" href="bookMarkList.do?str=4&pageNum=${pageNum}">등록순번 최신순</a>
 			</div>
 		</div>
 		<div class="bk_href" style="float: right">
@@ -83,7 +84,7 @@
 			<a href='bookMarkList.do?pageNum=${startPage-blockSize}'>[이전]</a>
 		</c:if>
 		<c:forEach var="i" begin="${startPage}" end="${endPage}">
-			<a href='bookMarkList.do?pageNum=${i }'>[${i}]</a>
+			<a href='bookMarkList.do?pageNum=${i }&str=${param.str}'>[${i}]</a>
 		</c:forEach>
 		<c:if test="${endPage > pageCnt }">
 			<a href='bookMarkList.do?pageNum=${startPage+blockSize }'>[다음]</a>
