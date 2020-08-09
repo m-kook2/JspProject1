@@ -71,11 +71,14 @@ font-weight:bold;
 	<h2 class="title" style="	font-family: 'Wendy One';
 								font-size: 60px;
 								color: orange;
+								text-decoration: none
 								"
 				>
 				<a href="main.do" style="font-family: 'Wendy One';
-								font-size: 60px;
-								color: orange;">popcorn review</a>
+								font-size: 30px;
+								color: orange;
+								text-decoration: none;
+								">popcorn review</a>
 	</h2>
 				
 	</div>
