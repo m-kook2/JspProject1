@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <%@ include file="/inc/top.jsp"%>
@@ -126,7 +126,7 @@
 							<c:if test="${survey.s_op5 != null && !survey.s_op5.equals('') }">
 									${survey.s_op5 } : <fmt:formatNumber
 									value="${survey.op5Cnt / surCnt2 * 100}" pattern="#" /> %
-								<div class="progress">
+								<div class="progress" style="background-color: transparent;">
 									<div class="progress-bar"
 										style="width:${survey.op5Cnt / surCnt2 * 100}%">
 										<fmt:formatNumber value="${survey.op5Cnt / surCnt2 * 100}"
