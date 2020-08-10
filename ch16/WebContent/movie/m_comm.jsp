@@ -222,7 +222,15 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 				<td>
 					<div class="text_wrapper">
 						<c:if test="${comm.del_yn == 'Y'}">
-							<div class="form-control">삭제된글</div>
+							<div>
+							<textarea class="form-control" cols="50" rows="3" style="margin-bottom: 20px">삭제된글입니다.</textarea>
+							<a style="margin-right: 5px" href="javascript:alert('공감 불가능합니다.');">
+							<img alt="" src="images/UpDown/Up.png" width="30"></a>
+							<a>${comm.c_sympathy}</a>
+							<a href="javascript:alert('비공감 불가능합니다.');">
+							<img alt="" src="images/UpDown/Down.png" width="30"></a>
+							<a>${comm.c_unsympathy}</a>
+							</div>			
 						</c:if>
 						<c:if test="${comm.del_yn == 'N'}">
 						<c:set var="sp" value="N"/>
@@ -234,12 +242,12 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							<div><textarea class="form-control" cols="50" rows="3">${comm.c_content}</textarea></div><br/>
 								<c:choose>
 									<c:when test="${sp eq 'N'}">
-										<a style="margin-right: 5px" href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
+										<a href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
 											<img alt="" src="images/UpDown/Up.png" width="30"></a>
-										<a  style="margin-right: 5px">${comm.c_sympathy}</a>
-										<a  style="margin-right: 5px" href="commidchekunsym.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
+										<a>${comm.c_sympathy}</a>
+										<a href="commidchekunsym.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
 											<img alt="" src="images/UpDown/Down.png" width="30"></a>
-										<a style="margin-right: 100px">${comm.c_unsympathy}</a>
+										<a>${comm.c_unsympathy}</a>
 									</c:when>
 									<c:otherwise>
 										<a style="margin-right: 5px" href="javascript:alert('중복');">
@@ -257,14 +265,14 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 						</c:if>
 					</div>
 				</td>
-				<td width="300px">
+				<td width="300px"  style="padding-top:75px; padding-left: 15px ">
 					<c:if test="${sessionScope.status eq '2' or sessionScope.id eq comm.id}">
 								<button class="btn m-2 btn-primary mx-auto"
 								onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'">삭제</button>
 					</c:if>			
 				</td>
 			</tr>
-			<!-- 답글 부분 -->
+			<!-- 답글 리스트 부분-->
 			<tr>
 				<td colspan="5">
 					<div id="reply${comm.c_idx }" style="display:none;">
@@ -308,18 +316,18 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							</c:if>
 						</c:forEach>
 							<!-- 답글 작성란  -->
-							<table class = table style="margin-top:10;" >
+							<table class = "table" style="margin-top:10" >
 							<tr>
 								<td colspan="1">
 									<img src='images/next.png'>
 								</td>
-								<td colspan="3">
+								<td colspan="3" style="padding-top: 50px">
 									${sessionScope.id }
 								</td>
 								<td>
 									<textarea class="form-control" id='content${comm.c_idx}' name='content${comm.c_idx}' rows='4' cols='50'></textarea>
 								</td>
-								<td colspan="1">
+								<td colspan="1" style="padding-top: 40px">
 									<input class="btn m-2 btn-primary mx-auto" type="button" onclick="replySubmit('${comm.id}','${comm.m_idx }','${comm.c_idx}');" value="답글"/>
 								</td>
 							</tr>
