@@ -49,8 +49,9 @@
 			</tr>
 			<tr>
 				<td>
-					<input class="btn m-2 btn-primary mx-auto" type="submit" value="확인">  
-					<input class="btn m-2 btn-primary mx-auto" type="reset" value="다시작성">
+					<input class="btn m-2 btn-dark mx-auto"  type="submit" value="확인">  
+					<input class="btn m-2 btn-dark mx-auto"  type="reset" value="다시작성">
+					<input class="btn m-2 btn-dark mx-auto" type="button" value="목록" onclick="location.href='r_list.do?&pageNum=${pageNum}'">
 				</td>
 			</tr>
 		</table>
