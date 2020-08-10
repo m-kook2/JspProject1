@@ -14,10 +14,14 @@
 	<form action="reviewwritePro.do?pageNum=${pageNum}&id=${id}" method="post">
 		<input class="form-control" type="hidden" name="p_idx" value="${p_idx}">
 		<h2>게시판 글쓰기</h2>
-		<table >
+		<table width="100%">
 			<tr>
-				<td class="text-left">
+				<td style="float: left">
 				영화
+				</td>
+			</tr>
+			<tr>	
+				<td>
 				<select class="form-control" name="m_idx">
 					<c:forEach var="result" items="${list}">
 						 <option class="form-control" value="${result.m_idx}">${result.m_name}</option>
@@ -26,12 +30,22 @@
 				<td>
 			</tr>
 			<tr>
-				<td>제목  <input class="form-control" type="text" name="p_title" required="required"></td>
+				<td style="float: left">제목 </td>
 				
 			</tr>
 			<tr>
-				<td>내용  <textarea class="form-control" rows="10" cols="30" name="p_content" required="required"></textarea></td>
+				<td>
+					 <input class="form-control" type="text" name="p_title" required="required">
+				</td>
+			</tr>
+			<tr>
+				<td style="float: left">내용 </td>
 				
+			</tr>
+			<tr>
+				<td>
+					<textarea class="form-control" rows="10" cols="30" name="p_content" required="required"></textarea>
+				</td>
 			</tr>
 			<tr>
 				<td>

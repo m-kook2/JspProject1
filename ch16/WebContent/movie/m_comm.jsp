@@ -52,11 +52,11 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 			}
 		}
 		if(!starChk){
-			alert("평점");
+			alert("평점을 선택하세요");
 			return false;
 		}
 		if (document.getElementById('c_content').value=="") {
-			alert("글을 쓰시오");
+			alert("댓글을 작성하세요");
 			document.getElementById('c_content').focus();
 			return false;
 		}
@@ -105,7 +105,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		<table class="table" border="1" bordercolor="lightgray" >
 		<!-- 로그인 했을 경우만 댓글 작성가능 -->
 		<c:if test="${sessionScope.id !=null}">
-			<tr>
+			<tr class="text-center">
 				<!-- 아이디-->
 				<td width="250">
 					<div>${id}</div>
@@ -163,10 +163,10 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		<c:forEach var="comm" items="${list }">
 			<tr>
 				<!-- 아이디, 작성날짜 -->
-				<td width="250px">
+				<td width="250px" class="text-center" style="padding: 30px">
 					<div>
-						${comm.id}<br>
-					</div>
+						작성자 : ${comm.id}
+					</div><br>
 					<div>
 						<c:if test="${comm.c_grade  == 0 }">
 							<img alt="" src="images/grade/grade00_img.png" width="150px">
@@ -213,16 +213,16 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							<b>10점</b>
 						</c:if>
 						
-					</div>
-					<div>
-						${comm.c_date }
+					</div><br>
+					<div >
+						작성일자 : ${comm.c_date }
 					</div>
 				</td>
 				<!-- 본문내용 -->
-				<td width="800px">
+				<td>
 					<div class="text_wrapper">
 						<c:if test="${comm.del_yn == 'Y'}">
-							삭제된글
+							<div class="form-control">삭제된글</div>
 						</c:if>
 						<c:if test="${comm.del_yn == 'N'}">
 						<c:set var="sp" value="N"/>
@@ -231,7 +231,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 								<c:set var="sp" value="Y"/>
 							</c:if>
 						</c:forEach>
-							${comm.c_content}<br/>
+							<div><textarea class="form-control" cols="50" rows="3">${comm.c_content}</textarea></div><br/>
 								<c:choose>
 									<c:when test="${sp eq 'N'}">
 										<a style="margin-right: 5px" href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
@@ -253,7 +253,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							
 							
 							<br/>
-							<input type="button" onclick="reply('${comm.c_idx }');" value="답글"/>
+							<input class="btn m-2 btn-primary mx-auto" type="button" onclick="reply('${comm.c_idx }');" value="답글"/>
 						</c:if>
 					</div>
 				</td>
@@ -280,12 +280,18 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 											<img src='images/next.png'>
 										</td>	
 										<td width="100px" align="center" style="padding-top:50px ">
-											${result.id }
+											<div>
+												작성자 <br>
+												${result.id }
+											</div>
 										</td>	
 										<td width="450px" align="center" style="padding-top:50px ">
-											${result.c_content}
+											<div>
+												<textarea class="form-control" rows='3' cols='50'>${result.c_content}</textarea>
+											</div>
 										</td>
 										<td style="padding-top:50px ">
+											작성일자<br>
 											${result.c_date}
 										</td>
 										<td style="padding-top:50px ">
@@ -304,7 +310,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							<!-- 답글 작성란  -->
 							<table class = table style="margin-top:10;" >
 							<tr>
-								<td colspan="2">
+								<td colspan="1">
 									<img src='images/next.png'>
 								</td>
 								<td colspan="3">
