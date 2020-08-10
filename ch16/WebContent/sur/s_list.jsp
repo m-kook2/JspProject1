@@ -88,7 +88,7 @@
 			
 		<c:if test="${sessionScope.status == 2 }">
 			<div class="row admin">
-				<div class="mx-auto">
+				<div class="mx-auto text-center">
 					<form action="surveyWrite.do">
 						<button class="btn btn-dark">작성</button>
 					</form>
