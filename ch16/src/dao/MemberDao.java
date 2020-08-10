@@ -126,7 +126,7 @@ public class MemberDao {
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		List<MemberDto> list = new ArrayList<MemberDto>();
-		String sql = "SELECT * FROM MEMBER WHERE ID=? AND PASSWORD=? AND DEL_YN='N'";
+		String sql = "SELECT * FROM MEMBER WHERE ID=? AND PASSWORD=?";
 		// ?로 표기해서 값받기.
 		System.out.println(sql);
 		try {
@@ -252,18 +252,18 @@ public class MemberDao {
 		
 		// String sql = "select * from board order by num desc";
 		// mysql select * from board order by num desc limit startPage-1,10;
-		String sql = "select * from (select rownum rn ,a.* from " + " (select * from member ) a "+sqlId+" ) where 1=1 "
-				+ " and rn between ? and ? ";
+		String sql = "select * from (select rownum rn ,a.* from " + " (select * from member ) a ) where 1=1 "
+				+ " and rn between ? and ?  ";
 		StringBuffer bur=new StringBuffer();
 		
 		bur.append(sql);
-		//bur.append(sqlId);
+		bur.append(sqlId);
 		System.out.println(bur.toString());
 		try {
 			String pro="{call mem_order_by(?,?)}";
 			conn = getConnection();
 			cstmt = conn.prepareCall(pro);
-			cstmt.setString(1, "rn");//정렬할 컬럼명
+			cstmt.setString(1, "id");//정렬할 컬럼명
 			cstmt.registerOutParameter(2, OracleTypes.VARCHAR);//프로시저 OUT으로 값을 받는다.
 			cstmt.execute();
 			sqlId=cstmt.getString(2);
@@ -424,4 +424,63 @@ public class MemberDao {
 		}
 		return list;
 	}
+	public String findId(String email) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String id = "";
+		String sql = "select id from member where email = ?";
+		System.out.println(email);
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				id=rs.getString("id");
+			}
+			System.out.println("id-----"+id);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return id;
+	}
+	public String findPw(String id, String email) throws SQLException{
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		String DBpw = "";
+		/*select password from member where id = 'hongil2' and email ='email2@gmail.com';*/
+		String sql = "select password from member where id = ? and email = ? ";
+		System.out.println("MemberDao findPw sql->"+ sql);
+		System.out.println("MemberDao findPw id->"+ id);
+		System.out.println("MemberDao findPw email->"+ email);
+		try {
+				conn = getConnection();
+				System.out.println(sql);
+				pstm = conn.prepareStatement(sql);
+				pstm.setString(1, id);
+				pstm.setString(2, email);
+				rs = pstm.executeQuery();
+				while(rs.next()) {
+					DBpw=rs.getString("password");
+					System.out.println("MemberDao findPw DBpw->"+ DBpw);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}finally {
+			if(rs != null) rs.close();
+			if(pstm  != null)rs.close();
+			if(conn != null)rs.close();
+		}
+		return DBpw;
+	}
+	
 }

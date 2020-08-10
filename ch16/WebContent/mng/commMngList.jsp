@@ -23,7 +23,7 @@
 <form name="frm" method="post">
 	<h2 style="padding-bottom: 50px; margin-top: 50px;">댓글 관리 게시판<img src="https://img.icons8.com/plasticine/60/000000/delete-chat--v2.png"/></h2>
 	<input type="button" value="회원 댓글 엑셀" onclick="excelDown2();" style="float: left;" class="btn btn-secondary m-1 btn-sm">
-	<input type="button" value="확인" onclick="mnglist();" style="float: right; margin-right: 5px;"/>
+	<input type="button" value="삭제여부" onclick="mnglist();" style="float: right; margin-right: 5px;" class="btn btn-dark"/>
 	<br>
 	<br>
 	<table class="table table-hover">

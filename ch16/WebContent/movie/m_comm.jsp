@@ -5,6 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
@@ -38,6 +39,27 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 .star-output>.input>input:focus+label,
 .star-output>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('images/grade_img.png')no-repeat;}
 </style>
+<style>
+.fa fa-trash {
+	width: 500px;
+	height: 500px;
+
+
+}
+.a{
+	text-overflow:ellipsis;
+  word-wrap:break-word;
+  width:750px;
+
+}
+.a1{
+	text-overflow:ellipsis;
+ 	 word-wrap:break-word;
+  	width:450px;
+
+}
+
+</style>
 <script src="/js/star.js"></script>
 <script type="text/javascript">
  function chek() {
@@ -52,11 +74,11 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 			}
 		}
 		if(!starChk){
-			alert("평점");
+			alert("평점을 선택하세요");
 			return false;
 		}
 		if (document.getElementById('c_content').value=="") {
-			alert("글을 쓰시오");
+			alert("댓글을 작성하세요");
 			document.getElementById('c_content').focus();
 			return false;
 		}
@@ -93,19 +115,19 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 	<div style="float: left">	
 	<button type="button" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle" data-toggle="dropdown" >정렬</button>
 		<div class="dropdown-menu">
-			<a class="dropdown-item" href="movieInfo.do?str=1&m_idx=${m_idx }&pageNum=${pageNum }">최신순</a>
-			<a class="dropdown-item" href="movieInfo.do?str=2&m_idx=${m_idx }&pageNum=${pageNum }">공감순</a>
-			<a class="dropdown-item" href="movieInfo.do?str=3&m_idx=${m_idx }&pageNum=${pageNum }">비공감순</a>
+			<a class="dropdown-item" href="movieInfo.do?str=c_date&m_idx=${m_idx }&pageNum=${pageNum }">최신순</a>
+			<a class="dropdown-item" href="movieInfo.do?str=c_sympathy&m_idx=${m_idx }&pageNum=${pageNum }">공감순</a>
+			<a class="dropdown-item" href="movieInfo.do?str=c_unsympathy&m_idx=${m_idx }&pageNum=${pageNum }">비공감순</a>
 		</div>
 	</div>
 	<form name="write" method="post">
 		<input type="hidden" name="m_idx" id="m_idx" value="${m_idx }"/> 
 		<input type="hidden" name="id" id="id" value="${id }"/>
 		<input type="hidden" name="start" id="start" value=""/>
-		<table class="table" border="1" bordercolor="lightgray" >
+		<table class="table" border="0" bordercolor="lightgray" >
 		<!-- 로그인 했을 경우만 댓글 작성가능 -->
 		<c:if test="${sessionScope.id !=null}">
-			<tr>
+			<tr class="text-center">
 				<!-- 아이디-->
 				<td width="250">
 					<div>${id}</div>
@@ -156,17 +178,18 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					</div>
 				</td>
 			</tr>
+			<c:set var="startNum" value="${startNum-1 }"></c:set>
 		</c:if>
 
 		<!-- 댓글 목록 -->
 		<c:forEach var="comm" items="${list }">
 			<tr>
 				<!-- 아이디, 작성날짜 -->
-				<td width="250px">
+				<td width="250px" class="text-center" style="padding: 30px">
 					<div>
-						${comm.id}<br>
-					</div>
-					<div>
+						작성자 : ${comm.id}
+					</div><br>
+					<div class="text-left" style="margin-left: -1px">
 						<c:if test="${comm.c_grade  == 0 }">
 							<img alt="" src="images/grade/grade00_img.png" width="150px">
 							<b>0점</b>
@@ -212,16 +235,24 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							<b>10점</b>
 						</c:if>
 						
-					</div>
-					<div>
-						${comm.c_date }
+					</div><br>
+					<div >
+						작성일자 : ${comm.c_date }
 					</div>
 				</td>
 				<!-- 본문내용 -->
 				<td width="800px">
 					<div class="text_wrapper">
 						<c:if test="${comm.del_yn == 'Y'}">
-							삭제된글
+							<div>
+							<textarea class="form-control" cols="50" rows="3" style="margin-bottom: 20px">삭제된글입니다.</textarea>
+							<a style="margin-right: 5px" href="javascript:alert('공감 불가능합니다.');">
+							<img alt="" src="images/UpDown/Up.png" width="30"></a>
+							<a>${comm.c_sympathy}</a>
+							<a href="javascript:alert('비공감 불가능합니다.');">
+							<img alt="" src="images/UpDown/Down.png" width="30"></a>
+							<a>${comm.c_unsympathy}</a>
+							</div>			
 						</c:if>
 						<c:if test="${comm.del_yn == 'N'}">
 						<c:set var="sp" value="N"/>
@@ -230,15 +261,18 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 								<c:set var="sp" value="Y"/>
 							</c:if>
 						</c:forEach>
-							${comm.c_content}<br/>
+							<div><%-- <textarea class="form-control" cols="50" rows="3">${comm.c_content}</textarea> --%>
+								<%-- <span  class="u_cbox_contents" style="word-wrap:break-word;">${comm.c_content}</span> --%>
+								<p class="a">${comm.c_content}</p>
+							</div><br/>
 								<c:choose>
 									<c:when test="${sp eq 'N'}">
-										<a style="margin-right: 5px" href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
+										<a href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
 											<img alt="" src="images/UpDown/Up.png" width="30"></a>
-										<a  style="margin-right: 5px">${comm.c_sympathy}</a>
-										<a  style="margin-right: 5px" href="commidchekunsym.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
+										<a>${comm.c_sympathy}</a>
+										<a href="commidchekunsym.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
 											<img alt="" src="images/UpDown/Down.png" width="30"></a>
-										<a style="margin-right: 100px">${comm.c_unsympathy}</a>
+										<a>${comm.c_unsympathy}</a>
 									</c:when>
 									<c:otherwise>
 										<a style="margin-right: 5px" href="javascript:alert('중복');">
@@ -252,24 +286,24 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							
 							
 							<br/>
-							<input type="button" onclick="reply('${comm.c_idx }');" value="답글"/>
+							<input class="btn m-2 btn-primary mx-auto" type="button" onclick="reply('${comm.c_idx }');" value="답글"/>
 						</c:if>
 					</div>
 				</td>
-				<td width="300px">
+				<td width="85px"  style="padding-top:75px; padding-left: 15px ">
 					<c:if test="${sessionScope.status eq '2' or sessionScope.id eq comm.id}">
-								<button class="btn m-2 btn-primary mx-auto"
-								onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'">삭제</button>
+								<button class="dbtn"
+								onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'" ><i class="fa fa-trash"></i></button>
 					</c:if>			
 				</td>
 			</tr>
-			<!-- 답글 부분 -->
+			<!-- 답글 리스트 부분-->
 			<tr>
 				<td colspan="5">
 					<div id="reply${comm.c_idx }" style="display:none;">
 						<c:forEach var="result" items="${slist }">
 							<c:if test="${comm.c_idx eq result.step}">
-								<table class="table">
+								<table class="table" style="padding-top: 20px">
 									<tr>
 										<td width="100px">
 											
@@ -278,19 +312,26 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 										<td width="140px">
 											<img src='images/next.png'>
 										</td>	
-										<td width="100px" align="center" style="padding-top:50px ">
-											${result.id }
+										<td width="100px" align="center">
+											<div>
+												<br>
+												${result.id }
+											</div>
 										</td>	
-										<td width="450px" align="center" style="padding-top:50px ">
-											${result.c_content}
+										<td width="450px">
+											<div>
+												<%-- <textarea class="form-control" rows='3' cols='50'>${result.c_content}</textarea> --%>
+												<p class="a1">${result.c_content}</p>
+											</div>
 										</td>
-										<td style="padding-top:50px ">
+										<td>
+											<br>
 											${result.c_date}
 										</td>
-										<td style="padding-top:50px ">
-											<c:if test="${sessionScope.status eq '2' or sessionScope.id eq comm.id  }">
-											<button class="btn m-2 btn-primary mx-auto"
-								onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${result.m_idx}&c_idx=${result.c_idx}'">삭제</button>
+										<td>
+											<c:if test="${sessionScope.status eq '2' or sessionScope.id eq result.id  }">
+											<!-- 답글 삭제 -->
+											<button class="dbtn" onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${result.m_idx}&c_idx=${result.c_idx}'"><i class="fa fa-trash"></i></button>
 											</c:if>
 										</td>
 										<td width="80px">
@@ -301,19 +342,19 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							</c:if>
 						</c:forEach>
 							<!-- 답글 작성란  -->
-							<table class = table style="margin-top:10;" >
+							<table class = "table" style="margin-top:10" >
 							<tr>
-								<td colspan="2">
+								<td colspan="1">
 									<img src='images/next.png'>
 								</td>
-								<td colspan="3">
+								<td colspan="3" style="padding-top: 50px">
 									${sessionScope.id }
 								</td>
 								<td>
-									<textarea id='content${comm.c_idx}' name='content${comm.c_idx}' rows='4' cols='50'></textarea>
+									<textarea class="form-control" id='content${comm.c_idx}' name='content${comm.c_idx}' rows='4' cols='50'></textarea>
 								</td>
-								<td colspan="1">
-									<input type="button" onclick="replySubmit('${comm.id}','${comm.m_idx }','${comm.c_idx}');" value="답글"/>
+								<td colspan="1" style="padding-top: 40px">
+									<input class="btn m-2 btn-primary mx-auto" type="button" onclick="replySubmit('${comm.id}','${comm.m_idx }','${comm.c_idx}');" value="답글"/>
 								</td>
 							</tr>
 						</table>
@@ -340,7 +381,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 						<a href='movieInfo.do?pageNum2=${startPage-blockSize}&m_idx=${m_idx}'>[이전]</a>
 					</c:if>
 					<c:forEach var="i" begin="${startPage}" end="${endPage}">
-						<a href='movieInfo.do?pageNum2=${i }&m_idx=${m_idx}'>[${i}]</a>
+						<a href='movieInfo.do?pageNum2=${i }&m_idx=${m_idx}&str=${str}'>[${i}]</a>
 					</c:forEach>
 					<c:if test="${endPage > pageCnt }">
 						<a href='movieInfo.do?pageNum2=${startPage+blockSize }&m_idx=${m_idx}'>[다음]</a>

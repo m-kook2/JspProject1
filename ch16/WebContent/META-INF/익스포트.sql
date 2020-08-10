@@ -140,6 +140,7 @@ DROP TABLE "J20200701"."S_COMM" cascade constraints;
    COMMENT ON COLUMN "J20200701"."MEMBER"."NICKNAME" IS '닉네임';
    COMMENT ON COLUMN "J20200701"."MEMBER"."GENDER" IS '성별';
    COMMENT ON COLUMN "J20200701"."MEMBER"."REG_DATE" IS '가입일';
+   COMMENT ON COLUMN "J20200701"."MEMBER"."PIC" IS '사진';
    COMMENT ON COLUMN "J20200701"."MEMBER"."DEL_YN" IS '탈퇴여부';
    COMMENT ON COLUMN "J20200701"."MEMBER"."STATUS" IS '회원상태';
    COMMENT ON COLUMN "J20200701"."MEMBER"."ZIP" IS '우편번호';
@@ -408,14 +409,14 @@ SET DEFINE OFF;
 Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('admin',1,'2468','email1@gmail.com','nickname2','남자','2020/07/01','N','2','who.jpg',null,null);
 Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil2',2,'2468','email2@gmail.com','nickname3','여자','2010/07/01','N','1','mangu.jpg',null,null);
 Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil3',3,'2468','email4@3gmail.com','nickname4','남자','2030/07/01','N','1','chulsu.jpg',null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil4',4,'2468','email5@gmail.com','nickname6','남자','2019/07/01','N','1',null,null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil5',5,'2468','email6@gmail.com','nickname7','여자','2018/07/01','N','1',null,null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil6',6,'2468','email6@gmail.com','nickname9','남자','2021/07/01','N','3',null,null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil7',7,'2468','email8@gmail.com','nickname5','여자','2019/07/01','N','3',null,null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil8',8,'2468','email9@gmail.com','nickname54','남자','2018/07/01','N','1',null,null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil9',9,'2468','email@5gmail.com','nickname54','여자','2023/07/01','N','3',null,null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil10',10,'2468','email75@gmail.com','nickname43','여자','2020/07/01','N','1',null,null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil11',11,'2468','email@43gmail.com','nickname78','남자','2020/07/01','N','1',null,null,null);
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil4',4,'2468','email5@gmail.com','nickname6','남자','2019/07/01','N','1','bike.jpg',null,null);
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil5',5,'2468','email6@gmail.com','nickname7','여자','2018/07/01','N','1','jjangu.png',null,null);
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil6',6,'2468','email6@gmail.com','nickname9','남자','2021/07/01','N','3','oops.jpg',null,null);
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil7',7,'2468','email8@gmail.com','nickname5','여자','2019/07/01','N','3','wow.jpg',null,null);
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil8',8,'2468','email9@gmail.com','nickname54','남자','2018/07/01','N','1','sun.jpg',null,null);
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil9',9,'2468','email@5gmail.com','nickname54','여자','2023/07/01','N','3','universer.jpg',null,null);
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil10',10,'2468','email75@gmail.com','nickname43','여자','2020/07/01','N','1','main2.jpg',null,null);
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil11',11,'2468','email@43gmail.com','nickname78','남자','2020/07/01','N','1','ho.jpg',null,null);
 REM INSERTING into J20200701.MOVIE_INFO
 SET DEFINE OFF;
 Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (7,'주전장','호러',to_date('20/07/24','RR/MM/DD'),'영국',82,'12','test','나홍인,고민국','연상호','photo7.jpg','https://www.youtube.com/embed/DXQemwLJlnA','poster7.jpg','admin','N');
@@ -683,4 +684,6 @@ BEGIN
    into   m_result 
    from  dual;
    DBMS_OUTPUT.PUT_LINE('m_result : '|| m_result);
+   
+
 END;

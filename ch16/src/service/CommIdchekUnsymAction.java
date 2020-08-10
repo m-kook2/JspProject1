@@ -19,7 +19,7 @@ public class CommIdchekUnsymAction implements CommandProcess {
 	        int c_idx = Integer.parseInt(request.getParameter("c_idx"));
 	        int m_idx = Integer.parseInt(request.getParameter("m_idx"));
 	        /*String id = request.getParameter("id");*/
-	        
+	        int result=0;
 	        CommDao cd = CommDao.getInstance();
 	       /* int result = cd.chek(id, c_idx);*/
 	        
@@ -32,7 +32,7 @@ public class CommIdchekUnsymAction implements CommandProcess {
 	        request.setAttribute("c_idx", c_idx);
 	        request.setAttribute("m_idx", m_idx);
 	        request.setAttribute("pageNum", pageNum);
-	        /*request.setAttribute("result", result);*/
+	        request.setAttribute("result", result);
 	        
 		} catch(Exception e) { 
 			System.out.println(e.getMessage()); 

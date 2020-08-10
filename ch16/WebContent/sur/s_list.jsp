@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <%@ include file="/inc/top.jsp"%>
@@ -88,9 +88,9 @@
 			
 		<c:if test="${sessionScope.status == 2 }">
 			<div class="row admin">
-				<div class="mx-auto">
+				<div class="mx-auto text-center">
 					<form action="surveyWrite.do">
-						<button class="btn m-3 btn-primary">설문조사 작성</button>
+						<button class="btn btn-dark">작성</button>
 					</form>
 									<p>등록된 설문조사의 수 : ${totCnt }</p>
 				</div>

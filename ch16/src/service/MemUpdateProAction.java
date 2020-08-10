@@ -51,7 +51,7 @@ public class MemUpdateProAction implements CommandProcess {
 		String email = request.getParameter("email");
 		String nickname = request.getParameter("nickname");
 		String gender = request.getParameter("gender");*/
-		System.out.println("id : " + id + ", " + password + ", " + email + ", " + nickname + "," + gender+","+ zip+","+addr);
+		System.out.println("id : " + id + ", " + password + ", " + email + ", " + nickname + "," + gender+","+ zip+","+addr+","+pic);
 		int result = 0;
 		String filename ="";
 		Enumeration en = mp.getFileNames();
