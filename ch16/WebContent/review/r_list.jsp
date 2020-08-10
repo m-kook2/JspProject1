@@ -60,9 +60,8 @@
 				</div>
 				<c:if test="${sessionScope.status eq '2'}">
 					<div class="row" style="float: right">
-						<button class="btn m-2 btn-primary mx-auto"
-							onclick="location.href='reviewwriteForm.do?&pageNum=${pageNum}'">게시글
-							작성</button>
+						<button class="btn btn-dark mx-auto"
+							onclick="location.href='reviewwriteForm.do?&pageNum=${pageNum}'">작성</button>
 					</div>
 				</c:if>
 			</div>

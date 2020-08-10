@@ -44,7 +44,7 @@ font-weight:bold;
 </style>
 <nav class="navbar navbar-expand-sm font-weight-bold" style="background-color: black;">
 	<a class="navbar-brand" href="main.do"> 
-	<img alt="POPcorn Review" src="images/main/pl.png" width="40" height="40"/></a>
+	<img alt="POPcorn Review" src="images/main/pl.png" width="30" height="30"/></a>
   	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 	    <ul class="navbar-nav">
 	      <li class="nav-item">

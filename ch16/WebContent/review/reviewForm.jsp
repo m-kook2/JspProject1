@@ -5,6 +5,7 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp" %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
@@ -40,12 +41,14 @@
 		
 </table>
 	<c:if test="${sessionScope.status eq '2'}">
-		<input class="btn m-2 btn-primary mx-auto" type="button" value="수정" 
+		<input class="btn btn-dark mx-auto" type="button" value="수정" 
 	            onclick="location.href='reviewupdateForm.do?p_idx=${review.p_idx}&pageNum=${pageNum}'">
-		<input class="btn m-2 btn-primary mx-auto" type="button" value="삭제"
+		<input class="btn btn-dark mx-auto" type="button" value="삭제"
 	            onclick="location.href='reviewdeleteForm.do?p_idx=${review.p_idx}&pageNum=${pageNum}'">
 		</c:if>
-	<input class="btn m-2 btn-primary mx-auto" type="button" value="목록" onclick="location.href='r_list.do?pageNum=${pageNum}'">
+		<p>
+		<br>
+	<button type="button" class="btn btn-warning mx-auto" value="목록" onclick="location.href='r_list.do?pageNum=${pageNum}'"><i class="fa fa-bars"></i></button>
 </div>
 <%@ include file="/inc/footer.jsp" %>
 </body>
