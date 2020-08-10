@@ -236,17 +236,6 @@ public class CommDao {
 		 System.out.println("sql : "+sql);
 		 buf.append(sql);
 		 
-		 /*if(str!=null && !str.equals("")) {
-			 if(str.equals("1")) {
-				 buf.append("	order by c_date desc");	 
-			 }else if(str.equals("2")) {
-				 buf.append("	order by c_sympathy desc");
-			 }
-			 else if(str.equals("3")) {
-				 buf.append("	order by c_unsympathy desc");
-			 }
-			 
-		 }*/
 		 	System.out.println("str___________________"+str);
 		try {
 			conn = getConnection();

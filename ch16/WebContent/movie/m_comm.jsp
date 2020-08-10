@@ -167,7 +167,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					<div>
 						작성자 : ${comm.id}
 					</div><br>
-					<div>
+					<div class="text-left" style="margin-left: -1px">
 						<c:if test="${comm.c_grade  == 0 }">
 							<img alt="" src="images/grade/grade00_img.png" width="150px">
 							<b>0점</b>
@@ -219,7 +219,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					</div>
 				</td>
 				<!-- 본문내용 -->
-				<td>
+				<td width="800px">
 					<div class="text_wrapper">
 						<c:if test="${comm.del_yn == 'Y'}">
 							<div>
@@ -265,7 +265,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 						</c:if>
 					</div>
 				</td>
-				<td width="300px"  style="padding-top:75px; padding-left: 15px ">
+				<td width="85px"  style="padding-top:75px; padding-left: 15px ">
 					<c:if test="${sessionScope.status eq '2' or sessionScope.id eq comm.id}">
 								<button class="btn m-2 btn-primary mx-auto"
 								onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'">삭제</button>
