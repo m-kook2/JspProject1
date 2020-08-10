@@ -195,9 +195,9 @@
 								<p>
 									<textarea id="r_content" name="r_content" rows="10" cols="40"></textarea></p>
 								<p>
-									<input 	type="submit" class="btn m-2 btn-primary"
+									<input 	type="submit" class="btn m-2 btn-dark"
 											value="투표+댓글 작성" /> 
-									<input 	type="button" class="btn m-2 btn-secondary" 
+									<input 	type="button" class="btn m-2 btn-dark" 
 											value="댓글없이 투표" onclick="noCommentHandler()" />
 								</p>
 								
@@ -217,21 +217,24 @@
 		</div>
 		<div class="row text-center m-3">
 			<div class="mx-auto">
-				<a href="surveyList.do?pageNum=${pageNum }">
-					<button class="btn btn-primary">목록으로</button>
-				</a>
 				<c:if test="${sessionScope.status == 2 }">
 					<form action="surveyModify.do" style="display: inline;">
 						<input type="hidden" name="s_idx" value=${survey.s_idx } /> 
 						<input type="hidden" name="pageNum" value=${pageNum } /> 
-						<input type=submit class="btn btn-danger" value="설문조사 수정">
+						<input type=submit class="btn btn-dark" value="수정">
 					</form>
 					<form action="surveyDelete.do" style="display: inline;">
 						<input type="hidden" name="s_idx" value=${survey.s_idx } /> 
 						<input type="hidden" name="pageNum" value=${pageNum } /> 
-						<input type=submit class="btn btn-danger" value="설문조사 삭제">
+						<input type=submit class="btn btn-dark" value="삭제">
 					</form>
 				</c:if>
+				<p>
+					<button type="button" class="btn btn-warning"
+					onclick="location.href='surveyList.do?pageNum=${pageNum }'">
+					<i class="fa fa-bars"></i>
+					</button>
+		
 			</div>
 		</div>
 
@@ -261,7 +264,7 @@
 											<input type="hidden" name="pageNum" value="${param.pageNum }">
 											<input type="hidden" name="writerid" value="${sgComm.id }">
 											<input type="hidden" name="commPageNum" value="${param.commPageNum }"> 
-											<input type="submit" class="button btn btn-secondary" value="댓글 삭제" />
+											<input type="submit" class="button btn btn-dark" value="댓글 삭제" />
 										</form>
 									</div>
 								</c:if>

@@ -58,7 +58,7 @@
 					<div class="input-group" id="ig1">
 						<input type="text" class="form-control" name="s_op1" id="s_op1"/>
 						<div class="input-group-append">
-							<input type="button" class="btn btn-danger" id="del1" value="DEL" />
+							<input type="button" class="btn btn-dark" id="del1" value="DEL" />
 						</div>
 					</div>
 				</dd>
@@ -66,7 +66,7 @@
 					<div class="input-group" id="ig2">
 						<input type="text" class="form-control" name="s_op2" id="s_op2"/>
 						<div class="input-group-append">
-							<input type="button" class="btn btn-danger" id="del2" value="DEL" />
+							<input type="button" class="btn btn-dark" id="del2" value="DEL" />
 						</div>
 					</div>
 				</dd>
@@ -74,7 +74,7 @@
 					<div class="input-group" id="ig3">
 						<input type="text" class="form-control" name="s_op3" id="s_op3"/>
 						<div class="input-group-append">
-							<input type="button" class="btn btn-danger" id="del3" value="DEL" />
+							<input type="button" class="btn btn-dark" id="del3" value="DEL" />
 						</div>
 					</div>
 				</dd>
@@ -82,7 +82,7 @@
 					<div class="input-group" id="ig4" >
 						<input type="text" class="form-control" name="s_op4" id="s_op4"/>
 						<div class="input-group-append">
-							<input type="button" class="btn btn-danger" id="del4" value="DEL" />
+							<input type="button" class="btn btn-dark" id="del4" value="DEL" />
 						</div>
 					</div>
 				</dd>
@@ -90,17 +90,17 @@
 					<div class="input-group" id="ig5">
 						<input type="text" class="form-control" name="s_op5" id="s_op5"/>
 						<div class="input-group-append">
-							<input type="button" class="btn btn-danger" id="del5" value="DEL" />
+							<input type="button" class="btn btn-dark" id="del5" value="DEL" />
 						</div>
 					</div>
 				</dd>
 				<dd>
-				<button type="button" class="form-control btn btn-primary" id="add">항목 추가</button>
+				<button type="button" class="form-control btn btn-dark" id="add">항목 추가</button>
 				</dd>
 			</dl>
 			<div class="d-flex justify-content-end">
-			<input class="btn btn-success" type="submit" value="작성 완료" /> <input type="reset" class="btn btn-danger" 
-				value="작성 취소" />
+			<input class="btn btn-dark" type="submit" value="완료" /> <input type="reset" class="btn btn-dark" 
+				value="취소" />
 			</div>
 		</form>
 	</div>
