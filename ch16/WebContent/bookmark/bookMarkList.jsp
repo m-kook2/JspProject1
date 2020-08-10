@@ -65,7 +65,7 @@
 						<td>${bookmark.m_date }</td>
 						<td>${bookmark.reg_date }</td>
 						<td><a
-							href="delete.do?m_idx=${bookmark.m_idx }&pageNum=${pageNum}">삭제</a></td>
+							href="delete.do?m_idx=${bookmark.m_idx }&pageNum=${pageNum}&idx=${bookmark.idx}">삭제</a></td>
 					</tr>
 					<c:set var="startNum" value="${startNum-1 }"></c:set>
 				</c:forEach>

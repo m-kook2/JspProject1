@@ -156,11 +156,12 @@ public class BookmarkDao {
 		return tot;
 	}
 
-	public int delete(String id, int m_idx) throws SQLException {
+	public int delete(String id, int m_idx, int idx) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
 		String sql = "delete from book_mind where id=? and m_idx=?";
+		String sql1 = "update book_mind set idx = idx-1 where idx > ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -168,7 +169,12 @@ public class BookmarkDao {
 			pstmt.setInt(2, m_idx);
 			result = pstmt.executeUpdate();
 			pstmt.close();
+			pstmt = conn.prepareStatement(sql1);
+			pstmt.setInt(1, idx);
+			pstmt.executeUpdate();
+			pstmt.close();
 			conn.close();
+			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {

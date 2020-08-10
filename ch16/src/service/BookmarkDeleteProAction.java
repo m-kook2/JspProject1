@@ -22,11 +22,12 @@ public class BookmarkDeleteProAction implements CommandProcess {
 			String id = (String) session.getAttribute("id");
 			// jsp에서 보낸 m_idx를 받아온다
 			int m_idx = Integer.parseInt(request.getParameter("m_idx"));
+			int idx = Integer.parseInt(request.getParameter("idx"));
 			System.out.println("BookmarkDeleteProAction id->" + id);
 			System.out.println("BookmarkDeleteProAction m_idx->" + m_idx);
 			String pageNum = request.getParameter("pageNum");
 			BookmarkDao bd = BookmarkDao.getInstance();
-			int result = bd.delete(id, m_idx);
+			int result = bd.delete(id, m_idx, idx);
 			System.out.println("BookmarkDeleteProAction result->" + result);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("result", result);
