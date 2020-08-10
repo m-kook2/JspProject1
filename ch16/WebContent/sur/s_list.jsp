@@ -90,7 +90,7 @@
 			<div class="row admin">
 				<div class="mx-auto">
 					<form action="surveyWrite.do">
-						<button class="btn m-3 btn-dark">작성</button>
+						<button class="btn btn-dark">작성</button>
 					</form>
 									<p>등록된 설문조사의 수 : ${totCnt }</p>
 				</div>

@@ -62,7 +62,7 @@
 					<button type="reset" class="btn btn-dark">다시작성</button>
 				<p>
 				<p>
-					<button type="button" class="btn btn-dark" onclick="location.href='csList.do?pageNum=${pageNum }'"><i class="fa fa-bars"></i></button>
+					<button type="button" class="btn btn-warning" onclick="location.href='csList.do?pageNum=${pageNum }'"><i class="fa fa-bars"></i></button>
 			<br />
 				<p>
 	</div>

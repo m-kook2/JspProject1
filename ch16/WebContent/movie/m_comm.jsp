@@ -319,7 +319,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							<table class = "table" style="margin-top:10" >
 							<tr>
 								<td colspan="1">
-									<img src='images/next.png'>
+									<img src='images/next.png' width="50px">
 								</td>
 								<td colspan="3" style="padding-top: 50px">
 									${sessionScope.id }

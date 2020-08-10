@@ -4,7 +4,7 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp"%>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -195,9 +195,9 @@
 								<p>
 									<textarea id="r_content" name="r_content" rows="10" cols="40"></textarea></p>
 								<p>
-									<input 	type="submit" class="btn m-2 btn-dark"
+									<input 	type="submit" class="btn m-2 btn-outline-dark"
 											value="투표+댓글 작성" /> 
-									<input 	type="button" class="btn m-2 btn-dark" 
+									<input 	type="button" class="btn m-2 btn-outline-dark" 
 											value="댓글없이 투표" onclick="noCommentHandler()" />
 								</p>
 								
@@ -230,6 +230,7 @@
 					</form>
 				</c:if>
 				<p>
+				<br>
 					<button type="button" class="btn btn-warning"
 					onclick="location.href='surveyList.do?pageNum=${pageNum }'">
 					<i class="fa fa-bars"></i>
@@ -264,7 +265,7 @@
 											<input type="hidden" name="pageNum" value="${param.pageNum }">
 											<input type="hidden" name="writerid" value="${sgComm.id }">
 											<input type="hidden" name="commPageNum" value="${param.commPageNum }"> 
-											<input type="submit" class="button btn btn-dark" value="댓글 삭제" />
+											<input type="submit" class="button btn btn-warning" value="댓글 삭제" />
 										</form>
 									</div>
 								</c:if>
