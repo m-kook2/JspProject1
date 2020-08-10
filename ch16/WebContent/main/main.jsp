@@ -27,7 +27,7 @@ function pevent(){
         return "";
     }
     if (getCookie("popname") != "done"){
-        var popUrl = "/pop1";
+        var popUrl = "main/popUp.jsp";
         var popOption = "width=400%, height=235%, resizable=no, scrollbars=no, status=no;";
         window.open(popUrl,"",popOption);
     }
