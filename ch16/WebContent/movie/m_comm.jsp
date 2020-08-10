@@ -40,10 +40,25 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 .star-output>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('images/grade_img.png')no-repeat;}
 </style>
 <style>
-.fa>fa-trash {
+.fa fa-trash {
 	width: 500px;
 	height: 500px;
+
+
 }
+.a{
+	text-overflow:ellipsis;
+  word-wrap:break-word;
+  width:750px;
+
+}
+.a1{
+	text-overflow:ellipsis;
+ 	 word-wrap:break-word;
+  	width:450px;
+
+}
+
 </style>
 <script src="/js/star.js"></script>
 <script type="text/javascript">
@@ -246,7 +261,10 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 								<c:set var="sp" value="Y"/>
 							</c:if>
 						</c:forEach>
-							<div><textarea class="form-control" cols="50" rows="3">${comm.c_content}</textarea></div><br/>
+							<div><%-- <textarea class="form-control" cols="50" rows="3">${comm.c_content}</textarea> --%>
+								<%-- <span  class="u_cbox_contents" style="word-wrap:break-word;">${comm.c_content}</span> --%>
+								<p class="a">${comm.c_content}</p>
+							</div><br/>
 								<c:choose>
 									<c:when test="${sp eq 'N'}">
 										<a href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
@@ -300,9 +318,10 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 												${result.id }
 											</div>
 										</td>	
-										<td width="450px" align="center" >
+										<td width="450px">
 											<div>
-												<textarea class="form-control" rows='3' cols='50'>${result.c_content}</textarea>
+												<%-- <textarea class="form-control" rows='3' cols='50'>${result.c_content}</textarea> --%>
+												<p class="a1">${result.c_content}</p>
 											</div>
 										</td>
 										<td>
