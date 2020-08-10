@@ -5,6 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
@@ -37,6 +38,12 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 .star-output>.input,
 .star-output>.input>input:focus+label,
 .star-output>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('images/grade_img.png')no-repeat;}
+</style>
+<style>
+.fa>fa-trash {
+	width: 500px;
+	height: 500px;
+}
 </style>
 <script src="/js/star.js"></script>
 <script type="text/javascript">
@@ -267,8 +274,8 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 				</td>
 				<td width="85px"  style="padding-top:75px; padding-left: 15px ">
 					<c:if test="${sessionScope.status eq '2' or sessionScope.id eq comm.id}">
-								<button class="btn m-2 btn-primary mx-auto"
-								onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'">삭제</button>
+								<button class="dbtn"
+								onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'" ><i class="fa fa-trash"></i></button>
 					</c:if>			
 				</td>
 			</tr>
@@ -304,8 +311,8 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 										</td>
 										<td>
 											<c:if test="${sessionScope.status eq '2' or sessionScope.id eq result.id  }">
-											<button class="btn m-2 btn-primary mx-auto"
-								onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${result.m_idx}&c_idx=${result.c_idx}'">삭제</button>
+											<!-- 답글 삭제 -->
+											<button class="dbtn" onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${result.m_idx}&c_idx=${result.c_idx}'"><i class="fa fa-trash"></i></button>
 											</c:if>
 										</td>
 										<td width="80px">

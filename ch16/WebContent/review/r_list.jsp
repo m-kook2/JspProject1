@@ -51,7 +51,7 @@
 						<a href='r_list.do?pageNum=${startPage-blockSize}'>[이전]</a>
 					</c:if>
 					<c:forEach var="i" begin="${startPage}" end="${endPage}">
-						<a href='r_list.do?pageNum=${i }'>[${i}]</a>
+						<a href='r_list.do?pageNum=${i }' class="btn m-2 btn-dark mx-auto">${i}</a>
 					</c:forEach>
 					<c:if test="${endPage > pageCnt }">
 						<a href='r_list.do?pageNum=${startPage+blockSize }'>[다음]</a>
