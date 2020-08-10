@@ -4,9 +4,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+.a{
+
+	text-overflow:ellipsis;
+  word-wrap:break-word;
+  width:500px;
+
+
+}
+
+</style>
 <%@ include file="/inc/top.jsp" %>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
 <%@ include file="/inc/header.jsp" %>
 
@@ -31,7 +43,10 @@
 	</tr>
 	<tr>
 		<td>내용</td>
-		<td><textarea class="form-control" cols="50" rows="10">${review.p_content}</textarea></td>
+		<td>
+			<%-- <textarea class="form-control" cols="50" rows="10">${review.p_content}</textarea> --%>
+			<p class="a text-left">${review.p_content}</p>
+		</td>
 		<td><img src="./images/main/photo/${review.m_photo}" width="350"></td>
 	</tr>
 	
