@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="style.css" type="text/css">
 <title>Insert title here</title>
 <script type="text/javascript">
 function setCookie(name, value, expiredays){
@@ -24,7 +25,7 @@ function setCookie(name, value, expiredays){
       <form name="frm" method="post" action="main.do">
 <table width="" border="0" cellpadding="0" cellspacing="0">
   <tbody><tr>
-    <td><img src="./images/member/img/minigame222.jpg" width="40%" height="40%" border="0"></td>
+    <td><img src="/images/member/img/welcome.png" width="40%" height="40%" border="0"></td>
   </tr>
   <tr>
     <td height="30" align="right" bgcolor="#000000">
