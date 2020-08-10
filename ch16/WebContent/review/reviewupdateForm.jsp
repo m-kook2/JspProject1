@@ -37,8 +37,8 @@
 			</tr>
 			<tr>
 				<td colspan="3">
-					<input class="btn m-2 btn-primary mx-auto" type="submit" value="수정">
-					<input class="btn m-2 btn-primary mx-auto" type="button" value="취소" onclick="location.href='r_list.do?&pageNum=${pageNum}'">
+					<input class="btn m-2 btn-dark mx-auto" type="submit" value="수정">
+					<input class="btn m-2 btn-dark mx-auto" type="button" value="취소" onclick="location.href='r_list.do?&pageNum=${pageNum}'">
 				</td>
 			</tr>
 		</table>
