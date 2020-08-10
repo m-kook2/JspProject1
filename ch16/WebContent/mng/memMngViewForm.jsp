@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style>
 * {
   box-sizing: border-box;
@@ -75,7 +76,7 @@ function reg() {
 
 <div class="container">
 	<h2 style="margin-top: 50px; text-align: center;">회원정보수정</h2>
-	<form action="memMngUpdatePro.do" name="frm" method="post">
+	<form action="memMngUpdatePro.do" name="frm" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="pic" value="${result.pic}"/>
 	<div class="row">
 		<img alt="${result.pic}" src="./images/member/img/${result.pic}" class="rounded mx-auto"/>
