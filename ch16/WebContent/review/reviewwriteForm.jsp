@@ -9,28 +9,35 @@
 </head>
 <body>
 	<%@ include file="/inc/header.jsp"%>
-	<div class="col-sm text-center" style="padding: 30px">
+	
+	<div class="container text-center" style="padding: 30px">
 	<form action="reviewwritePro.do?pageNum=${pageNum}&id=${id}" method="post">
-		<input type="hidden" name="p_idx" value="${p_idx}">
+		<input class="form-control" type="hidden" name="p_idx" value="${p_idx}">
 		<h2>게시판 글쓰기</h2>
-		<table class=table >
+		<table >
 			<tr>
-				<select name="m_idx">
+				<td class="text-left">
+				영화
+				<select class="form-control" name="m_idx">
 					<c:forEach var="result" items="${list}">
-						<option value="${result.m_idx}">${result.m_name}</option>
+						 <option class="form-control" value="${result.m_idx}">${result.m_name}</option>
 					</c:forEach>
 				</select>
+				<td>
 			</tr>
 			<tr>
-				<td>제목  <input type="text" name="p_title" required="required"></td>
+				<td>제목  <input class="form-control" type="text" name="p_title" required="required"></td>
 				
 			</tr>
 			<tr>
-				<td>내용  <textarea rows="10" cols="30" name="p_content" required="required"></textarea></td>
+				<td>내용  <textarea class="form-control" rows="10" cols="30" name="p_content" required="required"></textarea></td>
 				
 			</tr>
 			<tr>
-				<td><input type="submit" value="확인">  <input type="reset" value="다시작성"></td>
+				<td>
+					<input class="btn m-2 btn-primary mx-auto" type="submit" value="확인">  
+					<input class="btn m-2 btn-primary mx-auto" type="reset" value="다시작성">
+				</td>
 			</tr>
 		</table>
 	</form>

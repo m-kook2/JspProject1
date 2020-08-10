@@ -93,9 +93,9 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 	<div style="float: left">	
 	<button type="button" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle" data-toggle="dropdown" >정렬</button>
 		<div class="dropdown-menu">
-			<a class="dropdown-item" href="movieInfo.do?str=1&m_idx=${m_idx }&pageNum=${pageNum }">최신순</a>
-			<a class="dropdown-item" href="movieInfo.do?str=2&m_idx=${m_idx }&pageNum=${pageNum }">공감순</a>
-			<a class="dropdown-item" href="movieInfo.do?str=3&m_idx=${m_idx }&pageNum=${pageNum }">비공감순</a>
+			<a class="dropdown-item" href="movieInfo.do?str=c_date&m_idx=${m_idx }&pageNum=${pageNum }">최신순</a>
+			<a class="dropdown-item" href="movieInfo.do?str=c_sympathy&m_idx=${m_idx }&pageNum=${pageNum }">공감순</a>
+			<a class="dropdown-item" href="movieInfo.do?str=c_unsympathy&m_idx=${m_idx }&pageNum=${pageNum }">비공감순</a>
 		</div>
 	</div>
 	<form name="write" method="post">
@@ -156,6 +156,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					</div>
 				</td>
 			</tr>
+			<c:set var="startNum" value="${startNum-1 }"></c:set>
 		</c:if>
 
 		<!-- 댓글 목록 -->
@@ -310,10 +311,10 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 									${sessionScope.id }
 								</td>
 								<td>
-									<textarea id='content${comm.c_idx}' name='content${comm.c_idx}' rows='4' cols='50'></textarea>
+									<textarea class="form-control" id='content${comm.c_idx}' name='content${comm.c_idx}' rows='4' cols='50'></textarea>
 								</td>
 								<td colspan="1">
-									<input type="button" onclick="replySubmit('${comm.id}','${comm.m_idx }','${comm.c_idx}');" value="답글"/>
+									<input class="btn m-2 btn-primary mx-auto" type="button" onclick="replySubmit('${comm.id}','${comm.m_idx }','${comm.c_idx}');" value="답글"/>
 								</td>
 							</tr>
 						</table>
@@ -340,7 +341,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 						<a href='movieInfo.do?pageNum2=${startPage-blockSize}&m_idx=${m_idx}'>[이전]</a>
 					</c:if>
 					<c:forEach var="i" begin="${startPage}" end="${endPage}">
-						<a href='movieInfo.do?pageNum2=${i }&m_idx=${m_idx}'>[${i}]</a>
+						<a href='movieInfo.do?pageNum2=${i }&m_idx=${m_idx}&str=${str}'>[${i}]</a>
 					</c:forEach>
 					<c:if test="${endPage > pageCnt }">
 						<a href='movieInfo.do?pageNum2=${startPage+blockSize }&m_idx=${m_idx}'>[다음]</a>
