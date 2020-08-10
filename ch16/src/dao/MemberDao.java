@@ -126,7 +126,7 @@ public class MemberDao {
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		List<MemberDto> list = new ArrayList<MemberDto>();
-		String sql = "SELECT * FROM MEMBER WHERE ID=? AND PASSWORD=? AND DEL_YN='N'";
+		String sql = "SELECT * FROM MEMBER WHERE ID=? AND PASSWORD=?";
 		// ?로 표기해서 값받기.
 		System.out.println(sql);
 		try {
