@@ -102,7 +102,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		<input type="hidden" name="m_idx" id="m_idx" value="${m_idx }"/> 
 		<input type="hidden" name="id" id="id" value="${id }"/>
 		<input type="hidden" name="start" id="start" value=""/>
-		<table class="table" border="1" bordercolor="lightgray" >
+		<table class="table" border="0" bordercolor="lightgray" >
 		<!-- 로그인 했을 경우만 댓글 작성가능 -->
 		<c:if test="${sessionScope.id !=null}">
 			<tr class="text-center">
@@ -278,7 +278,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					<div id="reply${comm.c_idx }" style="display:none;">
 						<c:forEach var="result" items="${slist }">
 							<c:if test="${comm.c_idx eq result.step}">
-								<table class="table">
+								<table class="table" style="padding-top: 20px">
 									<tr>
 										<td width="100px">
 											
@@ -287,23 +287,23 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 										<td width="140px">
 											<img src='images/next.png'>
 										</td>	
-										<td width="100px" align="center" style="padding-top:50px ">
+										<td width="100px" align="center">
 											<div>
-												작성자 <br>
+												<br>
 												${result.id }
 											</div>
 										</td>	
-										<td width="450px" align="center" style="padding-top:50px ">
+										<td width="450px" align="center" >
 											<div>
 												<textarea class="form-control" rows='3' cols='50'>${result.c_content}</textarea>
 											</div>
 										</td>
-										<td style="padding-top:50px ">
-											작성일자<br>
+										<td>
+											<br>
 											${result.c_date}
 										</td>
-										<td style="padding-top:50px ">
-											<c:if test="${sessionScope.status eq '2' or sessionScope.id eq comm.id  }">
+										<td>
+											<c:if test="${sessionScope.status eq '2' or sessionScope.id eq result.id  }">
 											<button class="btn m-2 btn-primary mx-auto"
 								onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${result.m_idx}&c_idx=${result.c_idx}'">삭제</button>
 											</c:if>
@@ -319,7 +319,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							<table class = "table" style="margin-top:10" >
 							<tr>
 								<td colspan="1">
-									<img src='images/next.png' width="50px">
+									<img src='images/next.png'>
 								</td>
 								<td colspan="3" style="padding-top: 50px">
 									${sessionScope.id }
