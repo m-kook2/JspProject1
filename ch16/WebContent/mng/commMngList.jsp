@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>댓글 관리 게시판</title>
 <%@ include file="/inc/top.jsp" %>
 <script type="text/javascript">
 	function excelDown2() {
@@ -17,11 +18,12 @@
 	}
 </script>
 </head>
-<body>
+<body style="background-color: black;">
 <%@ include file="/inc/header.jsp" %>
+<div class="py-3" style="min-height:800px; width: 100%; background-color: white;">
 <div class="container text-center">
 <form name="frm" method="post">
-	<h2 style="padding-bottom: 50px; margin-top: 50px;">댓글 관리 게시판<img src="https://img.icons8.com/plasticine/60/000000/delete-chat--v2.png"/></h2>
+	<h2 style="margin-top: 50px;">댓글 관리 게시판<img src="https://img.icons8.com/plasticine/60/000000/delete-chat--v2.png"/></h2>
 	<input type="button" value="회원 댓글 엑셀" onclick="excelDown2();" style="float: left;" class="btn btn-secondary m-1 btn-sm">
 	<input type="button" value="삭제여부" onclick="mnglist();" style="float: right; margin-right: 5px;" class="btn btn-dark"/>
 	<br>
@@ -79,6 +81,7 @@
 		</c:if>
 	</div>
 </div>	
+</div>
 <%@ include file="/inc/footer.jsp" %>
 </body>
 </html>
