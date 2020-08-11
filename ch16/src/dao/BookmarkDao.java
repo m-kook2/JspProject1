@@ -156,20 +156,33 @@ public class BookmarkDao {
 		return tot;
 	}
 
-	public int delete(String id, int m_idx, int idx) throws SQLException {
+	public int delete(String id, int m_idx) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		int result = 0;
-		String sql = "delete from book_mind where id=? and m_idx=?";
-		String sql1 = "update book_mind set idx = idx-1 where idx > ?";
+		int idx= 0;
+		String sql1 = "select idx from book_mind where id=? and m_idx=?";
+		String sql2 = "delete from book_mind where id=? and m_idx=?";
+		String sql3 = "update book_mind set idx = idx-1 where idx > ?";
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(sql1);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, m_idx);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				idx = rs.getInt(1);
+			}
+			pstmt.close();
+			
+			pstmt = conn.prepareStatement(sql2);
 			pstmt.setString(1, id);
 			pstmt.setInt(2, m_idx);
 			result = pstmt.executeUpdate();
 			pstmt.close();
-			pstmt = conn.prepareStatement(sql1);
+			
+			pstmt = conn.prepareStatement(sql3);
 			pstmt.setInt(1, idx);
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -178,6 +191,8 @@ public class BookmarkDao {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
+			if (rs != null)
+				rs.close();
 			if (conn != null)
 				conn.close();
 			if (pstmt != null)
