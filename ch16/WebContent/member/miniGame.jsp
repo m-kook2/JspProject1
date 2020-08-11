@@ -35,6 +35,7 @@
 			<h3>벽돌깨기 게임</h3>
 			<br /> 
 			<a href='breakWall.do'>[벽돌깨기]</a>
+			<br /><br />
 			<h3>두더지잡기 게임</h3>
 			<br /> 
 			<a href='duderg.do'>[두더지잡기]</a>
