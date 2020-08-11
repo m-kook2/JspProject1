@@ -5,7 +5,7 @@
 <head>
 <%@ include file="/inc/top.jsp"%>
 </head>
-<body>
+<body style="background-color: black;">
 	<%@ include file="/inc/header.jsp"%>
 	
 	<!-- 
@@ -18,8 +18,8 @@
 	bootstrap과 table로 구성했다.
 	
 	 -->
-	 
-	<div class="container" style="margin-bottom: 140px;">
+	 <div style="height:800px; width: 100%; background-color: white;">
+	<div class="container">
 		<div class="row">
 			<div class="col-sm mx-auto text-center p-3">
 				<h2 class="text">설문 조사</h2>
@@ -87,19 +87,18 @@
 			 -->
 			
 		<c:if test="${sessionScope.status == 2 }">
-			<div class="row admin" style="float: right">
-				<div>
-					<form action="surveyWrite.do">
-						<button class="btn btn-dark mx-auto">작성</button>
+			<div class="row admin mb-5">
+				<div style="margin-left:auto; margin-right:0;">
+					<form class="text-right" action="surveyWrite.do">
+						<button class="btn btn-dark">작성</button>
 					</form>
 									<p>등록된 설문조사의 수 : ${totCnt }</p>
-					<p>
-					<p>
-					<br>
+
 				</div>
 			</div>
 		</c:if>
 	</div>
+	 </div>
 
 
 	<%@ include file="/inc/footer.jsp"%>
