@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	alert("수정되었습니다.");
-	location.href="memMngViewForm.do?id=${result}";
+	location.href="memMng.do?id=${result}";
 </script>
 </head>
 <body>

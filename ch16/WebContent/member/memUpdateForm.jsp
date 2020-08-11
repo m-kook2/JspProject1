@@ -36,6 +36,7 @@ height : 100px;
 background-color: #e9ecef;
 border : 1px solid #ced4da;
 border-radius : .25rem;
+}
 </style>
 <script type="text/javascript">
 	function mut() {
