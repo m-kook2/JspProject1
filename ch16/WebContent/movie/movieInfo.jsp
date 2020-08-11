@@ -26,9 +26,6 @@ span{/* border-right: thick dashed #ff0000; */
 		<div class="row">
 	  <div class="col-8">
 <h1>${mt.m_name}</h1>
-<div class="container">
-<div class="row">
-<div class="col-sm text-center" style="padding: 30px">
 <input type="hidden" name="m_idx" value="${m_idx}">
 <p id="grade">
 		<c:if test="${comm2.m_grade == 0 }"><img alt="" src="images/grade/grade00_img.png" >0점</c:if>
@@ -89,15 +86,6 @@ span{/* border-right: thick dashed #ff0000; */
 <iframe width="800" height="450" src="${mt.m_video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>
 
 <p style="text-align: right;">
-<div class="" style="white-space: pre;">${mt.m_story};</div>
-
-<p>
-출연진 : ${mt.m_cast}<p>
-영화감독 : ${mt.m_director}<p>
-포토 : <img src="./images/main/photo/${mt.m_photo}"/><p>
-동영상 : <iframe width="560" height="315" src="${mt.m_video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>
-포스터 : <img src="./images/main/photo/${mt.m_poster}"/><p>
-<input class="btn m-2 btn-primary mx-auto" type="button" value="즐겨찾기 추가" onclick="location.href='bookMarkInsert.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
 	<c:if test="${sessionScope.status eq '2'}">
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="수정" 
 	            onclick="location.href='movieUpdateForm.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
@@ -107,9 +95,6 @@ span{/* border-right: thick dashed #ff0000; */
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="목록"
 			    onclick="location.href='movieList.do?pageNum=${pageNum}'">
 </p>
-
-</div></div>
-</div>
 </div>
 
 <%@ include file="/movie/m_comm.jsp" %>
