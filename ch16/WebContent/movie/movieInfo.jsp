@@ -82,9 +82,7 @@
 포토 : <img src="./images/main/photo/${mt.m_photo}"/><p>
 동영상 : <iframe width="560" height="315" src="${mt.m_video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>
 포스터 : <img src="./images/main/photo/${mt.m_poster}"/><p>
-
 <input class="btn m-2 btn-primary mx-auto" type="button" value="즐겨찾기 추가" onclick="location.href='bookMarkInsert.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
-
 	<c:if test="${sessionScope.status eq '2'}">
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="수정" 
 	            onclick="location.href='movieUpdateForm.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
