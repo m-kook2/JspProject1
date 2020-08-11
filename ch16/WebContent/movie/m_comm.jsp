@@ -49,13 +49,13 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 .a{
 	text-overflow:ellipsis;
   word-wrap:break-word;
-  width:750px;
+  width:550px;
 
 }
 .a1{
 	text-overflow:ellipsis;
  	 word-wrap:break-word;
-  	width:450px;
+  	width:400px;
 
 }
 
@@ -165,7 +165,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		<c:if test="${sessionScope.id !=null}">
 			<tr class="text-center">
 				<!-- 아이디-->
-				<td width="250">
+				<td width="100px">
 					<div>${id}</div>
 					<div>
 						<span class="star-input">
@@ -199,13 +199,13 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					</div>
 				</td>
 				<!-- 본문 작성-->
-				<td width="450">
+				<td td width="50px">
 					<div>
-						<textarea id="c_content" name="c_content" rows="4" cols="100"></textarea>
+						<textarea id="c_content" name="c_content" rows="4" cols="70"></textarea>
 					</div>
 				</td>
 				<!-- 댓글 등록 버튼 -->
-				<td width="100">
+				<td td width="100px">
 					<div id="btn" style="text-align: center;">
 							<input type="hidden" name="s_m_idx" id="s_m_idx" value=""/>
 							<input type="hidden" name="c_grade" id="c_grade" value=""/>
@@ -221,7 +221,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		<c:forEach var="comm" items="${list }">
 			<tr>
 				<!-- 아이디, 작성날짜 -->
-				<td width="250px" class="text-center" style="padding: 30px">
+				<td class="text-center" style="padding: 30px">
 					<div>
 						작성자 : ${comm.id}
 					</div><br>
@@ -277,7 +277,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					</div>
 				</td>
 				<!-- 본문내용 -->
-				<td width="800px">
+				<td>
 					<div class="text_wrapper">
 						<c:if test="${comm.del_yn == 'Y'}">
 							<div>
@@ -299,7 +299,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 						</c:forEach>
 							<div><%-- <textarea class="form-control" cols="50" rows="3">${comm.c_content}</textarea> --%>
 								<%-- <span  class="u_cbox_contents" style="word-wrap:break-word;">${comm.c_content}</span> --%>
-								<p class="a">${comm.c_content}</p>
+								<div class="a">${comm.c_content}</div>
 							</div><br/>
 								<c:choose>
 									<c:when test="${sp eq 'N'}">
@@ -326,7 +326,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 						</c:if>
 					</div>
 				</td>
-				<td width="85px"  style="padding-top:75px; padding-left: 15px ">
+				<td style="padding-top:75px; padding-left: 15px ">
 					<c:if test="${sessionScope.status eq '2' or sessionScope.id eq comm.id}">
 								<!-- 댓글삭제  -->
 								
@@ -344,26 +344,26 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							<c:if test="${comm.c_idx eq result.step}">
 								<table class="table" style="padding-top: 20px">
 									<tr>
-										<td width="100px">
+										<td width="150px">
 											
 										</td>	
 				
-										<td width="140px">
+										<td>
 											<img src='images/next.png' width="20px">
 										</td>	
-										<td width="100px" align="center">
+										<td align="center">
 											<div>
 												
 												${result.id }
 											</div>
 										</td>	
-										<td width="450px">
+										<td>
 											<div>
 												<c:if test="${result.del_yn == 'N'}">
-													<p class="a1">${result.c_content}</p>
+													<div class="a1">${result.c_content}</div>
 												</c:if>
 												<c:if test="${result.del_yn == 'Y'}">
-													<p class="a1">삭제된글입니다. </p>
+													<div class="a1">삭제된글입니다. </div>
 												</c:if>
 												<%-- <textarea class="form-control" rows='3' cols='50'>${result.c_content}</textarea> --%>
 												
@@ -390,16 +390,19 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							<!-- 답글 작성란  -->
 							<table class = "table" style="margin-top:10" >
 							<tr>
-								<td colspan="1">
+								<td width="100px">
+									
+								</td>
+								<td>
 									<img src='images/next.png' width="20px">
 								</td>
-								<td colspan="3">
+								<td>
 									${sessionScope.id }
 								</td>
 								<td>
 									<textarea class="form-control" id='content${comm.c_idx}' name='content${comm.c_idx}' rows='2' cols='50'></textarea>
 								</td>
-								<td colspan="1" style="padding-bottom:0px">
+								<td style="padding-bottom:0px">
 									<input type="hidden" name="content${comm.c_idx}" id="content${comm.c_idx}" value=""/>
 									<input class="btn m-2 btn-dark mx-auto" type="button" onclick="replySubmit('${comm.id}','${comm.m_idx }','${comm.c_idx}','content${comm.c_idx}');" value="답글 작성"/>
 								</td>
