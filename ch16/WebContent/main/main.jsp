@@ -4,7 +4,7 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp" %>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 jQuery(document).ready(function($) {
     pevent();
 });
@@ -27,12 +27,12 @@ function pevent(){
         return "";
     }
     if (getCookie("popname") != "done"){
-        var popUrl = "main/popUp.jsp";
-        var popOption = "width=400%, height=235%, resizable=no, scrollbars=no, status=no;";
+        var popUrl = "main/popUppp.jsp";
+        var popOption = "width=50px, height=50px;, resizable=no, scrollbars=no, status=no;";
         window.open(popUrl,popOption); 
     }
 }
-</script>
+</script> -->
 <style>
 .centered {
   position: absolute;

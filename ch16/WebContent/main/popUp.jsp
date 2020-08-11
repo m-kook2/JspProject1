@@ -22,24 +22,27 @@ function setCookie(name, value, expiredays){
 </script>
 </head>
 <body>
-      <form name="frm" method="post" action="main.do">
-<table width="" border="0" cellpadding="0" cellspacing="0">
-  <tbody><tr>
-    <td><img src="/images/member/img/welcome.png" width="40%" height="40%" border="0"></td>
-  </tr>
-  <tr>
-    <td height="30" align="right" bgcolor="#000000">
-    <table border="0" cellpadding="0" cellspacing="2">
-        <tbody><tr>
-         <td><input class="PopupCheck" type="checkbox" name="pop" onclick="closePop()"></td>
-         <td style="font-size:11px;color:#FFFFFF;">1일동안 이 창을 열지 않음</td>
-            <td style="font-size:40px;"><a href="javascript:self.close();" onfocus="this.blur()">[닫기]</a></td>
-        </tr>
-       
-    </tbody></table>
-    </td>
-  </tr>
-</tbody></table>
+<form name="frm" method="post" action="main.do">
+<table width="20px;" border="" cellpadding="0" cellspacing="0">
+	<tbody>
+	<tr>
+	    <td><img src="/images/member/img/welcome.png" width="50px;" height="40px;" border="0"></td>
+	</tr>
+ 	<tr>
+    	<td height="20" align="right" bgcolor="#000000">
+			<table border="0" cellpadding="0" cellspacing="2">
+			<tbody>
+			      <tr>
+			         <td><input class="PopupCheck" type="checkbox" name="pop" onclick="closePop()"></td>
+			         <td style="font-size:11px;color:#FFFFFF;">1일동안 이 창을 열지 않음</td>
+			         <td style="font-size:20px;"><a href="javascript:self.close();" onfocus="this.blur()">[닫기]</a></td>
+			        </tr>
+			</tbody>
+			</table>
+    	</td>
+   	</tr>
+	</tbody>
+</table>
 </form>
 </body>
 </html>
