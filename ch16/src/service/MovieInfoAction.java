@@ -84,7 +84,6 @@ public class MovieInfoAction implements CommandProcess {
 			request.setAttribute("startPage2", startPage2);
 			request.setAttribute("endPage2", endPage2);
 
-			
 			System.out.println("-----------------------------------------------"); // /ch16/list.do
 			System.out.println("startNum-->" + startNum); // /ch16/list.do
 			System.out.println("totCnt-->" + totCnt); // /ch16/list.do
@@ -94,9 +93,7 @@ public class MovieInfoAction implements CommandProcess {
 			System.out.println("pageCnt-->" + pageCnt); // /ch16/list.do
 			System.out.println("startPage-->" + startPage); // /ch16/list.do
 			System.out.println("endPage-->" + endPage); // /ch16/list.do
-			
-			
-			
+						
 			System.out.println("startNum2-->" + startNum2); // /ch16/list.do
 			System.out.println("totCnt2-->" + totCnt2); // /ch16/list.do
 			System.out.println("currentPage2-->" + currentPage2); // /ch16/list.do

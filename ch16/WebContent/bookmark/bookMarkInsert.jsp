@@ -16,7 +16,7 @@
 </c:if>	
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("추가실패");
+		alert("이미 즐겨찾기에 등록되어 있는 영화입니다");
 		window.history.back();
 	</script>
 	</c:if>

@@ -146,7 +146,7 @@ function Chk(){
 					<input class="form-control" type="file" id="m_poster" name="m_poster" value="${mt.m_poster}" accept="image/*"><hr>	
 				</c:otherwise>
 			</c:choose>
-			<button type="button" class="btn btn-info" onclick="location.href=movieInfo.do?m_idx=${m_idx}">이전으로</button>
+			<button type="button" class="btn btn-info" onclick="location.href='movieInfo.do?m_idx=${m_idx}'">이전으로</button>
 			<input type="reset" class="btn btn-danger" style="background-color: black; border: 0px;" value="작성 취소">
 			<input class="btn btn-success" type="submit" value="작성 완료">
 	</form>

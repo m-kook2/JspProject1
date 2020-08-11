@@ -14,7 +14,7 @@
 	<%@ include file="/inc/header.jsp"%>
 	<div class="py-5" style="background-color: white">
 	<div class="container">
-		<form action="surveyWritePro.do" name="frm" method="post">
+		<form action="surveyWritePro.do" name="frm" method="post" onsubmit="ERA()">
 		<c:if test="${pageNum == null || pageNum eq '' }">
 		<c:set var="pageNum" value="0"></c:set>
 		</c:if>
@@ -195,6 +195,7 @@ var inp_length = 1;
 		}
 
 		function ERA() {
+			alert("test");
 			emptyRemover(1);
 			emptyRemover(2);
 			emptyRemover(3);
