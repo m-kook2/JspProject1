@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>회원 리스트</title>
 <%@ include file="/inc/top.jsp" %>
 <script>
 	function excelDown(){
@@ -12,9 +13,9 @@
 	}
 </script>
 </head>
-<body>
+<body style="background-color: black;">
 <%@ include file="/inc/header.jsp" %>
-
+<div class="py-3" style="min-height:800px; width: 100%; background-color: white;">
 <div class="container text-center">
 <h2 style="margin-top: 50px;">회원관리</h2>
 <p><input type="button" value="엑셀 다운로드" onclick="excelDown();" style="float: left; margin-bottom: 10px;" class="btn btn-secondary m-1 btn-sm" /></p>
@@ -70,6 +71,7 @@
 			<a href='memMng.do?pageNum=${startPage+blockSize}'>[다음]</a>
 		</c:if>
 	</div>
+</div>
 </div>
 <%@ include file="/inc/footer.jsp" %>
 </body>
