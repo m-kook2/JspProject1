@@ -23,10 +23,12 @@ var $star = $(".star-input"),
     	//$result.text($(this).next().text());
     	$("#msg").text($(this).next().text());
   	})
+  	//마우스가 안으로 들어왔을떄
     .on("mouseover", ".star-input label", function(){
     	//$result.text($(this).text());
-    	//$("#msg").text($(this).text());
+    	//$("#msg").text($(this).next().text());
     })
+    //마우스가 경계 외부로나갈떄
     .on("mouseleave", ".star-input>.input", function(){
     	var $checked = $star.find(":checked");
     		//if($checked.length == 0){

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -60,7 +60,7 @@
 					<div class="input-group" id="ig1">
 						<input type="text" class="form-control" name="s_op1" id="s_op1" value="${board.s_op1 }"/>
 						<div class="input-group-append">
-							<input type="button" class="btn btn-danger" id="del1" value="DEL" />
+							<input type="button" class="btn btn-outline-danger" id="del1" value="DEL" />
 						</div>
 					</div>
 				</dd>
@@ -68,7 +68,7 @@
 					<div class="input-group" id="ig2">
 						<input type="text" class="form-control" name="s_op2" id="s_op2" value="${board.s_op2 }"/>
 						<div class="input-group-append">
-							<input type="button" class="btn btn-danger" id="del2" value="DEL" />
+							<input type="button" class="btn btn-outline-danger" id="del2" value="DEL" />
 						</div>
 					</div>
 				</dd>
@@ -76,7 +76,7 @@
 					<div class="input-group" id="ig3">
 						<input type="text" class="form-control" name="s_op3" id="s_op3" value="${board.s_op3 }"/>
 						<div class="input-group-append">
-							<input type="button" class="btn btn-danger" id="del3" value="DEL" />
+							<input type="button" class="btn btn-outline-danger" id="del3" value="DEL" />
 						</div>
 					</div>
 				</dd>
@@ -84,7 +84,7 @@
 					<div class="input-group" id="ig4" >
 						<input type="text" class="form-control" name="s_op4" id="s_op4" value="${board.s_op4 }"/>
 						<div class="input-group-append">
-							<input type="button" class="btn btn-danger" id="del4" value="DEL" />
+							<input type="button" class="btn btn-outline-danger" id="del4" value="DEL" />
 						</div>
 					</div>
 				</dd>
@@ -92,17 +92,17 @@
 					<div class="input-group" id="ig5">
 						<input type="text" class="form-control" name="s_op5" id="s_op5" value="${board.s_op5 }"/>
 						<div class="input-group-append">
-							<input type="button" class="btn btn-danger" id="del5" value="DEL" />
+							<input type="button" class="btn btn-outline-danger" id="del5" value="DEL" />
 						</div>
 					</div>
 				</dd>
 				<dd>
-				<button type="button" class="form-control btn btn-primary " id="add">항목 추가</button>
+				<button type="button" class="form-control btn btn-danger " id="add">항목 추가</button>
 				</dd>
 			</dl>
 			<div class="d-flex justify-content-end">
-			<input 	class="btn btn-success" type="submit" value="작성 완료" /> <input type="button" class="btn btn-danger" 
-					value="수정 취소" 		onclick="location.href = 'surveyContent.do?pageNum=${pageNum}&s_idx=${s_idx}'"/>
+			<input 	class="btn btn-dark" type="submit" value="완료" /> <input type="button" class="btn btn-dark" 
+					value="취소" 		onclick="location.href = 'surveyContent.do?pageNum=${pageNum}&s_idx=${s_idx}'"/>
 			</div>
 		</form>
 	</div>

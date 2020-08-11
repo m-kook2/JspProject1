@@ -56,9 +56,9 @@
 			</div>   
 		</form> 
 	</div>
-			<button type="button" style="position: absolute; top: 47%; left: 70%;/* top:0; bottom: 0; right: 0; left: 0; */" class="btn btn-success" onclick="reg();">로그인</button>
-			<p><br/><button type="button" style="position: absolute; top: 53%; left: 67%;/* top:0; bottom: 0; right: 0; left: 0; */" class="btn btn-light"><a href='findId.do'>[아이디찾기]</a></button>
-			<button type="button" style="position: absolute; top: 53%; left: 74%;/* top:0; bottom: 0; right: 0; left: 0; */" class="btn btn-light"><a href='findPw.do'>[비밀번호찾기]</a></button>
+			<button type="button" style="position: absolute; top: 47%; left: 70%;/* top:0; bottom: 0; right: 0; left: 0; */" class="btn btn-dark" onclick="reg();">로그인</button>
+			<p><br/><button type="button" style="position: absolute; top: 53%; left: 67%;/* top:0; bottom: 0; right: 0; left: 0; */" class="btn btn-warning"><a href='findId.do' style="color:black;">[아이디찾기]</a></button>
+			<button type="button" style="position: absolute; top: 53%; left: 74%;/* top:0; bottom: 0; right: 0; left: 0; */" class="btn btn-warning"><a href='findPw.do' style="color:black;">[비밀번호찾기]</a></button>
 			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	<%@ include file="/inc/footer.jsp"%>
 </body>

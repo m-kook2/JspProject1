@@ -22,6 +22,7 @@ public class UnSymparthProAction implements CommandProcess {
 	        String id = request.getParameter("id");
 	        System.out.println("c_idx"+ c_idx);
 	        System.out.println("m_idx"+ m_idx);
+	        System.out.println("id"+ id);
 	        CommDto comm = new CommDto();
 	        
 	        comm.setM_idx(Integer.parseInt(request.getParameter("m_idx")));

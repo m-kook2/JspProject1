@@ -98,7 +98,7 @@ border-radius : .25rem;
 				<button type="reset" class="btn btn-dark">취소</button>
 				<p>
 				<p>
-					<button type="button" class="btn btn-dark"
+					<button type="button" class="btn btn-warning"
 						onclick="location.href='csList.do?pageNum=${pageNum }'">
 						<i class="fa fa-bars"></i>
 					</button>

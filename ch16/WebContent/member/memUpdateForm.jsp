@@ -138,7 +138,7 @@ function daumPost(){
 					<p>
 						<br /> <input type="hidden" name="pic" value="${sessionScope.pic}" />
 						
-						<input type="file" name="file1"><p> <br /> 
+						<input type="file" class="btn btn-light" name="file1"><p> <br /> 
 						<div>
 						<label id="id2" for="id2"><strong>아이디</strong></label>
 						<input type="text" style="text-align: center;" class="form-control" id="id" name="id" value="${sessionScope.id }" disabled="disabled">
@@ -162,7 +162,7 @@ function daumPost(){
 					<div class="input_container">
 						<input type="text" id="zip" name="zip" placeholder="우편번호" value="${sessionScope.zip }">
 						<input type="text" id="addr" name="addr" placeholder="도로명주소" value="${sessionScope.addr }">
-						<input type="button" onclick="daumPost();" value="우편번호 찾기">
+						<input type="button" class="btn btn-dark" onclick="daumPost();" value="우편번호 찾기">
 						</div>
 					</div>
 						<p>
@@ -183,7 +183,7 @@ function daumPost(){
 					</div>
 				</div>
 				<br />
-				<button type="button" class="btn btn-info" onclick="javascript:mut();">정보수정</button>
+				<button type="button" class="btn btn-dark" onclick="javascript:mut();">정보수정</button>
 				<p>
 				<br/>
 				<br/>

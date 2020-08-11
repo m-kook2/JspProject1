@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <%@ include file="/inc/top.jsp"%>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -27,7 +27,7 @@
 	
 	-->
 	<%@ include file="/inc/header.jsp"%>
-
+	<div class="py-5">
 	<div class="container">
 		<div class="row">
 			<table class="table table-hover table-condensed mx-auto m-1">
@@ -126,7 +126,7 @@
 							<c:if test="${survey.s_op5 != null && !survey.s_op5.equals('') }">
 									${survey.s_op5 } : <fmt:formatNumber
 									value="${survey.op5Cnt / surCnt2 * 100}" pattern="#" /> %
-								<div class="progress">
+								<div class="progress" style="background-color: transparent;">
 									<div class="progress-bar"
 										style="width:${survey.op5Cnt / surCnt2 * 100}%">
 										<fmt:formatNumber value="${survey.op5Cnt / surCnt2 * 100}"
@@ -195,9 +195,9 @@
 								<p>
 									<textarea id="r_content" name="r_content" rows="10" cols="40"></textarea></p>
 								<p>
-									<input 	type="submit" class="btn m-2 btn-primary"
+									<input 	type="submit" class="btn m-2 btn-outline-dark"
 											value="투표+댓글 작성" /> 
-									<input 	type="button" class="btn m-2 btn-secondary" 
+									<input 	type="button" class="btn m-2 btn-outline-dark" 
 											value="댓글없이 투표" onclick="noCommentHandler()" />
 								</p>
 								
@@ -217,21 +217,25 @@
 		</div>
 		<div class="row text-center m-3">
 			<div class="mx-auto">
-				<a href="surveyList.do?pageNum=${pageNum }">
-					<button class="btn btn-primary">목록으로</button>
-				</a>
 				<c:if test="${sessionScope.status == 2 }">
 					<form action="surveyModify.do" style="display: inline;">
 						<input type="hidden" name="s_idx" value=${survey.s_idx } /> 
 						<input type="hidden" name="pageNum" value=${pageNum } /> 
-						<input type=submit class="btn btn-danger" value="설문조사 수정">
+						<input type=submit class="btn btn-dark" value="수정">
 					</form>
 					<form action="surveyDelete.do" style="display: inline;">
 						<input type="hidden" name="s_idx" value=${survey.s_idx } /> 
 						<input type="hidden" name="pageNum" value=${pageNum } /> 
-						<input type=submit class="btn btn-danger" value="설문조사 삭제">
+						<input type=submit class="btn btn-dark" value="삭제">
 					</form>
 				</c:if>
+				<p>
+				<br>
+					<button type="button" class="btn btn-warning"
+					onclick="location.href='surveyList.do?pageNum=${pageNum }'">
+					<i class="fa fa-bars"></i>
+					</button>
+		
 			</div>
 		</div>
 
@@ -261,7 +265,7 @@
 											<input type="hidden" name="pageNum" value="${param.pageNum }">
 											<input type="hidden" name="writerid" value="${sgComm.id }">
 											<input type="hidden" name="commPageNum" value="${param.commPageNum }"> 
-											<input type="submit" class="button btn btn-secondary" value="댓글 삭제" />
+											<input type="submit" class="button btn btn-warning" value="댓글 삭제" />
 										</form>
 									</div>
 								</c:if>
@@ -291,6 +295,7 @@
 				</c:if>
 			</div>
 		</div>
+	</div>
 	</div>
 
 	<%@ include file="/inc/footer.jsp"%>

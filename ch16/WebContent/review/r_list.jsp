@@ -51,7 +51,7 @@
 						<a href='r_list.do?pageNum=${startPage-blockSize}'>[이전]</a>
 					</c:if>
 					<c:forEach var="i" begin="${startPage}" end="${endPage}">
-						<a href='r_list.do?pageNum=${i }'>[${i}]</a>
+						<a href='r_list.do?pageNum=${i }' class="btn m-2 btn-dark mx-auto">${i}</a>
 					</c:forEach>
 					<c:if test="${endPage > pageCnt }">
 						<a href='r_list.do?pageNum=${startPage+blockSize }'>[다음]</a>
@@ -60,9 +60,8 @@
 				</div>
 				<c:if test="${sessionScope.status eq '2'}">
 					<div class="row" style="float: right">
-						<button class="btn m-2 btn-primary mx-auto"
-							onclick="location.href='reviewwriteForm.do?&pageNum=${pageNum}'">게시글
-							작성</button>
+						<button class="btn btn-dark mx-auto"
+							onclick="location.href='reviewwriteForm.do?&pageNum=${pageNum}'">작성</button>
 					</div>
 				</c:if>
 			</div>

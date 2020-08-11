@@ -32,7 +32,12 @@
 						placeholder="이메일">
 				</div>
 				<!-- <button type="button" class="btn btn-primary" onclick="fid();">아이디찾기</button> -->
-				<input type="submit" style="" onclick="return fid();">
+				<input type="submit" style=""
+				
+				
+				
+				
+				 onclick="return fid();">
 				<br />
 				<br />
 				<div class="container">

@@ -1,11 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <%@ include file="/inc/top.jsp"%>
+
+
+<style>
+body {
+  -ms-overflow-style: none; // IE에서 스크롤바 감춤
+  &::-webkit-scrollbar { 
+    display: none !important; // 윈도우 크롬 등
+  }
+}
+
+</style>
 </head>
-<body>
+<body style="background-color: black;">
 	<%@ include file="/inc/header.jsp"%>
 	
 	<!-- 
@@ -18,10 +29,10 @@
 	bootstrap과 table로 구성했다.
 	
 	 -->
-	 
+	 <div class="py-3" style="height:800px; width: 100%; background-color: white;">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm mx-auto text-center p-3">
+			<div class="col-sm mx-auto text-center">
 				<h2 class="text">설문 조사</h2>
 			</div>
 		</div>
@@ -72,7 +83,7 @@
 					<a href='surveyList.do?pageNum=${startPage - blockSize }'>[이전]</a>
 				</c:if>
 				<c:forEach var="i" begin="${startPage }" end="${endPage }">
-					<a href='surveyList.do?pageNum=${i}'>[${i}]</a>
+					<a href='surveyList.do?pageNum=${i}' class="btn btn-dark">${i}</a>
 				</c:forEach>
 				<c:if test="${endPage > pageCnt }">
 					<a href='surveyList.do?pageNum=${startPage + blockSize }'>[다음]</a>
@@ -87,16 +98,18 @@
 			 -->
 			
 		<c:if test="${sessionScope.status == 2 }">
-			<div class="row admin">
-				<div class="mx-auto">
-					<form action="surveyWrite.do">
-						<button class="btn m-3 btn-primary">설문조사 작성</button>
+			<div class="row admin mb-5">
+				<div style="margin-left:auto; margin-right:0;">
+					<form class="text-right" action="surveyWrite.do">
+						<button class="btn btn-dark">작성</button>
 					</form>
 									<p>등록된 설문조사의 수 : ${totCnt }</p>
+
 				</div>
 			</div>
 		</c:if>
 	</div>
+	 </div>
 
 
 	<%@ include file="/inc/footer.jsp"%>

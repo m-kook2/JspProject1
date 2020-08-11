@@ -36,7 +36,7 @@ public class MovieInfoAction implements CommandProcess {
 			if (pageNum2 == null || pageNum2.equals("")) {
 				pageNum2 = "1";
 			}
-			String str = request.getParameter("str") == null ? "" : request.getParameter("str");
+			String str = request.getParameter("str") == null ? "c_date" : request.getParameter("str");
 			int currentPage = Integer.parseInt(pageNum2);
 			int pageSize = 10, blockSize = 10;
 			int startRow = (currentPage - 1) * pageSize + 1;
@@ -74,7 +74,7 @@ public class MovieInfoAction implements CommandProcess {
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
 			request.setAttribute("slist", slist);
-
+			request.setAttribute("str", str);
 
 			request.setAttribute("totCnt2", totCnt2);
 			request.setAttribute("currentPage2", currentPage2);
@@ -97,14 +97,14 @@ public class MovieInfoAction implements CommandProcess {
 			
 			
 			
-			System.out.println("startNum2-->" + startNum); // /ch16/list.do
-			System.out.println("totCnt2-->" + totCnt); // /ch16/list.do
-			System.out.println("currentPage2-->" + currentPage); // /ch16/list.do
-			System.out.println("blockSize2-->" + blockSize); // /ch16/list.do
-			System.out.println("pageSize2-->" + pageSize); // /ch16/list.do
-			System.out.println("pageCnt2-->" + pageCnt); // /ch16/list.do
-			System.out.println("startPage2-->" + startPage); // /ch16/list.do
-			System.out.println("endPage2-->" + endPage); // /ch16/list.do
+			System.out.println("startNum2-->" + startNum2); // /ch16/list.do
+			System.out.println("totCnt2-->" + totCnt2); // /ch16/list.do
+			System.out.println("currentPage2-->" + currentPage2); // /ch16/list.do
+			System.out.println("blockSize2-->" + blockSize2); // /ch16/list.do
+			System.out.println("pageSize2-->" + pageSize2); // /ch16/list.do
+			System.out.println("pageCnt2-->" + pageCnt2); // /ch16/list.do
+			System.out.println("startPage2-->" + startPage2); // /ch16/list.do
+			System.out.println("endPage2-->" + endPage2); // /ch16/list.do
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

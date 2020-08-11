@@ -21,7 +21,7 @@ public class SurveyListAction implements CommandProcess {
         pageNum = "1";
       }
       int currentPage = Integer.parseInt(pageNum);
-      int pageSize = 4, blockSize = 3;
+      int pageSize = 10, blockSize = 3;
       int startRow = (currentPage - 1) * pageSize + 1;
       int endRow = startRow + pageSize - 1;
       int startNum = totCnt - startRow + 1;

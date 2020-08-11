@@ -29,9 +29,11 @@ public class SurveyWriteProAction implements CommandProcess {
       survey.setS_op4(request.getParameter("s_op4"));
       survey.setS_op5(request.getParameter("s_op5"));
       survey.setId(session.getAttribute("id").toString());
-      int result = sd.insert(survey);
+      int[] result = sd.insert(survey);
+      int result2 = sd.rearrange(result[1]);
+      System.out.println("result2=>" + result2);
       request.setAttribute("s_idx", survey.getS_idx());
-      request.setAttribute("result", result);
+      request.setAttribute("result", result[0]);
       request.setAttribute("pageNum", pageNum);
     } catch (Exception e) {
       System.out.println(e.getMessage());

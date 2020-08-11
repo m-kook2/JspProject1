@@ -19,12 +19,15 @@
 		<script type="text/javascript">
 			location.href = "unsymparthyPro.do?&pageNum=${pageNum}&c_idx=${c_idx}&m_idx=${m_idx}&id=${sessionScope.id }";
 		</script>
+		<%-- <script type="text/javascript">
+			location.href = "unsymparthyPro.do?&pageNum=${pageNum}&c_idx=${c_idx}&m_idx=${m_idx}&id=${sessionScope.id }";
+		</script>
 		</c:if>
 		<c:if test="${result != 0 }">
 		<script type="text/javascript">
 			alert("중복입니다.");
 			location.href = "movieInfo.do?pageNum=${pageNum}&m_idx=${m_idx}";
-		</script>
+		</script> --%>
 	</c:if>
 </c:if>
 </body>

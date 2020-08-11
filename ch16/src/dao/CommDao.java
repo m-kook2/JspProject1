@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +12,8 @@ import java.util.List;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import oracle.jdbc.internal.OracleTypes;
 
 public class CommDao {
 	private static CommDao instance;
@@ -218,47 +221,44 @@ public class CommDao {
 	
 	public List<CommDto> list(int startRow, int endRow, String m_idx, String str) throws SQLException {
 		List<CommDto> list = new ArrayList<CommDto>();
-
+		CallableStatement cstmt= null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		/*PreparedStatement pstmt2 = null;*/
 		ResultSet rs = null;
+		String sqlId="";
 		/*ResultSet rs2 = null;*/
 		// String sql = "select * from board order by num desc";
 		// mysql select * from board order by num desc limit startPage-1,10;
-		String sql = "select * from (select * from (select rownum rn ,a.* from "
-				+ " (select * from comm where m_idx = ? order by c_date desc) a )"
-				+ " where rn between ? and ?) where 1=1 and dep=0";
-		
-		/*String sql2="select m_idx ,avg(c_grade) m_grade "
-				+ "from comm  "
-				+ "where m_idx = ? "
-				+ "group by m_idx";*/
+		String sql = "select * from (select rownum rn ,a.* from (select * from comm where m_idx = ? and  dep=0 ";
 		
 		StringBuffer buf=new StringBuffer();
 		 System.out.println("sql : "+sql);
 		 buf.append(sql);
-		 if(str!=null && !str.equals("")) {
-			 if(str.equals("1")) {
-				 buf.append("	order by c_date desc");	 
-			 }else if(str.equals("2")) {
-				 buf.append("	order by c_sympathy desc");
-			 }
-			 else if(str.equals("3")) {
-				 buf.append("	order by c_unsympathy desc");
-			 }
-			 
-		 }
+		 
+		 	System.out.println("str___________________"+str);
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement(buf.toString());
 			/*pstmt2 = conn.prepareStatement(sql2);*/
+			String pro="{call mem_order_by(?,?)}";
+			cstmt=conn.prepareCall(pro);
+			cstmt.setString(1, str);
+			cstmt.registerOutParameter(2, OracleTypes.VARCHAR);
+			cstmt.execute();
+			sqlId=cstmt.getString(2);
+			
+			cstmt.close();
+			buf.append(sqlId+")a )");
+			buf.append(" where rn between ? and ?");
+			System.out.println("SQLID______________>"+buf.toString());
+			pstmt = conn.prepareStatement(buf.toString());
 			pstmt.setString(1, m_idx);
 			pstmt.setInt(2, startRow);
 			pstmt.setInt(3, endRow);
 			/*pstmt2.setString(1, m_idx);*/
 			rs = pstmt.executeQuery();
 			/*rs2= pstmt.executeQuery();*/
+			System.out.println("SQL____________________________>"+sql);
 			while (rs.next()) {
 				CommDto comm = new CommDto();
 				comm.setC_idx(rs.getInt("c_idx"));
@@ -301,7 +301,7 @@ public class CommDao {
 		// String sql = "select * from board order by num desc";
 		// mysql select * from board order by num desc limit startPage-1,10;
 		String sql = "select * from (select * from (select rownum rn ,a.* from "
-				+ " (select * from comm where m_idx = ? order by c_idx desc) a )"
+				+ " (select * from comm where m_idx = ? order by c_date desc) a )"
 				+ " ) where 1=1 and dep=1";
 		
 		/*String sql2="select m_idx ,avg(c_grade) m_grade "
@@ -416,7 +416,7 @@ public class CommDao {
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,id);
+			pstmt.setString(1,"|"+id);
 			pstmt.setInt(2, c_idx);
 			result = pstmt.executeUpdate();
 			pstmt.close();

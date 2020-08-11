@@ -26,7 +26,7 @@
 		
 		<div class="bk_array" style="float: right">
 			<button type="button"
-				class="btn btn-outline-primary btn-sm dropdown-toggle dropdown-toggle m-1"
+				class="btn btn-outline-dark btn-sm dropdown-toggle dropdown-toggle m-1"
 				data-toggle="dropdown">정렬</button>
 			<div class="dropdown-menu">
 				<a class="dropdown-item" href="bookMarkList.do?str=1&pageNum=${pageNum}">개봉일</a> 
@@ -36,7 +36,7 @@
 			</div>
 		</div>
 		<div class="bk_href" style="float: right">
-			<button type="button" class="btn btn-primary btn-sm m-1"
+			<button type="button" class="btn btn-dark btn-sm m-1"
 				onclick="location.href='movieList.do'">즐겨찾기 추가</button>
 		</div>
 		<table class="table">
@@ -65,7 +65,7 @@
 						<td>${bookmark.m_date }</td>
 						<td>${bookmark.reg_date }</td>
 						<td><a
-							href="delete.do?m_idx=${bookmark.m_idx }&pageNum=${pageNum}">삭제</a></td>
+							href="delete.do?m_idx=${bookmark.m_idx }&pageNum=${pageNum}&idx=${bookmark.idx}">삭제</a></td>
 					</tr>
 					<c:set var="startNum" value="${startNum-1 }"></c:set>
 				</c:forEach>

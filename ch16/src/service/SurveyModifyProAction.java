@@ -29,7 +29,8 @@ public class SurveyModifyProAction implements CommandProcess {
       survey.setId(request.getParameter("id"));
       SurveyDao sd = SurveyDao.getInstance();
       int result = sd.update(survey);
-
+      int result2 = sd.rearrange(Integer.parseInt(request.getParameter("s_idx")));
+      System.out.println("SurveyModifyPro Result2=>"+ result2);
       request.setAttribute("result", result);
       request.setAttribute("s_idx", survey.getS_idx());
       request.setAttribute("pageNum", pageNum);
