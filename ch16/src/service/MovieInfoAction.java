@@ -6,7 +6,10 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import dao.BookmarkDao;
+import dao.BookmarkDto;
 import dao.CommDao;
 import dao.CommDto;
 import dao.MovieDao;
@@ -36,6 +39,12 @@ public class MovieInfoAction implements CommandProcess {
 			if (pageNum2 == null || pageNum2.equals("")) {
 				pageNum2 = "1";
 			}
+			HttpSession session = request.getSession();
+			String id = (String) session.getAttribute("id");
+			BookmarkDao bd = BookmarkDao.getInstance();
+			Boolean isBookMark = bd.check(id, m_idx);
+			request.setAttribute("isBookMark", isBookMark);
+			
 			String str = request.getParameter("str") == null ? "c_date" : request.getParameter("str");
 			int currentPage = Integer.parseInt(pageNum2);
 			int pageSize = 10, blockSize = 10;
