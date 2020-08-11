@@ -24,7 +24,6 @@ public class MovieDao {
 		return conn;
 	}
 	
-	
 		public List<MovieDto> list(int startRow, int endRow, String str) throws SQLException {
 			List<MovieDto> list = new ArrayList<MovieDto>();
 			Connection conn = null;	PreparedStatement pstmt= null;
@@ -228,8 +227,6 @@ public class MovieDao {
 		}
 		return result;
 	}
-
-	
 	
 	public int delete(String m_idx) throws SQLException {
 		Connection conn = null;	PreparedStatement pstmt= null; 
@@ -249,8 +246,6 @@ public class MovieDao {
 		}
 		return result;
 	}
-
-
 	public int imgUpdate(MovieDto movieDto) throws SQLException {
 		Connection conn = null;	
 		PreparedStatement pstmt= null; 
@@ -267,7 +262,7 @@ public class MovieDao {
 			pstmt.close();
 			System.out.println("update result : " + result);
 		} catch (Exception e) {
-			System.out.println("MovieDao update ERROR!!");
+			System.out.println("MovieDao imgUpdate ERROR!!");
 			System.out.println(e.getMessage());
 		} finally {
 			if (pstmt != null) pstmt.close();

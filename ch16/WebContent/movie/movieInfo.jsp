@@ -9,9 +9,7 @@
 <body>
 <%@ include file="/inc/header.jsp" %>
 <div class="col-sm text-center" style="padding: 30px">
-<table class="table">
-<tr>
-영화번호 : ${mt.m_idx}<p><p>
+<input type="hidden" name="m_idx" value="${m_idx}">
 영화이름 : ${mt.m_name}<p>
 
 평점
@@ -63,30 +61,30 @@
 		</c:if>
 	</div>
 
-영화장르 : ${mt.m_genre}<p>
+영화장르 : ${mt.m_genre}<p><p>
 <fmt:parseDate value="${mt.m_date }" var="m_date_date" pattern="yyyy-MM-dd" />
 <fmt:formatDate value="${m_date_date}" var="m_date_string" pattern="yyyy-MM-dd"/>
 영화개봉일 : ${m_date_string}<p>
 영화국적 : ${mt.m_nation}<p>
-상영시간 : ${mt.m_time}<p>
-등급 : ${mt.m_rate}<p>
-줄거리 : ${mt.m_story}<p>
+상영시간 : ${mt.m_time}분<p>
+등급 : 
+<c:if test="${mt.m_rate eq '0'}">전체 관람가</c:if>
+<c:if test="${mt.m_rate eq '12'}">12세 이상 관람가</c:if>
+<c:if test="${mt.m_rate eq '15'}">15세 이상 관람가</c:if>
+<c:if test="${mt.m_rate eq '19'}">청소년 관람불가</c:if>	
+<p>
+줄거리 : 
+<p>
+<textarea rows="30" cols="20" >${mt.m_story};</textarea>
+<p>
 출연진 : ${mt.m_cast}<p>
 영화감독 : ${mt.m_director}<p>
-포토 : <img src="./images/main/photo/${mt.m_photo}"/></a><p>
+포토 : <img src="./images/main/photo/${mt.m_photo}"/><p>
 동영상 : <iframe width="560" height="315" src="${mt.m_video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>
-포스터 : <img src="./images/main/photo/${mt.m_poster}"/></a><p>
+포스터 : <img src="./images/main/photo/${mt.m_poster}"/><p>
 
+<input class="btn m-2 btn-primary mx-auto" type="button" value="즐겨찾기 추가" onclick="location.href='bookMarkInsert.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
 
-	<input class="btn m-2 btn-primary mx-auto" type="button" value="즐겨찾기 추가"
-			    onclick="location.href='bookMarkInsert.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
-<!-- 	<input class="btn m-2 btn-primary mx-auto" type="button" value="평점 및 댓글 추가"
-			    onclick="location.href='r_list.do'"> -->
-
-
-	</tr>
-
-</table>
 	<c:if test="${sessionScope.status eq '2'}">
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="수정" 
 	            onclick="location.href='movieUpdateForm.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
@@ -96,7 +94,7 @@
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="목록"
 			    onclick="location.href='movieList.do?pageNum=${pageNum}'">
 
-</div>
+</div></div>
 
 <%@ include file="/movie/m_comm.jsp" %>
 <%@ include file="/inc/footer.jsp"%>

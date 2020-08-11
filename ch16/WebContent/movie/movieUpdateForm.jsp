@@ -6,6 +6,50 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="/inc/top.jsp" %>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+<script type="text/javascript">
+function Chk(){
+	 	var genre = '${mt.m_genre}';
+		var chk1 = genre.search( "액션" );
+		var chk2 = genre.search( "SF" );
+		var chk3 = genre.search( "전쟁" );
+		var chk4 = genre.search( "모험" ); 
+		var chk5 = genre.search( "스릴러" ); 
+		var chk6 = genre.search( "범죄" ); 
+		var chk7 = genre.search( "미스터리" ); 
+		var chk8 = genre.search( "호러" ); 
+		var chk9 = genre.search( "판타지" ); 
+		var chk10 = genre.search( "코미디" ); 
+		var chk11 = genre.search( "뮤지컬" ); 
+		var chk12 = genre.search( "로맨스" ); 
+		var chk13 = genre.search( "멜로" ); 
+		var chk14 = genre.search( "드라마" ); 
+		var chk15 = genre.search( "가족" ); 
+		var chk16 = genre.search( "애니메이션" ); 
+		var chk17 = genre.search( "다큐" ); 
+				
+ 		if(chk1!==-1){$("#m_genre1").prop("checked", true);}
+		if(chk2!==-1){$("#m_genre2").prop("checked", true);}
+		if(chk3!==-1){$("#m_genre3").prop("checked", true);}
+		if(chk4!==-1){$("#m_genre4").prop("checked", true);}
+		if(chk5!==-1){$("#m_genre5").prop("checked", true);}
+		if(chk6!==-1){$("#m_genre6").prop("checked", true);}
+		if(chk7!==-1){$("#m_genre7").prop("checked", true);}
+		if(chk8!==-1){$("#m_genre8").prop("checked", true);}
+		if(chk9!==-1){$("#m_genre9").prop("checked", true);}
+		if(chk10!==-1){$("#m_genre10").prop("checked", true);}
+		if(chk11!==-1){$("#m_genre11").prop("checked", true);}
+		if(chk12!==-1){$("#m_genre12").prop("checked", true);}
+		if(chk13!==-1){$("#m_genre13").prop("checked", true);}
+		if(chk14!==-1){$("#m_genre14").prop("checked", true);}
+		if(chk15!==-1){$("#m_genre15").prop("checked", true);}
+		if(chk16!==-1){$("#m_genre16").prop("checked", true);}
+		if(chk17!==-1){$("#m_genre17").prop("checked", true);}
+		return true;
+ }
+</script>
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
@@ -22,7 +66,25 @@
 					<input type="checkbox" id="m_genre" name="m_genre" value="로맨스" ${mt.m_genre eq '로맨스' ? "checked='checked'" : '' }>로맨스<br>
 					<input type="checkbox" id="m_genre" name="m_genre" value="다큐" ${mt.m_genre eq '다큐' ? "checked='checked'" : '' }>다큐<br>
 					<input type="checkbox" id="m_genre" name="m_genre" value="스릴러" ${mt.m_genre eq '스릴러' ? "checked='checked'" : '' }>스릴러<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="호러" ${mt.m_genre eq '호러' ? "checked='checked'" : '' }>호러<hr>
+					<input type="checkbox" id="m_genre" name="m_genre" value="호러" ${mt.m_genre eq '호러' ? "checked='checked'" : '' }>호러<hr> --%>
+<%-- ${chk.액션} --%>
+<%--  					<input type="checkbox" id="m_genre" name="m_genre" value="액션" ${chk.액션 eq true ? "checked='checked'" : '' }>액션<br> --%>
+					<input type="checkbox" id="m_genre" name="m_genre" value="SF" ${mt.m_genre eq 'SF' ? "checked='checked'" : '' }>SF<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="전쟁" ${mt.m_genre eq '전쟁' ? "checked='checked'" : '' }>전쟁<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="모험" ${mt.m_genre eq '모험' ? "checked='checked'" : '' }>모험<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="스릴러" ${mt.m_genre eq '스릴러' ? "checked='checked'" : '' }>스릴러<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="범죄" ${mt.m_genre eq '범죄' ? "checked='checked'" : '' }>범죄<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="미스터리" ${mt.m_genre eq '미스터리' ? "checked='checked'" : '' }>미스터리<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="호러" ${mt.m_genre eq '호러' ? "checked='checked'" : '' }>호러<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="판타지" ${mt.m_genre eq '판타지' ? "checked='checked'" : '' }>판타지<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="코미디" ${mt.m_genre eq '코미디' ? "checked='checked'" : '' }>코미디<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="뮤지컬" ${mt.m_genre eq '뮤지컬' ? "checked='checked'" : '' }>뮤지컬<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="로맨스" ${mt.m_genre eq '로맨스' ? "checked='checked'" : '' }>로맨스<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="멜로" ${mt.m_genre eq '멜로' ? "checked='checked'" : '' }>멜로<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="드라마" ${mt.m_genre eq '드라마' ? "checked='checked'" : '' }>드라마<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="가족" ${mt.m_genre eq '가족' ? "checked='checked'" : '' }>가족<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="애니메이션" ${mt.m_genre eq '애니메이션' ? "checked='checked'" : '' }>애니메이션<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="다큐" ${mt.m_genre eq '다큐' ? "checked='checked'" : '' }>다큐<hr> 
 			영화개봉일<br>
 				<fmt:parseDate value="${mt.m_date }" var="m_date_date" pattern="yyyy-MM-dd" />
 				<fmt:formatDate value="${m_date_date}" var="m_date_string" pattern="yyyy-MM-dd"/>
@@ -91,7 +153,8 @@
 					<input class="form-control" type="file" id="m_poster" name="m_poster" value="${mt.m_poster}" accept="image/*"><hr>	
 				</c:otherwise>
 			</c:choose>
-			<input type="reset" class="btn btn-danger" value="작성 취소">
+			<button type="button" class="btn btn-info" onclick="location.href='movieInfo.jsp?m_idx=${m_idx}'">이전으로</button>
+			<input type="reset" class="btn btn-danger" style="background-color: black; border: 0px;" value="작성 취소">
 			<input class="btn btn-success" type="submit" value="작성 완료">
 	</form>
 </div>

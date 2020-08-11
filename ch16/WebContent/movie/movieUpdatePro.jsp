@@ -11,9 +11,9 @@
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
 		alert("수정 완료");
-		location.href="movieUpdateForm.do?m_idx=${m_idx }";
+		location.href="movieUpdateForm.do?m_idx=${m_idx }&pageNum=${pageNum}";
 	</script>
-</c:if>	
+</c:if>
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
 		alert("수정 실패");

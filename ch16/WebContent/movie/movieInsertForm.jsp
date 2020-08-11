@@ -16,11 +16,22 @@
 				<input  class="form-control" type="text" name="m_name" id="m_name" placeholder="영화제목을 입력하세요." required="required"><hr>
 			영화장르<br>
 					<input type="checkbox" id="m_genre" name="m_genre" value="액션">액션<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="드라마">드라마<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="로맨스">로맨스<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="다큐">다큐<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="SF">SF<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="전쟁">전쟁<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="모험">모험<br>
 					<input type="checkbox" id="m_genre" name="m_genre" value="스릴러">스릴러<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="호러">호러<hr>
+					<input type="checkbox" id="m_genre" name="m_genre" value="범죄">범죄<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="미스터리">미스터리<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="호러">호러<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="판타지">판타지<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="코미디">코미디<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="뮤지컬">뮤지컬<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="로맨스">로맨스<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="멜로">멜로<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="드라마">드라마<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="가족">가족<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="애니메이션">애니메이션<br>
+					<input type="checkbox" id="m_genre" name="m_genre" value="다큐">다큐<hr>
 			영화개봉일<br>
 				<input class="form-control" type="date" name="m_date" id="m_date" placeholder="YYYY.MM.DD." required="required"><hr>
 			영화국적<br>

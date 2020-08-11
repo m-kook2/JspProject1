@@ -21,9 +21,7 @@ public class MovieUpdateFormAction implements CommandProcess {
 			String m_idx = request.getParameter("m_idx");
 			System.out.println();
 			MovieDao ma = MovieDao.getInstance();
-			
 			MovieDto mt = ma.select(m_idx);
-			
 			
 			request.setAttribute("m_idx", m_idx);
 			request.setAttribute("mt", mt);
