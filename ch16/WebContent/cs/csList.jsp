@@ -5,6 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>의견관리 리스트</title>
 <%@ include file="/inc/top.jsp"%>
 <script>
 	function excelDown(){
@@ -14,9 +15,9 @@
 	}
 </script>
 </head>
-<body>
+<body style="background-color: black;">
 	<%@ include file="/inc/header.jsp"%>
-	
+	<div class="py-3" style="min-height:800px; width: 100%; background-color: white;">
 	<div class="container">
 	<div style="margin-top: 30px"></div>
 	<div class="col-sm text-center">
@@ -69,13 +70,15 @@
 			<a href='csList.do?pageNum=${startPage-blockSize}'>[이전]</a>
 		</c:if>
 		<c:forEach var="i" begin="${startPage}" end="${endPage}">
-			<a href='csList.do?pageNum=${i }'>[${i}]</a>
+			<a href='csList.do?pageNum=${i }' class="btn m-2 btn-dark mx-auto">${i}</a>
 		</c:forEach>
 		<c:if test="${endPage > pageCnt }">
 			<a href='csList.do?pageNum=${startPage+blockSize }'>[다음]</a>
 		</c:if>
 	</div>
 </div>
+</div>
+
 	<%@ include file="/inc/footer.jsp"%>
 </body>
 </html>
