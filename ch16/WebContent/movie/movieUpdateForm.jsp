@@ -54,8 +54,8 @@ function Chk(){
 <!-- <body onload="Chk1()"> -->
 <body onload="Chk()">
 <%@ include file="/inc/header.jsp" %>
-<h2>영화 정보 입력</h2>
-<div class="container" >
+<div class="container py-5" >
+<h2 style="text-align: center;">영화 정보 입력</h2>
  	<form action="movieUpdatePro.do" name="ff" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="m_idx" value="${m_idx}">
 			영화제목<br>

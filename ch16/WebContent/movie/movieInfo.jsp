@@ -7,10 +7,14 @@
 <%@ include file="/inc/top.jsp" %>
 
 <style type="text/css">
-*{font-size: 20px;}
-#grade{font-size: 30px;}
+.co{font-size: 20px;}
+#grade{
+	font-size: 22px;
+	text-align: center;
+	font-weight: bolder;
+}
 .step1{font-size: 30px;}
-span{/* border-right: thick dashed #ff0000; */
+#s{ /* border-right: thick dashed #ff0000; */
     display: inline-block;
     margin: 0 14px 0 0;
     padding-left: 7px;
@@ -18,38 +22,37 @@ span{/* border-right: thick dashed #ff0000; */
     color: #333;
 }
 </style>
-
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-	<div class="container py-5">
+	<div class="container py-5" id="co">
 		<div class="row">
 	  <div class="col-8">
-<h1>${mt.m_name}</h1>
+<h1 style="text-align: center;">${mt.m_name}</h1>
 <input type="hidden" name="m_idx" value="${m_idx}">
 <p id="grade">
-		<c:if test="${comm2.m_grade == 0 }"><img alt="" src="images/grade/grade00_img.png" >0점</c:if>
-		<c:if test="${comm2.m_grade == 1 }"><img alt="" src="images/grade/grade01_img.png" >1점</c:if>
-		<c:if test="${comm2.m_grade == 2 }"><img alt="" src="images/grade/grade02_img.png" >2점</c:if>
-		<c:if test="${comm2.m_grade == 3 }"><img alt="" src="images/grade/grade03_img.png" >3점</c:if>
-		<c:if test="${comm2.m_grade == 4 }"><img alt="" src="images/grade/grade04_img.png">4점</c:if>
-		<c:if test="${comm2.m_grade == 5 }"><img alt="" src="images/grade/grade05_img.png">5점</c:if>
-		<c:if test="${comm2.m_grade == 6 }"><img alt="" src="images/grade/grade06_img.png">6점</c:if>
-		<c:if test="${comm2.m_grade == 7 }"><img alt="" src="images/grade/grade07_img.png">7점</c:if>
-		<c:if test="${comm2.m_grade == 8 }"><img alt="" src="images/grade/grade08_img.png">8점</c:if>
-		<c:if test="${comm2.m_grade == 9 }"><img alt="" src="images/grade/grade09_img.png">9점</c:if>
-		<c:if test="${comm2.m_grade == 10 }"><img alt="" src="images/grade/grade10_img.png">10점</c:if>
+		<c:if test="${comm2.m_grade == 0 }"><img alt="" src="images/grade/grade00_img.png" width="120px"> 0점</c:if>
+		<c:if test="${comm2.m_grade == 1 }"><img alt="" src="images/grade/grade01_img.png" width="120px"> 1점</c:if>
+		<c:if test="${comm2.m_grade == 2 }"><img alt="" src="images/grade/grade02_img.png" width="120px"> 2점</c:if>
+		<c:if test="${comm2.m_grade == 3 }"><img alt="" src="images/grade/grade03_img.png" width="120px"> 3점</c:if>
+		<c:if test="${comm2.m_grade == 4 }"><img alt="" src="images/grade/grade04_img.png" width="120px"> 4점</c:if>
+		<c:if test="${comm2.m_grade == 5 }"><img alt="" src="images/grade/grade05_img.png" width="120px"> 5점</c:if>
+		<c:if test="${comm2.m_grade == 6 }"><img alt="" src="images/grade/grade06_img.png" width="120px"> 6점</c:if>
+		<c:if test="${comm2.m_grade == 7 }"><img alt="" src="images/grade/grade07_img.png" width="120px"> 7점</c:if>
+		<c:if test="${comm2.m_grade == 8 }"><img alt="" src="images/grade/grade08_img.png" width="120px"> 8점</c:if>
+		<c:if test="${comm2.m_grade == 9 }"><img alt="" src="images/grade/grade09_img.png" width="120px"> 9점</c:if>
+		<c:if test="${comm2.m_grade == 10 }"><img alt="" src="images/grade/grade10_img.png" width="120px"> 10점</c:if>
 	</p>
 <dl class="info_spec">
 			<dt class="step1"><em>개요</em></dt>
 			<dd>
 				<p>
-					<span>${mt.m_genre}</span>
-					<span>${mt.m_nation}</span>
-					<span><fmt:parseDate value="${mt.m_date }" var="m_date_date" pattern="yyyy-MM-dd" />
+					<span id="s">${mt.m_genre}</span>
+					<span id="s">${mt.m_nation}</span>
+					<span id="s"><fmt:parseDate value="${mt.m_date }" var="m_date_date" pattern="yyyy-MM-dd" />
 							<fmt:formatDate value="${m_date_date}" var="m_date_string" pattern="yyyy-MM-dd"/>
 							${m_date_string} 개봉</span>
-					<span>${mt.m_time}분</span>
+					<span id="s">${mt.m_time}분</span>
 				</p>
 			</dd>
 				<dt class="step1"><em>감독</em></dt>
@@ -78,7 +81,7 @@ span{/* border-right: thick dashed #ff0000; */
 <textarea cols="120" rows="15" style="border : 1px solid transparent;" readonly="readonly"><c:out value=">${mt.m_story}" /></textarea>
 <p>
 <hr>
-<dt class="step1"><em>포토</em></dt>
+<dt class="step1" ><em>포토</em></dt>
 <img src="./images/main/photo/${mt.m_photo}"/><p>
 <br>
 <hr>
