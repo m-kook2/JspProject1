@@ -51,40 +51,33 @@ function Chk(){
  }
 </script>
 </head>
-<body>
+<!-- <body onload="Chk1()"> -->
+<body onload="Chk()">
 <%@ include file="/inc/header.jsp" %>
 <h2>영화 정보 입력</h2>
-
 <div class="container" >
  	<form action="movieUpdatePro.do" name="ff" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="m_idx" value="${m_idx}">
 			영화제목<br>
 				<input  class="form-control" type="text" name="m_name" id="m_name" value="${mt.m_name}" placeholder="영화제목을 입력하세요." required="required"><hr>
 			영화장르<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="액션" ${mt.m_genre eq '액션' ? "checked='checked'" : '' }>액션<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="드라마" ${mt.m_genre eq '드라마' ? "checked='checked'" : '' }>드라마<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="로맨스" ${mt.m_genre eq '로맨스' ? "checked='checked'" : '' }>로맨스<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="다큐" ${mt.m_genre eq '다큐' ? "checked='checked'" : '' }>다큐<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="스릴러" ${mt.m_genre eq '스릴러' ? "checked='checked'" : '' }>스릴러<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="호러" ${mt.m_genre eq '호러' ? "checked='checked'" : '' }>호러<hr> --%>
-<%-- ${chk.액션} --%>
-<%--  					<input type="checkbox" id="m_genre" name="m_genre" value="액션" ${chk.액션 eq true ? "checked='checked'" : '' }>액션<br> --%>
-					<input type="checkbox" id="m_genre" name="m_genre" value="SF" ${mt.m_genre eq 'SF' ? "checked='checked'" : '' }>SF<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="전쟁" ${mt.m_genre eq '전쟁' ? "checked='checked'" : '' }>전쟁<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="모험" ${mt.m_genre eq '모험' ? "checked='checked'" : '' }>모험<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="스릴러" ${mt.m_genre eq '스릴러' ? "checked='checked'" : '' }>스릴러<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="범죄" ${mt.m_genre eq '범죄' ? "checked='checked'" : '' }>범죄<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="미스터리" ${mt.m_genre eq '미스터리' ? "checked='checked'" : '' }>미스터리<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="호러" ${mt.m_genre eq '호러' ? "checked='checked'" : '' }>호러<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="판타지" ${mt.m_genre eq '판타지' ? "checked='checked'" : '' }>판타지<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="코미디" ${mt.m_genre eq '코미디' ? "checked='checked'" : '' }>코미디<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="뮤지컬" ${mt.m_genre eq '뮤지컬' ? "checked='checked'" : '' }>뮤지컬<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="로맨스" ${mt.m_genre eq '로맨스' ? "checked='checked'" : '' }>로맨스<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="멜로" ${mt.m_genre eq '멜로' ? "checked='checked'" : '' }>멜로<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="드라마" ${mt.m_genre eq '드라마' ? "checked='checked'" : '' }>드라마<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="가족" ${mt.m_genre eq '가족' ? "checked='checked'" : '' }>가족<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="애니메이션" ${mt.m_genre eq '애니메이션' ? "checked='checked'" : '' }>애니메이션<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="다큐" ${mt.m_genre eq '다큐' ? "checked='checked'" : '' }>다큐<hr> 
+ 					<label><input type="checkbox" id="m_genre1" name="m_genre" value="액션" >액션</label><br>
+					<label><input type="checkbox" id="m_genre2" name="m_genre" value="SF" >SF</label><br>
+					<label><input type="checkbox" id="m_genre3" name="m_genre" value="전쟁" >전쟁</label><br>
+					<label><input type="checkbox" id="m_genre4" name="m_genre" value="모험" >모험</label><br>
+					<label><input type="checkbox" id="m_genre5" name="m_genre" value="스릴러" >스릴러</label><br>
+					<label><input type="checkbox" id="m_genre6" name="m_genre" value="범죄" >범죄</label><br>
+					<label><input type="checkbox" id="m_genre7" name="m_genre" value="미스터리" >미스터리</label><br>
+					<label><input type="checkbox" id="m_genre8" name="m_genre" value="호러" >호러</label><br>
+					<label><input type="checkbox" id="m_genre9" name="m_genre" value="판타지" >판타지</label><br>
+					<label><input type="checkbox" id="m_genre10" name="m_genre" value="코미디" >코미디</label><br>
+					<label><input type="checkbox" id="m_genre11" name="m_genre" value="뮤지컬" >뮤지컬</label><br>
+					<label><input type="checkbox" id="m_genre12" name="m_genre" value="로맨스" >로맨스</label><br>
+					<label><input type="checkbox" id="m_genre13" name="m_genre" value="멜로" >멜로</label><br>
+					<label><input type="checkbox" id="m_genre14" name="m_genre" value="드라마" >드라마</label><br>
+					<label><input type="checkbox" id="m_genre15" name="m_genre" value="가족" >가족</label><br>
+					<label><input type="checkbox" id="m_genre16" name="m_genre" value="애니메이션" >애니메이션</label><br>
+					<label><input type="checkbox" id="m_genre17" name="m_genre" value="다큐" >다큐</label><hr>
 			영화개봉일<br>
 				<fmt:parseDate value="${mt.m_date }" var="m_date_date" pattern="yyyy-MM-dd" />
 				<fmt:formatDate value="${m_date_date}" var="m_date_string" pattern="yyyy-MM-dd"/>
@@ -135,10 +128,10 @@ function Chk(){
 			<c:choose>
 				<c:when test="${not empty mt.m_photo}">
 					${mt.m_photo}<a href="movieDelete.do?m_photo=${mt.m_photo}&gubun=photo&m_idx=${mt.m_idx}&m_poster=${mt.m_poster}">삭제하기</a><hr>
-					<input multiple="multiple" class="form-control" type="hidden" id="m_photo" name="m_photo" value="${mt.m_photo}" accept="image/*"><hr>
+					<input class="form-control" type="hidden" id="m_photo" name="m_photo" value="${mt.m_photo}" accept="image/*"><hr>
 				</c:when>
 				<c:otherwise>
-					<input multiple="multiple" class="form-control" type="file" id="m_photo" name="m_photo" value="${mt.m_photo}" accept="image/*"><hr>	
+					<input class="form-control" type="file" id="m_photo" name="m_photo" value="${mt.m_photo}" accept="image/*"><hr>	
 				</c:otherwise>				
 			</c:choose>
 			에고편<br>
@@ -153,7 +146,7 @@ function Chk(){
 					<input class="form-control" type="file" id="m_poster" name="m_poster" value="${mt.m_poster}" accept="image/*"><hr>	
 				</c:otherwise>
 			</c:choose>
-			<button type="button" class="btn btn-info" onclick="location.href='movieInfo.jsp?m_idx=${m_idx}'">이전으로</button>
+			<button type="button" class="btn btn-info" onclick="location.href=movieInfo.do?m_idx=${m_idx}">이전으로</button>
 			<input type="reset" class="btn btn-danger" style="background-color: black; border: 0px;" value="작성 취소">
 			<input class="btn btn-success" type="submit" value="작성 완료">
 	</form>
