@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
-body{
+/* body{
 	background-image: url("./images/member/img/minigame222.jpg");
-}
+} */
 </style>
 <title>게임</title>
 <%@ include file="/inc/top.jsp"%>
@@ -35,6 +35,9 @@ body{
 			<h3>벽돌깨기 게임</h3>
 			<br /> 
 			<a href='breakWall.do'>[벽돌깨기]</a>
+			<h3>두더지잡기 게임</h3>
+			<br /> 
+			<a href='duderg.do'>[두더지잡기]</a>
 			</form>
 		</div>
 	</div>
