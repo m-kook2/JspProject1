@@ -72,7 +72,7 @@
 			<a href='commMngList.do?pageNum=${startPage-blockSize}'>[이전]</a>
 		</c:if>
 		<c:forEach var="i" begin="${startPage}" end="${endPage}">
-			<a href='commMngList.do?pageNum=${i}'>[${i}]</a>
+			<a href='commMngList.do?pageNum=${i}' class="btn btn-dark">${i}</a>
 		</c:forEach>
 		<c:if test="${endPage < pageCnt }">
 			<a href='commMngList.do?pageNum=${startPage+blockSize}'>[다음]</a>

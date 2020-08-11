@@ -19,7 +19,7 @@
 	
 	 -->
 	 
-	<div class="container">
+	<div class="container" style="margin-bottom: 140px;">
 		<div class="row">
 			<div class="col-sm mx-auto text-center p-3">
 				<h2 class="text">설문 조사</h2>
@@ -72,7 +72,7 @@
 					<a href='surveyList.do?pageNum=${startPage - blockSize }'>[이전]</a>
 				</c:if>
 				<c:forEach var="i" begin="${startPage }" end="${endPage }">
-					<a href='surveyList.do?pageNum=${i}'>[${i}]</a>
+					<a href='surveyList.do?pageNum=${i}' class="btn btn-dark">${i}</a>
 				</c:forEach>
 				<c:if test="${endPage > pageCnt }">
 					<a href='surveyList.do?pageNum=${startPage + blockSize }'>[다음]</a>
@@ -87,12 +87,15 @@
 			 -->
 			
 		<c:if test="${sessionScope.status == 2 }">
-			<div class="row admin">
-				<div class="mx-auto text-center">
+			<div class="row admin" style="float: right">
+				<div>
 					<form action="surveyWrite.do">
-						<button class="btn btn-dark">작성</button>
+						<button class="btn btn-dark mx-auto">작성</button>
 					</form>
 									<p>등록된 설문조사의 수 : ${totCnt }</p>
+					<p>
+					<p>
+					<br>
 				</div>
 			</div>
 		</c:if>
