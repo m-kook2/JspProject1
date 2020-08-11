@@ -73,6 +73,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 				starChk=true;
 			}
 		}
+		alert(document.getElementById('c_content').value);
 		if(!starChk){
 			alert("평점을 선택하세요");
 			return false;
@@ -97,8 +98,12 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		}
 	}
 	
-	function replySubmit(id, mIdx, cIdx){
+	function replySubmit(id, mIdx, cIdx,test){
 		var contentIdx="content"+cIdx;
+		if(document.getElementById(test).value==""){
+			alert("글을쓰시오.");
+			return false;
+		}else{
 		var frm= document.sfrm;
 		frm.s_id.value=id;
 		frm.s_m_idx.value=mIdx;
@@ -106,6 +111,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		frm.s_content.value=document.getElementById(contentIdx).value;
 		frm.action="scommWritePro.do";
 		frm.submit();
+		}
 	}
 </script>
 </head>
@@ -292,6 +298,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 				</td>
 				<td width="85px"  style="padding-top:75px; padding-left: 15px ">
 					<c:if test="${sessionScope.status eq '2' or sessionScope.id eq comm.id}">
+								<!-- 댓글삭제  -->
 								<button class="btn btn-warning" onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'" ><i class="fa fa-trash"></i></button>
 					</c:if>			
 				</td>
@@ -353,7 +360,8 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 									<textarea class="form-control" id='content${comm.c_idx}' name='content${comm.c_idx}' rows='4' cols='50'></textarea>
 								</td>
 								<td colspan="1" style="padding-top: 40px">
-									<input class="btn m-2 btn-dark mx-auto" type="button" onclick="replySubmit('${comm.id}','${comm.m_idx }','${comm.c_idx}');" value="답글"/>
+									<input type="hidden" name="content${comm.c_idx}" id="content${comm.c_idx}" value=""/>
+									<input class="btn m-2 btn-dark mx-auto" type="button" onclick="replySubmit('${comm.id}','${comm.m_idx }','${comm.c_idx}','content${comm.c_idx}');" value="답글"/>
 								</td>
 							</tr>
 						</table>
@@ -380,7 +388,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 						<a href='movieInfo.do?pageNum2=${startPage-blockSize}&m_idx=${m_idx}'>[이전]</a>
 					</c:if>
 					<c:forEach var="i" begin="${startPage}" end="${endPage}">
-						<a href='movieInfo.do?pageNum2=${i }&m_idx=${m_idx}&str=${str}'>[${i}]</a>
+						<a href='movieInfo.do?pageNum2=${i }&m_idx=${m_idx}&str=${str}' class="btn m-2 btn-dark mx-auto">${i}</a>
 					</c:forEach>
 					<c:if test="${endPage > pageCnt }">
 						<a href='movieInfo.do?pageNum2=${startPage+blockSize }&m_idx=${m_idx}'>[다음]</a>
