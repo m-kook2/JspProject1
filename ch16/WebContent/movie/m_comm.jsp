@@ -40,9 +40,9 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 .star-output>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('images/grade_img.png')no-repeat;}
 </style>
 <style>
-.fa fa-trash {
-	width: 500px;
-	height: 500px;
+.dbtn {
+	width: 50px;
+	height: 50px;
 
 
 }
@@ -286,14 +286,13 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							
 							
 							<br/>
-							<input class="btn m-2 btn-primary mx-auto" type="button" onclick="reply('${comm.c_idx }');" value="답글"/>
+							<input class="btn m-2 btn-dark mx-auto" type="button" onclick="reply('${comm.c_idx }');" value="답글"/>
 						</c:if>
 					</div>
 				</td>
 				<td width="85px"  style="padding-top:75px; padding-left: 15px ">
 					<c:if test="${sessionScope.status eq '2' or sessionScope.id eq comm.id}">
-								<button class="dbtn"
-								onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'" ><i class="fa fa-trash"></i></button>
+								<button class="btn btn-warning" onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'" ><i class="fa fa-trash"></i></button>
 					</c:if>			
 				</td>
 			</tr>
@@ -331,7 +330,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 										<td>
 											<c:if test="${sessionScope.status eq '2' or sessionScope.id eq result.id  }">
 											<!-- 답글 삭제 -->
-											<button class="dbtn" onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${result.m_idx}&c_idx=${result.c_idx}'"><i class="fa fa-trash"></i></button>
+											<button class="btn btn-warning" onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${result.m_idx}&c_idx=${result.c_idx}'"><i class="fa fa-trash"></i></button>
 											</c:if>
 										</td>
 										<td width="80px">
@@ -354,7 +353,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 									<textarea class="form-control" id='content${comm.c_idx}' name='content${comm.c_idx}' rows='4' cols='50'></textarea>
 								</td>
 								<td colspan="1" style="padding-top: 40px">
-									<input class="btn m-2 btn-primary mx-auto" type="button" onclick="replySubmit('${comm.id}','${comm.m_idx }','${comm.c_idx}');" value="답글"/>
+									<input class="btn m-2 btn-dark mx-auto" type="button" onclick="replySubmit('${comm.id}','${comm.m_idx }','${comm.c_idx}');" value="답글"/>
 								</td>
 							</tr>
 						</table>
