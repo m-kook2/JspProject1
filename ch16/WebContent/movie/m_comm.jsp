@@ -359,8 +359,14 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 										</td>	
 										<td width="450px">
 											<div>
+												<c:if test="${result.del_yn == 'N'}">
+													<p class="a1">${result.c_content}</p>
+												</c:if>
+												<c:if test="${result.del_yn == 'Y'}">
+													<p class="a1">삭제된글입니다. </p>
+												</c:if>
 												<%-- <textarea class="form-control" rows='3' cols='50'>${result.c_content}</textarea> --%>
-												<p class="a1">${result.c_content}</p>
+												
 											</div>
 										</td>
 										<td>
