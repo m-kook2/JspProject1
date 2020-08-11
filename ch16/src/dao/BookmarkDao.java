@@ -223,11 +223,12 @@ public class BookmarkDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		ResultSet rs = null;
-		String sql1 = "select max(idx) from book_mind";
+		String sql1 = "select max(idx) from book_mind where id=?";
 		String sql = "insert into book_mind values(?,?,?,sysdate)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql1);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			rs.next();
 			int number = rs.getInt(1) + 1;

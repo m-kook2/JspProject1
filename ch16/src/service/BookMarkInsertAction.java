@@ -18,7 +18,7 @@ public class BookMarkInsertAction implements CommandProcess {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		String pageNum = request.getParameter("pageNum");
-		
+		String idx = request.getParameter("idx");
 		try {			
 			BookmarkDao bd = BookmarkDao.getInstance();
 			int m_idx = Integer.parseInt(request.getParameter("m_idx"));
