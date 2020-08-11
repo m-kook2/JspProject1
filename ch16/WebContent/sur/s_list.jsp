@@ -4,6 +4,17 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp"%>
+
+
+<style>
+body {
+  -ms-overflow-style: none; // IE에서 스크롤바 감춤
+  &::-webkit-scrollbar { 
+    display: none !important; // 윈도우 크롬 등
+  }
+}
+
+</style>
 </head>
 <body style="background-color: black;">
 	<%@ include file="/inc/header.jsp"%>
@@ -18,10 +29,10 @@
 	bootstrap과 table로 구성했다.
 	
 	 -->
-	 <div style="height:800px; width: 100%; background-color: white;">
+	 <div class="py-3" style="height:800px; width: 100%; background-color: white;">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm mx-auto text-center p-3">
+			<div class="col-sm mx-auto text-center">
 				<h2 class="text">설문 조사</h2>
 			</div>
 		</div>

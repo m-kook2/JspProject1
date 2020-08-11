@@ -27,7 +27,7 @@
 	
 	-->
 	<%@ include file="/inc/header.jsp"%>
-
+	<div class="py-5">
 	<div class="container">
 		<div class="row">
 			<table class="table table-hover table-condensed mx-auto m-1">
@@ -295,6 +295,7 @@
 				</c:if>
 			</div>
 		</div>
+	</div>
 	</div>
 
 	<%@ include file="/inc/footer.jsp"%>

@@ -9,9 +9,10 @@
 <style>
 </style>
 </head>
-<body>
+<body style="background-color: black">
 	<%@ include file="/inc/adminChk.jsp"%>
 	<%@ include file="/inc/header.jsp"%>
+	<div class="py-5" style="background-color: white">
 	<div class="container">
 		<form action="surveyWritePro.do" name="frm" method="post">
 		<c:if test="${pageNum == null || pageNum eq '' }">
@@ -98,11 +99,12 @@
 				<button type="button" class="form-control btn btn-danger" id="add">항목 추가</button>
 				</dd>
 			</dl>
-			<div class="d-flex justify-content-end">
-			<input class="btn btn-dark" type="submit" value="완료" /> <input type="reset" class="btn btn-dark" 
+			<div class="d-flex mb-5 justify-content-end">
+			<input class="btn btn-dark m-1" type="submit" value="완료" /> <input type="reset" class="m-1 btn btn-dark" 
 				value="취소" />
 			</div>
 		</form>
+	</div>
 	</div>
 	<%@ include file="/inc/footer.jsp"%>
 	
