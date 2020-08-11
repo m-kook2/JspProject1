@@ -114,6 +114,36 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		}
 	}
 </script>
+<script>
+ function chk(pageNum,m_idx,c_idx) {
+	 var write = document.write;
+	 var retVal = confirm("정말 삭제하시나요 ?");
+	 if(retVal == true){
+		 write.action="commdeletePro.do?&pageNum=${pageNum}&m_idx="+m_idx+"&c_idx="+c_idx+"";
+		 write.submit();
+
+	 }else{
+	    alert("삭제 취소!");
+	    location.href="movieInfo.do?m_idx=${m_idx}";
+	 }
+	
+}
+</script>
+<script>
+ function chk2(m_idx,c_idx) {
+	 var write = document.write;
+	 var retVal = confirm("정말 삭제하시나요 ?");
+	 if(retVal == true){
+		 write.action="scommdeletePro.do?&pageNum=${pageNum}&m_idx="+m_idx+"&c_idx="+c_idx+"";
+		 write.submit();
+
+	 }else{
+	    alert("삭제 취소!");
+	    location.href="movieInfo.do?m_idx=${m_idx}";
+	 }
+	
+}
+</script>
 </head>
 <body>
 <!-- 댓글 부분 -->
@@ -299,7 +329,10 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 				<td width="85px"  style="padding-top:75px; padding-left: 15px ">
 					<c:if test="${sessionScope.status eq '2' or sessionScope.id eq comm.id}">
 								<!-- 댓글삭제  -->
-								<button class="btn btn-warning" onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'" ><i class="fa fa-trash"></i></button>
+								
+								<button class="btn btn-warning" onclick="chk('${pageNum}','${comm.m_idx}','${comm.c_idx}')"><i class="fa fa-trash"></i></button>
+								<%-- <button class="btn btn-warning" onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'" ><i class="fa fa-trash"></i></button> --%>
+								<%-- <button class="btn btn-warning" onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'" ><i class="fa fa-trash"></i></button> --%>
 					</c:if>			
 				</td>
 			</tr>
@@ -337,7 +370,8 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 										<td>
 											<c:if test="${sessionScope.status eq '2' or sessionScope.id eq result.id  }">
 											<!-- 답글 삭제 -->
-											<button class="btn btn-warning" onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${result.m_idx}&c_idx=${result.c_idx}'"><i class="fa fa-trash"></i></button>
+											<button class="btn btn-warning" onclick="chk2('${result.m_idx}','${result.c_idx}')"><i class="fa fa-trash"></i></button>
+											<%-- <button class="btn btn-warning" onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${result.m_idx}&c_idx=${result.c_idx}'"><i class="fa fa-trash"></i></button> --%>
 											</c:if>
 										</td>
 										<td width="80px">
