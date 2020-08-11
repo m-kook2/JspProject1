@@ -45,7 +45,7 @@
 							<c:if test="${cs.re_level > 0 }">
 							<!-- re_level * 10px -->
 								<img src='images/level.gif' width="${cs.re_level * 10 }">
-								<img src='images/re.gif'>
+								<img src='images/next.png' width="10">
 							</c:if> <a href='csView.do?c_idx=${cs.c_idx }&pageNum=${currentPage}'>
 								${cs.subject}</a>
 						</td>
