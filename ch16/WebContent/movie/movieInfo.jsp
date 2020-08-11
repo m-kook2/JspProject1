@@ -8,6 +8,8 @@
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
+<div class="container">
+<div class="row">
 <div class="col-sm text-center" style="padding: 30px">
 <input type="hidden" name="m_idx" value="${m_idx}">
 영화이름 : ${mt.m_name}<p>
@@ -75,7 +77,8 @@
 <p>
 줄거리 : 
 <p>
-<textarea rows="30" cols="20" >${mt.m_story};</textarea>
+<div class="" style="white-space: pre;">${mt.m_story};</div>
+
 <p>
 출연진 : ${mt.m_cast}<p>
 영화감독 : ${mt.m_director}<p>
@@ -93,6 +96,8 @@
 			    onclick="location.href='movieList.do?pageNum=${pageNum}'">
 
 </div></div>
+</div>
+</div>
 
 <%@ include file="/movie/m_comm.jsp" %>
 <%@ include file="/inc/footer.jsp"%>
