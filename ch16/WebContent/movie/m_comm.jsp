@@ -349,11 +349,11 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 										</td>	
 				
 										<td width="140px">
-											<img src='images/next.png'>
+											<img src='images/next.png' width="20px">
 										</td>	
 										<td width="100px" align="center">
 											<div>
-												<br>
+												
 												${result.id }
 											</div>
 										</td>	
@@ -364,7 +364,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 											</div>
 										</td>
 										<td>
-											<br>
+											
 											${result.c_date}
 										</td>
 										<td>
@@ -385,17 +385,17 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							<table class = "table" style="margin-top:10" >
 							<tr>
 								<td colspan="1">
-									<img src='images/next.png'>
+									<img src='images/next.png' width="20px">
 								</td>
-								<td colspan="3" style="padding-top: 50px">
+								<td colspan="3">
 									${sessionScope.id }
 								</td>
 								<td>
-									<textarea class="form-control" id='content${comm.c_idx}' name='content${comm.c_idx}' rows='4' cols='50'></textarea>
+									<textarea class="form-control" id='content${comm.c_idx}' name='content${comm.c_idx}' rows='2' cols='50'></textarea>
 								</td>
-								<td colspan="1" style="padding-top: 40px">
+								<td colspan="1" style="padding-bottom:0px">
 									<input type="hidden" name="content${comm.c_idx}" id="content${comm.c_idx}" value=""/>
-									<input class="btn m-2 btn-dark mx-auto" type="button" onclick="replySubmit('${comm.id}','${comm.m_idx }','${comm.c_idx}','content${comm.c_idx}');" value="답글"/>
+									<input class="btn m-2 btn-dark mx-auto" type="button" onclick="replySubmit('${comm.id}','${comm.m_idx }','${comm.c_idx}','content${comm.c_idx}');" value="답글 작성"/>
 								</td>
 							</tr>
 						</table>
