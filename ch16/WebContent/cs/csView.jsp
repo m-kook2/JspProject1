@@ -95,7 +95,7 @@ border-radius : .25rem;
 			</c:if>
 		<p>
 		<p>
-		<button type="button" class="btn btn-warning" onclick="href='csList.do?pageNum=${pageNum }'"><i class="fa fa-bars"></i></button>
+		<button type="button" class="btn btn-warning" onclick="location.href='csList.do?pageNum=${pageNum }'"><i class="fa fa-bars"></i></button>
 	</div>
 
 
