@@ -7,19 +7,23 @@
 <%@ include file="/inc/top.jsp" %>
 
 <style type="text/css">
-.co{font-size: 20px;}
 #grade{
 	font-size: 22px;
 	text-align: center;
 	font-weight: bolder;
 }
-.step1{font-size: 30px;}
-#s{ /* border-right: thick dashed #ff0000; */
+.step1{font-size: 25px;}
+.step1{font-size: 18px;}
+.step3{ /* border-right: thick dashed #ff0000; */
     display: inline-block;
     margin: 0 14px 0 0;
     padding-left: 7px;
     background: url(https://ssl.pstatic.net/static/movie/2012/06/bg_tx_line2.gif) no-repeat 0 2px;
     color: #333;
+}
+#textarea1{
+width:100%;
+font-size: 20px;
 }
 </style>
 </head>
@@ -46,28 +50,27 @@
 <dl class="info_spec">
 			<dt class="step1"><em>개요</em></dt>
 			<dd>
-				<p>
-					<span id="s">${mt.m_genre}</span>
-					<span id="s">${mt.m_nation}</span>
-					<span id="s"><fmt:parseDate value="${mt.m_date }" var="m_date_date" pattern="yyyy-MM-dd" />
+				<span class="step2">
+					<span class="step3">${mt.m_genre}</span>
+					<span class="step3">${mt.m_nation}</span>
+					<span class="step3"><fmt:parseDate value="${mt.m_date }" var="m_date_date" pattern="yyyy-MM-dd" />
 							<fmt:formatDate value="${m_date_date}" var="m_date_string" pattern="yyyy-MM-dd"/>
 							${m_date_string} 개봉</span>
-					<span id="s">${mt.m_time}분</span>
-				</p>
+					<span class="step3">${mt.m_time}분</span>
+				</span>
 			</dd>
 				<dt class="step1"><em>감독</em></dt>
-				<dd><p>${mt.m_director}</dd>
+				<dd><span class="step2">${mt.m_director}</span></dd>
 				<dt class="step1"><em>출연</em></dt>
-<%-- 				<dd><div style="white-space:pre;">${mt.m_cast}</div></dd><p> --%>
-				<dd>${mt.m_cast}</dd><p>
+				<dd><span class="step2">${mt.m_cast}</dd></span>
 				<dt class="step1"><em>등급</em></dt>
 				<dd>
-					<p>
+					<span class="step2">
 						<c:if test="${mt.m_rate eq '0'}">전체 관람가</c:if>
 						<c:if test="${mt.m_rate eq '12'}">12세 이상 관람가</c:if>
 						<c:if test="${mt.m_rate eq '15'}">15세 이상 관람가</c:if>
 						<c:if test="${mt.m_rate eq '19'}">청소년 관람불가</c:if>
-					</p>
+					</span>
 				</dd>
 		</dl>
 </div>
@@ -83,7 +86,7 @@
 <hr>
 <dt class="step1"><em>줄거리</em></dt>
 <p>
-<textarea cols="120" rows="15" style="border : 1px solid transparent;" readonly="readonly"><c:out value=">${mt.m_story}" /></textarea>
+<textarea id="textarea1" cols="100%" rows="15" style="border : 1px solid transparent;" readonly="readonly"><c:out value=">${mt.m_story}" /></textarea>
 <p>
 <hr>
 <dt class="step1" ><em>포토</em></dt>
@@ -97,11 +100,13 @@
 	<c:if test="${sessionScope.status eq '2'}">
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="수정" 
 	            onclick="location.href='movieUpdateForm.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
-	<input class="btn m-2 btn-primary mx-auto" type="button" value="삭제"
-	            onclick="location.href='movieDeleteForm.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
 	</c:if>
 	<input class="btn m-2 btn-primary mx-auto" type="button" value="목록"
 			    onclick="location.href='movieList.do?pageNum=${pageNum}'">
+	<c:if test="${sessionScope.status eq '2'}">
+	<input class="btn m-2 btn-primary mx-auto" type="button" value="삭제"
+	            onclick="location.href='movieDeleteForm.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
+	</c:if>
 </p>
 </div>
 
