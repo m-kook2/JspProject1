@@ -11,7 +11,7 @@
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
 		alert("추가 완료");
-		window.location=document.referer;
+		window.location=document.referrer;
 	</script>
 </c:if>	
 <c:if test="${result == 0 }">

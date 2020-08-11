@@ -70,7 +70,12 @@ span{/* border-right: thick dashed #ff0000; */
 </div>
 <div class="col-4" style="text-align: right;">
 <img src="./images/main/photo/${mt.m_poster}"/><br>
+<c:if test="${!isBookMark }">
 <input class="btn m-2 btn-primary mx-auto" type="button" id="bookmark" value="즐겨찾기 추가" onclick="location.href='bookMarkInsert.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
+</c:if>
+<c:if test="${isBookMark }">
+<input class="btn m-2 btn-primary mx-auto" type="button" id="bookmark" value="즐겨찾기 삭제" onclick="location.href='delete.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
+</c:if>
 </div></div>
 <hr>
 <dt class="step1"><em>줄거리</em></dt>

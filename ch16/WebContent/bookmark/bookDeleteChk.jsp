@@ -12,13 +12,13 @@
 	<c:if test="${result > 0 }">
 		<script>
 			alert("삭제되었습니다.")
-			window.location=document.referer;
+			window.location=document.referrer;
 		</script>
 	</c:if>
 	<c:if test="${result <= 0 }">
 		<script>
 			alert("삭제 실패되었습니다.")
-			window.location=document.referer;
+			window.location=document.referrer;
 		</script>
 	</c:if>
 

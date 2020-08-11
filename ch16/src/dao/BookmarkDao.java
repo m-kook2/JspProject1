@@ -251,5 +251,34 @@ public class BookmarkDao {
 			rs.close();
 	}
 	return result;
+	}
+
+	public boolean check(String id, String m_idx) throws SQLException {
+		boolean isbook = false;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from book_mind where m_idx = ? and id =?";
+		try {
+			conn=getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m_idx);
+			pstmt.setString(2, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				isbook = true;
+			}
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (conn != null)
+				conn.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (rs != null)
+				rs.close();
+		}
+		return isbook;
+		
 	}	
 }
