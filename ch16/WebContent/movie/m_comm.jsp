@@ -297,8 +297,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 								<c:set var="sp" value="Y"/>
 							</c:if>
 						</c:forEach>
-							<div><%-- <textarea class="form-control" cols="50" rows="3">${comm.c_content}</textarea> --%>
-								<%-- <span  class="u_cbox_contents" style="word-wrap:break-word;">${comm.c_content}</span> --%>
+							<div>
 								<div class="a">${comm.c_content}</div>
 							</div><br/>
 								<c:choose>
@@ -311,12 +310,12 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 										<a>${comm.c_unsympathy}</a>
 									</c:when>
 									<c:otherwise>
-										<a style="margin-right: 5px" href="javascript:alert('중복');">
+										<a href="javascript:alert('중복');">
 											<img alt="" src="images/UpDown/Up.png" width="30"></a>
-										<a  style="margin-right: 5px">${comm.c_sympathy}</a>
-										<a  style="margin-right: 5px" href="javascript:alert('중복');">
+										<a>${comm.c_sympathy}</a>
+										<a href="javascript:alert('중복');">
 											<img alt="" src="images/UpDown/Down.png" width="30"></a>
-										<a style="margin-right: 100px">${comm.c_unsympathy}</a>
+										<a>${comm.c_unsympathy}</a>
 									</c:otherwise>
 								</c:choose>
 							
@@ -328,11 +327,8 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 				</td>
 				<td style="padding-top:75px; padding-left: 15px ">
 					<c:if test="${sessionScope.status eq '2' or sessionScope.id eq comm.id}">
-								<!-- 댓글삭제  -->
-								
-								<button class="btn btn-warning" onclick="chk('${pageNum}','${comm.m_idx}','${comm.c_idx}')"><i class="fa fa-trash"></i></button>
-								<%-- <button class="btn btn-warning" onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'" ><i class="fa fa-trash"></i></button> --%>
-								<%-- <button class="btn btn-warning" onclick="location.href='commdeletePro.do?&pageNum=${pageNum}&m_idx=${comm.m_idx}&c_idx=${comm.c_idx}'" ><i class="fa fa-trash"></i></button> --%>
+							<!-- 댓글삭제  -->
+							<button class="btn btn-warning" onclick="chk('${pageNum}','${comm.m_idx}','${comm.c_idx}')"><i class="fa fa-trash"></i></button>	
 					</c:if>			
 				</td>
 			</tr>
@@ -345,15 +341,13 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 								<table class="table" style="padding-top: 20px">
 									<tr>
 										<td width="150px">
-											
+										<!-- 공백 -->
 										</td>	
-				
 										<td>
 											<img src='images/next.png' width="20px">
 										</td>	
 										<td align="center">
 											<div>
-												
 												${result.id }
 											</div>
 										</td>	
@@ -364,24 +358,20 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 												</c:if>
 												<c:if test="${result.del_yn == 'Y'}">
 													<div class="a1">삭제된글입니다. </div>
-												</c:if>
-												<%-- <textarea class="form-control" rows='3' cols='50'>${result.c_content}</textarea> --%>
-												
+												</c:if>	
 											</div>
 										</td>
 										<td>
-											
 											${result.c_date}
 										</td>
 										<td>
 											<c:if test="${sessionScope.status eq '2' or sessionScope.id eq result.id  }">
 											<!-- 답글 삭제 -->
 											<button class="btn btn-warning" onclick="chk2('${result.m_idx}','${result.c_idx}')"><i class="fa fa-trash"></i></button>
-											<%-- <button class="btn btn-warning" onclick="location.href='scommdeletePro.do?&pageNum=${pageNum}&m_idx=${result.m_idx}&c_idx=${result.c_idx}'"><i class="fa fa-trash"></i></button> --%>
 											</c:if>
 										</td>
 										<td width="80px">
-											
+											<!-- 공백 -->	
 										</td>
 									</tr>
 								</table>
@@ -391,7 +381,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							<table class = "table" style="margin-top:10" >
 							<tr>
 								<td width="100px">
-									
+									<!-- 공백 -->
 								</td>
 								<td>
 									<img src='images/next.png' width="20px">
@@ -421,8 +411,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		<input type="hidden" name="s_content" id="s_content" value=""/>
 		<input type="hidden" name="id" id="id" value="${sessionScope.id }"/>
 	</form>	
-	<div id="s_comm" style="display:none;">
-		
+	<div id="s_comm" style="display:none;">	
 	</div>						
 </div>
 				
