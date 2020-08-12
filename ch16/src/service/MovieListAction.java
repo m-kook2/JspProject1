@@ -45,7 +45,7 @@ public class MovieListAction implements CommandProcess {
 			request.setAttribute("pageCnt", pageCnt);
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
-			 
+/*			 
 			System.out.println("-----------------------------------------------");  // /ch16/list.do
 			System.out.println("totCnt-->" + totCnt);  // /ch16/list.do
 			System.out.println("pageNum-->" + pageNum);
@@ -57,7 +57,7 @@ public class MovieListAction implements CommandProcess {
 			System.out.println("pageCnt-->" + pageCnt);  // /ch16/list.do
 			System.out.println("startPage-->" + startPage);  // /ch16/list.do
 			System.out.println("endPage-->" + endPage);  // /ch16/list.do
-		
+		*/
 	} catch(Exception e) { System.out.println(e.getMessage()); }
 	return "movie/movieList.jsp";	
 	}

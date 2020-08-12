@@ -5,33 +5,53 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp" %>
+<script type="text/javascript">
+function reg() {
+	var f = document.ff;
+	var okay = false;
+	var i = 1;
+	for(i=1;i<18;i++){
+	if(document.getElementById("m_genre"+i).checked){
+		okay = true;
+		continue;
+		}
+	}
+	if(!okay){
+		alert("장르를 선택해 주세요");
+		document.ff.m_genre1.focus();
+		return false;
+	}
+	return true;
+}
+
+</script>
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
 <h2>영화 정보 입력</h2>
 
 <div class="container" >
- 	<form action="movieInsertPro.do"  name="ff" method="post" enctype="multipart/form-data">
+ 	<form action="movieInsertPro.do"  name="ff" method="post" onsubmit="return reg()" enctype="multipart/form-data">
 			영화제목<br>
 				<input  class="form-control" type="text" name="m_name" id="m_name" placeholder="영화제목을 입력하세요." required="required"><hr>
 			영화장르<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="액션">액션<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="SF">SF<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="전쟁">전쟁<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="모험">모험<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="스릴러">스릴러<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="범죄">범죄<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="미스터리">미스터리<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="호러">호러<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="판타지">판타지<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="코미디">코미디<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="뮤지컬">뮤지컬<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="로맨스">로맨스<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="멜로">멜로<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="드라마">드라마<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="가족">가족<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="애니메이션">애니메이션<br>
-					<input type="checkbox" id="m_genre" name="m_genre" value="다큐">다큐<hr>
+					<input type="checkbox" id="m_genre1" name="m_genre" value="액션">액션<br>
+					<input type="checkbox" id="m_genre2" name="m_genre" value="SF">SF<br>
+					<input type="checkbox" id="m_genre3" name="m_genre" value="전쟁">전쟁<br>
+					<input type="checkbox" id="m_genre4" name="m_genre" value="모험">모험<br>
+					<input type="checkbox" id="m_genre5" name="m_genre" value="스릴러">스릴러<br>
+					<input type="checkbox" id="m_genre6" name="m_genre" value="범죄">범죄<br>
+					<input type="checkbox" id="m_genre7" name="m_genre" value="미스터리">미스터리<br>
+					<input type="checkbox" id="m_genre8" name="m_genre" value="호러">호러<br>
+					<input type="checkbox" id="m_genre9" name="m_genre" value="판타지">판타지<br>
+					<input type="checkbox" id="m_genre10" name="m_genre" value="코미디">코미디<br>
+					<input type="checkbox" id="m_genre11" name="m_genre" value="뮤지컬">뮤지컬<br>
+					<input type="checkbox" id="m_genre12" name="m_genre" value="로맨스">로맨스<br>
+					<input type="checkbox" id="m_genre13" name="m_genre" value="멜로">멜로<br>
+					<input type="checkbox" id="m_genre14" name="m_genre" value="드라마">드라마<br>
+					<input type="checkbox" id="m_genre15" name="m_genre" value="가족">가족<br>
+					<input type="checkbox" id="m_genre16" name="m_genre" value="애니메이션">애니메이션<br>
+					<input type="checkbox" id="m_genre17" name="m_genre" value="다큐">다큐<hr>
 			영화개봉일<br>
 				<input class="form-control" type="date" name="m_date" id="m_date" placeholder="YYYY.MM.DD." required="required"><hr>
 			영화국적<br>
@@ -75,7 +95,7 @@
 				<input  class="form-control" type="text" name="m_director" id="m_director" placeholder="이름"><hr>
 
 			포토<br>
-			<input multiple="multiple" class="form-control" type="file" id="m_photo" name="m_photo" accept="image/*"><hr>
+			<input class="form-control" type="file" id="m_photo" name="m_photo" accept="image/*"><hr>
 			에고편<br>
 			<input class="form-control" type="text" name="m_video" id="m_video" placeholder="URL 주소(Youtube)를 복사하여 입력하세요." ><hr>
 			포스터<br>

@@ -227,7 +227,7 @@ public class MovieDao {
 		}
 		return result;
 	}
-	
+
 	public int delete(String m_idx) throws SQLException {
 		Connection conn = null;	PreparedStatement pstmt= null; 
 		int result = 0;		    

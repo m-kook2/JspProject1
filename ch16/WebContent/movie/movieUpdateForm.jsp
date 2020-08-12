@@ -6,8 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="/inc/top.jsp" %>
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
 <script type="text/javascript">
 function Chk(){
@@ -47,8 +45,37 @@ function Chk(){
 		if(chk15!==-1){$("#m_genre15").prop("checked", true);}
 		if(chk16!==-1){$("#m_genre16").prop("checked", true);}
 		if(chk17!==-1){$("#m_genre17").prop("checked", true);}
+		
 		return true;
  }
+function reg() {
+	var f = document.ff;
+	var okay = false;
+	var i = 1;
+	for(i=1;i<18;i++){
+	if(document.getElementById("m_genre"+i).checked){
+		okay = true;
+		continue;
+		}
+	}
+	if(!okay){
+		alert("장르를 선택해 주세요");
+		document.ff.m_genre1.focus();
+		return false;
+	}
+	return true;
+}
+/* 	if (f.id.m_genre == "") {
+		alert("id를 입력 하세요");
+		f.id.focus();
+		return false;
+	}
+	if (f.password.value == "") {
+		alert("비밀번호를 입력하세요");
+		f.password.focus();
+		return false;
+	} */
+	
 </script>
 </head>
 <!-- <body onload="Chk1()"> -->
@@ -56,7 +83,7 @@ function Chk(){
 <%@ include file="/inc/header.jsp" %>
 <div class="container py-5" >
 <h2 style="text-align: center;">영화 정보 입력</h2>
- 	<form action="movieUpdatePro.do" name="ff" method="post" enctype="multipart/form-data">
+ 	<form action="movieUpdatePro.do" name="ff" method="post" onsubmit="return reg()" enctype="multipart/form-data">
 		<input type="hidden" name="m_idx" value="${m_idx}">
 			영화제목<br>
 				<input  class="form-control" type="text" name="m_name" id="m_name" value="${mt.m_name}" placeholder="영화제목을 입력하세요." required="required"><hr>
@@ -135,7 +162,7 @@ function Chk(){
 				</c:otherwise>				
 			</c:choose>
 			에고편<br>
-			<input class="form-control" type="t	ext" name="m_video" id="m_video" value="${mt.m_video}" placeholder="URL 주소(Youtube)를 복사하여 입력하세요." ><hr>
+			<input class="form-control" type="text" name="m_video" id="m_video" value="${mt.m_video}" placeholder="URL 주소(Youtube)를 복사하여 입력하세요." ><hr>
 			포스터<br>
 			<c:choose>
 				<c:when test="${not empty mt.m_poster}">
@@ -148,7 +175,7 @@ function Chk(){
 			</c:choose>
 			<button type="button" class="btn btn-info" onclick="location.href='movieInfo.do?m_idx=${m_idx}'">이전으로</button>
 			<input type="reset" class="btn btn-danger" style="background-color: black; border: 0px;" value="작성 취소">
-			<input class="btn btn-success" type="submit" value="작성 완료">
+	    	<input class="btn btn-success" type="submit" value="작성 완료">  
 	</form>
 </div>
 	<%@ include file="/inc/footer.jsp"%>

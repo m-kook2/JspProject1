@@ -87,7 +87,7 @@ font-size: 15px;
 <hr>
 <dt class="step1"><em>줄거리</em></dt>
 <p>
-<textarea id="textarea1" cols="100%" rows="15" style="border : 1px solid transparent;" readonly="readonly"><c:out value=">${mt.m_story}" /></textarea>
+<textarea id="textarea1" cols="100%" rows="12" style="border : 1px solid transparent;" readonly="readonly"><c:out value=">${mt.m_story}" /></textarea>
 <p>
 <hr>
 <dt class="step1" ><em>포토</em></dt>
