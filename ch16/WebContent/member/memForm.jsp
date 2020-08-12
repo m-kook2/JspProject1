@@ -137,7 +137,7 @@ function daumPost(){
 			if (id != "") {
 				$.ajax({
 					type : "POST",
-					url : "idChk.do",
+					url : "/ch16/idChk.do",
 					data : {
 						id : id
 					},
