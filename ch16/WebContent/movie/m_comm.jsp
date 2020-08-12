@@ -412,20 +412,19 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		<input type="hidden" name="id" id="id" value="${sessionScope.id }"/>
 	</form>	
 	<div id="s_comm" style="display:none;">	
+	
 	</div>						
-</div>
-				
-		<div class="text-center">
-					<c:if test="${startPage > blockSize }">
-						<a href='movieInfo.do?pageNum2=${startPage-blockSize}&m_idx=${m_idx}'>[이전]</a>
-					</c:if>
-					<c:forEach var="i" begin="${startPage}" end="${endPage}">
-						<a href='movieInfo.do?pageNum2=${i }&m_idx=${m_idx}&str=${str}' class="btn m-2 btn-dark mx-auto">${i}</a>
-					</c:forEach>
-					<c:if test="${endPage > pageCnt }">
-						<a href='movieInfo.do?pageNum2=${startPage+blockSize }&m_idx=${m_idx}'>[다음]</a>
-					</c:if>
-
-		</div>		
+</div>		
+	<div class="text-center">
+		<c:if test="${startPage > blockSize }">
+			<a href='movieInfo.do?pageNum2=${startPage-blockSize}&m_idx=${m_idx}'>[이전]</a>
+		</c:if>
+		<c:forEach var="i" begin="${startPage}" end="${endPage}">
+			<a href='movieInfo.do?pageNum2=${i }&m_idx=${m_idx}&str=${str}' class="btn m-2 btn-dark mx-auto">${i}</a>
+		</c:forEach>
+		<c:if test="${endPage > pageCnt }">
+			<a href='movieInfo.do?pageNum2=${startPage+blockSize }&m_idx=${m_idx}'>[다음]</a>
+		</c:if>
+	</div>		
 </body>
 </html>
