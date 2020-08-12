@@ -76,11 +76,13 @@ font-size: 20px;
 </div>
 <div class="col-4" style="text-align: right;">
 <img src="./images/main/photo/${mt.m_poster}"/><br>
+<c:if test="${sessionScope.status eq '2' || sessionScope.status eq '1' }">
 <c:if test="${!isBookMark }">
 <input class="btn m-2 btn-primary mx-auto" type="button" id="bookmark" value="즐겨찾기 추가" onclick="location.href='bookMarkInsert.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
 </c:if>
 <c:if test="${isBookMark }">
 <input class="btn m-2 btn-primary mx-auto" type="button" id="bookmark" value="즐겨찾기 삭제" onclick="location.href='delete.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
+</c:if>
 </c:if>
 </div></div>
 <hr>
