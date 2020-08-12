@@ -10,7 +10,7 @@ $(document).ready(function() {
 	$("#testText").autocomplete({
 		source : function(request, response) {
 			$.ajax({
-				url : "/autocomplete.do",
+				url : "/ch16/autocomplete.do",
 				type : "post",
 				dataType : "json",
 				data: {keyWord : $("#testText").val()},
