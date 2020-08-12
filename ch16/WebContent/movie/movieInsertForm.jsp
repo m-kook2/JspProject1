@@ -6,6 +6,7 @@
 <head>
 <%@ include file="/inc/top.jsp" %>
 <script type="text/javascript">
+/* 체크 박스 없으면 체크 하도록 알람 설정함 이때, form에서 onsubmit="return reg()" 추가 해줘야 function이 작동함.*/
 function reg() {
 	var f = document.ff;
 	var okay = false;
@@ -31,9 +32,12 @@ function reg() {
 <div class="container">
 <h2 style="text-align: center; padding : 30px 0">영화 정보 입력</h2>
 
+	<!-- multipart/form-data : 모든 문자를 인코딩하지 않음을 명시함. 이 방식은 <form> 요소가 파일이나 이미지를 서버로 전송할 때 주로 사용함. -->
  	<form action="movieInsertPro.do"  name="ff" method="post" onsubmit="return reg()" enctype="multipart/form-data">
 			영화제목<br>
 				<input  class="form-control" type="text" name="m_name" id="m_name" placeholder="영화제목을 입력하세요." required="required"><hr>
+
+			<!-- name을 기준으로 checkbox value 값이 정해짐 -->
 			영화장르<br>
 					<input type="checkbox" id="m_genre1" name="m_genre" value="액션">액션<br>
 					<input type="checkbox" id="m_genre2" name="m_genre" value="SF">SF<br>
@@ -52,8 +56,10 @@ function reg() {
 					<input type="checkbox" id="m_genre15" name="m_genre" value="가족">가족<br>
 					<input type="checkbox" id="m_genre16" name="m_genre" value="애니메이션">애니메이션<br>
 					<input type="checkbox" id="m_genre17" name="m_genre" value="다큐">다큐<hr>
+
 			영화개봉일<br>
 				<input class="form-control" type="date" name="m_date" id="m_date" placeholder="YYYY.MM.DD." required="required"><hr>
+
 			영화국적<br>
 			<select name="m_nation" id="m_nation">
 				<option value="한국">한국</option>
@@ -68,17 +74,23 @@ function reg() {
 				<option value="독일">독일</option>
 				<option value="기타">기타</option>
 			</select><hr>
+
+			<!-- min="0" max="300" : 숫자이기에 최대 최소값 설정해둠. -->
 			상영시간<br>
 			<input class="form-control" type="number" name="m_time" id="m_time" placeholder="mm분" min="0" max="300" required="required"><hr>
+
+			<!-- value 값은 0 12 15 19로 받게함 / db에 그렇게 반영할거니깐. -->
 			등급<br>
 				<input class="form-check-input"  type="radio" id="m_rate" name="m_rate" value="0"  checked="checked">전체 관람가<br>
 				<input class="form-check-input"  type="radio" name="m_rate" value="12">12세 이상 관람가<br>
 				<input class="form-check-input"  type="radio" name="m_rate" value="15">15세 이상 관람가<br>
 				<input class="form-check-input"  type="radio" name="m_rate" value="19">청소년 관람불가<hr>
+
+			<!-- 폭 width:100% 으로 설정 -->
 			줄거리<br>
 				<textarea id="m_story" name="m_story" rows="10" style="width:100%" placeholder="내용을 입력하세요." ></textarea><hr>
+
 			출연진<br>
-			<!-- <input  class="form-control" type="hidden" name="m_cast"/> -->
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" id="m_cast1">
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
@@ -91,15 +103,20 @@ function reg() {
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)"><hr>
+
 			영화감독<br>
 				<input  class="form-control" type="text" name="m_director" id="m_director" placeholder="이름"><hr>
 
+			<!-- accept="image/*" : 이미지 파일만 업로드 가능토록 설정함 -->
 			포토<br>
 			<input class="form-control" type="file" id="m_photo" name="m_photo" accept="image/*"><hr>
+
 			에고편<br>
-			<input class="form-control" type="text" name="m_video" id="m_video" placeholder="URL 주소(Youtube)를 복사하여 입력하세요." ><hr>
+			<input class="form-control" type="text" name="m_video" id="m_video" placeholder="유튜브 공유 URL를 복사하여 붙여주세요." ><hr>
+
 			포스터<br>
 			<input class="form-control" type="file" name="m_poster" id="m_poster" accept="image/*"><hr>
+
 			<p style="text-align: center;">
 			<input type="reset" class="btn btn-dark mx-auto" value="작성 취소">
 			<input class="btn btn-dark mx-auto" type="submit" value="작성 완료">

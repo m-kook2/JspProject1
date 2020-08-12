@@ -10,7 +10,7 @@ public class MovieDao {
 	private static MovieDao instance;
 	private MovieDao() {}
 	public static MovieDao getInstance() {
-		if (instance == null) {	instance = new MovieDao();		}
+		if (instance == null) {instance = new MovieDao();}
 		return instance;
 	}
 	private Connection getConnection() {
@@ -30,12 +30,20 @@ public class MovieDao {
 			ResultSet rs = null;
 			// String sql = "select * from movie_info order by num desc";
 			// mysql select * from movie_info order by num desc limit startPage-1,10;
+			
+			// 영화 삭제 시 DB에는 살려두기 위해, SQL 검색 할 때부터 and del_yn='N'" 사용하여 del_yn='Y' 해당 항목은 제외함. 
 			String sql = "select * from (select rownum rn ,a.* from (select * from movie_info) a )  where 1=1 and del_yn='N'";
 			StringBuffer strBuffer=new StringBuffer();
+			// StringBuffer.append() - 문자열 추가하기 / append() 함수는 뒤에 계속 문자열을 추가해주는 함수
 			strBuffer.append(sql);
+			
+			// str 값이 있다면(NULL 아니고, 공백도 아니면)
 			if(str != null && !str.equals("")){
+				
+				// M_NAME(영화 이름)과 M_GENRE(장르)와 M_DIRECTOR(감독) 이름 검색
 				strBuffer.append("	AND M_NAME LIKE '%"+str+"%' OR M_GENRE LIKE '%"+str+"%' OR M_DIRECTOR LIKE '%"+str+"%'");
 			}
+			// rownum의 startRow와 endRow 사이까지.
 			strBuffer.append("and rn between ? and ?");
 			System.out.println(strBuffer.toString());
 			try {
@@ -231,6 +239,7 @@ public class MovieDao {
 	public int delete(String m_idx) throws SQLException {
 		Connection conn = null;	PreparedStatement pstmt= null; 
 		int result = 0;		    
+		//영화 삭제하지만 실상은 UPDATE로 DEL_YN='Y'을 바꾼다. 
 		String sql="UPDATE MOVIE_INFO SET DEL_YN='Y' WHERE M_IDX=?";
 		try {
 			conn = getConnection();

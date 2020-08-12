@@ -9,15 +9,12 @@
 
 var retVal = confirm("정말 삭제하시나요 ?");
 
-if( retVal == true ){
-	
-   location.href="movieDeletePro.do?m_idx=${mt.m_idx }";
-
-}else{
-
-   alert("삭제 취소!");
-   location.href="movieInfo.do?m_idx=${mt.m_idx }";
-}
+	if( retVal == true ){
+	   location.href="movieDeletePro.do?m_idx=${mt.m_idx }";
+	}else{
+	   alert("삭제 취소!");
+	   location.href="movieInfo.do?m_idx=${mt.m_idx }";
+	}
 
 </script>
 </head>

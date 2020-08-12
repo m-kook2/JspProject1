@@ -23,8 +23,12 @@ public class MovieInsertProAction implements CommandProcess {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		
+		// (포토, 포스터에 사용할)파일 크기 정하고
 		int maxSize = 5*1024*1024;
+		// 경로 정하고
 		String fileSave = "/images/main/photo";
+		//ID 값 받기 위해서.
 	 	HttpSession session = request.getSession();
 		String realPath = request.getSession().getServletContext().getRealPath(fileSave);
 //	 	String saveDirectory =request.getServletContext().getRealPath("/images/main/photo/");
