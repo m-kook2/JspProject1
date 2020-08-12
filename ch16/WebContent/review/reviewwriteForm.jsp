@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<%@ include file="/inc/top.jsp"%>
 </head>
 <body>
@@ -49,9 +50,11 @@
 			</tr>
 			<tr>
 				<td>
+				<br>
 					<input class="btn m-2 btn-dark mx-auto"  type="submit" value="확인">  
 					<input class="btn m-2 btn-dark mx-auto"  type="reset" value="다시작성">
-					<input class="btn m-2 btn-dark mx-auto" type="button" value="목록" onclick="location.href='r_list.do?&pageNum=${pageNum}'">
+					<br>
+					<button type="button" class="btn m-2 btn-warning mx-auto" value="목록" onclick="location.href='r_list.do?&pageNum=${pageNum}'"><i class="fa fa-bars"></i></button>
 				</td>
 			</tr>
 		</table>
