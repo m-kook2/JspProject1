@@ -30,7 +30,7 @@
 	<div class="py-3" style="min-height:750px; width: 100%; background-color: white;">
 	<div class="container text-center">
 		<div class="row justify-content-center">
-			<form action="memDeletePro.do" name="d" method="post">
+			<form action="memDeletePro.do" name="d" method="post" class="was-validated">
 			<br/>
 	<br/>
 	<br/>
@@ -43,9 +43,12 @@
 					<label id="id2" for="password">비밀 번호 </label> 
 					<input type="password" style="text-align: center;" class="form-control" id="password" name="password" value="${sessionScope.password }" disabled="disabled">
 				<p>
-				
+				<div class="form-group">
 					<label id="id2" for="chkpassword">비밀번호 확인 :</label> 
-					<input type="password" style="text-align: center;" class="form-control" id="chkpassword" name="chkpassword"> 
+					<input type="password" style="text-align: center;" class="form-control" id="chkpassword" name="chkpassword" required>
+						<div class="valid-feedback">&nbsp;비밀번호 값이 들어왔습니다.</div>
+	   					<div class="invalid-feedback">&nbsp;비밀번호를 적어주세요.</div>
+				</div> 
 					<br />
 					<input type="submit" style="margin-left: 220px;" class="btn btn-danger" onclick="del();" value="회원탈퇴">
 			</form>
