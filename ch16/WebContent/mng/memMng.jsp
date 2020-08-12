@@ -48,7 +48,11 @@
 					<td>${mng.addr }</td>
 					<td>${mng.gender }</td>
 					<td>${mng.reg_date }</td>
-					<td>${mng.status }</td>
+					<td>
+					<c:if test="${mng.status=='1'}">회원</c:if>
+					<c:if test="${mng.status=='2'}">관리자</c:if>
+					<c:if test="${mng.status=='3'}">정지</c:if>
+					</td>
 				</tr>
 				<c:set var="startNum" value="${startNum - 1 }" />
 			</c:forEach>
