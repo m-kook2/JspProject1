@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,9 +9,17 @@
 .a{
 
 	text-overflow:ellipsis;
-  word-wrap:break-word;
-  width:500px;
+  	word-wrap:break-word;
+  	width:500px;
+	
 
+}
+.a2{
+
+	text-overflow:ellipsis;
+  	word-wrap:break-word;
+  	width:880px;
+	
 
 }
 
@@ -23,37 +32,39 @@
 <%@ include file="/inc/header.jsp" %>
 
 <div class="container text-center" style="padding: 30px">
-<table class="table">
-	<tr>
+<table>
+	<tr class="table">
 		<td>글번호 ${review.p_idx}</td>
 		<td>작성자 ${review.id}</td>
 		<td>작성일 ${review.p_date}</td>
 	</tr>
-	<tr>
+	<tr class="table">
 		<td>제목</td>
-		<td>${review.p_title}</td>
-		<td></td>
+		<td colspan="2">${review.p_title}</td>
 	</tr>
-	<tr>
+	<tr class="table">
 		<td>예고</td>
 		<td colspan="2">
-			<iframe  width="750" height="420" src="${review.m_video }?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			<iframe  width="500" height="320" src="${review.m_video }?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		</td>
-		<td></td>
 	</tr>
-	<tr>
+	<tr class="table">
 		<td>내용</td>
 		<td>
-			<%-- <textarea class="form-control" cols="50" rows="10">${review.p_content}</textarea> --%>
-			<p class="a text-left">${review.p_content}</p>
+			<p class="a text-left">${fn:substring(review.p_content,0,302) }</p>
 		</td>
 		<td><img src="./images/main/photo/${review.m_photo}" width="350"></td>
+		
 	</tr>
-	
+	<tr >
+		<td></td>
+		<td colspan="2">
+			<p class="a2 text-left" style="margin-top: -25px;margin-left: 10px">${fn:substring(review.p_content,302,4000) }</p>
+		</td>
+		
+	</tr>
 </table>
 <table class="container text-center table">
-	
-		
 </table>
 	<c:if test="${sessionScope.status eq '2'}">
 		<input class="btn btn-dark mx-auto" type="button" value="수정" 

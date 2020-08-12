@@ -25,8 +25,9 @@
 </script>
 <%@ include file="/inc/top.jsp"%>
 </head>
-<body>
+<body style="background-color: black;">
 	<%@ include file="/inc/header.jsp"%>
+	<div class="py-3" style="min-height:750px; width: 100%; background-color: white;">
 	<div class="container text-center">
 		<div class="row justify-content-center">
 			<form action="memDeletePro.do" name="d" method="post">
@@ -50,20 +51,7 @@
 			</form>
 		</div>
 	</div>
-	<p>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	
-	<br/>
-	<br/>
-	<br/>
-	
-	
-	
-	<br/>
-	<br/>
+	</div>
 	<%@ include file="/inc/footer.jsp"%>
 </body>
 </html>

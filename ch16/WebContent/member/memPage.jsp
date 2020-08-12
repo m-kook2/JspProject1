@@ -15,8 +15,9 @@ p {
 
 <%@ include file="/inc/top.jsp"%>
 </head>
-<body>
+<body style="background-color: black;">
 	<%@ include file="/inc/header.jsp"%>
+	<div class="py-3" style="height:750px; width: 100%; background-color: white;">
 	<div class="container text-center">
 		<br/>
 	<br/><p>
@@ -37,14 +38,7 @@ p {
 		<a class="btn btn-info" class="form-control" href="csWriteForm.do"><img src="https://img.icons8.com/color/64/000000/same-opinion.png"/>의견보내기</a>
 		<a class="btn btn-danger" class="form-control" href="memDeleteForm.do"><img src="https://img.icons8.com/cotton/64/000000/fire-alarm.png"/>회원탈퇴</a>
 	</div>
-	<p>
-	<br/>
-	<br/><br/>
-	<br/>
-	 <br/><br/>
-	<br/><br/>
-	<br/><br/>
-	<br/> 
+	</div>
 	
 	<%@ include file="/inc/footer.jsp"%>
 </body>

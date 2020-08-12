@@ -127,8 +127,9 @@ function daumPost(){
 }
 </script>
 </head>
-<body>
+<body style="background-color: black;">
 	<%@ include file="/inc/header.jsp"%>
+	<div class="py-3" style="min-height:800px; width: 100%; background-color: white;">
 	<div class="container text-center">
 		<div class="row justify-content-center">
 			<form action="memUpdatePro.do" name="f" method="post" enctype="multipart/form-data">
@@ -190,6 +191,7 @@ function daumPost(){
 				<br/>
 			</form>
 		</div>
+	</div>
 	</div>
 	<%@ include file="/inc/footer.jsp"%>
 </body>
