@@ -137,7 +137,7 @@ function daumPost(){
 			if (id != "") {
 				$.ajax({
 					type : "POST",
-					url : "/ch16/idChk.do",
+					url : "idChk.do",
 					data : {
 						id : id
 					},
@@ -153,8 +153,9 @@ function daumPost(){
 	});
 </script>
 </head>
-<body>
+<body style="background-color: black;">
 	<%@ include file="/inc/header.jsp"%>
+	<div class="py-3" style="min-height:800px; width: 100%; background-color: white;">
 	<div class="container">
 		<div class="row justify-content-center">
 			<title>영화 리뷰 : 회원 가입</title>
@@ -217,7 +218,7 @@ function daumPost(){
 			</form>
 		</div>
 	</div>
-	<p><br/><br/><br/>
+	</div>
 	<%@ include file="/inc/footer.jsp"%>
 </body>
 </html>
