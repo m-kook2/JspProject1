@@ -12,18 +12,17 @@
 	text-align: center;
 	font-weight: bolder;
 }
-.step1{font-size: 25px;}
 .step1{font-size: 18px;}
-.step3{ /* border-right: thick dashed #ff0000; */
+.step3{
     display: inline-block;
-    margin: 0 14px 0 0;
+    margin: 0 7px 0 0;
     padding-left: 7px;
-    background: url(https://ssl.pstatic.net/static/movie/2012/06/bg_tx_line2.gif) no-repeat 0 2px;
+    background: url(https://ssl.pstatic.net/static/movie/2012/06/bg_tx_line2.gif) no-repeat 0 9px;
     color: #333;
 }
 #textarea1{
 width:100%;
-font-size: 20px;
+font-size: 15px;
 }
 </style>
 </head>
@@ -50,7 +49,7 @@ font-size: 20px;
 <dl class="info_spec">
 			<dt class="step1"><em>개요</em></dt>
 			<dd>
-				<span class="step2">
+				<span>
 					<span class="step3">${mt.m_genre}</span>
 					<span class="step3">${mt.m_nation}</span>
 					<span class="step3"><fmt:parseDate value="${mt.m_date }" var="m_date_date" pattern="yyyy-MM-dd" />
@@ -60,12 +59,12 @@ font-size: 20px;
 				</span>
 			</dd>
 				<dt class="step1"><em>감독</em></dt>
-				<dd><span class="step2">${mt.m_director}</span></dd>
+				<dd><span>${mt.m_director}</span></dd>
 				<dt class="step1"><em>출연</em></dt>
-				<dd><span class="step2">${mt.m_cast}</dd></span>
+				<dd><span>${mt.m_cast}</dd></span>
 				<dt class="step1"><em>등급</em></dt>
 				<dd>
-					<span class="step2">
+					<span>
 						<c:if test="${mt.m_rate eq '0'}">전체 관람가</c:if>
 						<c:if test="${mt.m_rate eq '12'}">12세 이상 관람가</c:if>
 						<c:if test="${mt.m_rate eq '15'}">15세 이상 관람가</c:if>
@@ -90,11 +89,11 @@ font-size: 20px;
 <p>
 <hr>
 <dt class="step1" ><em>포토</em></dt>
-<img src="./images/main/photo/${mt.m_photo}"/><p>
+<p style="text-align: center;"><img src="./images/main/photo/${mt.m_photo}"/></p>
 <br>
 <hr>
 <dt class="step1"><em>동영상</em></dt>
-<iframe width="800" height="450" src="${mt.m_video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>
+<p style="text-align: center;"><iframe width="800" height="450" src="${mt.m_video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 
 <p style="text-align: right;">
 	<c:if test="${sessionScope.status eq '2'}">
