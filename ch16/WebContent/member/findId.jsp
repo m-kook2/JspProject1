@@ -30,7 +30,7 @@
 				<h1>아이디 찾기</h1>
 					<input type="text" id="email" class="form-control" name="email" placeholder="이메일" required>
 					<div class="valid-feedback">&nbsp; 이메일값이 들어왔습니다.</div>
-    			<div class="invalid-feedback">&nbsp;이메일을 적어주세요.</div>
+    				<div class="invalid-feedback">&nbsp;이메일을 적어주세요.</div>
 				</div>
 				
 				<input type="submit" class="btn btn-warning" style="" onclick="return fid();">
