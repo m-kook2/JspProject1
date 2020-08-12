@@ -59,11 +59,18 @@ font-weight:bold;
 	      <li class="nav-item">
 	        <a class="nav-link text-warning" href="location.do">오시는길</a>
 	      </li>
-	      <%-- <c:if test="${sessionScope.status == 2 }"> --%>
+			<%-- 	
+			
+			최종 통합 과정에 있으므로 미니 게임은 완전히 메뉴에서 삭제합니다.
+			다시 등록하시면 안됩니다. 
+			      
+			<c:if test="${sessionScope.status == 2 }">
 	      <li class="nav-item">
 	        <a class="nav-link text-warning" href="miniGame.do">미니게임</a>
 	      </li>   
-	    <%--   </c:if> --%>
+	      </c:if> 
+	      
+	      --%>
 	    </ul>
 	</div>  
 	<div class="flex-grow-1">
