@@ -195,7 +195,6 @@ var inp_length = 1;
 		}
 
 		function ERA() {
-			alert("test");
 			emptyRemover(1);
 			emptyRemover(2);
 			emptyRemover(3);
