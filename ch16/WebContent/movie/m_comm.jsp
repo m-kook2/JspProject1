@@ -49,7 +49,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 .a{
 	text-overflow:ellipsis;
   word-wrap:break-word;
-  width:550px;
+  width:710px;
 
 }
 .a1{
@@ -199,9 +199,9 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					</div>
 				</td>
 				<!-- 본문 작성-->
-				<td td width="50px">
+				<td  width="50px">
 					<div>
-						<textarea id="c_content" name="c_content" rows="4" cols="70"></textarea>
+						<textarea class="form-control" id="c_content" name="c_content" rows="4" cols="70"></textarea>
 					</div>
 				</td>
 				<!-- 댓글 등록 버튼 -->
@@ -299,7 +299,9 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 						</c:forEach>
 							<div>
 								<div class="a">${comm.c_content}</div>
-							</div><br/>
+							</div>
+							<div>
+								<div>
 								<c:choose>
 									<c:when test="${sp eq 'N'}">
 										<a href="commidchek.do?&pageNum=${pageNum}&c_idx=${comm.c_idx}&m_idx=${comm.m_idx}&id=${sessionScope.id }">
@@ -310,18 +312,17 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 										<a>${comm.c_unsympathy}</a>
 									</c:when>
 									<c:otherwise>
-										<a href="javascript:alert('중복');">
+										<a href="javascript:alert('중복입니다.');">
 											<img alt="" src="images/UpDown/Up.png" width="30"></a>
 										<a>${comm.c_sympathy}</a>
-										<a href="javascript:alert('중복');">
+										<a href="javascript:alert('중복입니다.');">
 											<img alt="" src="images/UpDown/Down.png" width="30"></a>
 										<a>${comm.c_unsympathy}</a>
 									</c:otherwise>
 								</c:choose>
-							
-							
-							<br/>
-							<input class="btn m-2 btn-dark mx-auto" type="button" onclick="reply('${comm.c_idx }');" value="답글"/>
+								</div>
+								<input class="btn m-2 btn-dark mx-auto" type="button" onclick="reply('${comm.c_idx }');" value="답글"/>
+							</div>
 						</c:if>
 					</div>
 				</td>
