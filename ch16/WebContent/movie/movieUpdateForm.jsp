@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <%@ include file="/inc/top.jsp" %>
 
 <script type="text/javascript">
@@ -155,7 +156,7 @@ function reg() {
 			<c:choose>
 				<c:when test="${not empty mt.m_photo}">
 					${mt.m_photo}<a href="movieDelete.do?m_photo=${mt.m_photo}&gubun=photo&m_idx=${mt.m_idx}&m_poster=${mt.m_poster}">삭제하기</a><hr>
-					<input class="form-control" type="hidden" id="m_photo" name="m_photo" value="${mt.m_photo}" accept="image/*"><hr>
+					<input class="form-control" type="hidden" id="m_photo" name="m_photo" value="${mt.m_photo}" accept="image/*">
 				</c:when>
 				<c:otherwise>
 					<input class="form-control" type="file" id="m_photo" name="m_photo" value="${mt.m_photo}" accept="image/*"><hr>	
@@ -167,15 +168,18 @@ function reg() {
 			<c:choose>
 				<c:when test="${not empty mt.m_poster}">
 					${mt.m_poster}<a href="movieDelete.do?m_poster=${mt.m_poster}&gubun=poster&m_idx=${mt.m_idx}&m_photo=${mt.m_photo}">삭제하기</a><hr>
-					<input class="form-control" type="hidden" id="m_poster" name="m_poster" value="${mt.m_poster}" accept="image/*"><hr>
+					<input class="form-control" type="hidden" id="m_poster" name="m_poster" value="${mt.m_poster}" accept="image/*">
 				</c:when>
 				<c:otherwise>
 					<input class="form-control" type="file" id="m_poster" name="m_poster" value="${mt.m_poster}" accept="image/*"><hr>	
 				</c:otherwise>
 			</c:choose>
-			<button type="button" class="btn btn-info" onclick="location.href='movieInfo.do?m_idx=${m_idx}'">이전으로</button>
-			<input type="reset" class="btn btn-danger" style="background-color: black; border: 0px;" value="작성 취소">
-	    	<input class="btn btn-success" type="submit" value="작성 완료">  
+
+<p style="text-align: center;">
+			<input type="reset" class="btn btn-dark mx-auto" style="background-color: black; border: 0px;" value="작성 취소">
+	    	<input class="btn btn-dark mx-auto" type="submit" value="작성 완료"><br><br>  
+	    	<button type="button" class="btn btn-warning"  onclick="location.href='movieInfo.do?m_idx=${m_idx}'"><i class="fa fa-bars"></i></button>
+</p>			
 	</form>
 </div>
 	<%@ include file="/inc/footer.jsp"%>

@@ -210,7 +210,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							<input type="hidden" name="s_m_idx" id="s_m_idx" value=""/>
 							<input type="hidden" name="c_grade" id="c_grade" value=""/>
 							<input type="hidden" name="c_content" id="c_content" value=""/>
-						<input type="button" class="btn m-2 btn-primary mx-auto" onclick="chek();" value="작성">
+						<input type="button" class="btn btn-dark mx-auto" onclick="chek();" value="작성">
 					</div>
 				</td>
 			</tr>

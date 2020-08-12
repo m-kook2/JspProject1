@@ -28,9 +28,9 @@ function reg() {
 </head>
 <body>
 <%@ include file="/inc/header.jsp" %>
-<h2>영화 정보 입력</h2>
+<div class="container">
+<h2 style="text-align: center; padding : 30px 0">영화 정보 입력</h2>
 
-<div class="container" >
  	<form action="movieInsertPro.do"  name="ff" method="post" onsubmit="return reg()" enctype="multipart/form-data">
 			영화제목<br>
 				<input  class="form-control" type="text" name="m_name" id="m_name" placeholder="영화제목을 입력하세요." required="required"><hr>
@@ -100,8 +100,10 @@ function reg() {
 			<input class="form-control" type="text" name="m_video" id="m_video" placeholder="URL 주소(Youtube)를 복사하여 입력하세요." ><hr>
 			포스터<br>
 			<input class="form-control" type="file" name="m_poster" id="m_poster" accept="image/*"><hr>
-			<input type="reset" class="btn btn-danger" value="작성 취소">
-			<input class="btn btn-success" type="submit" value="작성 완료">
+			<p style="text-align: center;">
+			<input type="reset" class="btn btn-dark mx-auto" value="작성 취소">
+			<input class="btn btn-dark mx-auto" type="submit" value="작성 완료">
+			</p>
 	</form>
 </div>
 	<%@ include file="/inc/footer.jsp"%>

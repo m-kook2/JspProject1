@@ -5,6 +5,7 @@
 <html>
 <head>
 <%@ include file="/inc/top.jsp" %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style type="text/css">
 #grade{
@@ -75,12 +76,13 @@ font-size: 15px;
 </div>
 <div class="col-4" style="text-align: right;">
 <img src="./images/main/photo/${mt.m_poster}"/><br>
+<br>
 <c:if test="${sessionScope.status eq '2' || sessionScope.status eq '1' }">
 <c:if test="${!isBookMark }">
-<input class="btn m-2 btn-primary mx-auto" type="button" id="bookmark" value="즐겨찾기 추가" onclick="location.href='bookMarkInsert.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
+<input class="btn btn-dark mx-auto" type="button" id="bookmark" value="즐겨찾기 추가" onclick="location.href='bookMarkInsert.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
 </c:if>
 <c:if test="${isBookMark }">
-<input class="btn m-2 btn-primary mx-auto" type="button" id="bookmark" value="즐겨찾기 삭제" onclick="location.href='delete.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
+<input class="btn btn-dark mx-auto" type="button" id="bookmark" value="즐겨찾기 삭제" onclick="location.href='delete.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
 </c:if>
 </c:if>
 </div></div>
@@ -97,17 +99,14 @@ font-size: 15px;
 <dt class="step1"><em>동영상</em></dt>
 <p style="text-align: center;"><iframe width="800" height="450" src="${mt.m_video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 
-<p style="text-align: right;">
+<p style="text-align: center;">
 	<c:if test="${sessionScope.status eq '2'}">
-	<input class="btn m-2 btn-primary mx-auto" type="button" value="수정" 
+	<input class="btn btn-dark mx-auto" type="button" value="수정" 
 	            onclick="location.href='movieUpdateForm.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
-	</c:if>
-	<input class="btn m-2 btn-primary mx-auto" type="button" value="목록"
-			    onclick="location.href='movieList.do?pageNum=${pageNum}'">
-	<c:if test="${sessionScope.status eq '2'}">
-	<input class="btn m-2 btn-primary mx-auto" type="button" value="삭제"
+	<input class="btn btn-dark mx-auto" type="button" value="삭제"
 	            onclick="location.href='movieDeleteForm.do?m_idx=${mt.m_idx}&pageNum=${pageNum}'">
-	</c:if>
+	</c:if><br><br>
+		<button type="button" class="btn btn-warning"  onclick="location.href='movieList.do?pageNum=${pageNum}'"><i class="fa fa-bars"></i></button>
 </p>
 </div>
 

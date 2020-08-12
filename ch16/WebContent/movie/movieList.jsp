@@ -35,28 +35,30 @@
 
 
 		</c:if>
-		<div class="text-center">
+		<div style="text-align: center; margin-bottom: 50px;">
+		<!-- <div class="text-center"> -->
+			<div style="margin-top: 20px;">
 			<c:if test="${startPage > blockSize }">
 				<a href='movieList.do?pageNum=${startPage-blockSize}'>[이전]</a>
 			</c:if>
 			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<a href='movieList.do?pageNum=${i }'>[${i}]</a>
+				<a href='movieList.do?pageNum=${i }' class="btn btn-dark mx-auto">${i}</a>
 			</c:forEach>
 			<c:if test="${endPage > pageCnt }">
 				<a href='movieList.do?pageNum=${startPage+blockSize }'>[다음]</a>
 			</c:if>
-
-		</div>
 		<c:if test="${sessionScope.status eq '2'}">
 			<div class="row" style="float: right">
 				<form action="movieInsertForm.do">
-					<button class="btn m-2 btn-primary mx-auto">영화 추가</button>
+					<button class="btn btn-dark mx-auto">영화 추가</button>
 				</form>
 			</div>
 		</c:if>
+		</div>
+
+			</div>
 	</div>
-	</div>
-	</div>
+
 
 
 
