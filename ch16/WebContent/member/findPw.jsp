@@ -25,19 +25,26 @@
 	}
 </script>
 </head>
-<body>
+<body style="background-color: black;">
 <%@ include file="/inc/header.jsp"%>
+<div class="py-3" style="min-height:750px; width: 100%; background-color: white;">
 	<div class="container">
 		<div class="row justify-content-center">
-		<form action="searchPW.do" name="frm" method="post">
+		<form action="searchPW.do" name="frm" method="post" class="was-validated">
 				<p>
 					<br />
 				<h1>비밀번호 찾기</h1>
 				<div class="form-group">
-					<input type="text" id="id" class="form-control" name="id" placeholder="아이디">
-					<input type="text" id="email" class="form-control" name="email" placeholder="이메일">
+					<input type="text" id="id" class="form-control" name="id" placeholder="아이디" required>
+						<div class="valid-feedback">&nbsp;아이디 값이 들어왔습니다.</div>
+	   					<div class="invalid-feedback">&nbsp;아이디를 적어주세요.</div>
+	   			</div>
+	   			<div class="form-group">
+					<input type="text" id="email" class="form-control" name="email" placeholder="이메일" required>
+						<div class="valid-feedback">&nbsp;이메일 값이 들어왔습니다.</div>
+	   					<div class="invalid-feedback">&nbsp;이메일을 적어주세요.</div>
 				</div>
-				<input type="submit" style="" onclick="return fid();">
+				<input type="submit" class="btn btn-warning" style="" onclick="return fid();">
 				<br />
 				<br />
 				<div class="container">
@@ -48,23 +55,7 @@
 			</form>
 		</div>
 	</div>
-	<p>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
+	</div>
 	<%@ include file="/inc/footer.jsp"%>
 </body>
 </html>

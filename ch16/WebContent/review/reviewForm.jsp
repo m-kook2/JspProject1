@@ -11,7 +11,7 @@
 	text-overflow:ellipsis;
   	word-wrap:break-word;
   	width:500px;
-	
+	white-space:pre-wrap;
 
 }
 .a2{
@@ -19,7 +19,7 @@
 	text-overflow:ellipsis;
   	word-wrap:break-word;
   	width:880px;
-	
+	white-space:pre-wrap;
 
 }
 

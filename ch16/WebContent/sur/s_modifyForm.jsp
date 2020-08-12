@@ -13,7 +13,7 @@
 	<%@ include file="/inc/adminChk.jsp"%>
 	<%@ include file="/inc/header.jsp"%>
 	<div class="container">
-		<form action="surveyModifyPro.do" name="frm" method="post">
+		<form action="surveyModifyPro.do" name="frm" method="post" onsubmit="ERA()">
 		<c:if test="${pageNum == null || pageNum eq '' }">
 		<c:set var="pageNum" value="0"></c:set>
 		</c:if>
