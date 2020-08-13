@@ -60,7 +60,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 }
 
 </style>
-<script src="/js/star.js"></script>
+<script src="js/star.js"></script>
 <script type="text/javascript">
  function chek() {
 		var write = document.write;
@@ -73,7 +73,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 				starChk=true;
 			}
 		}
-		alert(document.getElementById('c_content').value);
+		/* alert(document.getElementById('c_content').value); */
 		if(!starChk){
 			alert("평점을 선택하세요");
 			return false;
@@ -165,7 +165,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		<c:if test="${sessionScope.id !=null}">
 			<tr class="text-center">
 				<!-- 아이디-->
-				<td width="100px">
+				<td width="10px">
 					<div>${id}</div>
 					<div>
 						<span class="star-input">
@@ -199,9 +199,9 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 					</div>
 				</td>
 				<!-- 본문 작성-->
-				<td  width="50px">
+				<td  width="740px">
 					<div>
-						<textarea class="form-control" id="c_content" name="c_content" rows="4" cols="70"></textarea>
+						<textarea class="form-control" id="c_content" name="c_content" rows="4" cols="3000"></textarea>
 					</div>
 				</td>
 				<!-- 댓글 등록 버튼 -->
@@ -210,7 +210,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							<input type="hidden" name="s_m_idx" id="s_m_idx" value=""/>
 							<input type="hidden" name="c_grade" id="c_grade" value=""/>
 							<input type="hidden" name="c_content" id="c_content" value=""/>
-						<input type="button" class="btn btn-dark mx-auto" onclick="chek();" value="작성">
+						<input type="button" class="btn m-2 btn-primary mx-auto" onclick="chek();" value="작성">
 					</div>
 				</td>
 			</tr>
