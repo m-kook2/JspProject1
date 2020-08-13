@@ -21,7 +21,7 @@
 				<c:forEach var="mt" items="${list }">
 					<div class="col-3 mt-1">
 						<a href="movieInfo.do?m_idx=${mt.m_idx }&pageNum=${currentPage}">
-							<img src="./images/main/photo/${mt.m_poster}" />
+							<img src="./images/main/photo/${mt.m_poster}" width="280" height="400"/>
 						</a>
 					</div>
 					<c:set var="startNum" value="${startNum-1 }"></c:set>
@@ -32,8 +32,6 @@
 			<div class="col-3">
 				<p>데이터가 없네</p>
 			</div>
-
-
 		</c:if>
 		<div style="text-align: center; margin-bottom: 50px;">
 		<!-- <div class="text-center"> -->

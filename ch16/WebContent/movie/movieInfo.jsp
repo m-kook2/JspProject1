@@ -96,7 +96,7 @@ font-size: 15px;
 </div>
 <!-- 포스터를 우측에 두기 위해 class="col-4" 사용함 / 위에는 class="col-8" 사용 -->  
 <div class="col-4" style="text-align: right;">
-	<img src="./images/main/photo/${mt.m_poster}"/><br><br>
+	<img src="./images/main/photo/${mt.m_poster}" width="280" height="400"/><br><br>
 	
 	<c:if test="${sessionScope.status eq '2' || sessionScope.status eq '1' }">
 		<c:if test="${!isBookMark }">
@@ -116,7 +116,7 @@ font-size: 15px;
 <hr>
 <dt class="step1" ><em>포토</em></dt>
 	<p style="text-align: center;">
-		<img src="./images/main/photo/${mt.m_photo}"/></p><br>
+		<img src="./images/main/photo/${mt.m_photo}" width="800" height="450"/></p><br>
 
 <hr>
 <dt class="step1"><em>예고편</em></dt>
