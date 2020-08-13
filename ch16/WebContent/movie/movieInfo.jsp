@@ -119,11 +119,11 @@ font-size: 15px;
 		<img src="./images/main/photo/${mt.m_photo}"/></p><br>
 
 <hr>
-<dt class="step1"><em>동영상</em></dt>
+<dt class="step1"><em>예고편</em></dt>
 	<p style="text-align: center;">
 		<!-- 유튜브 가져와서 크기 16:9로 게시판 크기에 맞게 수정함 / 유튜브-공유-퍼가기 하면 링크 나옴 / 이때, 퍼가기 안의 사이트 링크와 상단부 메인 링크가 다르니 꼭 퍼가기 통해서 링크 참고 해야 함.
 		&autoplay=1 : 자동재생 / &loop=1 : 반복 / 이런 기능도 있음 -->
-		<iframe width="800" height="450" src="${mt.m_video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+		<iframe width="800" height="450" src="${mt.m_video}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 
 <p style="text-align: center;">
 	<c:if test="${sessionScope.status eq '2'}">
