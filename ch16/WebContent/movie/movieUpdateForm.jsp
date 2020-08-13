@@ -136,6 +136,7 @@ function reg() {
 			출연진<br>
 			<!-- <input  class="form-control" type="hidden" name="m_cast"/> -->
 			<c:set var="cast" value="${fn:split(mt.m_cast,',')}"/>
+				<!-- 이름 입력할 때, 유저의 불필요한 띄어쓰기 값을 제거 하기 위해서 trim 사용함[TRIM : 문자열의 양쪽 공백(스페이스바)을 제거한다.] --> 
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" id="m_cast1" value="${fn:trim(cast[0])}"/>
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[1])}">
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[2])}">
