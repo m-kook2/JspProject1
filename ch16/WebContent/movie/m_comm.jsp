@@ -148,13 +148,15 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 <body>
 <!-- 댓글 부분 -->
 <div class="container">
-	<div style="float: left">	
+	<div style="float: left">
+	<c:if test="${list == '' }">
 	<button type="button" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle" data-toggle="dropdown" >정렬</button>
 		<div class="dropdown-menu">
 			<a class="dropdown-item" href="movieInfo.do?str=c_date&m_idx=${m_idx }&pageNum=${pageNum }">최신순</a>
 			<a class="dropdown-item" href="movieInfo.do?str=c_sympathy&m_idx=${m_idx }&pageNum=${pageNum }">공감순</a>
 			<a class="dropdown-item" href="movieInfo.do?str=c_unsympathy&m_idx=${m_idx }&pageNum=${pageNum }">비공감순</a>
 		</div>
+		</c:if>
 	</div>
 	<form name="write" method="post">
 		<input type="hidden" name="m_idx" id="m_idx" value="${m_idx }"/> 
@@ -210,7 +212,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 							<input type="hidden" name="s_m_idx" id="s_m_idx" value=""/>
 							<input type="hidden" name="c_grade" id="c_grade" value=""/>
 							<input type="hidden" name="c_content" id="c_content" value=""/>
-						<input type="button" class="btn m-2 btn-primary mx-auto" onclick="chek();" value="작성">
+						<input type="button" class="btn m-2 btn-dark mx-auto" onclick="chek();" value="작성">
 					</div>
 				</td>
 			</tr>
