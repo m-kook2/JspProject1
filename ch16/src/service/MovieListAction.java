@@ -23,7 +23,7 @@ public class MovieListAction implements CommandProcess {
 			System.out.println("int totCnt = md.getTotalCnt(str); ->" + totCnt);
 			if (pageNum==null || pageNum.equals("")) {	pageNum = "1";	}
 			int currentPage = Integer.parseInt(pageNum);	
-			int pageSize  = 10, blockSize = 10;
+			int pageSize  = 8, blockSize = 8;
 			int startRow = (currentPage - 1) * pageSize + 1;   //1
 			int endRow   = startRow + pageSize - 1;            //10
 			int startNum = totCnt - startRow + 1;
