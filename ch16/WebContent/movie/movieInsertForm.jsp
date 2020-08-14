@@ -94,14 +94,6 @@ function reg() {
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" id="m_cast1">
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)"><hr>
 
 			영화감독<br>

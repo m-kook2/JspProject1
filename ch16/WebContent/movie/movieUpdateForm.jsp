@@ -141,14 +141,7 @@ function reg() {
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[1])}">
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[2])}">
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[3])}">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[4])}">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[5])}">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[6])}">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[7])}">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[8])}">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[9])}">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[10])}">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[11])}"><hr>
+				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[4])}"><hr>
 
 			영화감독<br>
 				<input  class="form-control" type="text" name="m_director" id="m_director" value="${mt.m_director}" placeholder="이름"><hr>
