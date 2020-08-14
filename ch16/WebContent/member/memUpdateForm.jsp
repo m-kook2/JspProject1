@@ -37,6 +37,10 @@ background-color: #e9ecef;
 border : 1px solid #ced4da;
 border-radius : .25rem;
 }
+#pm{
+	width : 100;
+	height : 100;
+}
 </style>
 <script type="text/javascript">
 	function mut() {
@@ -136,7 +140,7 @@ function daumPost(){
 				<div class="form-group">
 				<br/>
 					<h2><strong>회원정보 수정</strong></h2>
-					<br /> <img id="pm" alt="profilPhoto" src="./images/member/img/${sessionScope.pic}">
+					<br /> <img id="pm" alt="profilPhoto" src="./images/member/img/${sessionScope.pic}" width="250">
 					<p>
 						<br /> <input type="hidden" name="pic" value="${sessionScope.pic}" />
 						
