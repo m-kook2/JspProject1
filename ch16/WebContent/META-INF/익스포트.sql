@@ -410,17 +410,17 @@ Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_L
 Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (10,'admin','회원님들','진정하세요',to_date('20/08/03','RR/MM/DD'),10,0,0);
 REM INSERTING into J20200701.MEMBER
 SET DEFINE OFF;
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('admin',1,'2468','email1@gmail.com','nickname2','남자','2020/07/01','N','2','who.jpg',null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil2',2,'2468','email2@gmail.com','nickname3','여자','2010/07/01','N','1','mangu.jpg',null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil3',3,'2468','email4@3gmail.com','nickname4','남자','2030/07/01','N','1','chulsu.jpg',null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil4',4,'2468','email5@gmail.com','nickname6','남자','2019/07/01','N','1','bike.jpg',null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil5',5,'2468','email6@gmail.com','nickname7','여자','2018/07/01','N','1','jjangu.png',null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil6',6,'2468','email6@gmail.com','nickname9','남자','2021/07/01','N','3','oops.jpg',null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil7',7,'2468','email8@gmail.com','nickname5','여자','2019/07/01','N','3','wow.jpg',null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil8',8,'2468','email9@gmail.com','nickname54','남자','2018/07/01','N','1','sun.jpg',null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil9',9,'2468','email@5gmail.com','nickname54','여자','2023/07/01','N','3','universer.jpg',null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil10',10,'2468','email75@gmail.com','nickname43','여자','2020/07/01','N','1','main2.jpg',null,null);
-Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil11',11,'2468','email@43gmail.com','nickname78','남자','2020/07/01','N','1','ho.jpg',null,null);
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('admin',1,'2468','email1@gmail.com','nickname2','남자','2020/07/01','N','2','who.jpg','1234-5678','서울시 강남구');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil2',2,'2468','email2@gmail.com','nickname3','여자','2010/07/01','N','1','mangu.jpg','3434-45','서울시 송파구');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil3',3,'2468','email4@3gmail.com','nickname4','남자','2030/07/01','N','1','chulsu.jpg','5643-098','경기도 용인시');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil4',4,'2468','email5@gmail.com','nickname6','남자','2019/07/01','N','1','bike.jpg','1345-65','서울시 영등포구');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil5',5,'2468','email6@gmail.com','nickname7','여자','2018/07/01','N','1','jjangu.png','764-765','경기도 남양주시');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil6',6,'2468','email6@gmail.com','nickname9','남자','2021/07/01','N','3','oops.jpg','546-2345','서울시 강동구');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil7',7,'2468','email8@gmail.com','nickname5','여자','2019/07/01','N','3','wow.jpg','324-876','서울시 광진구');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil8',8,'2468','email9@gmail.com','nickname54','남자','2018/07/01','N','1','sun.jpg','724-1234','미국 맨하탄');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil9',9,'2468','email@5gmail.com','nickname54','여자','2023/07/01','N','3','universer.jpg','324-8435','프랑스 파리');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil10',10,'2468','email75@gmail.com','nickname43','여자','2020/07/01','N','1','main2.jpg','134-5456','르완다 카이옌치');
+Insert into J20200701.MEMBER (ID,IDX,PASSWORD,EMAIL,NICKNAME,GENDER,REG_DATE,DEL_YN,STATUS,PIC,ZIP,ADDR) values ('hongil11',11,'2468','email@43gmail.com','nickname78','남자','2020/07/01','N','1','ho.jpg','867-235','독일 프랑크프루트');
 REM INSERTING into J20200701.MOVIE_INFO
 SET DEFINE OFF;
 Insert into J20200701.MOVIE_INFO (M_IDX,M_NAME,M_GENRE,M_DATE,M_NATION,M_TIME,M_RATE,M_STORY,M_CAST,M_DIRECTOR,M_PHOTO,M_VIDEO,M_POSTER,ID,DEL_YN) values (10,'터미네이터 2:오리지널','SF, 액션, 스릴러',to_date('91/07/06','RR/MM/DD'),'미국',137,'15','"인간과 기계의 대전쟁.. 그를 지키지 않으면 미래 또한 없다!
