@@ -54,13 +54,9 @@ function reg() {
 						<h2>
 							<strong>회원정보수정</strong>
 						</h2>
-						</br>
-<<<<<<< HEAD
-						<img alt="profilPhoto" src="./images/member/img/${result.pic}" class="rounded mx-auto" />
-=======
+						<br/>
 						<img alt="profilPhoto" src="./images/member/img/${result.pic}" width="400"
 							class="rounded mx-auto" />
->>>>>>> branch 'master' of https://github.com/pjc1991/jspProject.git
 						<p>
 							<br>
 							<input type="hidden" name="pic" value="${result.pic}" /> <input
