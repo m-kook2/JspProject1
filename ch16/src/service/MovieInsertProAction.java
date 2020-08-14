@@ -47,7 +47,7 @@ public class MovieInsertProAction implements CommandProcess {
 		String genre="";
 			for(int i=0; i< m_genre.length; i++) {
 				if(genre.equals("")) { genre=m_genre[i]; }
-				else {genre=genre+","+m_genre[i]; }
+				else {genre=genre+", "+m_genre[i]; }
 		}
 		String m_date = multi.getParameter("m_date");
 		String m_nation = multi.getParameter("m_nation");
@@ -67,7 +67,7 @@ public class MovieInsertProAction implements CommandProcess {
 				// 값이 있을 때,
 			}else{
 				if(!m_cast[i].equals("")) {
-					cast=cast+","+m_cast[i];	
+					cast=cast+", "+m_cast[i];	
 				}
 			}
 		}

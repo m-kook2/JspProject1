@@ -55,7 +55,7 @@ public class MovieUpdateProAction implements CommandProcess {
 	 	String genre="";
 			for(int i=0; i< m_genre.length; i++) {
 				if(genre.equals("")) { genre=m_genre[i]; }
-				else {genre=genre+","+m_genre[i]; }
+				else {genre=genre+", "+m_genre[i]; }
 		}
 		//System.out.println("MovieUpdateProAction m_genre : "+ m_genre);
 		String m_date = new String(multi.getParameter("m_date"));
@@ -77,7 +77,7 @@ public class MovieUpdateProAction implements CommandProcess {
 				}
 			}else{
 				if(!m_cast[i].equals("")) {
-					cast=cast+","+m_cast[i];	
+					cast=cast+", "+m_cast[i];	
 				}
 			}
 		}
