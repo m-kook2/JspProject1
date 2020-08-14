@@ -83,7 +83,7 @@ function reg() {
 <body onload="Chk()">
 <%@ include file="/inc/header.jsp" %>
 <div class="container py-5" >
-<h2 style="text-align: center;">영화 정보 입력</h2>
+<h2 style="text-align: center;">영화 정보 수정</h2>
  	<form action="movieUpdatePro.do" name="ff" method="post" onsubmit="return reg()" enctype="multipart/form-data">
 		<input type="hidden" name="m_idx" value="${m_idx}">
 			영화제목<br>
