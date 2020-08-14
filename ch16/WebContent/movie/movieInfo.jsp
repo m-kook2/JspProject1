@@ -111,7 +111,7 @@ font-size: 15px;
 <hr>
 <dt class="step1"><em>줄거리</em></dt><p>
 	<!-- "border : transparent;" 로 투명하게 만들고,  readonly="readonly" 로 수정 못하게 만듦 -->
-	<textarea id="textarea1" cols="100%" rows="12" style="border : 1px solid transparent;" readonly="readonly"><c:out value=">${mt.m_story}" /></textarea><p>
+	<textarea id="textarea1" cols="100%" rows="12" style="border : 1px solid transparent;" readonly="readonly"><c:out value="${mt.m_story}" /></textarea><p>
 	
 <hr>
 <dt class="step1" ><em>포토</em></dt>
