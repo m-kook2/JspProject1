@@ -91,10 +91,10 @@ function reg() {
 				<textarea id="m_story" name="m_story" rows="10" style="width:100%" placeholder="내용을 입력하세요." ></textarea><hr>
 
 			출연진<br>
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" id="m_cast1">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)"><hr>
+				<input  class="form-control" type="text" name="m_cast1" placeholder="이름" id="m_cast1">
+				<input  class="form-control" type="text" name="m_cast1" placeholder="이름">
+				<input  class="form-control" type="text" name="m_cast1" placeholder="이름">
+				<input  class="form-control" type="text" name="m_cast1" placeholder="이름"><hr>
 
 			영화감독<br>
 				<input  class="form-control" type="text" name="m_director" id="m_director" placeholder="이름"><hr>
