@@ -148,7 +148,7 @@ function reg() {
 			포토<br>
 			<c:choose>
 				<c:when test="${not empty mt.m_photo}">
-					${mt.m_photo}<a href="movieDelete.do?m_photo=${mt.m_photo}&gubun=photo&m_idx=${mt.m_idx}&m_poster=${mt.m_poster}">삭제하기</a><hr>
+					${mt.m_photo}&nbsp;&nbsp;<a href="movieDelete.do?m_photo=${mt.m_photo}&gubun=photo&m_idx=${mt.m_idx}&m_poster=${mt.m_poster}">삭제하기</a><hr>
 					<input class="form-control" type="hidden" id="m_photo" name="m_photo" value="${mt.m_photo}" accept="image/*">
 				</c:when>
 				<c:otherwise>
@@ -160,7 +160,7 @@ function reg() {
 			포스터<br>
 			<c:choose>
 				<c:when test="${not empty mt.m_poster}">
-					${mt.m_poster}<a href="movieDelete.do?m_poster=${mt.m_poster}&gubun=poster&m_idx=${mt.m_idx}&m_photo=${mt.m_photo}">삭제하기</a><hr>
+					${mt.m_poster}&nbsp;&nbsp;<a href="movieDelete.do?m_poster=${mt.m_poster}&gubun=poster&m_idx=${mt.m_idx}&m_photo=${mt.m_photo}">삭제하기</a><hr>
 					<input class="form-control" type="hidden" id="m_poster" name="m_poster" value="${mt.m_poster}" accept="image/*">
 				</c:when>
 				<c:otherwise>
