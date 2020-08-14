@@ -140,8 +140,7 @@ function reg() {
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" id="m_cast1" value="${fn:trim(cast[0])}"/>
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[1])}">
 				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[2])}">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[3])}">
-				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[4])}"><hr>
+				<input  class="form-control" type="text" name="m_cast1" placeholder="이름(배역)" value="${fn:trim(cast[3])}"><hr>
 
 			영화감독<br>
 				<input  class="form-control" type="text" name="m_director" id="m_director" value="${mt.m_director}" placeholder="이름"><hr>
