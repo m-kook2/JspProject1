@@ -55,8 +55,7 @@ function reg() {
 							<strong>회원정보수정</strong>
 						</h2>
 						</br>
-						<img alt="profilPhoto" src="./images/member/img/${result.pic}"
-							class="rounded mx-auto" />
+						<img alt="profilPhoto" src="./images/member/img/${result.pic}" class="rounded mx-auto" />
 						<p>
 							<br>
 							<input type="hidden" name="pic" value="${result.pic}" /> <input

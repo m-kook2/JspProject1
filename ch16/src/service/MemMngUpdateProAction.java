@@ -37,7 +37,7 @@ public class MemMngUpdateProAction implements CommandProcess {
 		String status = mp.getParameter("status");
 		String del_yn = mp.getParameter("del_yn");
 		FileUtil fu = new FileUtil();
-		
+		System.out.println("saveDirectory : "+saveDirectory);
 		String filename = "";
 		int result = 0;
 		fu.fileDelete(saveDirectory, pic);
@@ -75,6 +75,7 @@ public class MemMngUpdateProAction implements CommandProcess {
 			result = mem.memMngUpdate(dto);
 			if(result==1){
 				request.setAttribute("result", id);
+				request.setAttribute("saveDirectory", saveDirectory);
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

@@ -23,7 +23,7 @@
 <div class="py-3" style="min-height:800px; width: 100%; background-color: white;">
 <div class="container text-center">
 <form name="frm" method="post">
-	<h2 style="margin-top: 50px;">댓글 관리 게시판<img src="https://img.icons8.com/plasticine/60/000000/delete-chat--v2.png"/></h2>
+	<h2 style="margin-top: 50px;">댓글 관리 게시판</h2>
 	<input type="button" value="회원 댓글 엑셀" onclick="excelDown2();" style="float: left;" class="btn btn-secondary m-1 btn-sm">
 	<input type="button" value="삭제여부" onclick="mnglist();" style="float: right; margin-right: 5px;" class="btn btn-dark"/>
 	<br>
