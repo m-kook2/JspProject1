@@ -1380,3 +1380,77 @@ BEGIN
 END;
 
 /
+
+--------------------------------------------------------
+--  파일이 생성됨 - 수요일-8월-19-2020   
+--------------------------------------------------------
+DROP TABLE "J20200701"."CS" cascade constraints;
+--------------------------------------------------------
+--  DDL for Table CS
+--------------------------------------------------------
+
+  CREATE TABLE "J20200701"."CS" 
+   (	"C_IDX" NUMBER(*,0), 
+	"WRITER" VARCHAR2(20 BYTE), 
+	"SUBJECT" VARCHAR2(30 BYTE), 
+	"CONTENT" VARCHAR2(100 BYTE), 
+	"REG_DATE" DATE, 
+	"REF" NUMBER, 
+	"RE_STEP" NUMBER, 
+	"RE_LEVEL" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+
+   COMMENT ON COLUMN "J20200701"."CS"."REF" IS '답변글끼리 그룹';
+   COMMENT ON COLUMN "J20200701"."CS"."RE_STEP" IS 'ref내의 순서';
+   COMMENT ON COLUMN "J20200701"."CS"."RE_LEVEL" IS '들여쓰기';
+REM INSERTING into J20200701.CS
+SET DEFINE OFF;
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (12,'hongil2','마음에 안들어요ㅎ','				hongil3 댓글 진짜 ㅡㅡㅎ',to_date('20/08/03','RR/MM/DD'),12,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (9,'hongil3','이게 뭐야','hongil4 탈퇴부탁해요',to_date('20/08/01','RR/MM/DD'),9,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (11,'hongil3','짜증나요','hongil2 인성보소',to_date('20/08/03','RR/MM/DD'),11,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (8,'hongil4','화가 나네요','hongil3 댓글 보셨나요',to_date('20/08/01','RR/MM/DD'),8,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (7,'hongil5','말이 되나요','관리자님 일 좀 하세요',to_date('20/08/01','RR/MM/DD'),7,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (6,'hongil6','관리자님','hongil11 탈퇴 ㄱㄱ',to_date('20/08/01','RR/MM/DD'),6,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (5,'hongil7','이건 좀..','아니지않나요?댓글관리좀',to_date('20/07/07','RR/MM/DD'),5,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (4,'hongil8','글쎄요','hongil6 아닌거같아요',to_date('20/07/07','RR/MM/DD'),4,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (3,'hongil9','와 진짜','관리자님 힘내세요',to_date('20/07/07','RR/MM/DD'),3,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (2,'hongil10','장난하나요','이 사이트 너무 좋잖아 ㅎㅎ',to_date('20/07/07','RR/MM/DD'),2,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (1,'hongil11','신고합니다','팝콘리뷰 내 마음 속에 신고',to_date('20/07/07','RR/MM/DD'),1,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (15,'admin','답글','넵!',to_date('20/08/03','RR/MM/DD'),9,1,1);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (16,'admin','답글입니다','감사합니다',to_date('20/08/14','RR/MM/DD'),8,1,1);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (13,'admin','답글','저희 사이트를 사랑해주셔서 감사합니다^^',to_date('20/08/03','RR/MM/DD'),2,2,1);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (10,'admin','회원님들','진정하세요',to_date('20/08/03','RR/MM/DD'),10,0,0);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (17,'admin','답변','ㅇㅇ',to_date('20/08/14','RR/MM/DD'),2,1,1);
+Insert into J20200701.CS (C_IDX,WRITER,SUBJECT,CONTENT,REG_DATE,REF,RE_STEP,RE_LEVEL) values (18,'admin','다답글','ㅇㅇ',to_date('20/08/14','RR/MM/DD'),2,3,2);
+--------------------------------------------------------
+--  DDL for Index CS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "J20200701"."CS_PK" ON "J20200701"."CS" ("C_IDX") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  Constraints for Table CS
+--------------------------------------------------------
+
+  ALTER TABLE "J20200701"."CS" ADD CONSTRAINT "CS_PK" PRIMARY KEY ("C_IDX")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "J20200701"."CS" MODIFY ("C_IDX" NOT NULL ENABLE);
+  ALTER TABLE "J20200701"."CS" MODIFY ("CONTENT" NOT NULL ENABLE);
+  ALTER TABLE "J20200701"."CS" MODIFY ("SUBJECT" NOT NULL ENABLE);
+  ALTER TABLE "J20200701"."CS" MODIFY ("WRITER" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Ref Constraints for Table CS
+--------------------------------------------------------
+
+  ALTER TABLE "J20200701"."CS" ADD CONSTRAINT "CS_FK1" FOREIGN KEY ("WRITER")
+	  REFERENCES "J20200701"."MEMBER" ("ID") ENABLE;
