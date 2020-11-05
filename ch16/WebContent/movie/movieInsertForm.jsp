@@ -1,0 +1,120 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<%@ include file="/inc/top.jsp" %>
+<script type="text/javascript">
+/* 체크 박스 없으면 체크 하도록 알람 설정함 이때, form에서 onsubmit="return reg()" 추가 해줘야 function이 작동함.*/
+function reg() {
+	var f = document.ff;
+	var okay = false;
+	var i = 1;
+	for(i=1;i<18;i++){
+	if(document.getElementById("m_genre"+i).checked){
+		okay = true;
+		continue;
+		}
+	}
+	if(!okay){
+		alert("장르를 선택해 주세요");
+		document.ff.m_genre1.focus();
+		return false;
+	}
+	return true;
+}
+
+</script>
+</head>
+<body>
+<%@ include file="/inc/header.jsp" %>
+<div class="container">
+<h2 style="text-align: center; padding : 30px 0">영화 정보 입력</h2>
+
+	<!-- multipart/form-data : 모든 문자를 인코딩하지 않음을 명시함. 이 방식은 <form> 요소가 파일이나 이미지를 서버로 전송할 때 주로 사용함. -->
+ 	<form action="movieInsertPro.do"  name="ff" method="post" onsubmit="return reg()" enctype="multipart/form-data">
+			영화제목<br>
+				<input  class="form-control" type="text" name="m_name" id="m_name" placeholder="영화제목을 입력하세요." required="required"><hr>
+
+			<!-- name을 기준으로 checkbox value 값이 정해짐 -->
+			영화장르<br>
+					<input type="checkbox" id="m_genre1" name="m_genre" value="액션">액션<br>
+					<input type="checkbox" id="m_genre2" name="m_genre" value="SF">SF<br>
+					<input type="checkbox" id="m_genre3" name="m_genre" value="전쟁">전쟁<br>
+					<input type="checkbox" id="m_genre4" name="m_genre" value="모험">모험<br>
+					<input type="checkbox" id="m_genre5" name="m_genre" value="스릴러">스릴러<br>
+					<input type="checkbox" id="m_genre6" name="m_genre" value="범죄">범죄<br>
+					<input type="checkbox" id="m_genre7" name="m_genre" value="미스터리">미스터리<br>
+					<input type="checkbox" id="m_genre8" name="m_genre" value="호러">호러<br>
+					<input type="checkbox" id="m_genre9" name="m_genre" value="판타지">판타지<br>
+					<input type="checkbox" id="m_genre10" name="m_genre" value="코미디">코미디<br>
+					<input type="checkbox" id="m_genre11" name="m_genre" value="뮤지컬">뮤지컬<br>
+					<input type="checkbox" id="m_genre12" name="m_genre" value="로맨스">로맨스<br>
+					<input type="checkbox" id="m_genre13" name="m_genre" value="멜로">멜로<br>
+					<input type="checkbox" id="m_genre14" name="m_genre" value="드라마">드라마<br>
+					<input type="checkbox" id="m_genre15" name="m_genre" value="가족">가족<br>
+					<input type="checkbox" id="m_genre16" name="m_genre" value="애니메이션">애니메이션<br>
+					<input type="checkbox" id="m_genre17" name="m_genre" value="다큐">다큐<hr>
+
+			영화개봉일<br>
+				<input class="form-control" type="date" name="m_date" id="m_date" placeholder="YYYY.MM.DD." required="required"><hr>
+
+			영화국적<br>
+			<select name="m_nation" id="m_nation">
+				<option value="한국">한국</option>
+				<option value="프랑스">프랑스</option>
+				<option value="중국">중국</option>
+				<option value="일본">일본</option>
+				<option value="인도">인도</option>
+				<option value="이탈리아">이탈리아</option>
+				<option value="영국">영국</option>
+				<option value="스페인">스페인</option>
+				<option value="미국">미국</option>
+				<option value="독일">독일</option>
+				<option value="기타">기타</option>
+			</select><hr>
+
+			<!-- min="0" max="300" : 숫자이기에 최대 최소값 설정해둠. -->
+			상영시간<br>
+			<input class="form-control" type="number" name="m_time" id="m_time" placeholder="mm분" min="0" max="300" required="required"><hr>
+
+			<!-- value 값은 0 12 15 19로 받게함 / db에 그렇게 반영할거니깐. -->
+			등급<br>
+				<input class="form-check-input"  type="radio" id="m_rate" name="m_rate" value="0"  checked="checked">전체 관람가<br>
+				<input class="form-check-input"  type="radio" name="m_rate" value="12">12세 이상 관람가<br>
+				<input class="form-check-input"  type="radio" name="m_rate" value="15">15세 이상 관람가<br>
+				<input class="form-check-input"  type="radio" name="m_rate" value="19">청소년 관람불가<hr>
+
+			<!-- 폭 width:100% 으로 설정 -->
+			줄거리<br>
+				<textarea id="m_story" name="m_story" rows="10" style="width:100%" placeholder="내용을 입력하세요." ></textarea><hr>
+
+			출연진<br>
+				<input  class="form-control" type="text" name="m_cast1" placeholder="이름" id="m_cast1">
+				<input  class="form-control" type="text" name="m_cast1" placeholder="이름">
+				<input  class="form-control" type="text" name="m_cast1" placeholder="이름">
+				<input  class="form-control" type="text" name="m_cast1" placeholder="이름"><hr>
+
+			영화감독<br>
+				<input  class="form-control" type="text" name="m_director" id="m_director" placeholder="이름"><hr>
+
+			<!-- accept="image/*" : 이미지 파일만 업로드 가능토록 설정함 -->
+			포토<br>
+			<input class="form-control" type="file" id="m_photo" name="m_photo" accept="image/*"><hr>
+
+			에고편<br>
+			<input class="form-control" type="text" name="m_video" id="m_video" placeholder="유튜브 공유 URL를 복사하여 붙여주세요." ><hr>
+
+			포스터<br>
+			<input class="form-control" type="file" name="m_poster" id="m_poster" accept="image/*"><hr>
+
+			<p style="text-align: center;">
+			<input type="reset" class="btn btn-dark mx-auto" value="작성 취소">
+			<input class="btn btn-dark mx-auto" type="submit" value="작성 완료">
+			</p>
+	</form>
+</div>
+	<%@ include file="/inc/footer.jsp"%>
+</body>
+</html>
