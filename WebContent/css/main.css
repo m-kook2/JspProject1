@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+/* Style the header */
+.ui-autocomplete { 
+    overflow-y: scroll; 
+    overflow-x: hidden;
+}
